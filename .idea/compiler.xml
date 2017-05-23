@@ -22,12 +22,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="login-server" />
         <module name="sunyata-octopus" />
-        <module name="sunyata-octopus-ddz" />
         <module name="sunyata-octopus-example-client" />
         <module name="sunyata-octopus-example-client-springcloud" />
-        <module name="yde-card-server" />
         <module name="yde-card-service" />
         <module name="yde-contract" />
         <module name="yde-job" />
@@ -37,19 +34,16 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
-      <module name="sunyata" target="1.8" />
+      <module name="octopus" target="1.8" />
       <module name="sunyata-octopus" target="1.8" />
       <module name="sunyata-octopus-example-client" target="1.8" />
       <module name="sunyata-octopus-example-client-springcloud" target="1.8" />
-      <module name="yde-card-server" target="1.8" />
       <module name="yde-card-service" target="1.8" />
       <module name="yde-contract" target="1.8" />
       <module name="yde-job" target="1.8" />
       <module name="yde-landlords" target="1.8" />
-      <module name="yde-login-server" target="1.8" />
       <module name="yde-login-service" target="1.8" />
       <module name="yde-quark-service" target="1.8" />
-      <module name="yde-thrift" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

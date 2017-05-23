@@ -5,14 +5,8 @@
     </CLASSES>
     <JAVADOC>
       <root url="jar://$MAVEN_REPOSITORY$/org/sunyata/sunyata-quark-server-springcloud/1.0.0-snapshot/sunyata-quark-server-springcloud-1.0.0-snapshot-javadoc.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/sunyata/sunyata-quark-server-springcloud/1.0.0-snapshot/sunyata-quark-server-springcloud-1.0.0-snapshot-javadoc.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/sunyata/sunyata-quark-server-springcloud/1.0.0-snapshot/sunyata-quark-server-springcloud-1.0.0-snapshot-javadoc.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/sunyata/sunyata-quark-server-springcloud/1.0.0-snapshot/sunyata-quark-server-springcloud-1.0.0-snapshot-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$MAVEN_REPOSITORY$/org/sunyata/sunyata-quark-server-springcloud/1.0.0-snapshot/sunyata-quark-server-springcloud-1.0.0-snapshot-sources.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/sunyata/sunyata-quark-server-springcloud/1.0.0-snapshot/sunyata-quark-server-springcloud-1.0.0-snapshot-sources.jar!/" />
-      <root url="jar://$MAVEN_REPOSITORY$/org/sunyata/sunyata-quark-server-springcloud/1.0.0-snapshot/sunyata-quark-server-springcloud-1.0.0-snapshot-sources.jar!/" />
       <root url="jar://$MAVEN_REPOSITORY$/org/sunyata/sunyata-quark-server-springcloud/1.0.0-snapshot/sunyata-quark-server-springcloud-1.0.0-snapshot-sources.jar!/" />
     </SOURCES>
   </library>

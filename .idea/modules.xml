@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/yde-login-service/login-service.iml" filepath="$PROJECT_DIR$/yde-login-service/login-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/octopus.iml" filepath="$PROJECT_DIR$/octopus.iml" />
       <module fileurl="file://$PROJECT_DIR$/sunyata-octopus/sunyata-octopus.iml" filepath="$PROJECT_DIR$/sunyata-octopus/sunyata-octopus.iml" />
       <module fileurl="file://$PROJECT_DIR$/sunyata-octopus-example-client/sunyata-octopus-example-client.iml" filepath="$PROJECT_DIR$/sunyata-octopus-example-client/sunyata-octopus-example-client.iml" />
