@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的 -->
+<mapper namespace="com.lianzhong.dbcardsserver.T_C_L_0">
+	<select id="initCardId" parameterType="int" resultType="com.lianzhong.dbcardsserver.util.MyId">
+		select id from t_c_l_0 where grade=#{_parameter} and c_version = (select max(c_version) from t_c_l_0)
+	</select>
+</mapper>

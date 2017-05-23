@@ -1,0 +1,74 @@
+//========================================================================================
+// emailserver消息结构定义
+// 创建：郭文飞
+// 日期：20160810
+//========================================================================================
+
+package com.lianzhong.emailserver.emailserverproto;
+
+option java_package = "com.lianzhong.emailserver.emailserverproto";
+option java_outer_classname = "emailserver";
+
+// 心跳(无消息体)  消息号 888888
+
+//SERVER = 666666          CLIENT = 888888
+
+
+// 玩家登录验证  (CLIENT + 1)****************
+message OGReqLoginMsg
+{
+    optional string         UserId	  = 1; // 账号(渠道Id!=0使用)   
+    optional string         Cert      = 2; // 长证书
+    optional int32          comfromId = 3; // 渠道Id
+    optional string         nickName  = 4; // 360角色名
+}
+
+//返回滚动播报信息(SERVER + 1)********************
+message OGAckBroadcastReportRoll
+{
+  repeated Broadcast broadcastList = 1; //播报内容
+}
+
+message Broadcast
+{
+  required int32 type = 1;//播报类型 1大奖播报 2积分赛播报 3系统播报
+  optional int32 times = 2; //间隔时间 秒
+  optional int32 nums = 3; //播报次数 0=播报一次 ，-1=无限次数
+  required string content = 4;// 播报内容
+}
+//请求邮件(CLIENT + 2)****************************************
+message OGReqEmail
+{
+  required bool notReadNums = 1;//请求邮件未读数量=true，否则请求邮件内容
+}
+
+message Email
+{
+  required int32 id = 1;
+  required string title = 2;
+  required string content = 3;
+  required int32 isRead = 4; //1已读 2未读
+}
+
+//服务器返回邮件列表(SERVER + 2)********************************
+message OGAckEmail
+{
+  repeated Email emailList = 1;
+  optional int32 isNotRead = 2; //邮件未读数量
+}
+//更新邮件已读(CLIENT + 3)*****************************
+message OGReqEmailUpdate
+{
+ required int32 id = 1;
+}
+//服务器返回更新邮件结果(SERVER + 3)*******
+message OGAckEmailUpdateResult
+{
+  required bool result = 1;//true=更新成功；false=更新失败
+}
+
+//请求滚动播报（CLIENT +　4）
+message OGReqBroadcasetRoll
+{
+}
+

@@ -1,0 +1,11 @@
+package com.xt.yde.protobuf;
+option java_outer_classname = "GameRegular";
+
+//下注请求
+message BetReqMsg{
+//下注金额,金额在服务器端是一个枚举,为了方便扩展,通讯协议中使用整形
+required int32 amt = 1;
+}
+
+//下注应答
+//应答消息无消息体,只返回是否成功

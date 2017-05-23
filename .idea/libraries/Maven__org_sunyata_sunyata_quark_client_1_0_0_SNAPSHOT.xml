@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Maven: org.sunyata:sunyata-quark-client:1.0.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/sunyata/sunyata-quark-client/1.0.0-SNAPSHOT/sunyata-quark-client-1.0.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/sunyata/sunyata-quark-client/1.0.0-SNAPSHOT/sunyata-quark-client-1.0.0-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/sunyata/sunyata-quark-client/1.0.0-SNAPSHOT/sunyata-quark-client-1.0.0-SNAPSHOT-sources.jar!/" />
+      <root url="file://$PROJECT_DIR$/../sunyata-quark/sunyata-quark/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../sunyata-quark/sunyata-quark-client/src/main/java" />
+    </SOURCES>
+  </library>
+</component>

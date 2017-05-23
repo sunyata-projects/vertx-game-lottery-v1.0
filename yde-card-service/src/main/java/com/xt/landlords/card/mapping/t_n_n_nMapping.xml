@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的 -->
+<mapper namespace="com.lianzhong.dbcardsserver.T_N_N_N">
+	<select id="getCards" resultType="com.lianzhong.dbcardsserver.bean.CardsBean">
+		select id,c_center,c_right, c_left,c_under from t_${array[0]}_${array[1]}_${array[2]} where id=#{array[3]} and grade=#{array[4]} limit 1
+	</select>
+	
+	<select id="getCardsByBombNum" resultType="com.lianzhong.dbcardsserver.bean.CardsBean">
+		select id,c_center,c_right, c_left,c_under from t_f_${array[0]} where id=#{array[1]} limit 1
+	</select>
+	
+	<select id="getCardsById" resultType="com.lianzhong.dbcardsserver.bean.CardsBean">
+		select id,c_center,c_right, c_left,c_under from ${array[0]} where id =#{array[1]}
+	</select>
+</mapper>

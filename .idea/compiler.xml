@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="login-server" />
+        <module name="sunyata-octopus" />
+        <module name="sunyata-octopus-ddz" />
+        <module name="sunyata-octopus-example-client" />
+        <module name="sunyata-octopus-example-client-springcloud" />
+        <module name="yde-card-server" />
+        <module name="yde-card-service" />
+        <module name="yde-contract" />
+        <module name="yde-job" />
+        <module name="yde-landlords" />
+        <module name="yde-login-service" />
+        <module name="yde-quark-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="sunyata" target="1.8" />
+      <module name="sunyata-octopus" target="1.8" />
+      <module name="sunyata-octopus-example-client" target="1.8" />
+      <module name="sunyata-octopus-example-client-springcloud" target="1.8" />
+      <module name="yde-card-server" target="1.8" />
+      <module name="yde-card-service" target="1.8" />
+      <module name="yde-contract" target="1.8" />
+      <module name="yde-job" target="1.8" />
+      <module name="yde-landlords" target="1.8" />
+      <module name="yde-login-server" target="1.8" />
+      <module name="yde-login-service" target="1.8" />
+      <module name="yde-quark-service" target="1.8" />
+      <module name="yde-thrift" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

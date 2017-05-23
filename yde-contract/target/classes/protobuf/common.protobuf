@@ -1,0 +1,49 @@
+package com.xt.yde.protobuf.common;
+option java_outer_classname = "Common";
+/*********
+通用消息protobuf定义,除各游戏内,其它的通用消息都放在此文件中
+*********/
+
+
+//登录请求消息
+message LoginRequestMsg{
+required string userName = 1;//用户名
+required string password = 2;//密码
+}
+
+//登录应答
+//登录应答只返回是否成功
+message LoginResponseMsg
+{
+required bool needBreakPlay = 1;//是否需要断线续玩
+}
+
+
+
+//个性化信息请求消息
+message ProfileRequestMsg{
+}
+
+//个性化消息应答
+message ProfileResponseMsg
+{
+    optional string     userId       = 1; //账号
+    optional string     displayName  = 2; //显示名
+    optional int64      money        = 3; // RMB
+    optional int64 	    vc           = 4;// 虚拟货币 (点数)
+}
+
+
+
+//下注请求
+message BetRequestMsg{
+required int32 gameType = 1;//游戏类型
+required int32 amt = 2;//1,2,5,10,下注金额,金额在服务器端是一个枚举,为了方便扩展,通讯协议中使用整形
+}
+
+//下注应答
+message BetResponseMsg
+{
+required string gameId = 1;//游戏id
+}
+

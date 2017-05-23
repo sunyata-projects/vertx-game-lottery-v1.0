@@ -1,0 +1,86 @@
+//========================================================================================
+// gameshop消息结构定义
+// 创建：高元召
+// 日期：20160825
+//SERVER = 18321956          CLIENT = 12445
+//========================================================================================
+
+package com.lianzhong.gameshopserver.protobuf;
+
+option java_package = "com.lianzhong.gameshopserver.protobuf";
+option java_outer_classname = "gameshop";
+
+
+//=========================================================================================
+//				心跳
+//=========================================================================================
+// 心跳(无消息体)  消息号 12345                        
+message OGReqHeartbeat{}
+
+//请求商城道具列表 (CLIENT + 1)
+message OGReqGameShop{
+	required string  userid	= 1;
+}
+
+//返回商城道具 (SERVER + 1)
+message OGAckGameShop{
+	repeated Commodity commodityList 	= 1;//商城道具列表
+	repeated Commodity exchangeList 	= 2;//商城兑换道具列表
+}
+
+//购买兑换商城道具(CLIENT + 2)
+message OGReqBuyShopItem{
+	required int32 commodityid 	= 1; //道具ID
+	required int32	nums	= 2; //购买数量
+}
+//返回购买结果(SERVER + 2)
+message OGAckBuyShopItem{
+	enum E_TRResult
+    {
+        ET_SUCCESS          = 0; // 成功`
+        ET_FAILED           = 1; // 失败
+    }
+	 enum E_ErrorType
+    {
+        ET_UNKNOWN          = 0; //未知错误
+        ET_TYPE1            = 1; //金币不足
+		ET_TYPE2            = 2; //兑换券不足
+		ET_TYPE3            = 3; //购买数量超过限制
+		ET_TYPE4            = 4; //该商品已下架或过期
+		ET_TYPE5            = 5; //请求超时
+    }
+	
+	required E_TRResult  Result     = 1; // 
+    optional E_ErrorType Reason     = 2; // 出错原因
+	optional int64      gold        = 3; // 金币
+	optional string		chip 		= 4; //兑换券
+}
+
+message Commodity{
+	required int32 commodityid		= 1; //商品ID 唯一标示
+	required int32 commoditytype 	= 2; //商品类型
+	optional int32 activityflag		= 3; //活动标示
+	optional double discount		= 4; //商品折扣
+	required int32 consumertype		= 5; //消费类型 1平台货币 2 游戏货币 3 充值卡碎片
+	required ShopItem item			= 6; //道具ID
+	required int64 itemNums			= 7; //道具数量
+	required double price 			= 8; //商品价格
+	required int32 nums 			= 9; //商品数量 -1为不限量
+	required int32 maxbuynums		= 10; // 单次购买上限
+	required int32 sortord			= 11; //排序
+}
+
+message ShopItem{
+	required int32 itemid			= 1; //道具唯一标示
+	required int32 itemtype			= 2; //道具类型(ICON显示用)
+	required string itemname		= 3; //道具名称
+	optional string	tips			= 4; //道具描述
+	required string picname			= 5; //图片名称
+	required int32 maxoverlap		= 6; //最大重叠数 （背包用）
+	optional string validity		= 7; //道具有效期 (门票)
+}
+
+message UserKnapsack{
+	optional ShopItem item = 1;
+	optional int32 itemNums= 2; 
+}

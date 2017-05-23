@@ -1,0 +1,40 @@
+package com.xt.yde.protobuf.puzzle;
+option java_outer_classname = "GamePuzzle";
+
+//拼图赛事消息protobuf定义
+
+//发牌请求
+message PuzzleDealRequestMsg{
+required int32 gameType = 1;//游戏类型
+}
+
+
+message CardRow
+{
+   repeated int32 Cards = 1;//消除中每一行,5张牌数据
+}
+
+message CardFourRow
+{
+   repeated CardRow Cards = 1;//消除比赛中,4行牌数据
+}
+
+
+
+//发牌应答
+//返回牌型
+message DealResponseMsg
+{
+   repeated CardFourRow Cards = 1;//多个4行牌数据
+   repeated int32 totalMoney = 2; //获奖金额
+}
+
+
+//结算请求
+message ClearGameRequestMsg{
+}
+
+//结算应答
+message ClearGameResponseMsg{
+required int32 totalMoney = 1;//获奖金额
+}
