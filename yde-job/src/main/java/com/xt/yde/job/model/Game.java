@@ -72,7 +72,7 @@
 //    }
 //
 //
-//    public void addPhase(Phase gamePhaseModel) {
+//    public void addOrUpdatePhase(Phase gamePhaseModel) {
 //        phases.add(gamePhaseModel);
 //    }
 //

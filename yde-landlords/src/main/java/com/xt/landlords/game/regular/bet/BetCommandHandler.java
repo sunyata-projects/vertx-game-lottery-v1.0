@@ -1,7 +1,6 @@
 package com.xt.landlords.game.regular.bet;
 
 import com.xt.landlords.*;
-import com.xt.landlords.game.regular.GameRegularEvent;
 import com.xt.landlords.game.regular.GameRegularPhaseName;
 import com.xt.landlords.statemachine.GameController;
 import com.xt.yde.protobuf.common.Common;
@@ -48,22 +47,53 @@ public class BetCommandHandler extends AbstractAuthCommandHandler {
             String userName = request.getSession().getCurrentUser().getName();
             Common.BetRequestMsg betRequestMsg = Common.BetRequestMsg.parseFrom(request.getMessage()
                     .getBody());
-            //是否可接受bet Event
+            GameModel gameModel = null;
+
             GameController gameController = GameManager.getGameController(userName);
             if (gameController != null) {
-                boolean canAccept = gameController.canAccept(GameRegularEvent.Bet);
+                Integer gameType = gameController.getGameType();
+                //游戏类型是否匹配
+                if (!gameType.equals(betRequestMsg.getGameType())) {
+                    response.setErrorCode(CommonCommandErrorCode.GameTypeError);
+                    return;
+                }
+                //是否可接受bet Event
+                boolean canAccept = gameController.canAcceptBetEvent();
                 if (!canAccept) {
                     response.setErrorCode(CommonCommandErrorCode.CanNotAcceptEventException);
                     return;
                 }
+                gameModel = (GameModel) gameController.getGameModel();
+                if (gameModel == null) {
+                    response.setErrorCode(CommonCommandErrorCode.InternalError);
+                    return;
+                }
+            } else {
+                gameModel = storeManager.getGameModelFromCache(userName);
+                GameControllerState initState = null;
+                if(gameModel==null){
+                    IdWorker worker = new IdWorker(0, 0);
+                    String gameInstanceId = String.valueOf(worker.nextId());
+                    gameModel = gameManager.createGameModelAndBetPhase(betRequestMsg.getGameType(), userName, gameInstanceId,
+                            betRequestMsg
+                                    .getAmt());
+                    storeManager.storeGameModel(userName, gameModel);
+                    initState = (GameControllerState) gameModel.getInitState();
+                }else{
+                    initState = (GameControllerState) gameModel.getLastSuccessState();
+                }
+
+                gameController = GameManager.createGameController(betRequestMsg.getGameType(), initState);
+                gameController.setGameModel(gameModel);
+                GameManager.put(userName, gameController);
+                gameController.start();
             }
 
-            GameModel gameModel = storeManager.getGameModelFromCache(userName);
 
             if (gameModel == null) {
                 IdWorker worker = new IdWorker(0, 0);
                 String gameInstanceId = String.valueOf(worker.nextId());
-                gameModel = gameManager.createGameModel(betRequestMsg.getGameType(), userName, gameInstanceId,
+                gameModel = gameManager.createGameModelAndBetPhase(betRequestMsg.getGameType(), userName, gameInstanceId,
                         betRequestMsg
                                 .getAmt());
                 storeManager.storeGameModel(userName, gameModel);
@@ -75,13 +105,8 @@ public class BetCommandHandler extends AbstractAuthCommandHandler {
                 }
             }
 
-            if (gameController == null) {
-                gameController = GameManager.createGameController(betRequestMsg.getGameType(), gameModel,
-                        (GameControllerState) gameModel.getInitState());
-                GameManager.put(userName, gameController);
-                gameController.start();
-            }
-            gameController.fire(gameModel.getBetEvent(), gameModel);
+
+            gameController.fire(gameController.getBetEvent(), gameModel);
             Common.BetResponseMsg build = Common.BetResponseMsg.newBuilder().setGameId(gameModel
                     .getGameInstanceId()).build();
             response.setBody(build.toByteArray());

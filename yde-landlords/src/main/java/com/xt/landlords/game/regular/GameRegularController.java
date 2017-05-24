@@ -1,6 +1,7 @@
 package com.xt.landlords.game.regular;
 
 import com.xt.landlords.BetService;
+import com.xt.landlords.GameTypes;
 import com.xt.landlords.StoreManager;
 import com.xt.landlords.exception.BetErrorException;
 import com.xt.landlords.game.phase.BetPhaseData;
@@ -135,6 +136,21 @@ public class GameRegularController extends GameController<GameRegularController,
         final String result = logger.toString();
         logger = new StringBuilder();
         return result;
+    }
+
+    @Override
+    public GameRegularEvent getBetEvent() {
+        return GameRegularEvent.Bet;
+    }
+
+    @Override
+    public GameRegularState getInitState() {
+        return GameRegularState.Init;
+    }
+
+    @Override
+    public Integer getGameType() {
+        return GameTypes.Regular.getValue();
     }
 
     static GameRegularController stateMachine;

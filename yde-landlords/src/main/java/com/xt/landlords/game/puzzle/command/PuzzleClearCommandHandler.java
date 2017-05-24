@@ -48,7 +48,7 @@ public class PuzzleClearCommandHandler extends AbstractGameControllerCommandHand
             PuzzleDealPhaseData phaseData = deaLPhase.getPhaseData();
             PuzzleClearPhaseModel phaseModel = new PuzzleClearPhaseModel(gameModel.getGameInstanceId(),
                     GamePuzzleState.GameOver.getValue(), 3);
-            gameModel.addPhase(phaseModel);
+            gameModel.addOrUpdatePhase(phaseModel);
             builder.setTotalMoney(phaseData.getTotalMoney());
             gameController.fire(GamePuzzleEvent.GameOver, gameModel);
             response.setBody(builder.build().toByteArray());

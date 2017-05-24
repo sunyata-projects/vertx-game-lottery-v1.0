@@ -32,16 +32,16 @@ public class GameStateControllerFactory {
         return builder;
     }
 
-    public static GameRegularController createGameRegularController(GameModel gameModel, GameRegularState
-            gameRegularState) {
+    public static GameRegularController createGameRegularController(GameRegularState
+                                                                            gameRegularState) {
         GameRegularController controller = getGameRegularBuilder().newStateMachine(gameRegularState);
-        controller.setGameModel(gameModel);
+//        controller.setGameModel(gameModel);
         return controller;
     }
 
-    public static GameController createGamePuzzleController(GameModel gameModel, GamePuzzleState state) {
+    public static GameController createGamePuzzleController(GamePuzzleState state) {
         GamePuzzleController controller = getGamePuzzleBuilder().newStateMachine(state);
-        controller.setGameModel(gameModel);
+//        controller.setGameModel(gameModel);
         return controller;
     }
 

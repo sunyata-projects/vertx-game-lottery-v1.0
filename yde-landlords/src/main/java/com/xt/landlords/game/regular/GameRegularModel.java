@@ -24,7 +24,7 @@ public class GameRegularModel extends GameModel {
 //                .setPhaseData(new
 //                        BetPhaseData()
 //                        .setBetAmt(betAmt)).setOrderBy(orderBy).setGameInstanceId(String.valueOf(gameInstanceId));
-//        this.addPhase(gamePhaseModel);
+//        this.addOrUpdatePhase(gamePhaseModel);
 //    }
 
 
@@ -48,4 +48,10 @@ public class GameRegularModel extends GameModel {
     public boolean isGameOver() {
         return false;
     }
+
+    @Override
+    public Object getLastSuccessState() {
+        return GameRegularState.valueOf(getLastSuccessStateName());
+    }
+
 }

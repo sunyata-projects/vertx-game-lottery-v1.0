@@ -46,7 +46,7 @@
 //            if (phaseModel.getPhaseState() != PhaseState.Success) {
 //                logger.error("阶段没有执行成功,无需存储");
 //            } else {
-//                gameModelStore.addPhase(phaseModel);
+//                gameModelStore.addOrUpdatePhase(phaseModel);
 //            }
 //        }
 //    }

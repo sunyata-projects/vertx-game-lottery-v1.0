@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -72,8 +73,14 @@ public abstract class GameModel implements Serializable {
     }
 
 
-    public void addPhase(GamePhaseModel gamePhaseModel) {
-        phases.add(gamePhaseModel);
+    public void addOrUpdatePhase(GamePhaseModel gamePhaseModel) {
+        GamePhaseModel phase = getPhase(gamePhaseModel.getPhaseName());
+        if (phase != null) {
+            phase.setPhaseData(gamePhaseModel.getPhaseData());
+            phase.setPhaseState(gamePhaseModel.getPhaseState());
+        } else {
+            phases.add(gamePhaseModel);
+        }
     }
 
     @JsonIgnore
@@ -109,5 +116,19 @@ public abstract class GameModel implements Serializable {
 
     @JsonIgnore
     public abstract boolean isGameOver();
+
+    @JsonIgnore
+    public abstract Object getLastSuccessState();
+
+
+    public String getLastSuccessStateName() {
+        List<GamePhaseModel> phases = this.getPhases();
+        if (phases.size() > 0) {
+            GamePhaseModel gamePhaseModel = phases.stream().max(Comparator.comparing(GamePhaseModel::getOrderBy)).get();
+            return gamePhaseModel.getPhaseName();
+        } else {
+            return "Init";
+        }
+    }
 
 }

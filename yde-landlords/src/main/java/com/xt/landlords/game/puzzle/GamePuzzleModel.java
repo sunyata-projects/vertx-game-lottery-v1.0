@@ -44,4 +44,9 @@ public class GamePuzzleModel extends GameModel {
         return phase != null && phase.getPhaseState() == PhaseState.Success;
     }
 
+    @Override
+    public Object getLastSuccessState() {
+        return GamePuzzleState.valueOf(getLastSuccessStateName());
+    }
+
 }

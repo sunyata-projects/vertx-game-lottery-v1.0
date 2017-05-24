@@ -107,6 +107,21 @@ public class GameCommonState {
             addOptionalDot();
         }
 
+        @Override
+        public PEvent getBetEvent() {
+            return PEvent.A2B;
+        }
+
+        @Override
+        public PState getInitState() {
+            return PState.B;
+        }
+
+        @Override
+        public Integer getGameType() {
+            return 1000;
+        }
+
         private void addOptionalDot() {
             if (logger.length() > 0) {
                 logger.append('.');

@@ -7,7 +7,7 @@ import org.squirrelframework.foundation.fsm.impl.AbstractStateMachine;
  * Created by leo on 17/4/27.
  */
 //@Configurable(preConstruction = true)
-public class GameController<T extends StateMachine<T, S, E, C>, S, E, C> extends AbstractStateMachine<T, S, E, C> {
+public abstract class GameController<T extends StateMachine<T, S, E, C>, S, E, C> extends AbstractStateMachine<T, S, E, C> {
 //    @Autowired
 //    private ApplicationContext applicationContext;
 
@@ -26,5 +26,15 @@ public class GameController<T extends StateMachine<T, S, E, C>, S, E, C> extends
     protected void beforeActionInvoked(S fromState, S toState, E event, C context) {
         super.beforeActionInvoked(fromState, toState, event, context);
         gameModel = context;
+    }
+
+    public abstract E getBetEvent();
+    public abstract S getInitState();
+
+    public abstract Integer getGameType();
+
+
+    public boolean canAcceptBetEvent() {
+        return super.canAccept(getBetEvent());
     }
 }

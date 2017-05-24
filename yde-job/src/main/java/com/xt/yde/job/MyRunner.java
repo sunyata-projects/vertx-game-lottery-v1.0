@@ -44,7 +44,7 @@
 //        }.setGameInstanceId("sdfasdf").setGameType(1).setCreateDateTime(new Timestamp(System.currentTimeMillis()))
 //                .setUserName("lcl");
 //        GamePhaseModel gamePhaseModel = new GamePhaseModel("sdfasdf", "bet", 1);
-//        gameModel.addPhase(gamePhaseModel);
+//        gameModel.addOrUpdatePhase(gamePhaseModel);
 //        //gameModelStore.create(gameModel, gamePhaseModel);
 //
 //        retryProcessMessageService.process(new ComplexMessageInfo().setBodyJsonString(Json.encode(gameModel)));

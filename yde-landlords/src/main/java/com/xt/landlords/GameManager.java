@@ -60,16 +60,16 @@ public class GameManager {
         return games.getOrDefault(accountId, null);
     }
 
-    public static GameController createGameController(int gameType, GameModel gameModel, GameControllerState
+    public static GameController createGameController(int gameType, GameControllerState
             gameControllerState) {
         if (gameType == GameTypes.Regular.getValue()) {
             GameRegularState state = (GameRegularState) gameControllerState;
-            return GameStateControllerFactory.createGameRegularController(gameModel, state);
+            return GameStateControllerFactory.createGameRegularController(state);
         } else if (gameType == GameTypes.Point.getValue()) {
 
         } else if (gameType == GameTypes.Puzzle.getValue()) {
             GamePuzzleState state = (GamePuzzleState) gameControllerState;
-            return GameStateControllerFactory.createGamePuzzleController(gameModel, state);
+            return GameStateControllerFactory.createGamePuzzleController(state);
         } else {
 
         }
@@ -101,7 +101,7 @@ public class GameManager {
 
     }
 
-    public GameModel createGameModel(int gameType, String userName, String gameInstanceId, int betAmt) {
+    public GameModel createGameModelAndBetPhase(int gameType, String userName, String gameInstanceId, int betAmt) {
         GameModel gameModel = null;
         if (gameType == GameTypes.Regular.getValue()) {
             gameModel = new GameRegularModel(gameInstanceId);
@@ -110,7 +110,7 @@ public class GameManager {
                     .setPhaseData
                             (new BetPhaseData()
                                     .setBetAmt(betAmt));
-            gameModel.addPhase(gamePhaseModel);
+            gameModel.addOrUpdatePhase(gamePhaseModel);
         } else if (gameType == GameTypes.Point.getValue()) {
 
         } else if (gameType == GameTypes.Puzzle.getValue()) {
@@ -120,7 +120,7 @@ public class GameManager {
                     .setPhaseData
                             (new BetPhaseData()
                                     .setBetAmt(betAmt));
-            gameModel.addPhase(gamePhaseModel);
+            gameModel.addOrUpdatePhase(gamePhaseModel);
 
         } else {
 

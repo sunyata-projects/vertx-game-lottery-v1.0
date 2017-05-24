@@ -45,13 +45,17 @@ public class PuzzleDealCommandHandler extends AbstractGameControllerCommandHandl
             }
             GameController gameController = GameManager.getGameController(request.getSession().getCurrentUser()
                     .getName());
-            GameModel gameModel = storeManager.getGameModelFromCache(request.getSession().getCurrentUser()
-                    .getName());
-            if (gameController == null || gameModel == null) {
+            if (gameController == null) {
                 response.setErrorCode(CommonCommandErrorCode.InternalError);
                 return;
             }
+            GameModel gameModel = (GameModel) gameController.getGameModel();// storeManager.getGameModelFromCache
+            // (request.getSession().getCurrentUser().getName());
 
+            if (gameModel == null) {
+                response.setErrorCode(CommonCommandErrorCode.InternalError);
+                return;
+            }
             GamePuzzle.DealResponseMsg.Builder builder = GamePuzzle.DealResponseMsg.newBuilder();
             int grade = random.nextInt(9) + 1;
             PuzzleCards cards = cardService.getCards(grade);
@@ -72,7 +76,7 @@ public class PuzzleDealCommandHandler extends AbstractGameControllerCommandHandl
             PuzzleDealPhaseData phaseData = new PuzzleDealPhaseData().setTotalMoney(money);
             PuzzleDealPhaseModel phaseModel = new PuzzleDealPhaseModel(gameModel.getGameInstanceId(),
                     GamePuzzleState.Deal.getValue(), 2);
-            gameModel.addPhase(phaseModel.setPhaseData(phaseData));
+            gameModel.addOrUpdatePhase(phaseModel.setPhaseData(phaseData));
             gameController.fire(GamePuzzleEvent.Deal, gameModel);
             response.setBody(builder.build().toByteArray());
         } catch (Exception ex) {

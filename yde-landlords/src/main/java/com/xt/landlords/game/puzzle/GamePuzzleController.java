@@ -2,6 +2,7 @@ package com.xt.landlords.game.puzzle;
 
 import com.xt.landlords.BetService;
 import com.xt.landlords.GameManager;
+import com.xt.landlords.GameTypes;
 import com.xt.landlords.StoreManager;
 import com.xt.landlords.exception.BetErrorException;
 import com.xt.landlords.game.phase.BetPhaseData;
@@ -112,6 +113,21 @@ public class GamePuzzleController extends GameController<GamePuzzleController, G
     protected void beforeActionInvoked(GamePuzzleState from, GamePuzzleState to, GamePuzzleEvent event, GameModel
             context) {
 //        addOptionalDot();
+    }
+
+    @Override
+    public GamePuzzleEvent getBetEvent() {
+        return GamePuzzleEvent.Bet;
+    }
+
+    @Override
+    public GamePuzzleState getInitState() {
+        return GamePuzzleState.Init;
+    }
+
+    @Override
+    public Integer getGameType() {
+        return GameTypes.Puzzle.getValue();
     }
 
 //    private void addOptionalDot() {
