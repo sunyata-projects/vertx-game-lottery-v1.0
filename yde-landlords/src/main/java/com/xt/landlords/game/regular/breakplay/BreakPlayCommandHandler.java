@@ -1,7 +1,7 @@
 package com.xt.landlords.game.regular.breakplay;
 
 import com.xt.landlords.AbstractAuthCommandHandler;
-import com.xt.landlords.BetService;
+import com.xt.landlords.service.MoneyBetService;
 import com.xt.landlords.Commands;
 import com.xt.landlords.StoreManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class BreakPlayCommandHandler extends AbstractAuthCommandHandler {
     }
 
     @Autowired
-    BetService betService;
+    MoneyBetService moneyBetService;
 
     @Autowired
     StoreManager storeManager;

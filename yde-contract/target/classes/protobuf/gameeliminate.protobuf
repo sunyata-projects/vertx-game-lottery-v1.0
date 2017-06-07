@@ -1,11 +1,35 @@
-package com.xt.yde.protobuf;
-option java_outer_classname = "GameRegular";
+package com.xt.yde.protobuf.eliminate;
+option java_outer_classname = "Eliminate";
+/*********
+通用消息protobuf定义,除各游戏内,其它的通用消息都放在此文件中
+*********/
 
-//下注请求
-message BetReqMsg{
-//下注金额,金额在服务器端是一个枚举,为了方便扩展,通讯协议中使用整形
-required int32 amt = 1;
+//发牌请求
+message EliminateDealRequestMsg{
+
 }
 
-//下注应答
-//应答消息无消息体,只返回是否成功
+
+message CardRow
+{
+   repeated int32 Cards = 1;//消除中初始牌,补牌,消牌,数量不等
+}
+
+//发牌应答
+//返回牌型
+message EliminateDealResponseMsg
+{
+   repeated CardRow Cards = 1;//初始+ 消除与补牌交替
+   required int32 exchangeGamePointBalance = 2;//剩余兑换点数
+   required int32 totalAwardGamePoint = 3;//剩余奖励点数
+   required int32 gameProgress = 4;//游戏进度
+}
+
+//结算请求
+message EliminateClearGameRequestMsg{
+}
+
+//结算应答
+message EliminateClearGameResponseMsg{
+required float totalMoney = 1;//获奖金额
+}

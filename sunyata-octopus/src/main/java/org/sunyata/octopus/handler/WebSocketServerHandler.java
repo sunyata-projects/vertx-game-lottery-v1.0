@@ -25,6 +25,8 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.*;
 import io.netty.handler.codec.http.websocketx.*;
 import io.netty.util.CharsetUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.sunyata.octopus.OctopusInMessage;
 import org.sunyata.octopus.Server;
 
@@ -35,6 +37,7 @@ import java.net.InetSocketAddress;
  */
 public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> {
 
+    Logger logger = LoggerFactory.getLogger(WebSocketServerHandler.class);
     private final Server server;
     //public static final AttributeKey<String> KEY_USER_ID = AttributeKey.newInstance("USER_ID");
 
@@ -139,6 +142,8 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
                 msg.setBody(bytes);
                 buf.discardReadBytes();
                 ctx.fireChannelRead(msg);
+                logger.info("request->cmd:{},length:{}", msg.getCmd(), msg.getLength());
+
             }
             return;
         }

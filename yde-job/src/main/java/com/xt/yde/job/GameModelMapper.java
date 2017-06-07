@@ -22,6 +22,8 @@ package com.xt.yde.job;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Update;
 import org.sunyata.octopus.model.GameModel;
 import org.sunyata.octopus.model.GamePhaseModel;
 
@@ -30,12 +32,18 @@ import org.sunyata.octopus.model.GamePhaseModel;
  */
 @Mapper
 public interface GameModelMapper {
-    @Insert("INSERT INTO Game(gameInstanceId, gameType,userName,createDateTime) " +
-            "VALUES(#{gameInstanceId}, #{gameType},#{userName},#{createDateTime})")
+    @Insert("INSERT INTO Game(gameInstanceId, gameType,userName,createDateTime,lastSuccessStateName) " +
+            "VALUES(#{gameInstanceId}, #{gameType},#{userName},#{createDateTime},#{lastSuccessStateName})")
     int createGameModel(GameModel gameModel);
 
 
     @Insert("INSERT INTO Phase(phaseId, gameInstanceId,phaseName,createDateTime,phaseDataString,orderBy) " +
             "VALUES(#{phaseId}, #{gameInstanceId},#{phaseName},#{createDateTime},#{phaseDataString},#{orderBy})")
     void addPhase(GamePhaseModel gamePhaseModel);
+
+
+    @Update("UPDATE Game set lastSuccessStateName=#{lastSuccessStateName} WHERE gameInstanceId=#{gameInstanceId}")
+    int updateGameModel(@Param("gameInstanceId") String gameInstanceId, @Param("lastSuccessStateName") String
+            lastSuccessStateName);
+
 }

@@ -1,9 +1,9 @@
 package com.xt.landlords.game.puzzle;
 
-import com.xt.landlords.BetService;
+import com.xt.landlords.game.phase.TicketResult;
+import com.xt.landlords.service.MoneyBetService;
 import com.xt.landlords.GameManager;
 import com.xt.landlords.GameTypes;
-import com.xt.landlords.StoreManager;
 import com.xt.landlords.exception.BetErrorException;
 import com.xt.landlords.game.phase.BetPhaseData;
 import com.xt.landlords.ioc.SpringIocUtil;
@@ -14,8 +14,6 @@ import org.slf4j.LoggerFactory;
 import org.squirrelframework.foundation.fsm.StateMachineStatus;
 import org.squirrelframework.foundation.fsm.annotation.*;
 import org.sunyata.octopus.model.GameModel;
-import org.sunyata.octopus.model.GamePhaseModel;
-import org.sunyata.octopus.model.PhaseState;
 
 /**
  * Created by leo on 17/4/26.
@@ -37,7 +35,7 @@ import org.sunyata.octopus.model.PhaseState;
 @StateMachineParameters(stateType = GamePuzzleState.class, eventType = GamePuzzleEvent.class, contextType =
         GameModel.class)
 //@Configurable(preConstruction = true)
-public class GamePuzzleController extends GameController<GamePuzzleController, GamePuzzleState,
+public class GamePuzzleController extends GameController<GamePuzzleModel, GamePuzzleController, GamePuzzleState,
         GamePuzzleEvent,
         GameModel> {
     //    @Autowired
@@ -47,33 +45,27 @@ public class GamePuzzleController extends GameController<GamePuzzleController, G
 
     public void OnBet(GamePuzzleState from, GamePuzzleState to, GamePuzzleEvent event,
                       GameModel context) throws Exception {
-        BetService betService = SpringIocUtil.getBean(BetService.class);
-        GamePuzzleModel gameModel = (GamePuzzleModel) context;
-        GamePhaseModel phase = gameModel.getPhase(GamePuzzleState.Bet.getValue());
-        BetPhaseData phaseData = (BetPhaseData) phase.getPhaseData();
         //下注
-        String serialNo = betService.bet(gameModel.getUserName(), phaseData.getBetAmt(), gameModel.getGameInstanceId());
-        if (StringUtils.isEmpty(serialNo)) {
+        BetPhaseData phaseData = (BetPhaseData) getPhaseData(GamePuzzleState.Bet.getValue());
+        GamePuzzleModel gameModel = getGameModel();
+        MoneyBetService moneyBetService = SpringIocUtil.getBean(MoneyBetService.class);
+        TicketResult ticketResult = moneyBetService.betAndQueryPrizeLevel(this.getGameType(), gameModel.getUserName(),
+                phaseData.getBetAmt(),
+                gameModel
+                        .getGameInstanceId());
+        if (StringUtils.isEmpty(ticketResult.getTicketId())) {
             throw new BetErrorException("下注失败,请重试");
         }
-        phase.setPhaseState(PhaseState.Success);
-        phaseData.setBetSerialNo(serialNo);
-        StoreManager storeManager = SpringIocUtil.getBean(StoreManager.class);
-        storeManager.set(gameModel.getUserName(), "gameModel", gameModel);
-        GameManager bean = SpringIocUtil.getBean(GameManager.class);
-        bean.syncGameModel(gameModel);
+        phaseData.setBetSerialNo(ticketResult.getTicketId());
+        phaseData.setTicketResult(ticketResult);
+        setPhaseSuccess(GamePuzzleState.Bet.getValue());
+
         logger.append("on bet");
     }
 
     public void OnDeal(GamePuzzleState from, GamePuzzleState to, GamePuzzleEvent event,
                        GameModel context) throws Exception {
-        GamePhaseModel phase = context.getPhase(GamePuzzleState.Deal.getValue());
-        if (phase == null) {
-            throw new Exception("没有找到阶段初始化数据");
-        }
-        phase.setPhaseState(PhaseState.Success);
-        StoreManager storeManager = SpringIocUtil.getBean(StoreManager.class);
-        storeManager.set(context.getUserName(), "gameModel", context);
+        setPhaseSuccess(GamePuzzleState.Deal.getValue());
         logger.append("on bet");
     }
 
@@ -81,18 +73,15 @@ public class GamePuzzleController extends GameController<GamePuzzleController, G
                            GameModel context) throws Exception {
         //todo 调用兑奖接口
 
-        GamePhaseModel phase = context.getPhase(GamePuzzleState.GameOver.getValue());
-        if (phase == null) {
-            throw new Exception("没有找到阶段初始化数据");
-        }
-        phase.setPhaseState(PhaseState.Success);
+        setPhaseSuccess(GamePuzzleState.GameOver.getValue());
+        logger.append("game over");
+    }
 
-        StoreManager storeManager = SpringIocUtil.getBean(StoreManager.class);
-        storeManager.storeGameModel(context.getUserName(), null);
+    public void OnForceGameOver(GamePuzzleState from, GamePuzzleState to, GamePuzzleEvent event,
+                                GameModel context) throws Exception {
+        //todo 调用兑奖接口
 
-        GameManager.onGameOver(context.getUserName());
-        GameManager bean = SpringIocUtil.getBean(GameManager.class);
-        bean.syncGameModel(context);
+        setPhaseSuccess(GamePuzzleState.GameOver.getValue());
         logger.append("game over");
     }
 
@@ -116,13 +105,16 @@ public class GamePuzzleController extends GameController<GamePuzzleController, G
     }
 
     @Override
-    public GamePuzzleEvent getBetEvent() {
-        return GamePuzzleEvent.Bet;
-    }
+    protected void afterTransitionCompleted(GamePuzzleState fromState, GamePuzzleState toState, GamePuzzleEvent
+            event, GameModel context) throws Exception {
 
-    @Override
-    public GamePuzzleState getInitState() {
-        return GamePuzzleState.Init;
+        GamePuzzleModel gameModel = getGameModel();
+        GameManager bean = SpringIocUtil.getBean(GameManager.class);
+        bean.saveGameModelToCacheAndAsyncDb(gameModel);
+        if (toState == GamePuzzleState.GameOver) {
+            GameManager.onGameOver(getGameModel().getUserName());
+            bean.clearGameModelFromCache(gameModel.getUserName());
+        }
     }
 
     @Override

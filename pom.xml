@@ -23,6 +23,7 @@
         <module>yde-job</module>
         <module>yde-quark-service</module>
         <module>yde-card-service</module>
+        <module>yde-ai-service</module>
     </modules>
 
     <properties>

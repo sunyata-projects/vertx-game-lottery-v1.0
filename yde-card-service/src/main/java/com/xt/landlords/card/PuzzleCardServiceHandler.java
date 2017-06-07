@@ -99,7 +99,6 @@ public class PuzzleCardServiceHandler implements PuzzleCardsService.Iface {
         is.close();
         String str = new String(buffer);
         List List = Json.decodeValue(str, List.class);
-        System.out.println(str);
         return List;
 
     }

@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/sunyata-octopus/sunyata-octopus.iml" filepath="$PROJECT_DIR$/sunyata-octopus/sunyata-octopus.iml" />
       <module fileurl="file://$PROJECT_DIR$/sunyata-octopus-example-client/sunyata-octopus-example-client.iml" filepath="$PROJECT_DIR$/sunyata-octopus-example-client/sunyata-octopus-example-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/sunyata-octopus-example-client-springcloud/sunyata-octopus-example-client-springcloud.iml" filepath="$PROJECT_DIR$/sunyata-octopus-example-client-springcloud/sunyata-octopus-example-client-springcloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yde-ai-service/yde-ai-service.iml" filepath="$PROJECT_DIR$/yde-ai-service/yde-ai-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/yde-card-service/yde-card-service.iml" filepath="$PROJECT_DIR$/yde-card-service/yde-card-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/yde-contract/yde-contract.iml" filepath="$PROJECT_DIR$/yde-contract/yde-contract.iml" />
       <module fileurl="file://$PROJECT_DIR$/yde-job/yde-job.iml" filepath="$PROJECT_DIR$/yde-job/yde-job.iml" />

@@ -7,6 +7,18 @@ import org.sunyata.octopus.model.PhaseData;
  */
 public class BetPhaseData extends PhaseData {
     private String betSerialNo;
+    private int betAmt;
+    private TicketResult ticketResult;
+
+
+    public TicketResult getTicketResult() {
+        return ticketResult;
+    }
+
+    public BetPhaseData setTicketResult(TicketResult ticketResult) {
+        this.ticketResult = ticketResult;
+        return this;
+    }
 
     public int getBetAmt() {
         return betAmt;
@@ -17,7 +29,6 @@ public class BetPhaseData extends PhaseData {
         return this;
     }
 
-    private int betAmt;
 
     public void setBetSerialNo(String betSerialNo) {
         this.betSerialNo = betSerialNo;

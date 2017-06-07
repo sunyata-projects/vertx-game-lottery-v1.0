@@ -3,39 +3,35 @@ option java_outer_classname = "GameRegular";
 
 //常规赛事消息protobuf定义
 
-//发牌请求
-message DealRequestMsg{
-required int32 gameType = 1;//游戏类型
-required int32 dealType = 2;//发牌类型,1只发玩家手牌,2只发机器人及暗牌
+
+
+//raise请求
+message RegularRaiseBetRequestMsg{
+required int32 times = 1;//1,2,3,下注倍数
 }
 
-//发牌应答
-//返回牌型
-message DealResponseMsg
+//下注应答
+message RegularRaiseBetResponseMsg
 {
-   repeated int32 darkCard = 1;//可选,底牌数组
-   repeated int32 centerCard = 2; //可选,当前玩家的手牌,不包括底牌
-   repeated int32 leftCard = 3; //可选,左边玩家的手牌,不包括底牌
-   repeated int32 rightCard = 4; //可选,右边玩家的手牌,不包括底牌
 }
 
 
-//出牌请求
-message PlayRequestMsg{
-  repeated int32  cards = 1; // 所出的牌 例 2,2,2,3,3
-  required int32  rolePosition = 2; //可选的方位,如果不是自己,那就是帮农民出牌 1地主 2右边农民 3左边农民
-  optional bool  isAuto = 3; //地主是否托管true = 托管,false = 地主出牌
+//翻牌
+message RegularGuessSizeRequestMsg{
+
 }
 
-//出牌应答
-message PlayResponseMsg
-{
-  required int32  rolePosition = 1; //方位
-  repeated int32  cards = 2; // 所出的牌 例 2,2,2,3,3
-  required int32  bomNums = 3;//当前的炸弹数量
-  required int32  nextPerson = 4; //下一个出牌的玩家
-  required bool   ifEnd = 5; //必须 是否出牌结束 true,出牌结束 false,出牌进行中
-  repeated int32  center = 6; //地主剩余牌
-  repeated int32  left = 7;  //农民剩余牌
-  repeated int32  right = 8; //农民剩余牌
+//翻牌应答
+message RegularGuessSizeResponseMsg{
+    required int32  awardLevel = 1; //奖等
+    required int32  totalMoney = 2; //中奖金额,有符合预期和不符合预期两种算法
+}
+
+//结算请求
+message RegularClearGameRequestMsg{
+}
+
+//结算应答
+message RegularClearGameResponseMsg{
+required float totalMoney = 1;//获奖金额
 }

@@ -1,14 +1,17 @@
 package com.xt.landlords.game.regular;
 
-import com.xt.landlords.BetService;
+import com.xt.landlords.GameManager;
 import com.xt.landlords.GameTypes;
-import com.xt.landlords.StoreManager;
 import com.xt.landlords.exception.BetErrorException;
 import com.xt.landlords.game.phase.BetPhaseData;
+import com.xt.landlords.game.phase.TicketResult;
 import com.xt.landlords.game.regular.condition.GuessSizeCondition;
 import com.xt.landlords.game.regular.condition.LoseCondition;
 import com.xt.landlords.game.regular.condition.WinCondition;
+import com.xt.landlords.game.regular.phase.RaisePhaseData;
+import com.xt.landlords.game.regular.phase.RaisePhaseModel;
 import com.xt.landlords.ioc.SpringIocUtil;
+import com.xt.landlords.service.MoneyBetService;
 import com.xt.landlords.statemachine.GameController;
 import com.xt.landlords.statemachine.MyCondition;
 import org.apache.commons.lang.StringUtils;
@@ -18,8 +21,6 @@ import org.squirrelframework.foundation.fsm.HistoryType;
 import org.squirrelframework.foundation.fsm.StateMachineStatus;
 import org.squirrelframework.foundation.fsm.annotation.*;
 import org.sunyata.octopus.model.GameModel;
-import org.sunyata.octopus.model.GamePhaseModel;
-import org.sunyata.octopus.model.PhaseState;
 
 /**
  * Created by leo on 17/4/26.
@@ -63,7 +64,7 @@ import org.sunyata.octopus.model.PhaseState;
 @StateMachineParameters(stateType = GameRegularState.class, eventType = GameRegularEvent.class, contextType =
         GameModel.class)
 //@Configurable(preConstruction = true)
-public class GameRegularController extends GameController<GameRegularController, GameRegularState,
+public class GameRegularController extends GameController<GameRegularModel, GameRegularController, GameRegularState,
         GameRegularEvent,
         GameModel> {
     //    @Autowired
@@ -73,32 +74,53 @@ public class GameRegularController extends GameController<GameRegularController,
 
     public void OnBet(GameRegularState from, GameRegularState to, GameRegularEvent event,
                       GameModel context) throws Exception {
-        BetService betService = SpringIocUtil.getBean(BetService.class);
-        GameRegularModel gameModel = (GameRegularModel) context;
-        GamePhaseModel phase = gameModel.getPhase(GameRegularPhaseName.Bet.getValue());
-        BetPhaseData phaseData = (BetPhaseData) phase.getPhaseData();
+        MoneyBetService moneyBetService = SpringIocUtil.getBean(MoneyBetService.class);
+
+        GameRegularModel gameModel = getGameModel();
+        BetPhaseData phaseData = (BetPhaseData) getPhaseData(GameRegularState.Bet.getValue());
         //下注
-        String serialNo = betService.bet(gameModel.getUserName(), phaseData.getBetAmt(), gameModel.getGameInstanceId());
-        if (StringUtils.isEmpty(serialNo)) {
-            throw new BetErrorException("下注失败,请重试");
-        }
-        phase.setPhaseState(PhaseState.Success);
-        phaseData.setBetSerialNo(serialNo);
-        StoreManager storeManager = SpringIocUtil.getBean(StoreManager.class);
-        storeManager.set(gameModel.getUserName(), "gameModel", gameModel);
+        TicketResult ticketResult = moneyBetService.betAndQueryPrizeLevel(GameTypes.Regular.getValue(), gameModel
+                .getUserName(), phaseData
+                .getBetAmt(), gameModel.getGameInstanceId());
+        phaseData.setBetSerialNo(ticketResult.getTicketId());
+        phaseData.setTicketResult(ticketResult);
+        setPhaseSuccess(GameRegularState.Bet.getValue());
         logger.append("on bet");
     }
 
     public void OnRaise(GameRegularState from, GameRegularState to, GameRegularEvent event,
                         GameModel context) throws Exception {
-        BetService betService = SpringIocUtil.getBean(BetService.class);
+        MoneyBetService moneyBetService = SpringIocUtil.getBean(MoneyBetService.class);
         GameRegularModel gameModel = (GameRegularModel) context;
-        GamePhaseModel phase = gameModel.getPhase(GameRegularPhaseName.Raise.getValue());
-        BetPhaseData phaseData = (BetPhaseData) phase.getPhaseData();
-        String serialNo = betService.bet(gameModel.getUserName(), phaseData.getBetAmt(), phase.getGameInstanceId());
-        if (StringUtils.isEmpty(serialNo)) {
+        RaisePhaseModel phase = (RaisePhaseModel) gameModel.getPhase(GameRegularState.Raise.getValue());
+        RaisePhaseData phaseData = phase.getPhaseData();
+        TicketResult betResult = moneyBetService.betAndQueryPrizeLevel(this.getGameType(), gameModel.getUserName(),
+                phaseData
+                        .getBetAmt(),
+                phase.getGameInstanceId());
+        if (StringUtils.isEmpty(betResult.getTicketId())) {
             throw new BetErrorException("下注失败,请重试");
         }
+        phaseData.setBetSerialNo(betResult.getTicketId());
+        phaseData.setTicketResult(betResult);
+        setPhaseSuccess(GameRegularState.Raise.getValue());
+        logger.append("on raise");
+    }
+
+    //首次发牌
+    public void OnDeal(GameRegularState from, GameRegularState to, GameRegularEvent event, GameModel context) throws
+            Exception {
+//        GamePhaseModel phase = this.getGameModel().getPhase(GameRegularState.Deal.getValue());
+//        TicketResult betResult = moneyBetService.betAndQueryPrizeLevel(this.getGameType(), gameModel.getUserName(),
+//                phaseData
+//                        .getBetAmt(),
+//                phase.getGameInstanceId());
+//        if (StringUtils.isEmpty(betResult.getTicketId())) {
+//            throw new BetErrorException("下注失败,请重试");
+//        }
+//        phaseData.setBetSerialNo(betResult.getTicketId());
+//        phaseData.setTicketResult(betResult);
+        setPhaseSuccess(GameRegularState.Bet.getValue());
         logger.append("on raise");
     }
 
@@ -123,69 +145,22 @@ public class GameRegularController extends GameController<GameRegularController,
     @Override
     protected void beforeActionInvoked(GameRegularState from, GameRegularState to, GameRegularEvent event, GameModel
             context) {
-        addOptionalDot();
     }
 
-    private void addOptionalDot() {
-        if (logger.length() > 0) {
-            logger.append('.');
+    @Override
+    protected void afterTransitionCompleted(GameRegularState fromState, GameRegularState toState, GameRegularEvent
+            event, GameModel context) throws Exception {
+        GameRegularModel gameModel = getGameModel();
+        GameManager bean = SpringIocUtil.getBean(GameManager.class);
+        bean.saveGameModelToCacheAndAsyncDb(gameModel);
+        if (toState == GameRegularState.GameOver) {
+            bean.clearGameModelFromCache(gameModel.getUserName());
         }
     }
 
-    public String consumeLog() {
-        final String result = logger.toString();
-        logger = new StringBuilder();
-        return result;
-    }
-
-    @Override
-    public GameRegularEvent getBetEvent() {
-        return GameRegularEvent.Bet;
-    }
-
-    @Override
-    public GameRegularState getInitState() {
-        return GameRegularState.Init;
-    }
 
     @Override
     public Integer getGameType() {
         return GameTypes.Regular.getValue();
-    }
-
-    static GameRegularController stateMachine;
-
-    public static void main(String[] args) {
-//        StateMachineBuilder<GameRegularController, GameRegularState, GameRegularEvent, MyContext> builder =
-//                StateMachineBuilderFactory.<GameRegularController, GameRegularState, GameRegularEvent, MyContext>
-//                        create(GameRegularController.class, GameRegularState.class,
-//                        GameRegularEvent.class, MyContext.class, GameRegularController.class);
-////        builder.transit().fromAny().to(GameRegularState.GameOver).on(GameRegularEvent.GameOver).callMethod
-////                ("transitFromAnyToAnyOnGameOver");
-//        builder.transitions().fromAmong(GameRegularState.Init, GameRegularState.Bet).
-//                to(GameRegularState.GameOver).on(GameRegularEvent.GameOver).callMethod("OnGameOver");
-//
-//        stateMachine = builder.newStateMachine(GameRegularState.Init);
-
-//        stateMachine = GameStateControllerFactory.createGameRegularController(new
-//                GameModel(1, ""), GameRegularState.Init);
-//
-//        GameModel context = new GameModel(1, "dsfs");
-//        try {
-//            stateMachine.start(context);
-//            stateMachine.fire(GameRegularEvent.GameOver, context);
-//            System.out.println("current Status:" + stateMachine.getCurrentState());
-//
-//
-//            StateMachineData.Reader<GameRegularController, GameRegularState, GameRegularEvent, GameModel> savedData =
-//                    stateMachine.dumpSavedData();
-//            String serialize = JsonSerializableSupport.serialize(savedData);
-//            StateMachineDataImpl<GameRegularController, GameRegularState, GameRegularEvent, GameModel> reader =
-//                    JsonSerializableSupport.deserialize(serialize, StateMachineDataImpl.class);
-//            stateMachine.loadSavedData(reader);
-//            System.out.println(stateMachine.getCurrentState());
-//        } catch (Exception ex) {
-//            System.out.println(ExceptionUtils.getFullStackTrace(ex));
-//        }
     }
 }

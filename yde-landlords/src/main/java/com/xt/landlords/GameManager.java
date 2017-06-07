@@ -2,13 +2,16 @@ package com.xt.landlords;
 
 
 import com.xt.landlords.event.UserLeftEventMessage;
+import com.xt.landlords.game.eliminate.GameEliminateModel;
+import com.xt.landlords.game.eliminate.GameEliminateState;
+import com.xt.landlords.game.phase.ExchangePhaseData;
+import com.xt.landlords.game.phase.ExchangePhaseModel;
 import com.xt.landlords.game.phase.BetPhaseData;
 import com.xt.landlords.game.phase.BetPhaseModel;
 import com.xt.landlords.game.puzzle.GamePuzzleModel;
 //import com.xt.landlords.game.puzzle.GamePuzzlePhaseName;
 import com.xt.landlords.game.puzzle.GamePuzzleState;
 import com.xt.landlords.game.regular.GameRegularModel;
-import com.xt.landlords.game.regular.GameRegularPhaseName;
 import com.xt.landlords.game.regular.GameRegularState;
 import com.xt.landlords.message.MessageClient;
 import com.xt.landlords.statemachine.GameController;
@@ -23,6 +26,7 @@ import org.sunyata.octopus.Session;
 import org.sunyata.octopus.SessionManager;
 import org.sunyata.octopus.model.GameModel;
 import org.sunyata.octopus.model.GamePhaseModel;
+import org.sunyata.quark.client.IdWorker;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -70,6 +74,9 @@ public class GameManager {
         } else if (gameType == GameTypes.Puzzle.getValue()) {
             GamePuzzleState state = (GamePuzzleState) gameControllerState;
             return GameStateControllerFactory.createGamePuzzleController(state);
+        } else if (gameType == GameTypes.Eliminate.getValue()) {
+            GameEliminateState state = (GameEliminateState) gameControllerState;
+            return GameStateControllerFactory.createGameEliminateController(state);
         } else {
 
         }
@@ -96,17 +103,25 @@ public class GameManager {
 
     public void syncGameModel(GameModel gameModel) throws Exception {
 //        EventBus.getDistributePubsubStore().publish(SyncGameModelMessage.EventType, new SyncGameModelMessage()
-//                .setGameModel(Json.encode(gameModel)));
+//                .setContext(Json.encode(gameModel)));
         messageClient.asyncSaveGameModel(gameModel);
 
     }
 
-    public GameModel createGameModelAndBetPhase(int gameType, String userName, String gameInstanceId, int betAmt) {
+    public void saveGameModelToCacheAndAsyncDb(GameModel gameModel) throws Exception {
+        storeManager.storeGameModel(gameModel.getUserName(), gameModel);
+        messageClient.asyncSaveGameModel(gameModel);
+
+    }
+
+    public GameModel createGameModelAndBetPhase(int gameType, String userName, int betAmt) {
         GameModel gameModel = null;
+        IdWorker worker = new IdWorker(0, 0);
+        String gameInstanceId = String.valueOf(worker.nextId());
         if (gameType == GameTypes.Regular.getValue()) {
             gameModel = new GameRegularModel(gameInstanceId);
             gameModel.setUserName(userName);
-            GamePhaseModel gamePhaseModel = new BetPhaseModel(gameInstanceId, GameRegularPhaseName.Bet.getValue(), 1)
+            GamePhaseModel gamePhaseModel = new BetPhaseModel(gameInstanceId, GameCommonState.Bet.getValue(), 1)
                     .setPhaseData
                             (new BetPhaseData()
                                     .setBetAmt(betAmt));
@@ -126,5 +141,50 @@ public class GameManager {
 
         }
         return gameModel;
+    }
+
+    public GameModel createGameModelAndExchangePhase(int gameType, String userName, int betAmt) {
+        GameModel gameModel = null;
+        IdWorker worker = new IdWorker(0, 0);
+        String gameInstanceId = String.valueOf(worker.nextId());
+        if (gameType == GameTypes.Eliminate.getValue()) {
+            gameModel = new GameEliminateModel(gameInstanceId);
+            gameModel.setUserName(userName);
+            GamePhaseModel gamePhaseModel = new ExchangePhaseModel(gameInstanceId, GameCommonState.Exchange
+                    .getValue(), 1)
+                    .setPhaseData
+                            (new ExchangePhaseData().setAmt(betAmt));
+            gameModel.addOrUpdatePhase(gamePhaseModel);
+        } else if (gameType == GameTypes.Point.getValue()) {
+
+        } else if (gameType == GameTypes.Point.getValue()) {
+            gameModel = new GamePuzzleModel(gameInstanceId);
+            gameModel.setUserName(userName);
+            GamePhaseModel gamePhaseModel = new BetPhaseModel(gameInstanceId, GamePuzzleState.Bet.getValue(), 1)
+                    .setPhaseData
+                            (new BetPhaseData()
+                                    .setBetAmt(betAmt));
+            gameModel.addOrUpdatePhase(gamePhaseModel);
+
+        } else {
+
+        }
+        return gameModel;
+    }
+
+    @Autowired
+    StoreManager storeManager;
+
+    public GameModel getFromCacheOrCreate(int gameType, String userName, int betAmt) {
+        GameModel gameModel = storeManager.getGameModelFromCache(userName);
+        if (gameModel == null) {
+            gameModel = createGameModelAndBetPhase(gameType, userName, betAmt);
+            storeManager.storeGameModel(userName, gameModel);
+        }
+        return gameModel;
+    }
+
+    public void clearGameModelFromCache(String userName) {
+        storeManager.storeGameModel(userName, null);
     }
 }

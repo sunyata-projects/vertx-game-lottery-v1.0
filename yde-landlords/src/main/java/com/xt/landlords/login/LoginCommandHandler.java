@@ -52,7 +52,10 @@ public class LoginCommandHandler extends AbstractCommandHandler {
     @Override
     public void execute(OctopusRequest request, OctopusResponse response) throws Exception,
             InvalidProtocolBufferException {
+
         Common.LoginRequestMsg loginRequest = Common.LoginRequestMsg.parseFrom(request.getMessage().getBody());
+        storeManager.storeGameModel(loginRequest.getUserName(), null);
+        GameManager.onGameOver(loginRequest.getUserName());
         try {
             AckLoginMsg loginRet = loginService.login(new LoginMsg(loginRequest.getUserName(), loginRequest.getPassword
                     ()));

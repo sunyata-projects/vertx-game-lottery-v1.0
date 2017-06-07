@@ -19,5 +19,16 @@ public class PuzzleDealPhaseData extends PhaseData {
 
     private int totalMoney;
 
+    public String getCardId() {
+        return cardId;
+    }
+
+    public PuzzleDealPhaseData setCardId(String cardId) {
+        this.cardId = cardId;
+        return this;
+    }
+
+    private String cardId;
+
 
 }

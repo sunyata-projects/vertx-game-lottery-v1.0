@@ -8,68 +8,50 @@ public final class GameRegular {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface DealRequestMsgOrBuilder
+  public interface RegularRaiseBetRequestMsgOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required int32 gameType = 1;
+    // required int32 times = 1;
     /**
-     * <code>required int32 gameType = 1;</code>
+     * <code>required int32 times = 1;</code>
      *
      * <pre>
-     *游戏类型
+     *1,2,3,下注倍数
      * </pre>
      */
-    boolean hasGameType();
+    boolean hasTimes();
     /**
-     * <code>required int32 gameType = 1;</code>
+     * <code>required int32 times = 1;</code>
      *
      * <pre>
-     *游戏类型
+     *1,2,3,下注倍数
      * </pre>
      */
-    int getGameType();
-
-    // required int32 dealType = 2;
-    /**
-     * <code>required int32 dealType = 2;</code>
-     *
-     * <pre>
-     *发牌类型,1只发玩家手牌,2只发机器人及暗牌
-     * </pre>
-     */
-    boolean hasDealType();
-    /**
-     * <code>required int32 dealType = 2;</code>
-     *
-     * <pre>
-     *发牌类型,1只发玩家手牌,2只发机器人及暗牌
-     * </pre>
-     */
-    int getDealType();
+    int getTimes();
   }
   /**
-   * Protobuf type {@code com.xt.yde.protobuf.regular.DealRequestMsg}
+   * Protobuf type {@code com.xt.yde.protobuf.regular.RegularRaiseBetRequestMsg}
    *
    * <pre>
-   *发牌请求
+   *raise请求
    * </pre>
    */
-  public static final class DealRequestMsg extends
+  public static final class RegularRaiseBetRequestMsg extends
       com.google.protobuf.GeneratedMessage
-      implements DealRequestMsgOrBuilder {
-    // Use DealRequestMsg.newBuilder() to construct.
-    private DealRequestMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements RegularRaiseBetRequestMsgOrBuilder {
+    // Use RegularRaiseBetRequestMsg.newBuilder() to construct.
+    private RegularRaiseBetRequestMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private DealRequestMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private RegularRaiseBetRequestMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final DealRequestMsg defaultInstance;
-    public static DealRequestMsg getDefaultInstance() {
+    private static final RegularRaiseBetRequestMsg defaultInstance;
+    public static RegularRaiseBetRequestMsg getDefaultInstance() {
       return defaultInstance;
     }
 
-    public DealRequestMsg getDefaultInstanceForType() {
+    public RegularRaiseBetRequestMsg getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -79,7 +61,7 @@ public final class GameRegular {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private DealRequestMsg(
+    private RegularRaiseBetRequestMsg(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -104,12 +86,7 @@ public final class GameRegular {
             }
             case 8: {
               bitField0_ |= 0x00000001;
-              gameType_ = input.readInt32();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              dealType_ = input.readInt32();
+              times_ = input.readInt32();
               break;
             }
           }
@@ -126,94 +103,65 @@ public final class GameRegular {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_DealRequestMsg_descriptor;
+      return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularRaiseBetRequestMsg_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_DealRequestMsg_fieldAccessorTable
+      return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularRaiseBetRequestMsg_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg.class, com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg.Builder.class);
+              com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg.class, com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<DealRequestMsg> PARSER =
-        new com.google.protobuf.AbstractParser<DealRequestMsg>() {
-      public DealRequestMsg parsePartialFrom(
+    public static com.google.protobuf.Parser<RegularRaiseBetRequestMsg> PARSER =
+        new com.google.protobuf.AbstractParser<RegularRaiseBetRequestMsg>() {
+      public RegularRaiseBetRequestMsg parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DealRequestMsg(input, extensionRegistry);
+        return new RegularRaiseBetRequestMsg(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DealRequestMsg> getParserForType() {
+    public com.google.protobuf.Parser<RegularRaiseBetRequestMsg> getParserForType() {
       return PARSER;
     }
 
     private int bitField0_;
-    // required int32 gameType = 1;
-    public static final int GAMETYPE_FIELD_NUMBER = 1;
-    private int gameType_;
+    // required int32 times = 1;
+    public static final int TIMES_FIELD_NUMBER = 1;
+    private int times_;
     /**
-     * <code>required int32 gameType = 1;</code>
+     * <code>required int32 times = 1;</code>
      *
      * <pre>
-     *游戏类型
+     *1,2,3,下注倍数
      * </pre>
      */
-    public boolean hasGameType() {
+    public boolean hasTimes() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required int32 gameType = 1;</code>
+     * <code>required int32 times = 1;</code>
      *
      * <pre>
-     *游戏类型
+     *1,2,3,下注倍数
      * </pre>
      */
-    public int getGameType() {
-      return gameType_;
-    }
-
-    // required int32 dealType = 2;
-    public static final int DEALTYPE_FIELD_NUMBER = 2;
-    private int dealType_;
-    /**
-     * <code>required int32 dealType = 2;</code>
-     *
-     * <pre>
-     *发牌类型,1只发玩家手牌,2只发机器人及暗牌
-     * </pre>
-     */
-    public boolean hasDealType() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>required int32 dealType = 2;</code>
-     *
-     * <pre>
-     *发牌类型,1只发玩家手牌,2只发机器人及暗牌
-     * </pre>
-     */
-    public int getDealType() {
-      return dealType_;
+    public int getTimes() {
+      return times_;
     }
 
     private void initFields() {
-      gameType_ = 0;
-      dealType_ = 0;
+      times_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
-      if (!hasGameType()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasDealType()) {
+      if (!hasTimes()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -225,10 +173,7 @@ public final class GameRegular {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, gameType_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, dealType_);
+        output.writeInt32(1, times_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -241,11 +186,7 @@ public final class GameRegular {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, gameType_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, dealType_);
+          .computeInt32Size(1, times_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -259,53 +200,53 @@ public final class GameRegular {
       return super.writeReplace();
     }
 
-    public static com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg parseFrom(byte[] data)
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg parseFrom(java.io.InputStream input)
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg parseDelimitedFrom(java.io.InputStream input)
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg parseDelimitedFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -314,7 +255,7 @@ public final class GameRegular {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg prototype) {
+    public static Builder newBuilder(com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -326,28 +267,28 @@ public final class GameRegular {
       return builder;
     }
     /**
-     * Protobuf type {@code com.xt.yde.protobuf.regular.DealRequestMsg}
+     * Protobuf type {@code com.xt.yde.protobuf.regular.RegularRaiseBetRequestMsg}
      *
      * <pre>
-     *发牌请求
+     *raise请求
      * </pre>
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.xt.yde.protobuf.regular.GameRegular.DealRequestMsgOrBuilder {
+       implements com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsgOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_DealRequestMsg_descriptor;
+        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularRaiseBetRequestMsg_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_DealRequestMsg_fieldAccessorTable
+        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularRaiseBetRequestMsg_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg.class, com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg.Builder.class);
+                com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg.class, com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg.Builder.class);
       }
 
-      // Construct using com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg.newBuilder()
+      // Construct using com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -367,10 +308,8 @@ public final class GameRegular {
 
       public Builder clear() {
         super.clear();
-        gameType_ = 0;
+        times_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        dealType_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -380,65 +319,54 @@ public final class GameRegular {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_DealRequestMsg_descriptor;
+        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularRaiseBetRequestMsg_descriptor;
       }
 
-      public com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg getDefaultInstanceForType() {
-        return com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg.getDefaultInstance();
+      public com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg getDefaultInstanceForType() {
+        return com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg.getDefaultInstance();
       }
 
-      public com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg build() {
-        com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg result = buildPartial();
+      public com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg build() {
+        com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg buildPartial() {
-        com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg result = new com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg(this);
+      public com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg buildPartial() {
+        com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg result = new com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.gameType_ = gameType_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.dealType_ = dealType_;
+        result.times_ = times_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg) {
-          return mergeFrom((com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg)other);
+        if (other instanceof com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg) {
+          return mergeFrom((com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg other) {
-        if (other == com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg.getDefaultInstance()) return this;
-        if (other.hasGameType()) {
-          setGameType(other.getGameType());
-        }
-        if (other.hasDealType()) {
-          setDealType(other.getDealType());
+      public Builder mergeFrom(com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg other) {
+        if (other == com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg.getDefaultInstance()) return this;
+        if (other.hasTimes()) {
+          setTimes(other.getTimes());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasGameType()) {
-          
-          return false;
-        }
-        if (!hasDealType()) {
+        if (!hasTimes()) {
           
           return false;
         }
@@ -449,11 +377,11 @@ public final class GameRegular {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg parsedMessage = null;
+        com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.xt.yde.protobuf.regular.GameRegular.DealRequestMsg) e.getUnfinishedMessage();
+          parsedMessage = (com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetRequestMsg) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -464,246 +392,92 @@ public final class GameRegular {
       }
       private int bitField0_;
 
-      // required int32 gameType = 1;
-      private int gameType_ ;
+      // required int32 times = 1;
+      private int times_ ;
       /**
-       * <code>required int32 gameType = 1;</code>
+       * <code>required int32 times = 1;</code>
        *
        * <pre>
-       *游戏类型
+       *1,2,3,下注倍数
        * </pre>
        */
-      public boolean hasGameType() {
+      public boolean hasTimes() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required int32 gameType = 1;</code>
+       * <code>required int32 times = 1;</code>
        *
        * <pre>
-       *游戏类型
+       *1,2,3,下注倍数
        * </pre>
        */
-      public int getGameType() {
-        return gameType_;
+      public int getTimes() {
+        return times_;
       }
       /**
-       * <code>required int32 gameType = 1;</code>
+       * <code>required int32 times = 1;</code>
        *
        * <pre>
-       *游戏类型
+       *1,2,3,下注倍数
        * </pre>
        */
-      public Builder setGameType(int value) {
+      public Builder setTimes(int value) {
         bitField0_ |= 0x00000001;
-        gameType_ = value;
+        times_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 gameType = 1;</code>
+       * <code>required int32 times = 1;</code>
        *
        * <pre>
-       *游戏类型
+       *1,2,3,下注倍数
        * </pre>
        */
-      public Builder clearGameType() {
+      public Builder clearTimes() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        gameType_ = 0;
+        times_ = 0;
         onChanged();
         return this;
       }
 
-      // required int32 dealType = 2;
-      private int dealType_ ;
-      /**
-       * <code>required int32 dealType = 2;</code>
-       *
-       * <pre>
-       *发牌类型,1只发玩家手牌,2只发机器人及暗牌
-       * </pre>
-       */
-      public boolean hasDealType() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required int32 dealType = 2;</code>
-       *
-       * <pre>
-       *发牌类型,1只发玩家手牌,2只发机器人及暗牌
-       * </pre>
-       */
-      public int getDealType() {
-        return dealType_;
-      }
-      /**
-       * <code>required int32 dealType = 2;</code>
-       *
-       * <pre>
-       *发牌类型,1只发玩家手牌,2只发机器人及暗牌
-       * </pre>
-       */
-      public Builder setDealType(int value) {
-        bitField0_ |= 0x00000002;
-        dealType_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required int32 dealType = 2;</code>
-       *
-       * <pre>
-       *发牌类型,1只发玩家手牌,2只发机器人及暗牌
-       * </pre>
-       */
-      public Builder clearDealType() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        dealType_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:com.xt.yde.protobuf.regular.DealRequestMsg)
+      // @@protoc_insertion_point(builder_scope:com.xt.yde.protobuf.regular.RegularRaiseBetRequestMsg)
     }
 
     static {
-      defaultInstance = new DealRequestMsg(true);
+      defaultInstance = new RegularRaiseBetRequestMsg(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.regular.DealRequestMsg)
+    // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.regular.RegularRaiseBetRequestMsg)
   }
 
-  public interface DealResponseMsgOrBuilder
+  public interface RegularRaiseBetResponseMsgOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
-    // repeated int32 darkCard = 1;
-    /**
-     * <code>repeated int32 darkCard = 1;</code>
-     *
-     * <pre>
-     *可选,底牌数组
-     * </pre>
-     */
-    java.util.List<java.lang.Integer> getDarkCardList();
-    /**
-     * <code>repeated int32 darkCard = 1;</code>
-     *
-     * <pre>
-     *可选,底牌数组
-     * </pre>
-     */
-    int getDarkCardCount();
-    /**
-     * <code>repeated int32 darkCard = 1;</code>
-     *
-     * <pre>
-     *可选,底牌数组
-     * </pre>
-     */
-    int getDarkCard(int index);
-
-    // repeated int32 centerCard = 2;
-    /**
-     * <code>repeated int32 centerCard = 2;</code>
-     *
-     * <pre>
-     *可选,当前玩家的手牌,不包括底牌
-     * </pre>
-     */
-    java.util.List<java.lang.Integer> getCenterCardList();
-    /**
-     * <code>repeated int32 centerCard = 2;</code>
-     *
-     * <pre>
-     *可选,当前玩家的手牌,不包括底牌
-     * </pre>
-     */
-    int getCenterCardCount();
-    /**
-     * <code>repeated int32 centerCard = 2;</code>
-     *
-     * <pre>
-     *可选,当前玩家的手牌,不包括底牌
-     * </pre>
-     */
-    int getCenterCard(int index);
-
-    // repeated int32 leftCard = 3;
-    /**
-     * <code>repeated int32 leftCard = 3;</code>
-     *
-     * <pre>
-     *可选,左边玩家的手牌,不包括底牌
-     * </pre>
-     */
-    java.util.List<java.lang.Integer> getLeftCardList();
-    /**
-     * <code>repeated int32 leftCard = 3;</code>
-     *
-     * <pre>
-     *可选,左边玩家的手牌,不包括底牌
-     * </pre>
-     */
-    int getLeftCardCount();
-    /**
-     * <code>repeated int32 leftCard = 3;</code>
-     *
-     * <pre>
-     *可选,左边玩家的手牌,不包括底牌
-     * </pre>
-     */
-    int getLeftCard(int index);
-
-    // repeated int32 rightCard = 4;
-    /**
-     * <code>repeated int32 rightCard = 4;</code>
-     *
-     * <pre>
-     *可选,右边玩家的手牌,不包括底牌
-     * </pre>
-     */
-    java.util.List<java.lang.Integer> getRightCardList();
-    /**
-     * <code>repeated int32 rightCard = 4;</code>
-     *
-     * <pre>
-     *可选,右边玩家的手牌,不包括底牌
-     * </pre>
-     */
-    int getRightCardCount();
-    /**
-     * <code>repeated int32 rightCard = 4;</code>
-     *
-     * <pre>
-     *可选,右边玩家的手牌,不包括底牌
-     * </pre>
-     */
-    int getRightCard(int index);
   }
   /**
-   * Protobuf type {@code com.xt.yde.protobuf.regular.DealResponseMsg}
+   * Protobuf type {@code com.xt.yde.protobuf.regular.RegularRaiseBetResponseMsg}
    *
    * <pre>
-   *发牌应答
-   *返回牌型
+   *下注应答
    * </pre>
    */
-  public static final class DealResponseMsg extends
+  public static final class RegularRaiseBetResponseMsg extends
       com.google.protobuf.GeneratedMessage
-      implements DealResponseMsgOrBuilder {
-    // Use DealResponseMsg.newBuilder() to construct.
-    private DealResponseMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements RegularRaiseBetResponseMsgOrBuilder {
+    // Use RegularRaiseBetResponseMsg.newBuilder() to construct.
+    private RegularRaiseBetResponseMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private DealResponseMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private RegularRaiseBetResponseMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final DealResponseMsg defaultInstance;
-    public static DealResponseMsg getDefaultInstance() {
+    private static final RegularRaiseBetResponseMsg defaultInstance;
+    public static RegularRaiseBetResponseMsg getDefaultInstance() {
       return defaultInstance;
     }
 
-    public DealResponseMsg getDefaultInstanceForType() {
+    public RegularRaiseBetResponseMsg getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -713,12 +487,11 @@ public final class GameRegular {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private DealResponseMsg(
+    private RegularRaiseBetResponseMsg(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       initFields();
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -736,90 +509,6 @@ public final class GameRegular {
               }
               break;
             }
-            case 8: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                darkCard_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              darkCard_.add(input.readInt32());
-              break;
-            }
-            case 10: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001) && input.getBytesUntilLimit() > 0) {
-                darkCard_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                darkCard_.add(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 16: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                centerCard_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              centerCard_.add(input.readInt32());
-              break;
-            }
-            case 18: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002) && input.getBytesUntilLimit() > 0) {
-                centerCard_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                centerCard_.add(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 24: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                leftCard_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              leftCard_.add(input.readInt32());
-              break;
-            }
-            case 26: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004) && input.getBytesUntilLimit() > 0) {
-                leftCard_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                leftCard_.add(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 32: {
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                rightCard_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              rightCard_.add(input.readInt32());
-              break;
-            }
-            case 34: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008) && input.getBytesUntilLimit() > 0) {
-                rightCard_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                rightCard_.add(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -828,194 +517,38 @@ public final class GameRegular {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          darkCard_ = java.util.Collections.unmodifiableList(darkCard_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          centerCard_ = java.util.Collections.unmodifiableList(centerCard_);
-        }
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-          leftCard_ = java.util.Collections.unmodifiableList(leftCard_);
-        }
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          rightCard_ = java.util.Collections.unmodifiableList(rightCard_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_DealResponseMsg_descriptor;
+      return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularRaiseBetResponseMsg_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_DealResponseMsg_fieldAccessorTable
+      return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularRaiseBetResponseMsg_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg.class, com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg.Builder.class);
+              com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg.class, com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<DealResponseMsg> PARSER =
-        new com.google.protobuf.AbstractParser<DealResponseMsg>() {
-      public DealResponseMsg parsePartialFrom(
+    public static com.google.protobuf.Parser<RegularRaiseBetResponseMsg> PARSER =
+        new com.google.protobuf.AbstractParser<RegularRaiseBetResponseMsg>() {
+      public RegularRaiseBetResponseMsg parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DealResponseMsg(input, extensionRegistry);
+        return new RegularRaiseBetResponseMsg(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<DealResponseMsg> getParserForType() {
+    public com.google.protobuf.Parser<RegularRaiseBetResponseMsg> getParserForType() {
       return PARSER;
     }
 
-    // repeated int32 darkCard = 1;
-    public static final int DARKCARD_FIELD_NUMBER = 1;
-    private java.util.List<java.lang.Integer> darkCard_;
-    /**
-     * <code>repeated int32 darkCard = 1;</code>
-     *
-     * <pre>
-     *可选,底牌数组
-     * </pre>
-     */
-    public java.util.List<java.lang.Integer>
-        getDarkCardList() {
-      return darkCard_;
-    }
-    /**
-     * <code>repeated int32 darkCard = 1;</code>
-     *
-     * <pre>
-     *可选,底牌数组
-     * </pre>
-     */
-    public int getDarkCardCount() {
-      return darkCard_.size();
-    }
-    /**
-     * <code>repeated int32 darkCard = 1;</code>
-     *
-     * <pre>
-     *可选,底牌数组
-     * </pre>
-     */
-    public int getDarkCard(int index) {
-      return darkCard_.get(index);
-    }
-
-    // repeated int32 centerCard = 2;
-    public static final int CENTERCARD_FIELD_NUMBER = 2;
-    private java.util.List<java.lang.Integer> centerCard_;
-    /**
-     * <code>repeated int32 centerCard = 2;</code>
-     *
-     * <pre>
-     *可选,当前玩家的手牌,不包括底牌
-     * </pre>
-     */
-    public java.util.List<java.lang.Integer>
-        getCenterCardList() {
-      return centerCard_;
-    }
-    /**
-     * <code>repeated int32 centerCard = 2;</code>
-     *
-     * <pre>
-     *可选,当前玩家的手牌,不包括底牌
-     * </pre>
-     */
-    public int getCenterCardCount() {
-      return centerCard_.size();
-    }
-    /**
-     * <code>repeated int32 centerCard = 2;</code>
-     *
-     * <pre>
-     *可选,当前玩家的手牌,不包括底牌
-     * </pre>
-     */
-    public int getCenterCard(int index) {
-      return centerCard_.get(index);
-    }
-
-    // repeated int32 leftCard = 3;
-    public static final int LEFTCARD_FIELD_NUMBER = 3;
-    private java.util.List<java.lang.Integer> leftCard_;
-    /**
-     * <code>repeated int32 leftCard = 3;</code>
-     *
-     * <pre>
-     *可选,左边玩家的手牌,不包括底牌
-     * </pre>
-     */
-    public java.util.List<java.lang.Integer>
-        getLeftCardList() {
-      return leftCard_;
-    }
-    /**
-     * <code>repeated int32 leftCard = 3;</code>
-     *
-     * <pre>
-     *可选,左边玩家的手牌,不包括底牌
-     * </pre>
-     */
-    public int getLeftCardCount() {
-      return leftCard_.size();
-    }
-    /**
-     * <code>repeated int32 leftCard = 3;</code>
-     *
-     * <pre>
-     *可选,左边玩家的手牌,不包括底牌
-     * </pre>
-     */
-    public int getLeftCard(int index) {
-      return leftCard_.get(index);
-    }
-
-    // repeated int32 rightCard = 4;
-    public static final int RIGHTCARD_FIELD_NUMBER = 4;
-    private java.util.List<java.lang.Integer> rightCard_;
-    /**
-     * <code>repeated int32 rightCard = 4;</code>
-     *
-     * <pre>
-     *可选,右边玩家的手牌,不包括底牌
-     * </pre>
-     */
-    public java.util.List<java.lang.Integer>
-        getRightCardList() {
-      return rightCard_;
-    }
-    /**
-     * <code>repeated int32 rightCard = 4;</code>
-     *
-     * <pre>
-     *可选,右边玩家的手牌,不包括底牌
-     * </pre>
-     */
-    public int getRightCardCount() {
-      return rightCard_.size();
-    }
-    /**
-     * <code>repeated int32 rightCard = 4;</code>
-     *
-     * <pre>
-     *可选,右边玩家的手牌,不包括底牌
-     * </pre>
-     */
-    public int getRightCard(int index) {
-      return rightCard_.get(index);
-    }
-
     private void initFields() {
-      darkCard_ = java.util.Collections.emptyList();
-      centerCard_ = java.util.Collections.emptyList();
-      leftCard_ = java.util.Collections.emptyList();
-      rightCard_ = java.util.Collections.emptyList();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1029,18 +562,6 @@ public final class GameRegular {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      for (int i = 0; i < darkCard_.size(); i++) {
-        output.writeInt32(1, darkCard_.get(i));
-      }
-      for (int i = 0; i < centerCard_.size(); i++) {
-        output.writeInt32(2, centerCard_.get(i));
-      }
-      for (int i = 0; i < leftCard_.size(); i++) {
-        output.writeInt32(3, leftCard_.get(i));
-      }
-      for (int i = 0; i < rightCard_.size(); i++) {
-        output.writeInt32(4, rightCard_.get(i));
-      }
       getUnknownFields().writeTo(output);
     }
 
@@ -1050,42 +571,6 @@ public final class GameRegular {
       if (size != -1) return size;
 
       size = 0;
-      {
-        int dataSize = 0;
-        for (int i = 0; i < darkCard_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(darkCard_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getDarkCardList().size();
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < centerCard_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(centerCard_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getCenterCardList().size();
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < leftCard_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(leftCard_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getLeftCardList().size();
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < rightCard_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(rightCard_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getRightCardList().size();
-      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -1098,53 +583,53 @@ public final class GameRegular {
       return super.writeReplace();
     }
 
-    public static com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg parseFrom(byte[] data)
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg parseFrom(java.io.InputStream input)
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg parseDelimitedFrom(java.io.InputStream input)
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg parseDelimitedFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1153,7 +638,7 @@ public final class GameRegular {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg prototype) {
+    public static Builder newBuilder(com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -1165,29 +650,28 @@ public final class GameRegular {
       return builder;
     }
     /**
-     * Protobuf type {@code com.xt.yde.protobuf.regular.DealResponseMsg}
+     * Protobuf type {@code com.xt.yde.protobuf.regular.RegularRaiseBetResponseMsg}
      *
      * <pre>
-     *发牌应答
-     *返回牌型
+     *下注应答
      * </pre>
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.xt.yde.protobuf.regular.GameRegular.DealResponseMsgOrBuilder {
+       implements com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsgOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_DealResponseMsg_descriptor;
+        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularRaiseBetResponseMsg_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_DealResponseMsg_fieldAccessorTable
+        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularRaiseBetResponseMsg_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg.class, com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg.Builder.class);
+                com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg.class, com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg.Builder.class);
       }
 
-      // Construct using com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg.newBuilder()
+      // Construct using com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1207,14 +691,6 @@ public final class GameRegular {
 
       public Builder clear() {
         super.clear();
-        darkCard_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        centerCard_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
-        leftCard_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
-        rightCard_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -1224,99 +700,38 @@ public final class GameRegular {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_DealResponseMsg_descriptor;
+        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularRaiseBetResponseMsg_descriptor;
       }
 
-      public com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg getDefaultInstanceForType() {
-        return com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg.getDefaultInstance();
+      public com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg getDefaultInstanceForType() {
+        return com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg.getDefaultInstance();
       }
 
-      public com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg build() {
-        com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg result = buildPartial();
+      public com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg build() {
+        com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg buildPartial() {
-        com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg result = new com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg(this);
-        int from_bitField0_ = bitField0_;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          darkCard_ = java.util.Collections.unmodifiableList(darkCard_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.darkCard_ = darkCard_;
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          centerCard_ = java.util.Collections.unmodifiableList(centerCard_);
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.centerCard_ = centerCard_;
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          leftCard_ = java.util.Collections.unmodifiableList(leftCard_);
-          bitField0_ = (bitField0_ & ~0x00000004);
-        }
-        result.leftCard_ = leftCard_;
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          rightCard_ = java.util.Collections.unmodifiableList(rightCard_);
-          bitField0_ = (bitField0_ & ~0x00000008);
-        }
-        result.rightCard_ = rightCard_;
+      public com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg buildPartial() {
+        com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg result = new com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg(this);
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg) {
-          return mergeFrom((com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg)other);
+        if (other instanceof com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg) {
+          return mergeFrom((com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg other) {
-        if (other == com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg.getDefaultInstance()) return this;
-        if (!other.darkCard_.isEmpty()) {
-          if (darkCard_.isEmpty()) {
-            darkCard_ = other.darkCard_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureDarkCardIsMutable();
-            darkCard_.addAll(other.darkCard_);
-          }
-          onChanged();
-        }
-        if (!other.centerCard_.isEmpty()) {
-          if (centerCard_.isEmpty()) {
-            centerCard_ = other.centerCard_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-          } else {
-            ensureCenterCardIsMutable();
-            centerCard_.addAll(other.centerCard_);
-          }
-          onChanged();
-        }
-        if (!other.leftCard_.isEmpty()) {
-          if (leftCard_.isEmpty()) {
-            leftCard_ = other.leftCard_;
-            bitField0_ = (bitField0_ & ~0x00000004);
-          } else {
-            ensureLeftCardIsMutable();
-            leftCard_.addAll(other.leftCard_);
-          }
-          onChanged();
-        }
-        if (!other.rightCard_.isEmpty()) {
-          if (rightCard_.isEmpty()) {
-            rightCard_ = other.rightCard_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-          } else {
-            ensureRightCardIsMutable();
-            rightCard_.addAll(other.rightCard_);
-          }
-          onChanged();
-        }
+      public Builder mergeFrom(com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg other) {
+        if (other == com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -1329,11 +744,11 @@ public final class GameRegular {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg parsedMessage = null;
+        com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.xt.yde.protobuf.regular.GameRegular.DealResponseMsg) e.getUnfinishedMessage();
+          parsedMessage = (com.xt.yde.protobuf.regular.GameRegular.RegularRaiseBetResponseMsg) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -1342,483 +757,44 @@ public final class GameRegular {
         }
         return this;
       }
-      private int bitField0_;
 
-      // repeated int32 darkCard = 1;
-      private java.util.List<java.lang.Integer> darkCard_ = java.util.Collections.emptyList();
-      private void ensureDarkCardIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          darkCard_ = new java.util.ArrayList<java.lang.Integer>(darkCard_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-      /**
-       * <code>repeated int32 darkCard = 1;</code>
-       *
-       * <pre>
-       *可选,底牌数组
-       * </pre>
-       */
-      public java.util.List<java.lang.Integer>
-          getDarkCardList() {
-        return java.util.Collections.unmodifiableList(darkCard_);
-      }
-      /**
-       * <code>repeated int32 darkCard = 1;</code>
-       *
-       * <pre>
-       *可选,底牌数组
-       * </pre>
-       */
-      public int getDarkCardCount() {
-        return darkCard_.size();
-      }
-      /**
-       * <code>repeated int32 darkCard = 1;</code>
-       *
-       * <pre>
-       *可选,底牌数组
-       * </pre>
-       */
-      public int getDarkCard(int index) {
-        return darkCard_.get(index);
-      }
-      /**
-       * <code>repeated int32 darkCard = 1;</code>
-       *
-       * <pre>
-       *可选,底牌数组
-       * </pre>
-       */
-      public Builder setDarkCard(
-          int index, int value) {
-        ensureDarkCardIsMutable();
-        darkCard_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 darkCard = 1;</code>
-       *
-       * <pre>
-       *可选,底牌数组
-       * </pre>
-       */
-      public Builder addDarkCard(int value) {
-        ensureDarkCardIsMutable();
-        darkCard_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 darkCard = 1;</code>
-       *
-       * <pre>
-       *可选,底牌数组
-       * </pre>
-       */
-      public Builder addAllDarkCard(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureDarkCardIsMutable();
-        super.addAll(values, darkCard_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 darkCard = 1;</code>
-       *
-       * <pre>
-       *可选,底牌数组
-       * </pre>
-       */
-      public Builder clearDarkCard() {
-        darkCard_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-
-      // repeated int32 centerCard = 2;
-      private java.util.List<java.lang.Integer> centerCard_ = java.util.Collections.emptyList();
-      private void ensureCenterCardIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          centerCard_ = new java.util.ArrayList<java.lang.Integer>(centerCard_);
-          bitField0_ |= 0x00000002;
-         }
-      }
-      /**
-       * <code>repeated int32 centerCard = 2;</code>
-       *
-       * <pre>
-       *可选,当前玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public java.util.List<java.lang.Integer>
-          getCenterCardList() {
-        return java.util.Collections.unmodifiableList(centerCard_);
-      }
-      /**
-       * <code>repeated int32 centerCard = 2;</code>
-       *
-       * <pre>
-       *可选,当前玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public int getCenterCardCount() {
-        return centerCard_.size();
-      }
-      /**
-       * <code>repeated int32 centerCard = 2;</code>
-       *
-       * <pre>
-       *可选,当前玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public int getCenterCard(int index) {
-        return centerCard_.get(index);
-      }
-      /**
-       * <code>repeated int32 centerCard = 2;</code>
-       *
-       * <pre>
-       *可选,当前玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public Builder setCenterCard(
-          int index, int value) {
-        ensureCenterCardIsMutable();
-        centerCard_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 centerCard = 2;</code>
-       *
-       * <pre>
-       *可选,当前玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public Builder addCenterCard(int value) {
-        ensureCenterCardIsMutable();
-        centerCard_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 centerCard = 2;</code>
-       *
-       * <pre>
-       *可选,当前玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public Builder addAllCenterCard(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureCenterCardIsMutable();
-        super.addAll(values, centerCard_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 centerCard = 2;</code>
-       *
-       * <pre>
-       *可选,当前玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public Builder clearCenterCard() {
-        centerCard_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
-        onChanged();
-        return this;
-      }
-
-      // repeated int32 leftCard = 3;
-      private java.util.List<java.lang.Integer> leftCard_ = java.util.Collections.emptyList();
-      private void ensureLeftCardIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          leftCard_ = new java.util.ArrayList<java.lang.Integer>(leftCard_);
-          bitField0_ |= 0x00000004;
-         }
-      }
-      /**
-       * <code>repeated int32 leftCard = 3;</code>
-       *
-       * <pre>
-       *可选,左边玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public java.util.List<java.lang.Integer>
-          getLeftCardList() {
-        return java.util.Collections.unmodifiableList(leftCard_);
-      }
-      /**
-       * <code>repeated int32 leftCard = 3;</code>
-       *
-       * <pre>
-       *可选,左边玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public int getLeftCardCount() {
-        return leftCard_.size();
-      }
-      /**
-       * <code>repeated int32 leftCard = 3;</code>
-       *
-       * <pre>
-       *可选,左边玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public int getLeftCard(int index) {
-        return leftCard_.get(index);
-      }
-      /**
-       * <code>repeated int32 leftCard = 3;</code>
-       *
-       * <pre>
-       *可选,左边玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public Builder setLeftCard(
-          int index, int value) {
-        ensureLeftCardIsMutable();
-        leftCard_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 leftCard = 3;</code>
-       *
-       * <pre>
-       *可选,左边玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public Builder addLeftCard(int value) {
-        ensureLeftCardIsMutable();
-        leftCard_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 leftCard = 3;</code>
-       *
-       * <pre>
-       *可选,左边玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public Builder addAllLeftCard(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureLeftCardIsMutable();
-        super.addAll(values, leftCard_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 leftCard = 3;</code>
-       *
-       * <pre>
-       *可选,左边玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public Builder clearLeftCard() {
-        leftCard_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
-        onChanged();
-        return this;
-      }
-
-      // repeated int32 rightCard = 4;
-      private java.util.List<java.lang.Integer> rightCard_ = java.util.Collections.emptyList();
-      private void ensureRightCardIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          rightCard_ = new java.util.ArrayList<java.lang.Integer>(rightCard_);
-          bitField0_ |= 0x00000008;
-         }
-      }
-      /**
-       * <code>repeated int32 rightCard = 4;</code>
-       *
-       * <pre>
-       *可选,右边玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public java.util.List<java.lang.Integer>
-          getRightCardList() {
-        return java.util.Collections.unmodifiableList(rightCard_);
-      }
-      /**
-       * <code>repeated int32 rightCard = 4;</code>
-       *
-       * <pre>
-       *可选,右边玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public int getRightCardCount() {
-        return rightCard_.size();
-      }
-      /**
-       * <code>repeated int32 rightCard = 4;</code>
-       *
-       * <pre>
-       *可选,右边玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public int getRightCard(int index) {
-        return rightCard_.get(index);
-      }
-      /**
-       * <code>repeated int32 rightCard = 4;</code>
-       *
-       * <pre>
-       *可选,右边玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public Builder setRightCard(
-          int index, int value) {
-        ensureRightCardIsMutable();
-        rightCard_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 rightCard = 4;</code>
-       *
-       * <pre>
-       *可选,右边玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public Builder addRightCard(int value) {
-        ensureRightCardIsMutable();
-        rightCard_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 rightCard = 4;</code>
-       *
-       * <pre>
-       *可选,右边玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public Builder addAllRightCard(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureRightCardIsMutable();
-        super.addAll(values, rightCard_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 rightCard = 4;</code>
-       *
-       * <pre>
-       *可选,右边玩家的手牌,不包括底牌
-       * </pre>
-       */
-      public Builder clearRightCard() {
-        rightCard_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:com.xt.yde.protobuf.regular.DealResponseMsg)
+      // @@protoc_insertion_point(builder_scope:com.xt.yde.protobuf.regular.RegularRaiseBetResponseMsg)
     }
 
     static {
-      defaultInstance = new DealResponseMsg(true);
+      defaultInstance = new RegularRaiseBetResponseMsg(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.regular.DealResponseMsg)
+    // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.regular.RegularRaiseBetResponseMsg)
   }
 
-  public interface PlayRequestMsgOrBuilder
+  public interface RegularGuessSizeRequestMsgOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
-
-    // repeated int32 cards = 1;
-    /**
-     * <code>repeated int32 cards = 1;</code>
-     *
-     * <pre>
-     * 所出的牌 例 2,2,2,3,3
-     * </pre>
-     */
-    java.util.List<java.lang.Integer> getCardsList();
-    /**
-     * <code>repeated int32 cards = 1;</code>
-     *
-     * <pre>
-     * 所出的牌 例 2,2,2,3,3
-     * </pre>
-     */
-    int getCardsCount();
-    /**
-     * <code>repeated int32 cards = 1;</code>
-     *
-     * <pre>
-     * 所出的牌 例 2,2,2,3,3
-     * </pre>
-     */
-    int getCards(int index);
-
-    // required int32 rolePosition = 2;
-    /**
-     * <code>required int32 rolePosition = 2;</code>
-     *
-     * <pre>
-     *可选的方位,如果不是自己,那就是帮农民出牌 1地主 2右边农民 3左边农民
-     * </pre>
-     */
-    boolean hasRolePosition();
-    /**
-     * <code>required int32 rolePosition = 2;</code>
-     *
-     * <pre>
-     *可选的方位,如果不是自己,那就是帮农民出牌 1地主 2右边农民 3左边农民
-     * </pre>
-     */
-    int getRolePosition();
-
-    // optional bool isAuto = 3;
-    /**
-     * <code>optional bool isAuto = 3;</code>
-     *
-     * <pre>
-     *地主是否托管true = 托管,false = 地主出牌
-     * </pre>
-     */
-    boolean hasIsAuto();
-    /**
-     * <code>optional bool isAuto = 3;</code>
-     *
-     * <pre>
-     *地主是否托管true = 托管,false = 地主出牌
-     * </pre>
-     */
-    boolean getIsAuto();
   }
   /**
-   * Protobuf type {@code com.xt.yde.protobuf.regular.PlayRequestMsg}
+   * Protobuf type {@code com.xt.yde.protobuf.regular.RegularGuessSizeRequestMsg}
    *
    * <pre>
-   *出牌请求
+   *翻牌
    * </pre>
    */
-  public static final class PlayRequestMsg extends
+  public static final class RegularGuessSizeRequestMsg extends
       com.google.protobuf.GeneratedMessage
-      implements PlayRequestMsgOrBuilder {
-    // Use PlayRequestMsg.newBuilder() to construct.
-    private PlayRequestMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements RegularGuessSizeRequestMsgOrBuilder {
+    // Use RegularGuessSizeRequestMsg.newBuilder() to construct.
+    private RegularGuessSizeRequestMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private PlayRequestMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private RegularGuessSizeRequestMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final PlayRequestMsg defaultInstance;
-    public static PlayRequestMsg getDefaultInstance() {
+    private static final RegularGuessSizeRequestMsg defaultInstance;
+    public static RegularGuessSizeRequestMsg getDefaultInstance() {
       return defaultInstance;
     }
 
-    public PlayRequestMsg getDefaultInstanceForType() {
+    public RegularGuessSizeRequestMsg getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -1828,12 +804,11 @@ public final class GameRegular {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private PlayRequestMsg(
+    private RegularGuessSizeRequestMsg(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       initFields();
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -1851,37 +826,6 @@ public final class GameRegular {
               }
               break;
             }
-            case 8: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                cards_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              cards_.add(input.readInt32());
-              break;
-            }
-            case 10: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001) && input.getBytesUntilLimit() > 0) {
-                cards_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                cards_.add(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000001;
-              rolePosition_ = input.readInt32();
-              break;
-            }
-            case 24: {
-              bitField0_ |= 0x00000002;
-              isAuto_ = input.readBool();
-              break;
-            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1890,138 +834,44 @@ public final class GameRegular {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          cards_ = java.util.Collections.unmodifiableList(cards_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_PlayRequestMsg_descriptor;
+      return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeRequestMsg_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_PlayRequestMsg_fieldAccessorTable
+      return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeRequestMsg_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg.class, com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg.Builder.class);
+              com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg.class, com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<PlayRequestMsg> PARSER =
-        new com.google.protobuf.AbstractParser<PlayRequestMsg>() {
-      public PlayRequestMsg parsePartialFrom(
+    public static com.google.protobuf.Parser<RegularGuessSizeRequestMsg> PARSER =
+        new com.google.protobuf.AbstractParser<RegularGuessSizeRequestMsg>() {
+      public RegularGuessSizeRequestMsg parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PlayRequestMsg(input, extensionRegistry);
+        return new RegularGuessSizeRequestMsg(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<PlayRequestMsg> getParserForType() {
+    public com.google.protobuf.Parser<RegularGuessSizeRequestMsg> getParserForType() {
       return PARSER;
     }
 
-    private int bitField0_;
-    // repeated int32 cards = 1;
-    public static final int CARDS_FIELD_NUMBER = 1;
-    private java.util.List<java.lang.Integer> cards_;
-    /**
-     * <code>repeated int32 cards = 1;</code>
-     *
-     * <pre>
-     * 所出的牌 例 2,2,2,3,3
-     * </pre>
-     */
-    public java.util.List<java.lang.Integer>
-        getCardsList() {
-      return cards_;
-    }
-    /**
-     * <code>repeated int32 cards = 1;</code>
-     *
-     * <pre>
-     * 所出的牌 例 2,2,2,3,3
-     * </pre>
-     */
-    public int getCardsCount() {
-      return cards_.size();
-    }
-    /**
-     * <code>repeated int32 cards = 1;</code>
-     *
-     * <pre>
-     * 所出的牌 例 2,2,2,3,3
-     * </pre>
-     */
-    public int getCards(int index) {
-      return cards_.get(index);
-    }
-
-    // required int32 rolePosition = 2;
-    public static final int ROLEPOSITION_FIELD_NUMBER = 2;
-    private int rolePosition_;
-    /**
-     * <code>required int32 rolePosition = 2;</code>
-     *
-     * <pre>
-     *可选的方位,如果不是自己,那就是帮农民出牌 1地主 2右边农民 3左边农民
-     * </pre>
-     */
-    public boolean hasRolePosition() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>required int32 rolePosition = 2;</code>
-     *
-     * <pre>
-     *可选的方位,如果不是自己,那就是帮农民出牌 1地主 2右边农民 3左边农民
-     * </pre>
-     */
-    public int getRolePosition() {
-      return rolePosition_;
-    }
-
-    // optional bool isAuto = 3;
-    public static final int ISAUTO_FIELD_NUMBER = 3;
-    private boolean isAuto_;
-    /**
-     * <code>optional bool isAuto = 3;</code>
-     *
-     * <pre>
-     *地主是否托管true = 托管,false = 地主出牌
-     * </pre>
-     */
-    public boolean hasIsAuto() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>optional bool isAuto = 3;</code>
-     *
-     * <pre>
-     *地主是否托管true = 托管,false = 地主出牌
-     * </pre>
-     */
-    public boolean getIsAuto() {
-      return isAuto_;
-    }
-
     private void initFields() {
-      cards_ = java.util.Collections.emptyList();
-      rolePosition_ = 0;
-      isAuto_ = false;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
-      if (!hasRolePosition()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -2029,15 +879,6 @@ public final class GameRegular {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      for (int i = 0; i < cards_.size(); i++) {
-        output.writeInt32(1, cards_.get(i));
-      }
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(2, rolePosition_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBool(3, isAuto_);
-      }
       getUnknownFields().writeTo(output);
     }
 
@@ -2047,23 +888,6 @@ public final class GameRegular {
       if (size != -1) return size;
 
       size = 0;
-      {
-        int dataSize = 0;
-        for (int i = 0; i < cards_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(cards_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getCardsList().size();
-      }
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, rolePosition_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(3, isAuto_);
-      }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
       return size;
@@ -2076,53 +900,53 @@ public final class GameRegular {
       return super.writeReplace();
     }
 
-    public static com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg parseFrom(byte[] data)
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg parseFrom(java.io.InputStream input)
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg parseDelimitedFrom(java.io.InputStream input)
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg parseDelimitedFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2131,7 +955,7 @@ public final class GameRegular {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg prototype) {
+    public static Builder newBuilder(com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -2143,28 +967,28 @@ public final class GameRegular {
       return builder;
     }
     /**
-     * Protobuf type {@code com.xt.yde.protobuf.regular.PlayRequestMsg}
+     * Protobuf type {@code com.xt.yde.protobuf.regular.RegularGuessSizeRequestMsg}
      *
      * <pre>
-     *出牌请求
+     *翻牌
      * </pre>
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsgOrBuilder {
+       implements com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsgOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_PlayRequestMsg_descriptor;
+        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeRequestMsg_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_PlayRequestMsg_fieldAccessorTable
+        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeRequestMsg_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg.class, com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg.Builder.class);
+                com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg.class, com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg.Builder.class);
       }
 
-      // Construct using com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg.newBuilder()
+      // Construct using com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2184,12 +1008,6 @@ public final class GameRegular {
 
       public Builder clear() {
         super.clear();
-        cards_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        rolePosition_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        isAuto_ = false;
-        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -2199,79 +1017,43 @@ public final class GameRegular {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_PlayRequestMsg_descriptor;
+        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeRequestMsg_descriptor;
       }
 
-      public com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg getDefaultInstanceForType() {
-        return com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg.getDefaultInstance();
+      public com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg getDefaultInstanceForType() {
+        return com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg.getDefaultInstance();
       }
 
-      public com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg build() {
-        com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg result = buildPartial();
+      public com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg build() {
+        com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg buildPartial() {
-        com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg result = new com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          cards_ = java.util.Collections.unmodifiableList(cards_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.cards_ = cards_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.rolePosition_ = rolePosition_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.isAuto_ = isAuto_;
-        result.bitField0_ = to_bitField0_;
+      public com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg buildPartial() {
+        com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg result = new com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg(this);
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg) {
-          return mergeFrom((com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg)other);
+        if (other instanceof com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg) {
+          return mergeFrom((com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg other) {
-        if (other == com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg.getDefaultInstance()) return this;
-        if (!other.cards_.isEmpty()) {
-          if (cards_.isEmpty()) {
-            cards_ = other.cards_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureCardsIsMutable();
-            cards_.addAll(other.cards_);
-          }
-          onChanged();
-        }
-        if (other.hasRolePosition()) {
-          setRolePosition(other.getRolePosition());
-        }
-        if (other.hasIsAuto()) {
-          setIsAuto(other.getIsAuto());
-        }
+      public Builder mergeFrom(com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg other) {
+        if (other == com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasRolePosition()) {
-          
-          return false;
-        }
         return true;
       }
 
@@ -2279,11 +1061,11 @@ public final class GameRegular {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg parsedMessage = null;
+        com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.xt.yde.protobuf.regular.GameRegular.PlayRequestMsg) e.getUnfinishedMessage();
+          parsedMessage = (com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeRequestMsg) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -2292,413 +1074,80 @@ public final class GameRegular {
         }
         return this;
       }
-      private int bitField0_;
 
-      // repeated int32 cards = 1;
-      private java.util.List<java.lang.Integer> cards_ = java.util.Collections.emptyList();
-      private void ensureCardsIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          cards_ = new java.util.ArrayList<java.lang.Integer>(cards_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-      /**
-       * <code>repeated int32 cards = 1;</code>
-       *
-       * <pre>
-       * 所出的牌 例 2,2,2,3,3
-       * </pre>
-       */
-      public java.util.List<java.lang.Integer>
-          getCardsList() {
-        return java.util.Collections.unmodifiableList(cards_);
-      }
-      /**
-       * <code>repeated int32 cards = 1;</code>
-       *
-       * <pre>
-       * 所出的牌 例 2,2,2,3,3
-       * </pre>
-       */
-      public int getCardsCount() {
-        return cards_.size();
-      }
-      /**
-       * <code>repeated int32 cards = 1;</code>
-       *
-       * <pre>
-       * 所出的牌 例 2,2,2,3,3
-       * </pre>
-       */
-      public int getCards(int index) {
-        return cards_.get(index);
-      }
-      /**
-       * <code>repeated int32 cards = 1;</code>
-       *
-       * <pre>
-       * 所出的牌 例 2,2,2,3,3
-       * </pre>
-       */
-      public Builder setCards(
-          int index, int value) {
-        ensureCardsIsMutable();
-        cards_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 cards = 1;</code>
-       *
-       * <pre>
-       * 所出的牌 例 2,2,2,3,3
-       * </pre>
-       */
-      public Builder addCards(int value) {
-        ensureCardsIsMutable();
-        cards_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 cards = 1;</code>
-       *
-       * <pre>
-       * 所出的牌 例 2,2,2,3,3
-       * </pre>
-       */
-      public Builder addAllCards(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureCardsIsMutable();
-        super.addAll(values, cards_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 cards = 1;</code>
-       *
-       * <pre>
-       * 所出的牌 例 2,2,2,3,3
-       * </pre>
-       */
-      public Builder clearCards() {
-        cards_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-        return this;
-      }
-
-      // required int32 rolePosition = 2;
-      private int rolePosition_ ;
-      /**
-       * <code>required int32 rolePosition = 2;</code>
-       *
-       * <pre>
-       *可选的方位,如果不是自己,那就是帮农民出牌 1地主 2右边农民 3左边农民
-       * </pre>
-       */
-      public boolean hasRolePosition() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>required int32 rolePosition = 2;</code>
-       *
-       * <pre>
-       *可选的方位,如果不是自己,那就是帮农民出牌 1地主 2右边农民 3左边农民
-       * </pre>
-       */
-      public int getRolePosition() {
-        return rolePosition_;
-      }
-      /**
-       * <code>required int32 rolePosition = 2;</code>
-       *
-       * <pre>
-       *可选的方位,如果不是自己,那就是帮农民出牌 1地主 2右边农民 3左边农民
-       * </pre>
-       */
-      public Builder setRolePosition(int value) {
-        bitField0_ |= 0x00000002;
-        rolePosition_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required int32 rolePosition = 2;</code>
-       *
-       * <pre>
-       *可选的方位,如果不是自己,那就是帮农民出牌 1地主 2右边农民 3左边农民
-       * </pre>
-       */
-      public Builder clearRolePosition() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        rolePosition_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional bool isAuto = 3;
-      private boolean isAuto_ ;
-      /**
-       * <code>optional bool isAuto = 3;</code>
-       *
-       * <pre>
-       *地主是否托管true = 托管,false = 地主出牌
-       * </pre>
-       */
-      public boolean hasIsAuto() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>optional bool isAuto = 3;</code>
-       *
-       * <pre>
-       *地主是否托管true = 托管,false = 地主出牌
-       * </pre>
-       */
-      public boolean getIsAuto() {
-        return isAuto_;
-      }
-      /**
-       * <code>optional bool isAuto = 3;</code>
-       *
-       * <pre>
-       *地主是否托管true = 托管,false = 地主出牌
-       * </pre>
-       */
-      public Builder setIsAuto(boolean value) {
-        bitField0_ |= 0x00000004;
-        isAuto_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional bool isAuto = 3;</code>
-       *
-       * <pre>
-       *地主是否托管true = 托管,false = 地主出牌
-       * </pre>
-       */
-      public Builder clearIsAuto() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        isAuto_ = false;
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:com.xt.yde.protobuf.regular.PlayRequestMsg)
+      // @@protoc_insertion_point(builder_scope:com.xt.yde.protobuf.regular.RegularGuessSizeRequestMsg)
     }
 
     static {
-      defaultInstance = new PlayRequestMsg(true);
+      defaultInstance = new RegularGuessSizeRequestMsg(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.regular.PlayRequestMsg)
+    // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.regular.RegularGuessSizeRequestMsg)
   }
 
-  public interface PlayResponseMsgOrBuilder
+  public interface RegularGuessSizeResponseMsgOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required int32 rolePosition = 1;
+    // required int32 awardLevel = 1;
     /**
-     * <code>required int32 rolePosition = 1;</code>
+     * <code>required int32 awardLevel = 1;</code>
      *
      * <pre>
-     *方位
+     *奖等
      * </pre>
      */
-    boolean hasRolePosition();
+    boolean hasAwardLevel();
     /**
-     * <code>required int32 rolePosition = 1;</code>
+     * <code>required int32 awardLevel = 1;</code>
      *
      * <pre>
-     *方位
+     *奖等
      * </pre>
      */
-    int getRolePosition();
+    int getAwardLevel();
 
-    // repeated int32 cards = 2;
+    // required int32 totalMoney = 2;
     /**
-     * <code>repeated int32 cards = 2;</code>
+     * <code>required int32 totalMoney = 2;</code>
      *
      * <pre>
-     * 所出的牌 例 2,2,2,3,3
+     *中奖金额,有符合预期和不符合预期两种算法
      * </pre>
      */
-    java.util.List<java.lang.Integer> getCardsList();
+    boolean hasTotalMoney();
     /**
-     * <code>repeated int32 cards = 2;</code>
+     * <code>required int32 totalMoney = 2;</code>
      *
      * <pre>
-     * 所出的牌 例 2,2,2,3,3
+     *中奖金额,有符合预期和不符合预期两种算法
      * </pre>
      */
-    int getCardsCount();
-    /**
-     * <code>repeated int32 cards = 2;</code>
-     *
-     * <pre>
-     * 所出的牌 例 2,2,2,3,3
-     * </pre>
-     */
-    int getCards(int index);
-
-    // required int32 bomNums = 3;
-    /**
-     * <code>required int32 bomNums = 3;</code>
-     *
-     * <pre>
-     *当前的炸弹数量
-     * </pre>
-     */
-    boolean hasBomNums();
-    /**
-     * <code>required int32 bomNums = 3;</code>
-     *
-     * <pre>
-     *当前的炸弹数量
-     * </pre>
-     */
-    int getBomNums();
-
-    // required int32 nextPerson = 4;
-    /**
-     * <code>required int32 nextPerson = 4;</code>
-     *
-     * <pre>
-     *下一个出牌的玩家
-     * </pre>
-     */
-    boolean hasNextPerson();
-    /**
-     * <code>required int32 nextPerson = 4;</code>
-     *
-     * <pre>
-     *下一个出牌的玩家
-     * </pre>
-     */
-    int getNextPerson();
-
-    // required bool ifEnd = 5;
-    /**
-     * <code>required bool ifEnd = 5;</code>
-     *
-     * <pre>
-     *必须 是否出牌结束 true,出牌结束 false,出牌进行中
-     * </pre>
-     */
-    boolean hasIfEnd();
-    /**
-     * <code>required bool ifEnd = 5;</code>
-     *
-     * <pre>
-     *必须 是否出牌结束 true,出牌结束 false,出牌进行中
-     * </pre>
-     */
-    boolean getIfEnd();
-
-    // repeated int32 center = 6;
-    /**
-     * <code>repeated int32 center = 6;</code>
-     *
-     * <pre>
-     *地主剩余牌
-     * </pre>
-     */
-    java.util.List<java.lang.Integer> getCenterList();
-    /**
-     * <code>repeated int32 center = 6;</code>
-     *
-     * <pre>
-     *地主剩余牌
-     * </pre>
-     */
-    int getCenterCount();
-    /**
-     * <code>repeated int32 center = 6;</code>
-     *
-     * <pre>
-     *地主剩余牌
-     * </pre>
-     */
-    int getCenter(int index);
-
-    // repeated int32 left = 7;
-    /**
-     * <code>repeated int32 left = 7;</code>
-     *
-     * <pre>
-     *农民剩余牌
-     * </pre>
-     */
-    java.util.List<java.lang.Integer> getLeftList();
-    /**
-     * <code>repeated int32 left = 7;</code>
-     *
-     * <pre>
-     *农民剩余牌
-     * </pre>
-     */
-    int getLeftCount();
-    /**
-     * <code>repeated int32 left = 7;</code>
-     *
-     * <pre>
-     *农民剩余牌
-     * </pre>
-     */
-    int getLeft(int index);
-
-    // repeated int32 right = 8;
-    /**
-     * <code>repeated int32 right = 8;</code>
-     *
-     * <pre>
-     *农民剩余牌
-     * </pre>
-     */
-    java.util.List<java.lang.Integer> getRightList();
-    /**
-     * <code>repeated int32 right = 8;</code>
-     *
-     * <pre>
-     *农民剩余牌
-     * </pre>
-     */
-    int getRightCount();
-    /**
-     * <code>repeated int32 right = 8;</code>
-     *
-     * <pre>
-     *农民剩余牌
-     * </pre>
-     */
-    int getRight(int index);
+    int getTotalMoney();
   }
   /**
-   * Protobuf type {@code com.xt.yde.protobuf.regular.PlayResponseMsg}
+   * Protobuf type {@code com.xt.yde.protobuf.regular.RegularGuessSizeResponseMsg}
    *
    * <pre>
-   *出牌应答
+   *翻牌应答
    * </pre>
    */
-  public static final class PlayResponseMsg extends
+  public static final class RegularGuessSizeResponseMsg extends
       com.google.protobuf.GeneratedMessage
-      implements PlayResponseMsgOrBuilder {
-    // Use PlayResponseMsg.newBuilder() to construct.
-    private PlayResponseMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements RegularGuessSizeResponseMsgOrBuilder {
+    // Use RegularGuessSizeResponseMsg.newBuilder() to construct.
+    private RegularGuessSizeResponseMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private PlayResponseMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private RegularGuessSizeResponseMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final PlayResponseMsg defaultInstance;
-    public static PlayResponseMsg getDefaultInstance() {
+    private static final RegularGuessSizeResponseMsg defaultInstance;
+    public static RegularGuessSizeResponseMsg getDefaultInstance() {
       return defaultInstance;
     }
 
-    public PlayResponseMsg getDefaultInstanceForType() {
+    public RegularGuessSizeResponseMsg getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -2708,7 +1157,7 @@ public final class GameRegular {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private PlayResponseMsg(
+    private RegularGuessSizeResponseMsg(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2733,106 +1182,12 @@ public final class GameRegular {
             }
             case 8: {
               bitField0_ |= 0x00000001;
-              rolePosition_ = input.readInt32();
+              awardLevel_ = input.readInt32();
               break;
             }
             case 16: {
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-                cards_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              cards_.add(input.readInt32());
-              break;
-            }
-            case 18: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002) && input.getBytesUntilLimit() > 0) {
-                cards_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                cards_.add(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 24: {
               bitField0_ |= 0x00000002;
-              bomNums_ = input.readInt32();
-              break;
-            }
-            case 32: {
-              bitField0_ |= 0x00000004;
-              nextPerson_ = input.readInt32();
-              break;
-            }
-            case 40: {
-              bitField0_ |= 0x00000008;
-              ifEnd_ = input.readBool();
-              break;
-            }
-            case 48: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-                center_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000020;
-              }
-              center_.add(input.readInt32());
-              break;
-            }
-            case 50: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020) && input.getBytesUntilLimit() > 0) {
-                center_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000020;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                center_.add(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 56: {
-              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-                left_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000040;
-              }
-              left_.add(input.readInt32());
-              break;
-            }
-            case 58: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040) && input.getBytesUntilLimit() > 0) {
-                left_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000040;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                left_.add(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 64: {
-              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
-                right_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000080;
-              }
-              right_.add(input.readInt32());
-              break;
-            }
-            case 66: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000080) == 0x00000080) && input.getBytesUntilLimit() > 0) {
-                right_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000080;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                right_.add(input.readInt32());
-              }
-              input.popLimit(limit);
+              totalMoney_ = input.readInt32();
               break;
             }
           }
@@ -2843,314 +1198,100 @@ public final class GameRegular {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
-          cards_ = java.util.Collections.unmodifiableList(cards_);
-        }
-        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
-          center_ = java.util.Collections.unmodifiableList(center_);
-        }
-        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
-          left_ = java.util.Collections.unmodifiableList(left_);
-        }
-        if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
-          right_ = java.util.Collections.unmodifiableList(right_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_PlayResponseMsg_descriptor;
+      return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeResponseMsg_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_PlayResponseMsg_fieldAccessorTable
+      return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeResponseMsg_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg.class, com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg.Builder.class);
+              com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg.class, com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<PlayResponseMsg> PARSER =
-        new com.google.protobuf.AbstractParser<PlayResponseMsg>() {
-      public PlayResponseMsg parsePartialFrom(
+    public static com.google.protobuf.Parser<RegularGuessSizeResponseMsg> PARSER =
+        new com.google.protobuf.AbstractParser<RegularGuessSizeResponseMsg>() {
+      public RegularGuessSizeResponseMsg parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PlayResponseMsg(input, extensionRegistry);
+        return new RegularGuessSizeResponseMsg(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<PlayResponseMsg> getParserForType() {
+    public com.google.protobuf.Parser<RegularGuessSizeResponseMsg> getParserForType() {
       return PARSER;
     }
 
     private int bitField0_;
-    // required int32 rolePosition = 1;
-    public static final int ROLEPOSITION_FIELD_NUMBER = 1;
-    private int rolePosition_;
+    // required int32 awardLevel = 1;
+    public static final int AWARDLEVEL_FIELD_NUMBER = 1;
+    private int awardLevel_;
     /**
-     * <code>required int32 rolePosition = 1;</code>
+     * <code>required int32 awardLevel = 1;</code>
      *
      * <pre>
-     *方位
+     *奖等
      * </pre>
      */
-    public boolean hasRolePosition() {
+    public boolean hasAwardLevel() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required int32 rolePosition = 1;</code>
+     * <code>required int32 awardLevel = 1;</code>
      *
      * <pre>
-     *方位
+     *奖等
      * </pre>
      */
-    public int getRolePosition() {
-      return rolePosition_;
+    public int getAwardLevel() {
+      return awardLevel_;
     }
 
-    // repeated int32 cards = 2;
-    public static final int CARDS_FIELD_NUMBER = 2;
-    private java.util.List<java.lang.Integer> cards_;
+    // required int32 totalMoney = 2;
+    public static final int TOTALMONEY_FIELD_NUMBER = 2;
+    private int totalMoney_;
     /**
-     * <code>repeated int32 cards = 2;</code>
+     * <code>required int32 totalMoney = 2;</code>
      *
      * <pre>
-     * 所出的牌 例 2,2,2,3,3
+     *中奖金额,有符合预期和不符合预期两种算法
      * </pre>
      */
-    public java.util.List<java.lang.Integer>
-        getCardsList() {
-      return cards_;
-    }
-    /**
-     * <code>repeated int32 cards = 2;</code>
-     *
-     * <pre>
-     * 所出的牌 例 2,2,2,3,3
-     * </pre>
-     */
-    public int getCardsCount() {
-      return cards_.size();
-    }
-    /**
-     * <code>repeated int32 cards = 2;</code>
-     *
-     * <pre>
-     * 所出的牌 例 2,2,2,3,3
-     * </pre>
-     */
-    public int getCards(int index) {
-      return cards_.get(index);
-    }
-
-    // required int32 bomNums = 3;
-    public static final int BOMNUMS_FIELD_NUMBER = 3;
-    private int bomNums_;
-    /**
-     * <code>required int32 bomNums = 3;</code>
-     *
-     * <pre>
-     *当前的炸弹数量
-     * </pre>
-     */
-    public boolean hasBomNums() {
+    public boolean hasTotalMoney() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required int32 bomNums = 3;</code>
+     * <code>required int32 totalMoney = 2;</code>
      *
      * <pre>
-     *当前的炸弹数量
+     *中奖金额,有符合预期和不符合预期两种算法
      * </pre>
      */
-    public int getBomNums() {
-      return bomNums_;
-    }
-
-    // required int32 nextPerson = 4;
-    public static final int NEXTPERSON_FIELD_NUMBER = 4;
-    private int nextPerson_;
-    /**
-     * <code>required int32 nextPerson = 4;</code>
-     *
-     * <pre>
-     *下一个出牌的玩家
-     * </pre>
-     */
-    public boolean hasNextPerson() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>required int32 nextPerson = 4;</code>
-     *
-     * <pre>
-     *下一个出牌的玩家
-     * </pre>
-     */
-    public int getNextPerson() {
-      return nextPerson_;
-    }
-
-    // required bool ifEnd = 5;
-    public static final int IFEND_FIELD_NUMBER = 5;
-    private boolean ifEnd_;
-    /**
-     * <code>required bool ifEnd = 5;</code>
-     *
-     * <pre>
-     *必须 是否出牌结束 true,出牌结束 false,出牌进行中
-     * </pre>
-     */
-    public boolean hasIfEnd() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
-    }
-    /**
-     * <code>required bool ifEnd = 5;</code>
-     *
-     * <pre>
-     *必须 是否出牌结束 true,出牌结束 false,出牌进行中
-     * </pre>
-     */
-    public boolean getIfEnd() {
-      return ifEnd_;
-    }
-
-    // repeated int32 center = 6;
-    public static final int CENTER_FIELD_NUMBER = 6;
-    private java.util.List<java.lang.Integer> center_;
-    /**
-     * <code>repeated int32 center = 6;</code>
-     *
-     * <pre>
-     *地主剩余牌
-     * </pre>
-     */
-    public java.util.List<java.lang.Integer>
-        getCenterList() {
-      return center_;
-    }
-    /**
-     * <code>repeated int32 center = 6;</code>
-     *
-     * <pre>
-     *地主剩余牌
-     * </pre>
-     */
-    public int getCenterCount() {
-      return center_.size();
-    }
-    /**
-     * <code>repeated int32 center = 6;</code>
-     *
-     * <pre>
-     *地主剩余牌
-     * </pre>
-     */
-    public int getCenter(int index) {
-      return center_.get(index);
-    }
-
-    // repeated int32 left = 7;
-    public static final int LEFT_FIELD_NUMBER = 7;
-    private java.util.List<java.lang.Integer> left_;
-    /**
-     * <code>repeated int32 left = 7;</code>
-     *
-     * <pre>
-     *农民剩余牌
-     * </pre>
-     */
-    public java.util.List<java.lang.Integer>
-        getLeftList() {
-      return left_;
-    }
-    /**
-     * <code>repeated int32 left = 7;</code>
-     *
-     * <pre>
-     *农民剩余牌
-     * </pre>
-     */
-    public int getLeftCount() {
-      return left_.size();
-    }
-    /**
-     * <code>repeated int32 left = 7;</code>
-     *
-     * <pre>
-     *农民剩余牌
-     * </pre>
-     */
-    public int getLeft(int index) {
-      return left_.get(index);
-    }
-
-    // repeated int32 right = 8;
-    public static final int RIGHT_FIELD_NUMBER = 8;
-    private java.util.List<java.lang.Integer> right_;
-    /**
-     * <code>repeated int32 right = 8;</code>
-     *
-     * <pre>
-     *农民剩余牌
-     * </pre>
-     */
-    public java.util.List<java.lang.Integer>
-        getRightList() {
-      return right_;
-    }
-    /**
-     * <code>repeated int32 right = 8;</code>
-     *
-     * <pre>
-     *农民剩余牌
-     * </pre>
-     */
-    public int getRightCount() {
-      return right_.size();
-    }
-    /**
-     * <code>repeated int32 right = 8;</code>
-     *
-     * <pre>
-     *农民剩余牌
-     * </pre>
-     */
-    public int getRight(int index) {
-      return right_.get(index);
+    public int getTotalMoney() {
+      return totalMoney_;
     }
 
     private void initFields() {
-      rolePosition_ = 0;
-      cards_ = java.util.Collections.emptyList();
-      bomNums_ = 0;
-      nextPerson_ = 0;
-      ifEnd_ = false;
-      center_ = java.util.Collections.emptyList();
-      left_ = java.util.Collections.emptyList();
-      right_ = java.util.Collections.emptyList();
+      awardLevel_ = 0;
+      totalMoney_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
-      if (!hasRolePosition()) {
+      if (!hasAwardLevel()) {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!hasBomNums()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasNextPerson()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasIfEnd()) {
+      if (!hasTotalMoney()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -3162,28 +1303,10 @@ public final class GameRegular {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, rolePosition_);
-      }
-      for (int i = 0; i < cards_.size(); i++) {
-        output.writeInt32(2, cards_.get(i));
+        output.writeInt32(1, awardLevel_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(3, bomNums_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(4, nextPerson_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeBool(5, ifEnd_);
-      }
-      for (int i = 0; i < center_.size(); i++) {
-        output.writeInt32(6, center_.get(i));
-      }
-      for (int i = 0; i < left_.size(); i++) {
-        output.writeInt32(7, left_.get(i));
-      }
-      for (int i = 0; i < right_.size(); i++) {
-        output.writeInt32(8, right_.get(i));
+        output.writeInt32(2, totalMoney_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -3196,55 +1319,11 @@ public final class GameRegular {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, rolePosition_);
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < cards_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(cards_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getCardsList().size();
+          .computeInt32Size(1, awardLevel_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, bomNums_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, nextPerson_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(5, ifEnd_);
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < center_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(center_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getCenterList().size();
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < left_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(left_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getLeftList().size();
-      }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < right_.size(); i++) {
-          dataSize += com.google.protobuf.CodedOutputStream
-            .computeInt32SizeNoTag(right_.get(i));
-        }
-        size += dataSize;
-        size += 1 * getRightList().size();
+          .computeInt32Size(2, totalMoney_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -3258,53 +1337,53 @@ public final class GameRegular {
       return super.writeReplace();
     }
 
-    public static com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg parseFrom(byte[] data)
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg parseFrom(java.io.InputStream input)
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg parseDelimitedFrom(java.io.InputStream input)
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg parseDelimitedFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg parseFrom(
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3313,7 +1392,7 @@ public final class GameRegular {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg prototype) {
+    public static Builder newBuilder(com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -3325,28 +1404,28 @@ public final class GameRegular {
       return builder;
     }
     /**
-     * Protobuf type {@code com.xt.yde.protobuf.regular.PlayResponseMsg}
+     * Protobuf type {@code com.xt.yde.protobuf.regular.RegularGuessSizeResponseMsg}
      *
      * <pre>
-     *出牌应答
+     *翻牌应答
      * </pre>
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsgOrBuilder {
+       implements com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsgOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_PlayResponseMsg_descriptor;
+        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeResponseMsg_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_PlayResponseMsg_fieldAccessorTable
+        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeResponseMsg_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg.class, com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg.Builder.class);
+                com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg.class, com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg.Builder.class);
       }
 
-      // Construct using com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg.newBuilder()
+      // Construct using com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3366,22 +1445,10 @@ public final class GameRegular {
 
       public Builder clear() {
         super.clear();
-        rolePosition_ = 0;
+        awardLevel_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        cards_ = java.util.Collections.emptyList();
+        totalMoney_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        bomNums_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        nextPerson_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        ifEnd_ = false;
-        bitField0_ = (bitField0_ & ~0x00000010);
-        center_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
-        left_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000040);
-        right_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
@@ -3391,147 +1458,65 @@ public final class GameRegular {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_PlayResponseMsg_descriptor;
+        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeResponseMsg_descriptor;
       }
 
-      public com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg getDefaultInstanceForType() {
-        return com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg.getDefaultInstance();
+      public com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg getDefaultInstanceForType() {
+        return com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg.getDefaultInstance();
       }
 
-      public com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg build() {
-        com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg result = buildPartial();
+      public com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg build() {
+        com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg buildPartial() {
-        com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg result = new com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg(this);
+      public com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg buildPartial() {
+        com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg result = new com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.rolePosition_ = rolePosition_;
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          cards_ = java.util.Collections.unmodifiableList(cards_);
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.cards_ = cards_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+        result.awardLevel_ = awardLevel_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.bomNums_ = bomNums_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.nextPerson_ = nextPerson_;
-        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-          to_bitField0_ |= 0x00000008;
-        }
-        result.ifEnd_ = ifEnd_;
-        if (((bitField0_ & 0x00000020) == 0x00000020)) {
-          center_ = java.util.Collections.unmodifiableList(center_);
-          bitField0_ = (bitField0_ & ~0x00000020);
-        }
-        result.center_ = center_;
-        if (((bitField0_ & 0x00000040) == 0x00000040)) {
-          left_ = java.util.Collections.unmodifiableList(left_);
-          bitField0_ = (bitField0_ & ~0x00000040);
-        }
-        result.left_ = left_;
-        if (((bitField0_ & 0x00000080) == 0x00000080)) {
-          right_ = java.util.Collections.unmodifiableList(right_);
-          bitField0_ = (bitField0_ & ~0x00000080);
-        }
-        result.right_ = right_;
+        result.totalMoney_ = totalMoney_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg) {
-          return mergeFrom((com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg)other);
+        if (other instanceof com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg) {
+          return mergeFrom((com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg other) {
-        if (other == com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg.getDefaultInstance()) return this;
-        if (other.hasRolePosition()) {
-          setRolePosition(other.getRolePosition());
+      public Builder mergeFrom(com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg other) {
+        if (other == com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg.getDefaultInstance()) return this;
+        if (other.hasAwardLevel()) {
+          setAwardLevel(other.getAwardLevel());
         }
-        if (!other.cards_.isEmpty()) {
-          if (cards_.isEmpty()) {
-            cards_ = other.cards_;
-            bitField0_ = (bitField0_ & ~0x00000002);
-          } else {
-            ensureCardsIsMutable();
-            cards_.addAll(other.cards_);
-          }
-          onChanged();
-        }
-        if (other.hasBomNums()) {
-          setBomNums(other.getBomNums());
-        }
-        if (other.hasNextPerson()) {
-          setNextPerson(other.getNextPerson());
-        }
-        if (other.hasIfEnd()) {
-          setIfEnd(other.getIfEnd());
-        }
-        if (!other.center_.isEmpty()) {
-          if (center_.isEmpty()) {
-            center_ = other.center_;
-            bitField0_ = (bitField0_ & ~0x00000020);
-          } else {
-            ensureCenterIsMutable();
-            center_.addAll(other.center_);
-          }
-          onChanged();
-        }
-        if (!other.left_.isEmpty()) {
-          if (left_.isEmpty()) {
-            left_ = other.left_;
-            bitField0_ = (bitField0_ & ~0x00000040);
-          } else {
-            ensureLeftIsMutable();
-            left_.addAll(other.left_);
-          }
-          onChanged();
-        }
-        if (!other.right_.isEmpty()) {
-          if (right_.isEmpty()) {
-            right_ = other.right_;
-            bitField0_ = (bitField0_ & ~0x00000080);
-          } else {
-            ensureRightIsMutable();
-            right_.addAll(other.right_);
-          }
-          onChanged();
+        if (other.hasTotalMoney()) {
+          setTotalMoney(other.getTotalMoney());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
 
       public final boolean isInitialized() {
-        if (!hasRolePosition()) {
+        if (!hasAwardLevel()) {
           
           return false;
         }
-        if (!hasBomNums()) {
-          
-          return false;
-        }
-        if (!hasNextPerson()) {
-          
-          return false;
-        }
-        if (!hasIfEnd()) {
+        if (!hasTotalMoney()) {
           
           return false;
         }
@@ -3542,11 +1527,11 @@ public final class GameRegular {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg parsedMessage = null;
+        com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.xt.yde.protobuf.regular.GameRegular.PlayResponseMsg) e.getUnfinishedMessage();
+          parsedMessage = (com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -3557,609 +1542,906 @@ public final class GameRegular {
       }
       private int bitField0_;
 
-      // required int32 rolePosition = 1;
-      private int rolePosition_ ;
+      // required int32 awardLevel = 1;
+      private int awardLevel_ ;
       /**
-       * <code>required int32 rolePosition = 1;</code>
+       * <code>required int32 awardLevel = 1;</code>
        *
        * <pre>
-       *方位
+       *奖等
        * </pre>
        */
-      public boolean hasRolePosition() {
+      public boolean hasAwardLevel() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required int32 rolePosition = 1;</code>
+       * <code>required int32 awardLevel = 1;</code>
        *
        * <pre>
-       *方位
+       *奖等
        * </pre>
        */
-      public int getRolePosition() {
-        return rolePosition_;
+      public int getAwardLevel() {
+        return awardLevel_;
       }
       /**
-       * <code>required int32 rolePosition = 1;</code>
+       * <code>required int32 awardLevel = 1;</code>
        *
        * <pre>
-       *方位
+       *奖等
        * </pre>
        */
-      public Builder setRolePosition(int value) {
+      public Builder setAwardLevel(int value) {
         bitField0_ |= 0x00000001;
-        rolePosition_ = value;
+        awardLevel_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 rolePosition = 1;</code>
+       * <code>required int32 awardLevel = 1;</code>
        *
        * <pre>
-       *方位
+       *奖等
        * </pre>
        */
-      public Builder clearRolePosition() {
+      public Builder clearAwardLevel() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        rolePosition_ = 0;
+        awardLevel_ = 0;
         onChanged();
         return this;
       }
 
-      // repeated int32 cards = 2;
-      private java.util.List<java.lang.Integer> cards_ = java.util.Collections.emptyList();
-      private void ensureCardsIsMutable() {
-        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-          cards_ = new java.util.ArrayList<java.lang.Integer>(cards_);
-          bitField0_ |= 0x00000002;
-         }
-      }
+      // required int32 totalMoney = 2;
+      private int totalMoney_ ;
       /**
-       * <code>repeated int32 cards = 2;</code>
+       * <code>required int32 totalMoney = 2;</code>
        *
        * <pre>
-       * 所出的牌 例 2,2,2,3,3
+       *中奖金额,有符合预期和不符合预期两种算法
        * </pre>
        */
-      public java.util.List<java.lang.Integer>
-          getCardsList() {
-        return java.util.Collections.unmodifiableList(cards_);
+      public boolean hasTotalMoney() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>repeated int32 cards = 2;</code>
+       * <code>required int32 totalMoney = 2;</code>
        *
        * <pre>
-       * 所出的牌 例 2,2,2,3,3
+       *中奖金额,有符合预期和不符合预期两种算法
        * </pre>
        */
-      public int getCardsCount() {
-        return cards_.size();
+      public int getTotalMoney() {
+        return totalMoney_;
       }
       /**
-       * <code>repeated int32 cards = 2;</code>
+       * <code>required int32 totalMoney = 2;</code>
        *
        * <pre>
-       * 所出的牌 例 2,2,2,3,3
+       *中奖金额,有符合预期和不符合预期两种算法
        * </pre>
        */
-      public int getCards(int index) {
-        return cards_.get(index);
-      }
-      /**
-       * <code>repeated int32 cards = 2;</code>
-       *
-       * <pre>
-       * 所出的牌 例 2,2,2,3,3
-       * </pre>
-       */
-      public Builder setCards(
-          int index, int value) {
-        ensureCardsIsMutable();
-        cards_.set(index, value);
+      public Builder setTotalMoney(int value) {
+        bitField0_ |= 0x00000002;
+        totalMoney_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>repeated int32 cards = 2;</code>
+       * <code>required int32 totalMoney = 2;</code>
        *
        * <pre>
-       * 所出的牌 例 2,2,2,3,3
+       *中奖金额,有符合预期和不符合预期两种算法
        * </pre>
        */
-      public Builder addCards(int value) {
-        ensureCardsIsMutable();
-        cards_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 cards = 2;</code>
-       *
-       * <pre>
-       * 所出的牌 例 2,2,2,3,3
-       * </pre>
-       */
-      public Builder addAllCards(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureCardsIsMutable();
-        super.addAll(values, cards_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 cards = 2;</code>
-       *
-       * <pre>
-       * 所出的牌 例 2,2,2,3,3
-       * </pre>
-       */
-      public Builder clearCards() {
-        cards_ = java.util.Collections.emptyList();
+      public Builder clearTotalMoney() {
         bitField0_ = (bitField0_ & ~0x00000002);
+        totalMoney_ = 0;
         onChanged();
         return this;
       }
 
-      // required int32 bomNums = 3;
-      private int bomNums_ ;
-      /**
-       * <code>required int32 bomNums = 3;</code>
-       *
-       * <pre>
-       *当前的炸弹数量
-       * </pre>
-       */
-      public boolean hasBomNums() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>required int32 bomNums = 3;</code>
-       *
-       * <pre>
-       *当前的炸弹数量
-       * </pre>
-       */
-      public int getBomNums() {
-        return bomNums_;
-      }
-      /**
-       * <code>required int32 bomNums = 3;</code>
-       *
-       * <pre>
-       *当前的炸弹数量
-       * </pre>
-       */
-      public Builder setBomNums(int value) {
-        bitField0_ |= 0x00000004;
-        bomNums_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required int32 bomNums = 3;</code>
-       *
-       * <pre>
-       *当前的炸弹数量
-       * </pre>
-       */
-      public Builder clearBomNums() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        bomNums_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // required int32 nextPerson = 4;
-      private int nextPerson_ ;
-      /**
-       * <code>required int32 nextPerson = 4;</code>
-       *
-       * <pre>
-       *下一个出牌的玩家
-       * </pre>
-       */
-      public boolean hasNextPerson() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
-      }
-      /**
-       * <code>required int32 nextPerson = 4;</code>
-       *
-       * <pre>
-       *下一个出牌的玩家
-       * </pre>
-       */
-      public int getNextPerson() {
-        return nextPerson_;
-      }
-      /**
-       * <code>required int32 nextPerson = 4;</code>
-       *
-       * <pre>
-       *下一个出牌的玩家
-       * </pre>
-       */
-      public Builder setNextPerson(int value) {
-        bitField0_ |= 0x00000008;
-        nextPerson_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required int32 nextPerson = 4;</code>
-       *
-       * <pre>
-       *下一个出牌的玩家
-       * </pre>
-       */
-      public Builder clearNextPerson() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        nextPerson_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // required bool ifEnd = 5;
-      private boolean ifEnd_ ;
-      /**
-       * <code>required bool ifEnd = 5;</code>
-       *
-       * <pre>
-       *必须 是否出牌结束 true,出牌结束 false,出牌进行中
-       * </pre>
-       */
-      public boolean hasIfEnd() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
-      }
-      /**
-       * <code>required bool ifEnd = 5;</code>
-       *
-       * <pre>
-       *必须 是否出牌结束 true,出牌结束 false,出牌进行中
-       * </pre>
-       */
-      public boolean getIfEnd() {
-        return ifEnd_;
-      }
-      /**
-       * <code>required bool ifEnd = 5;</code>
-       *
-       * <pre>
-       *必须 是否出牌结束 true,出牌结束 false,出牌进行中
-       * </pre>
-       */
-      public Builder setIfEnd(boolean value) {
-        bitField0_ |= 0x00000010;
-        ifEnd_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>required bool ifEnd = 5;</code>
-       *
-       * <pre>
-       *必须 是否出牌结束 true,出牌结束 false,出牌进行中
-       * </pre>
-       */
-      public Builder clearIfEnd() {
-        bitField0_ = (bitField0_ & ~0x00000010);
-        ifEnd_ = false;
-        onChanged();
-        return this;
-      }
-
-      // repeated int32 center = 6;
-      private java.util.List<java.lang.Integer> center_ = java.util.Collections.emptyList();
-      private void ensureCenterIsMutable() {
-        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
-          center_ = new java.util.ArrayList<java.lang.Integer>(center_);
-          bitField0_ |= 0x00000020;
-         }
-      }
-      /**
-       * <code>repeated int32 center = 6;</code>
-       *
-       * <pre>
-       *地主剩余牌
-       * </pre>
-       */
-      public java.util.List<java.lang.Integer>
-          getCenterList() {
-        return java.util.Collections.unmodifiableList(center_);
-      }
-      /**
-       * <code>repeated int32 center = 6;</code>
-       *
-       * <pre>
-       *地主剩余牌
-       * </pre>
-       */
-      public int getCenterCount() {
-        return center_.size();
-      }
-      /**
-       * <code>repeated int32 center = 6;</code>
-       *
-       * <pre>
-       *地主剩余牌
-       * </pre>
-       */
-      public int getCenter(int index) {
-        return center_.get(index);
-      }
-      /**
-       * <code>repeated int32 center = 6;</code>
-       *
-       * <pre>
-       *地主剩余牌
-       * </pre>
-       */
-      public Builder setCenter(
-          int index, int value) {
-        ensureCenterIsMutable();
-        center_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 center = 6;</code>
-       *
-       * <pre>
-       *地主剩余牌
-       * </pre>
-       */
-      public Builder addCenter(int value) {
-        ensureCenterIsMutable();
-        center_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 center = 6;</code>
-       *
-       * <pre>
-       *地主剩余牌
-       * </pre>
-       */
-      public Builder addAllCenter(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureCenterIsMutable();
-        super.addAll(values, center_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 center = 6;</code>
-       *
-       * <pre>
-       *地主剩余牌
-       * </pre>
-       */
-      public Builder clearCenter() {
-        center_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
-        onChanged();
-        return this;
-      }
-
-      // repeated int32 left = 7;
-      private java.util.List<java.lang.Integer> left_ = java.util.Collections.emptyList();
-      private void ensureLeftIsMutable() {
-        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
-          left_ = new java.util.ArrayList<java.lang.Integer>(left_);
-          bitField0_ |= 0x00000040;
-         }
-      }
-      /**
-       * <code>repeated int32 left = 7;</code>
-       *
-       * <pre>
-       *农民剩余牌
-       * </pre>
-       */
-      public java.util.List<java.lang.Integer>
-          getLeftList() {
-        return java.util.Collections.unmodifiableList(left_);
-      }
-      /**
-       * <code>repeated int32 left = 7;</code>
-       *
-       * <pre>
-       *农民剩余牌
-       * </pre>
-       */
-      public int getLeftCount() {
-        return left_.size();
-      }
-      /**
-       * <code>repeated int32 left = 7;</code>
-       *
-       * <pre>
-       *农民剩余牌
-       * </pre>
-       */
-      public int getLeft(int index) {
-        return left_.get(index);
-      }
-      /**
-       * <code>repeated int32 left = 7;</code>
-       *
-       * <pre>
-       *农民剩余牌
-       * </pre>
-       */
-      public Builder setLeft(
-          int index, int value) {
-        ensureLeftIsMutable();
-        left_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 left = 7;</code>
-       *
-       * <pre>
-       *农民剩余牌
-       * </pre>
-       */
-      public Builder addLeft(int value) {
-        ensureLeftIsMutable();
-        left_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 left = 7;</code>
-       *
-       * <pre>
-       *农民剩余牌
-       * </pre>
-       */
-      public Builder addAllLeft(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureLeftIsMutable();
-        super.addAll(values, left_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 left = 7;</code>
-       *
-       * <pre>
-       *农民剩余牌
-       * </pre>
-       */
-      public Builder clearLeft() {
-        left_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000040);
-        onChanged();
-        return this;
-      }
-
-      // repeated int32 right = 8;
-      private java.util.List<java.lang.Integer> right_ = java.util.Collections.emptyList();
-      private void ensureRightIsMutable() {
-        if (!((bitField0_ & 0x00000080) == 0x00000080)) {
-          right_ = new java.util.ArrayList<java.lang.Integer>(right_);
-          bitField0_ |= 0x00000080;
-         }
-      }
-      /**
-       * <code>repeated int32 right = 8;</code>
-       *
-       * <pre>
-       *农民剩余牌
-       * </pre>
-       */
-      public java.util.List<java.lang.Integer>
-          getRightList() {
-        return java.util.Collections.unmodifiableList(right_);
-      }
-      /**
-       * <code>repeated int32 right = 8;</code>
-       *
-       * <pre>
-       *农民剩余牌
-       * </pre>
-       */
-      public int getRightCount() {
-        return right_.size();
-      }
-      /**
-       * <code>repeated int32 right = 8;</code>
-       *
-       * <pre>
-       *农民剩余牌
-       * </pre>
-       */
-      public int getRight(int index) {
-        return right_.get(index);
-      }
-      /**
-       * <code>repeated int32 right = 8;</code>
-       *
-       * <pre>
-       *农民剩余牌
-       * </pre>
-       */
-      public Builder setRight(
-          int index, int value) {
-        ensureRightIsMutable();
-        right_.set(index, value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 right = 8;</code>
-       *
-       * <pre>
-       *农民剩余牌
-       * </pre>
-       */
-      public Builder addRight(int value) {
-        ensureRightIsMutable();
-        right_.add(value);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 right = 8;</code>
-       *
-       * <pre>
-       *农民剩余牌
-       * </pre>
-       */
-      public Builder addAllRight(
-          java.lang.Iterable<? extends java.lang.Integer> values) {
-        ensureRightIsMutable();
-        super.addAll(values, right_);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>repeated int32 right = 8;</code>
-       *
-       * <pre>
-       *农民剩余牌
-       * </pre>
-       */
-      public Builder clearRight() {
-        right_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000080);
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:com.xt.yde.protobuf.regular.PlayResponseMsg)
+      // @@protoc_insertion_point(builder_scope:com.xt.yde.protobuf.regular.RegularGuessSizeResponseMsg)
     }
 
     static {
-      defaultInstance = new PlayResponseMsg(true);
+      defaultInstance = new RegularGuessSizeResponseMsg(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.regular.PlayResponseMsg)
+    // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.regular.RegularGuessSizeResponseMsg)
+  }
+
+  public interface RegularClearGameRequestMsgOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code com.xt.yde.protobuf.regular.RegularClearGameRequestMsg}
+   *
+   * <pre>
+   *结算请求
+   * </pre>
+   */
+  public static final class RegularClearGameRequestMsg extends
+      com.google.protobuf.GeneratedMessage
+      implements RegularClearGameRequestMsgOrBuilder {
+    // Use RegularClearGameRequestMsg.newBuilder() to construct.
+    private RegularClearGameRequestMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private RegularClearGameRequestMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final RegularClearGameRequestMsg defaultInstance;
+    public static RegularClearGameRequestMsg getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public RegularClearGameRequestMsg getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RegularClearGameRequestMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularClearGameRequestMsg_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularClearGameRequestMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg.class, com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<RegularClearGameRequestMsg> PARSER =
+        new com.google.protobuf.AbstractParser<RegularClearGameRequestMsg>() {
+      public RegularClearGameRequestMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RegularClearGameRequestMsg(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RegularClearGameRequestMsg> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.xt.yde.protobuf.regular.RegularClearGameRequestMsg}
+     *
+     * <pre>
+     *结算请求
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularClearGameRequestMsg_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularClearGameRequestMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg.class, com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg.Builder.class);
+      }
+
+      // Construct using com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularClearGameRequestMsg_descriptor;
+      }
+
+      public com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg getDefaultInstanceForType() {
+        return com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg.getDefaultInstance();
+      }
+
+      public com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg build() {
+        com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg buildPartial() {
+        com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg result = new com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg) {
+          return mergeFrom((com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg other) {
+        if (other == com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.xt.yde.protobuf.regular.GameRegular.RegularClearGameRequestMsg) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.xt.yde.protobuf.regular.RegularClearGameRequestMsg)
+    }
+
+    static {
+      defaultInstance = new RegularClearGameRequestMsg(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.regular.RegularClearGameRequestMsg)
+  }
+
+  public interface RegularClearGameResponseMsgOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required float totalMoney = 1;
+    /**
+     * <code>required float totalMoney = 1;</code>
+     *
+     * <pre>
+     *获奖金额
+     * </pre>
+     */
+    boolean hasTotalMoney();
+    /**
+     * <code>required float totalMoney = 1;</code>
+     *
+     * <pre>
+     *获奖金额
+     * </pre>
+     */
+    float getTotalMoney();
+  }
+  /**
+   * Protobuf type {@code com.xt.yde.protobuf.regular.RegularClearGameResponseMsg}
+   *
+   * <pre>
+   *结算应答
+   * </pre>
+   */
+  public static final class RegularClearGameResponseMsg extends
+      com.google.protobuf.GeneratedMessage
+      implements RegularClearGameResponseMsgOrBuilder {
+    // Use RegularClearGameResponseMsg.newBuilder() to construct.
+    private RegularClearGameResponseMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private RegularClearGameResponseMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final RegularClearGameResponseMsg defaultInstance;
+    public static RegularClearGameResponseMsg getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public RegularClearGameResponseMsg getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RegularClearGameResponseMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 13: {
+              bitField0_ |= 0x00000001;
+              totalMoney_ = input.readFloat();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularClearGameResponseMsg_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularClearGameResponseMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg.class, com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<RegularClearGameResponseMsg> PARSER =
+        new com.google.protobuf.AbstractParser<RegularClearGameResponseMsg>() {
+      public RegularClearGameResponseMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RegularClearGameResponseMsg(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RegularClearGameResponseMsg> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required float totalMoney = 1;
+    public static final int TOTALMONEY_FIELD_NUMBER = 1;
+    private float totalMoney_;
+    /**
+     * <code>required float totalMoney = 1;</code>
+     *
+     * <pre>
+     *获奖金额
+     * </pre>
+     */
+    public boolean hasTotalMoney() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required float totalMoney = 1;</code>
+     *
+     * <pre>
+     *获奖金额
+     * </pre>
+     */
+    public float getTotalMoney() {
+      return totalMoney_;
+    }
+
+    private void initFields() {
+      totalMoney_ = 0F;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasTotalMoney()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeFloat(1, totalMoney_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(1, totalMoney_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.xt.yde.protobuf.regular.RegularClearGameResponseMsg}
+     *
+     * <pre>
+     *结算应答
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularClearGameResponseMsg_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularClearGameResponseMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg.class, com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg.Builder.class);
+      }
+
+      // Construct using com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        totalMoney_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.xt.yde.protobuf.regular.GameRegular.internal_static_com_xt_yde_protobuf_regular_RegularClearGameResponseMsg_descriptor;
+      }
+
+      public com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg getDefaultInstanceForType() {
+        return com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg.getDefaultInstance();
+      }
+
+      public com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg build() {
+        com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg buildPartial() {
+        com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg result = new com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.totalMoney_ = totalMoney_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg) {
+          return mergeFrom((com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg other) {
+        if (other == com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg.getDefaultInstance()) return this;
+        if (other.hasTotalMoney()) {
+          setTotalMoney(other.getTotalMoney());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasTotalMoney()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required float totalMoney = 1;
+      private float totalMoney_ ;
+      /**
+       * <code>required float totalMoney = 1;</code>
+       *
+       * <pre>
+       *获奖金额
+       * </pre>
+       */
+      public boolean hasTotalMoney() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required float totalMoney = 1;</code>
+       *
+       * <pre>
+       *获奖金额
+       * </pre>
+       */
+      public float getTotalMoney() {
+        return totalMoney_;
+      }
+      /**
+       * <code>required float totalMoney = 1;</code>
+       *
+       * <pre>
+       *获奖金额
+       * </pre>
+       */
+      public Builder setTotalMoney(float value) {
+        bitField0_ |= 0x00000001;
+        totalMoney_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required float totalMoney = 1;</code>
+       *
+       * <pre>
+       *获奖金额
+       * </pre>
+       */
+      public Builder clearTotalMoney() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        totalMoney_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.xt.yde.protobuf.regular.RegularClearGameResponseMsg)
+    }
+
+    static {
+      defaultInstance = new RegularClearGameResponseMsg(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.regular.RegularClearGameResponseMsg)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_xt_yde_protobuf_regular_DealRequestMsg_descriptor;
+    internal_static_com_xt_yde_protobuf_regular_RegularRaiseBetRequestMsg_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_xt_yde_protobuf_regular_DealRequestMsg_fieldAccessorTable;
+      internal_static_com_xt_yde_protobuf_regular_RegularRaiseBetRequestMsg_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_xt_yde_protobuf_regular_DealResponseMsg_descriptor;
+    internal_static_com_xt_yde_protobuf_regular_RegularRaiseBetResponseMsg_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_xt_yde_protobuf_regular_DealResponseMsg_fieldAccessorTable;
+      internal_static_com_xt_yde_protobuf_regular_RegularRaiseBetResponseMsg_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_xt_yde_protobuf_regular_PlayRequestMsg_descriptor;
+    internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeRequestMsg_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_xt_yde_protobuf_regular_PlayRequestMsg_fieldAccessorTable;
+      internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeRequestMsg_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_xt_yde_protobuf_regular_PlayResponseMsg_descriptor;
+    internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeResponseMsg_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_xt_yde_protobuf_regular_PlayResponseMsg_fieldAccessorTable;
+      internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeResponseMsg_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_xt_yde_protobuf_regular_RegularClearGameRequestMsg_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_xt_yde_protobuf_regular_RegularClearGameRequestMsg_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_xt_yde_protobuf_regular_RegularClearGameResponseMsg_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_xt_yde_protobuf_regular_RegularClearGameResponseMsg_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -4170,46 +2452,56 @@ public final class GameRegular {
   static {
     java.lang.String[] descriptorData = {
       "\n\024gameregular.protobuf\022\033com.xt.yde.proto" +
-      "buf.regular\"4\n\016DealRequestMsg\022\020\n\010gameTyp" +
-      "e\030\001 \002(\005\022\020\n\010dealType\030\002 \002(\005\"\\\n\017DealRespons" +
-      "eMsg\022\020\n\010darkCard\030\001 \003(\005\022\022\n\ncenterCard\030\002 \003" +
-      "(\005\022\020\n\010leftCard\030\003 \003(\005\022\021\n\trightCard\030\004 \003(\005\"" +
-      "E\n\016PlayRequestMsg\022\r\n\005cards\030\001 \003(\005\022\024\n\014role" +
-      "Position\030\002 \002(\005\022\016\n\006isAuto\030\003 \001(\010\"\227\001\n\017PlayR" +
-      "esponseMsg\022\024\n\014rolePosition\030\001 \002(\005\022\r\n\005card" +
-      "s\030\002 \003(\005\022\017\n\007bomNums\030\003 \002(\005\022\022\n\nnextPerson\030\004" +
-      " \002(\005\022\r\n\005ifEnd\030\005 \002(\010\022\016\n\006center\030\006 \003(\005\022\014\n\004l",
-      "eft\030\007 \003(\005\022\r\n\005right\030\010 \003(\005B\rB\013GameRegular"
+      "buf.regular\"*\n\031RegularRaiseBetRequestMsg" +
+      "\022\r\n\005times\030\001 \002(\005\"\034\n\032RegularRaiseBetRespon" +
+      "seMsg\"\034\n\032RegularGuessSizeRequestMsg\"E\n\033R" +
+      "egularGuessSizeResponseMsg\022\022\n\nawardLevel" +
+      "\030\001 \002(\005\022\022\n\ntotalMoney\030\002 \002(\005\"\034\n\032RegularCle" +
+      "arGameRequestMsg\"1\n\033RegularClearGameResp" +
+      "onseMsg\022\022\n\ntotalMoney\030\001 \002(\002B\rB\013GameRegul" +
+      "ar"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
         public com.google.protobuf.ExtensionRegistry assignDescriptors(
             com.google.protobuf.Descriptors.FileDescriptor root) {
           descriptor = root;
-          internal_static_com_xt_yde_protobuf_regular_DealRequestMsg_descriptor =
+          internal_static_com_xt_yde_protobuf_regular_RegularRaiseBetRequestMsg_descriptor =
             getDescriptor().getMessageTypes().get(0);
-          internal_static_com_xt_yde_protobuf_regular_DealRequestMsg_fieldAccessorTable = new
+          internal_static_com_xt_yde_protobuf_regular_RegularRaiseBetRequestMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_xt_yde_protobuf_regular_DealRequestMsg_descriptor,
-              new java.lang.String[] { "GameType", "DealType", });
-          internal_static_com_xt_yde_protobuf_regular_DealResponseMsg_descriptor =
+              internal_static_com_xt_yde_protobuf_regular_RegularRaiseBetRequestMsg_descriptor,
+              new java.lang.String[] { "Times", });
+          internal_static_com_xt_yde_protobuf_regular_RegularRaiseBetResponseMsg_descriptor =
             getDescriptor().getMessageTypes().get(1);
-          internal_static_com_xt_yde_protobuf_regular_DealResponseMsg_fieldAccessorTable = new
+          internal_static_com_xt_yde_protobuf_regular_RegularRaiseBetResponseMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_xt_yde_protobuf_regular_DealResponseMsg_descriptor,
-              new java.lang.String[] { "DarkCard", "CenterCard", "LeftCard", "RightCard", });
-          internal_static_com_xt_yde_protobuf_regular_PlayRequestMsg_descriptor =
+              internal_static_com_xt_yde_protobuf_regular_RegularRaiseBetResponseMsg_descriptor,
+              new java.lang.String[] { });
+          internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeRequestMsg_descriptor =
             getDescriptor().getMessageTypes().get(2);
-          internal_static_com_xt_yde_protobuf_regular_PlayRequestMsg_fieldAccessorTable = new
+          internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeRequestMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_xt_yde_protobuf_regular_PlayRequestMsg_descriptor,
-              new java.lang.String[] { "Cards", "RolePosition", "IsAuto", });
-          internal_static_com_xt_yde_protobuf_regular_PlayResponseMsg_descriptor =
+              internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeRequestMsg_descriptor,
+              new java.lang.String[] { });
+          internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeResponseMsg_descriptor =
             getDescriptor().getMessageTypes().get(3);
-          internal_static_com_xt_yde_protobuf_regular_PlayResponseMsg_fieldAccessorTable = new
+          internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeResponseMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_xt_yde_protobuf_regular_PlayResponseMsg_descriptor,
-              new java.lang.String[] { "RolePosition", "Cards", "BomNums", "NextPerson", "IfEnd", "Center", "Left", "Right", });
+              internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeResponseMsg_descriptor,
+              new java.lang.String[] { "AwardLevel", "TotalMoney", });
+          internal_static_com_xt_yde_protobuf_regular_RegularClearGameRequestMsg_descriptor =
+            getDescriptor().getMessageTypes().get(4);
+          internal_static_com_xt_yde_protobuf_regular_RegularClearGameRequestMsg_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_xt_yde_protobuf_regular_RegularClearGameRequestMsg_descriptor,
+              new java.lang.String[] { });
+          internal_static_com_xt_yde_protobuf_regular_RegularClearGameResponseMsg_descriptor =
+            getDescriptor().getMessageTypes().get(5);
+          internal_static_com_xt_yde_protobuf_regular_RegularClearGameResponseMsg_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_xt_yde_protobuf_regular_RegularClearGameResponseMsg_descriptor,
+              new java.lang.String[] { "TotalMoney", });
           return null;
         }
       };

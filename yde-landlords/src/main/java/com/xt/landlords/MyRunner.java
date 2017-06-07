@@ -13,8 +13,8 @@ public class MyRunner implements CommandLineRunner {
 //        GameRegularController controller = GameStateControllerFactory
 //                .createGameRegularController(new
 //                        GameModel());
-//        controller.start(controller.getGameModel());
-//        controller.fire(GameRegularEvent.GameOver, controller.getGameModel());
+//        controller.start(controller.getContext());
+//        controller.fire(GameRegularEvent.GameOver, controller.getContext());
 //        System.out.println("current Status:" + controller.getCurrentState());
     }
 }

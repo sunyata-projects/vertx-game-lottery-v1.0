@@ -59,6 +59,7 @@ public class GameModelStore {
         try (SqlSession session = sessionTemplate.getSqlSessionFactory().openSession(true)) {
             GameModelMapper mapper = session.getMapper(GameModelMapper.class);
             mapper.addPhase(gamePhaseModel);
+            mapper.updateGameModel(gamePhaseModel.getGameInstanceId(), gamePhaseModel.getPhaseName());
         } catch (Exception ex) {
             System.out.println(ex);
             throw ex;

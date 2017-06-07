@@ -23,6 +23,34 @@ public abstract class GameModel implements Serializable {
     //游戏唯一标识
     private String gameInstanceId;
 
+    public abstract boolean getCompleted();
+
+
+//    //最后成功状态名称
+//    private String lastSuccessStateName;
+
+//    private boolean isGameOver = false;
+
+//    public GameModel setGameOver(boolean gameOver) {
+//        isGameOver = gameOver;
+//        return this;
+//    }
+
+    public String getLastSuccessStateName() {
+        List<GamePhaseModel> phases = this.getPhases();
+        if (phases.size() > 0) {
+            GamePhaseModel gamePhaseModel = phases.stream().filter(p -> p.getPhaseState() == PhaseState.Success).max
+                    (Comparator.comparing
+                            (GamePhaseModel::getOrderBy)).orElse(null);
+            if (gamePhaseModel != null) {
+                return gamePhaseModel.getPhaseName();
+            }
+        }
+        return "Init";
+
+    }
+
+
     private List<GamePhaseModel> phases = new ArrayList();
 
 
@@ -105,7 +133,7 @@ public abstract class GameModel implements Serializable {
     }
 
     @JsonIgnore()
-    public abstract Object getBetEvent();
+    public abstract Object getFirstEvent();
 
 
     @JsonIgnore()
@@ -115,20 +143,8 @@ public abstract class GameModel implements Serializable {
     public abstract boolean needBreakPlay();
 
     @JsonIgnore
-    public abstract boolean isGameOver();
-
-    @JsonIgnore
     public abstract Object getLastSuccessState();
 
 
-    public String getLastSuccessStateName() {
-        List<GamePhaseModel> phases = this.getPhases();
-        if (phases.size() > 0) {
-            GamePhaseModel gamePhaseModel = phases.stream().max(Comparator.comparing(GamePhaseModel::getOrderBy)).get();
-            return gamePhaseModel.getPhaseName();
-        } else {
-            return "Init";
-        }
-    }
 
 }

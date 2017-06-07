@@ -9,11 +9,11 @@
 //public class SyncGameModelMessage extends PubSubMessage {
 //    public static final String EventType = "syncGameModel";
 //
-//    public GameModel getGameModel() {
+//    public GameModel getContext() {
 //        return gameModel;
 //    }
 //
-//    public SyncGameModelMessage setGameModel(GameModel gameModel) {
+//    public SyncGameModelMessage setContext(GameModel gameModel) {
 //        this.gameModel = gameModel;
 //        return this;
 //    }

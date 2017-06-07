@@ -2,30 +2,32 @@ package com.xt.landlords.game.puzzle.command;
 
 import com.xt.landlords.*;
 import com.xt.landlords.game.puzzle.GamePuzzleEvent;
-//import com.xt.landlords.game.puzzle.GamePuzzlePhaseName;
-import com.xt.landlords.game.puzzle.GamePuzzleState;
-import com.xt.landlords.game.puzzle.phase.PuzzleDealPhaseData;
-import com.xt.landlords.game.puzzle.phase.PuzzleDealPhaseModel;
+import com.xt.landlords.game.puzzle.GamePuzzleModel;
 import com.xt.landlords.statemachine.GameController;
 import com.xt.yde.protobuf.puzzle.GamePuzzle;
 import com.xt.yde.thrift.card.puzzle.PuzzleCards;
 import com.xt.yde.thrift.card.puzzle.PuzzleCardsService;
 import info.developerblog.spring.thrift.annotation.ThriftClient;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.squirrelframework.foundation.fsm.ImmutableState;
 import org.sunyata.octopus.OctopusRequest;
 import org.sunyata.octopus.OctopusResponse;
-import org.sunyata.octopus.model.GameModel;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
+
+//import com.xt.landlords.game.puzzle.GamePuzzlePhaseName;
 
 /**
  * Created by leo on 17/5/15.
  */
 @Component(Commands.PuzzleDeal)
 public class PuzzleDealCommandHandler extends AbstractGameControllerCommandHandler {
+    org.slf4j.Logger logger = LoggerFactory.getLogger(PuzzleDealCommandHandler.class);
+
     class CommandErrorCode {
 
     }
@@ -49,7 +51,8 @@ public class PuzzleDealCommandHandler extends AbstractGameControllerCommandHandl
                 response.setErrorCode(CommonCommandErrorCode.InternalError);
                 return;
             }
-            GameModel gameModel = (GameModel) gameController.getGameModel();// storeManager.getGameModelFromCache
+            GamePuzzleModel gameModel = (GamePuzzleModel) gameController.getGameModel();// storeManager
+            // .getGameModelFromCache
             // (request.getSession().getCurrentUser().getName());
 
             if (gameModel == null) {
@@ -73,14 +76,13 @@ public class PuzzleDealCommandHandler extends AbstractGameControllerCommandHandl
             }
             int money = getMoney(grade);
             builder.addTotalMoney(money);
-            PuzzleDealPhaseData phaseData = new PuzzleDealPhaseData().setTotalMoney(money);
-            PuzzleDealPhaseModel phaseModel = new PuzzleDealPhaseModel(gameModel.getGameInstanceId(),
-                    GamePuzzleState.Deal.getValue(), 2);
-            gameModel.addOrUpdatePhase(phaseModel.setPhaseData(phaseData));
+            gameModel.addDealPhase("cardId", money);
             gameController.fire(GamePuzzleEvent.Deal, gameModel);
+            ImmutableState currentRawState = gameController.getCurrentRawState();
+            logger.info("{}:currentState:{}", this.getClass().getName(), currentRawState);
             response.setBody(builder.build().toByteArray());
         } catch (Exception ex) {
-
+            ExceptionProcessor.process(response, ex);
         } finally {
             response.writeAndFlush();
         }

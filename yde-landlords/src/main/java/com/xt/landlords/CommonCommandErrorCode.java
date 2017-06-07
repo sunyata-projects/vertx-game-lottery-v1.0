@@ -12,9 +12,12 @@ public class CommonCommandErrorCode {
     public final static int NotLoginException = 1003;
     //不能重复下注
     public final static int CanNotRepeatBet = 1004;
-
     //游戏类型不匹配
     public final static int GameTypeError = 1005;
+    //不能重复兑换
+    public final static int CanNotRepeatExchange = 1006;
     //内部错误
     public final static int InternalError = 1099;
+
+
 }

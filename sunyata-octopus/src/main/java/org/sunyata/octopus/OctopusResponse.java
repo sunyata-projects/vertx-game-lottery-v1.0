@@ -3,12 +3,16 @@ package org.sunyata.octopus;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Created by leo on 17/4/17.
  */
 public class OctopusResponse {
     private int errorCode = 0;
+
+    Logger logger = LoggerFactory.getLogger(OctopusResponse.class);
 
     public OctopusOutMessage getMessage() {
         return message;
@@ -54,14 +58,18 @@ public class OctopusResponse {
         buffer.writeInt(this.message.getCmd());//4
         buffer.writeInt(this.message.getSerial());//8
         buffer.writeInt(this.errorCode);//4
-        if (body == null) {
-            body = "".getBytes();
+        int length = body == null ? 0 : body.length;
+//        if (body == null) {
+//            body = "".getBytes();
+//        }
+        buffer.writeInt(length);//4
+        if (length > 0) {
+            buffer.writeBytes(body);
         }
-        buffer.writeInt(body.length);//4
-        buffer.writeBytes(body);
 
         BinaryWebSocketFrame frame = new BinaryWebSocketFrame(buffer);
         context.writeAndFlush(frame);
+        logger.info("response->cmd:{},length:{}", this.message.getCmd(), this.message.getLength());
     }
 
     public OctopusResponse setErrorCode(int errorCode) {

@@ -9,6 +9,11 @@ import org.sunyata.octopus.model.PhaseState;
  * Created by leo on 17/5/15.
  */
 public class GameRegularModel extends GameModel {
+    @Override
+    public boolean getCompleted() {
+        return getLastSuccessStateName().equalsIgnoreCase(GameRegularState.GameOver.getValue());
+    }
+
     public GameRegularModel() {
 
     }
@@ -29,7 +34,7 @@ public class GameRegularModel extends GameModel {
 
 
     @Override
-    public Object getBetEvent() {
+    public Object getFirstEvent() {
         return GameRegularEvent.Bet;
     }
 
@@ -40,14 +45,10 @@ public class GameRegularModel extends GameModel {
 
     @Override
     public boolean needBreakPlay() {
-        GamePhaseModel phase = this.getPhase(GameRegularPhaseName.Bet.getValue());
+        GamePhaseModel phase = this.getPhase(GameRegularState.Bet.getValue());
         return phase != null && phase.getPhaseState() == PhaseState.Success;
     }
 
-    @Override
-    public boolean isGameOver() {
-        return false;
-    }
 
     @Override
     public Object getLastSuccessState() {

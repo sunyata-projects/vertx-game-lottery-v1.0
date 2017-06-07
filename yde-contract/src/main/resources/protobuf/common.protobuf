@@ -44,6 +44,88 @@ required int32 amt = 2;//1,2,5,10,下注金额,金额在服务器端是一个枚
 //下注应答
 message BetResponseMsg
 {
-required string gameId = 1;//游戏id
 }
 
+//查询是否有残留的点数游戏进度
+message GamePointProcessRequestMsg{
+}
+
+//应答
+//errorCode
+message GamePointProcessResponseMsg
+{
+required bool flag = 1;//true表示有未完成的进度,false表示没有
+required int32 gameType = 2;//游戏类型
+required int32 awardGamePoint = 3;//奖励点数
+required int32 gameProgress = 4;//游戏进度,每个游戏含义不同
+}
+
+//放弃点数游戏进度
+message GiveUpGamePointProcessRequestMsg{
+}
+//放弃应答
+message GiveUpGamePointProcessResponseMsg
+{
+}
+
+//兑换点数请求,即进入点数类游戏通用接口
+message ExchangeGamePointRequestMsg{
+required int32 gameType = 1;//gameType
+required int32 amt = 2;//金额,需要兑换点数的金额
+}
+
+//兑换应答
+message ExchangeGamePointResponseMsg{
+required int32 gamePoint = 1;//兑换的点数
+}
+
+
+
+//点数下注请求
+message GamePointBetRequestMsg{
+required int32 gamePoint = 1;//下注的游戏点数
+}
+
+//点数下注应答
+message GamePointBetResponseMsg
+{
+}
+
+
+
+
+//出牌请求
+message PlayRequestMsg{
+  repeated int32  cards = 1; // 所出的牌 例 2,2,2,3,3
+  required int32  rolePosition = 2; //可选的方位,如果不是自己,那就是帮农民出牌 1地主 2右边农民 3左边农民
+  optional bool  isAuto = 3; //地主是否托管true = 托管,false = 地主出牌
+}
+
+//出牌应答
+message PlayResponseMsg
+{
+  required int32  rolePosition = 1; //方位
+  repeated int32  cards = 2; // 所出的牌 例 2,2,2,3,3
+  required int32  bomNums = 3;//当前的炸弹数量
+  required int32  nextPerson = 4; //下一个出牌的玩家
+  required bool   ifEnd = 5; //必须 是否出牌结束 true,出牌结束 false,出牌进行中
+  repeated int32  center = 6; //地主剩余牌
+  repeated int32  left = 7;  //农民剩余牌 如果ifEnd为true,则此字段必须不能为空,否则长度为实际长度,每个元素为-1
+  repeated int32  right = 8; //农民剩余牌 如果ifEnd为true,则此字段必须不能为空,否则长度为实际长度,每个元素为-1
+}
+
+
+//发牌请求
+message DealRequestMsg{
+required int32 gameType = 1;//游戏类型
+}
+
+//发牌应答
+//返回牌型
+message DealResponseMsg
+{
+   repeated int32 darkCard = 1;//可选,底牌数组
+   repeated int32 centerCard = 2; //可选,当前玩家的手牌,不包括底牌
+   repeated int32 leftCard = 3; //可选,左边玩家的手牌,不包括底牌
+   repeated int32 rightCard = 4; //可选,右边玩家的手牌,不包括底牌
+}

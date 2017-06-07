@@ -395,7 +395,7 @@ public abstract class AbstractStateMachine<T extends StateMachine<T, S, E, C>, S
     protected void beforeTransitionBegin(S fromState, E event, C context) {
     }
     
-    protected void afterTransitionCompleted(S fromState, S toState, E event, C context) {
+    protected void afterTransitionCompleted(S fromState, S toState, E event, C context) throws Exception {
     }
     
     protected void afterTransitionEnd(S fromState, S toState, E event, C context) {

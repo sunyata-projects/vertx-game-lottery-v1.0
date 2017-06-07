@@ -6,8 +6,15 @@ import org.sunyata.octopus.model.GameModel;
  * Created by leo on 17/5/22.
  */
 public class DefaultGameModel extends GameModel {
+
     @Override
-    public Object getBetEvent() {
+    public boolean getCompleted() {
+        return getLastSuccessStateName().equalsIgnoreCase("GameOver");
+    }
+
+
+    @Override
+    public Object getFirstEvent() {
         return null;
     }
 
@@ -22,7 +29,7 @@ public class DefaultGameModel extends GameModel {
     }
 
     @Override
-    public boolean isGameOver() {
-        return false;
+    public Object getLastSuccessState() {
+        return null;
     }
 }

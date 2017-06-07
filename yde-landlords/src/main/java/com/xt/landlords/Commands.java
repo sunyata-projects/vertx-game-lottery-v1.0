@@ -13,8 +13,11 @@ public class Commands {
     public static final String Profile =    "10003";
     //踢人
     public static final String KickPlayer = "10004";
-    //下注,每一款游戏的最一个命令
+    //下注,人民币游戏的第一个命令
     public static final String Bet =             "10005";
+
+    //兑换点数
+    public static final String Exchange =             "10006";
 
     //常规赛50
     //断线续玩
@@ -41,6 +44,14 @@ public class Commands {
 
 
     //消除53
+
+    public static final String EliminateBreakPlay =       "53001";
+    //点数下注
+    public static final String EliminateGamePointBet =    "53003";
+    //发牌
+    public static final String EliminateDeal =            "53004";
+    //结算
+    public static final String EliminateClear =           "53005";
 }
 //
 //public enum Commands {

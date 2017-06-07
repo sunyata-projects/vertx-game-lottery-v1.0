@@ -25,6 +25,7 @@
         <module name="sunyata-octopus" />
         <module name="sunyata-octopus-example-client" />
         <module name="sunyata-octopus-example-client-springcloud" />
+        <module name="yde-ai-service" />
         <module name="yde-card-service" />
         <module name="yde-contract" />
         <module name="yde-job" />
@@ -38,6 +39,7 @@
       <module name="sunyata-octopus" target="1.8" />
       <module name="sunyata-octopus-example-client" target="1.8" />
       <module name="sunyata-octopus-example-client-springcloud" target="1.8" />
+      <module name="yde-ai-service" target="1.8" />
       <module name="yde-card-service" target="1.8" />
       <module name="yde-contract" target="1.8" />
       <module name="yde-job" target="1.8" />

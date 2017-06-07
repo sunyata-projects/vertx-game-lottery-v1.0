@@ -28,7 +28,7 @@
 //    public void run(String... args) throws Exception {
 //        GameModel gameModel = new GameModel() {
 //            @Override
-//            public Object getBetEvent() {
+//            public Object getFirstEvent() {
 //                return null;
 //            }
 //

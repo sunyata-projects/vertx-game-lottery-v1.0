@@ -28,6 +28,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -235,6 +237,8 @@ public final class WebSocketPuzzleClient {
                     buffer.writeInt(52004).writeInt(2323232).writeFloat(1.0f).writeInt(bytes.length).writeBytes(bytes);
                     WebSocketFrame frame = new BinaryWebSocketFrame(buffer);
                     ch.writeAndFlush(frame);
+                } else if ("test".equals(msg.toLowerCase())) {
+                    concurrentTest(ch);
                 } else {
 //                    LoginReq.LoginRequest login = LoginReq.LoginRequest.getDefaultInstance().toBuilder().setPassword
 //                            ("password").setUserName(msg).build();
@@ -250,6 +254,38 @@ public final class WebSocketPuzzleClient {
 
         {
             //group.shutdownGracefully();
+        }
+    }
+
+    public static void concurrentTest(Channel ch) {
+        ExecutorService executorService = Executors.newFixedThreadPool(8);
+        for (int i = 0; i < 5; i++) {
+            executorService.execute(new Runnable() {
+                @Override
+                public void run() {
+                    Common.BetRequestMsg.Builder builder = Common.BetRequestMsg.newBuilder();
+                    Common.BetRequestMsg betRequestMsg = builder.setAmt(10).setGameType(10003).build();
+                    ByteBuf buffer = Unpooled.buffer();
+                    byte[] bytes = betRequestMsg.toByteArray();
+                    buffer.writeInt(10005).writeInt(2323232).writeFloat(1.0f).writeInt(bytes.length).writeBytes(bytes);
+                    WebSocketFrame frame = new BinaryWebSocketFrame(buffer);
+                    ch.writeAndFlush(frame);
+                }
+            });
+            System.out.println("first is sent");
+            executorService.execute(new Runnable() {
+                @Override
+                public void run() {
+                    Common.ProfileRequestMsg.Builder builder = Common.ProfileRequestMsg.newBuilder();
+                    Common.ProfileRequestMsg profileRequestMsg = builder.build();
+                    ByteBuf buffer = Unpooled.buffer();
+                    byte[] bytes = profileRequestMsg.toByteArray();
+                    buffer.writeInt(10003).writeInt(2323232).writeFloat(1.0f).writeInt(bytes.length).writeBytes(bytes);
+                    WebSocketFrame frame = new BinaryWebSocketFrame(buffer);
+                    ch.writeAndFlush(frame);
+                }
+            });
+            System.out.println("second is sent");
         }
     }
 }

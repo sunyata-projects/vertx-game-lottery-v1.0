@@ -1,5 +1,6 @@
 package com.xt.landlords.statemachine;
 
+import com.xt.landlords.game.regular.GameRegularModel;
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.squirrelframework.foundation.component.SquirrelPostProcessor;
 import org.squirrelframework.foundation.fsm.HistoryType;
@@ -36,7 +37,8 @@ public class GameCommonState {
 
 
     @ContextEvent(finishEvent = "A2C")
-    static class ParallelStateMachine extends GameController<ParallelStateMachine, PState, PEvent, MyContext> {
+    static class ParallelStateMachine extends GameController<GameRegularModel, ParallelStateMachine, PState, PEvent,
+            MyContext> {
         private StringBuilder logger = new StringBuilder();
 
         public void transitA2B(PState from, PState to, PEvent event, MyContext context) {
@@ -108,7 +110,7 @@ public class GameCommonState {
         }
 
         @Override
-        public PEvent getBetEvent() {
+        public PEvent getFirstEvent() {
             return PEvent.A2B;
         }
 

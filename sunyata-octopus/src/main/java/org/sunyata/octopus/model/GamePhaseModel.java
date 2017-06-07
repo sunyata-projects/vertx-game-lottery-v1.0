@@ -26,15 +26,15 @@ public class GamePhaseModel<T extends PhaseData> implements Serializable {
     //创建时间
     private Timestamp createDateTime;
 
-    public String getPhaseDataString() {
+    public GamePhaseModel setPhaseDataString(String phaseDataString) {
+        this.phaseDataString = phaseDataString;
+        return this;
+    }
 
-        if (phaseData != null) {
-            int length = phaseData.getClass().getDeclaredFields().length;
-            if (length > 0) {
-                return Json.encode(phaseData);
-            }
-        }
-        return null;
+    private String phaseDataString;
+
+    public String getPhaseDataString() {
+        return phaseDataString;
     }
 
 
@@ -87,6 +87,12 @@ public class GamePhaseModel<T extends PhaseData> implements Serializable {
 
     public GamePhaseModel setPhaseData(T phaseData) {
         this.phaseData = phaseData;
+        if (phaseData != null) {
+            int length = phaseData.getClass().getDeclaredFields().length;
+            if (length > 0) {
+                this.phaseDataString = Json.encode(phaseData);
+            }
+        }
         return this;
     }
 
