@@ -10,9 +10,7 @@ import org.springframework.stereotype.Component;
 import org.sunyata.octopus.json.Json;
 import ru.trylogic.spring.boot.thrift.annotation.ThriftController;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -40,7 +38,7 @@ public class EliminateCardServiceHandler implements EliminateCardsService.Iface 
     public List getWZ() {
         List list = map.get(9);
         int i1 = randomWz.nextInt(list.size());
-        List<List<Integer>>  o = (List) list.get(i1);//size为4
+        List<List<Integer>> o = (List) list.get(i1);//size为4
         return o;
     }
 
@@ -57,18 +55,44 @@ public class EliminateCardServiceHandler implements EliminateCardsService.Iface 
     public List readJson(String name) throws IOException {
         Resource resource = applicationContext.getResource(String.format("classpath:%s.json", name));
 
-        File file = resource.getFile();
-        byte[] buffer = new byte[(int) file.length()];
-        FileInputStream is = new FileInputStream(file);
-
-        is.read(buffer, 0, buffer.length);
-
-        is.close();
-        String str = new String(buffer);
+//        File file = resource.getFile();
+//        byte[] buffer = new byte[(int) file.length()];
+//        FileInputStream is = new FileInputStream(file);
+//
+//        is.read(buffer, 0, buffer.length);
+//
+//        is.close();
+//        String str = new String(buffer);
+        InputStream inputStream = resource.getInputStream();
+        String str = convertStreamToStream(inputStream);
         List List = Json.decodeValue(str, List.class);
         System.out.println(str);
         return List;
 
+    }
+
+    public String convertStreamToStream(InputStream is) throws IOException {
+        InputStreamReader isr = null;
+        BufferedReader br = null;
+
+        StringBuilder sb = new StringBuilder();
+        String content;
+        try {
+            isr = new InputStreamReader(is);
+            br = new BufferedReader(isr);
+            while ((content = br.readLine()) != null) {
+                sb.append(content);
+            }
+        } catch (IOException ioe) {
+            System.out.println("IO Exception occurred");
+            ioe.printStackTrace();
+        } finally {
+            isr.close();
+            br.close();
+        }
+        String mystring = sb.toString();
+        System.out.println(mystring);
+        return mystring;
     }
 
     static HashMap<Integer, List> map = new HashMap<>();

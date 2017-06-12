@@ -24,6 +24,8 @@
         <module>yde-quark-service</module>
         <module>yde-card-service</module>
         <module>yde-ai-service</module>
+        <module>yde-ai-core</module>
+        <module>yde-discover-service</module>
     </modules>
 
     <properties>

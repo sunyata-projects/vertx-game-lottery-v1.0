@@ -5,6 +5,9 @@ import com.xt.landlords.game.eliminate.GameEliminateEvent;
 import com.xt.landlords.game.eliminate.GameEliminateModel;
 import com.xt.landlords.game.eliminate.GameEliminateState;
 import com.xt.landlords.game.eliminate.phase.EliminateClearPhaseData;
+import com.xt.landlords.game.eliminate.phase.EliminatePlayPhaseData;
+import com.xt.landlords.game.eliminate.phase.EliminatePlayPhaseDataItem;
+import com.xt.landlords.game.eliminate.phase.EliminatePlayPhaseModel;
 import com.xt.landlords.statemachine.GameController;
 import com.xt.yde.protobuf.eliminate.Eliminate;
 import org.slf4j.LoggerFactory;
@@ -44,6 +47,23 @@ public class EliminateClearCommandHandler extends AbstractGameControllerCommandH
                 response.setErrorCode(CommonCommandErrorCode.InternalError);
                 return;
             }
+
+            //是否满足结算条件
+            EliminatePlayPhaseModel phase = (EliminatePlayPhaseModel) gameModel.getPhase(GameEliminateState.Play
+                    .getValue());
+            if (phase != null) {
+                EliminatePlayPhaseData phaseData = phase.getPhaseData();
+                if (phaseData != null) {
+                    EliminatePlayPhaseDataItem lastPlayPhaseDataItem = phaseData.getLastPlayPhaseDataItem();
+                    if (lastPlayPhaseDataItem != null) {
+                        if (lastPlayPhaseDataItem.getTotalDoubleKingCount() != 7) {
+                            response.setErrorCode(CommonCommandErrorCode.CanNotAcceptEventException);
+                            return;
+                        }
+                    }
+                }
+            }
+
             gameModel.addClearPhase();
 
             Eliminate.EliminateClearGameResponseMsg.Builder builder = Eliminate.EliminateClearGameResponseMsg

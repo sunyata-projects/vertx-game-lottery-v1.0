@@ -234,7 +234,10 @@ public final class WebSocketRegularClient {
                     ch.writeAndFlush(frame);
                 } else if ("play".equals(msg.toLowerCase())) {
                     Common.PlayRequestMsg.Builder builder = Common.PlayRequestMsg.newBuilder();
+                    builder.setIsAuto(true);
+                    builder.setRolePosition(1);
                     Common.PlayRequestMsg playRequestMsg = builder.build();
+
                     ByteBuf buffer = Unpooled.buffer();
                     byte[] bytes = playRequestMsg.toByteArray();
                     buffer.writeInt(50006).writeInt(2323232).writeFloat(1.0f).writeInt(bytes.length).writeBytes(bytes);

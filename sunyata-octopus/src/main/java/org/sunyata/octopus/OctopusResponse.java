@@ -69,7 +69,8 @@ public class OctopusResponse {
 
         BinaryWebSocketFrame frame = new BinaryWebSocketFrame(buffer);
         context.writeAndFlush(frame);
-        logger.info("response->cmd:{},length:{}", this.message.getCmd(), this.message.getLength());
+        logger.info("response->cmd:{},code:{},length:{}", this.message.getCmd(), this.message.getCode(), this.message
+                .getLength());
     }
 
     public OctopusResponse setErrorCode(int errorCode) {

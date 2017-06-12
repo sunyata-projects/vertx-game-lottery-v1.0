@@ -11,7 +11,7 @@ import java.util.Map;
  * Created by leo on 17/4/26.
  */
 public enum GameEliminateEvent implements GameControllerState {
-    Exchange("OnExchange"), Bet("OnBet"), Deal("OnDeal"), GameOver("OnGameOver");
+    Exchange("OnExchange"), Bet("OnBet"), Deal("OnDeal"), ForceGameOver("OnForceGameOver"), GameOver("OnGameOver");
 
 
     /**

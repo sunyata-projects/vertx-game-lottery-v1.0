@@ -28,10 +28,18 @@
         <module name="yde-ai-service" />
         <module name="yde-card-service" />
         <module name="yde-contract" />
+        <module name="yde-discover-service" />
         <module name="yde-job" />
         <module name="yde-landlords" />
         <module name="yde-login-service" />
         <module name="yde-quark-service" />
+      </profile>
+      <profile default="false" name="Annotation profile for yde-ai-core" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="yde-ai-core" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
@@ -39,9 +47,12 @@
       <module name="sunyata-octopus" target="1.8" />
       <module name="sunyata-octopus-example-client" target="1.8" />
       <module name="sunyata-octopus-example-client-springcloud" target="1.8" />
+      <module name="yde-ai-core" target="1.8" />
       <module name="yde-ai-service" target="1.8" />
       <module name="yde-card-service" target="1.8" />
       <module name="yde-contract" target="1.8" />
+      <module name="yde-discover-server" target="1.8" />
+      <module name="yde-discover-service" target="1.8" />
       <module name="yde-job" target="1.8" />
       <module name="yde-landlords" target="1.8" />
       <module name="yde-login-service" target="1.8" />

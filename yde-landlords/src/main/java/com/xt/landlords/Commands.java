@@ -52,6 +52,9 @@ public class Commands {
     public static final String EliminateDeal =            "53004";
     //结算
     public static final String EliminateClear =           "53005";
+
+    //放弃游戏点数
+    public static final String EliminateGameUpGamePoint =           "53006";
 }
 //
 //public enum Commands {

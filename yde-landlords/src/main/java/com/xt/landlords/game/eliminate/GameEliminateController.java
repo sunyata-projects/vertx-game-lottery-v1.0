@@ -4,9 +4,8 @@ import com.xt.landlords.GameManager;
 import com.xt.landlords.GameTypes;
 import com.xt.landlords.exception.BetErrorException;
 import com.xt.landlords.exception.ExchangeErrorException;
-import com.xt.landlords.game.eliminate.condition.DealCondition;
-import com.xt.landlords.game.eliminate.condition.GameOverCondition;
 import com.xt.landlords.game.eliminate.condition.BetCondition;
+import com.xt.landlords.game.eliminate.condition.DealCondition;
 import com.xt.landlords.game.eliminate.phase.EliminateClearPhaseData;
 import com.xt.landlords.game.eliminate.phase.EliminatePlayPhaseData;
 import com.xt.landlords.game.eliminate.phase.EliminatePlayPhaseDataItem;
@@ -44,8 +43,9 @@ import org.sunyata.octopus.model.GameModel;
         @Transit(from = "Bet", to = "Deal", on = "Deal", callMethod = "OnDeal", when = DealCondition.class),
         @Transit(from = "Deal", to = "Bet", on = "Bet", callMethod = "OnBet", when = BetCondition.class),
 
-        @Transit(from = "Deal", to = "GameOver", on = "GameOver", callMethod = "OnGameOver", when = GameOverCondition
-                .class)
+        @Transit(from = "Deal", to = "GameOver", on = "GameOver", callMethod = "OnGameOver"),
+        @Transit(from = "Bet", to = "GameOver", on = "GameOver", callMethod = "OnForceGameOver"),
+//        @Transit(from = "Deal", to = "GameOver", on = "ForceGameOver", callMethod = "OnForceGameOver",)
 })
 
 //@ContextEvent(finishEvent = "OnLuckDraw")

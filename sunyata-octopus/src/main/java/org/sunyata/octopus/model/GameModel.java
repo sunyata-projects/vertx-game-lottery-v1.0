@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by leo on 17/4/27.
@@ -117,8 +118,9 @@ public abstract class GameModel implements Serializable {
     }
 
     public GamePhaseModel getPhase(String phaseName) {
-        GamePhaseModel gamePhaseModel = this.phases.stream().filter(p -> p.getPhaseName().equalsIgnoreCase(phaseName))
-                .findFirst().orElse(null);
+        Optional<GamePhaseModel> first = this.phases.stream().filter(p -> p.getPhaseName().equalsIgnoreCase(phaseName))
+                .findFirst();
+        GamePhaseModel gamePhaseModel = first.orElse(null);
         return gamePhaseModel;
     }
 

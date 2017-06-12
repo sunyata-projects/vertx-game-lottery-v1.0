@@ -83,6 +83,13 @@ public class GameEliminateModel extends GameModel {
         phaseModel.setPhaseData(phaseData);
         addOrUpdatePhase(phaseModel);
     }
+//    public void addGiveUpGamePointPhase() {
+//        EliminateGiveUpGamePointPhaseModel phaseModel = new EliminateGiveUpGamePointPhaseModel(getGameInstanceId(),
+//                GameEliminateState.GameOver.getValue(), 3);
+//        EliminateGiveUpGamePointPhaseData phaseData = new EliminateGiveUpGamePointPhaseData();
+//        phaseModel.setPhaseData(phaseData);
+//        addOrUpdatePhase(phaseModel);
+//    }
 
     public boolean isCompleteAwardCondition() {
         EliminatePlayPhaseModel phase = (EliminatePlayPhaseModel) this.getPhase(GameEliminateState.Play.getValue());

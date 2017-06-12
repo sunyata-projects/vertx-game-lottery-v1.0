@@ -15,6 +15,9 @@ yde-job-service-port:None
 yde-quark-service-port:28009
 
 
+java -jar yde-discover-service-1.0.0.jar ----spring.profiles.active=demo --eureka.client.serviceUrl
+.defaultZone=http://172.21.120.227:16001/eureka/
+
 模块列表：
 
 AIServer:处理AI打牌逻辑，即轮到AI出牌，AI决定是否出牌及出什么样的牌

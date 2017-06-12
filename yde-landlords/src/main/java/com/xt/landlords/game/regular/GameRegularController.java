@@ -7,9 +7,12 @@ import com.xt.landlords.game.phase.BetPhaseData;
 import com.xt.landlords.game.phase.TicketResult;
 import com.xt.landlords.game.regular.condition.GuessSizeCondition;
 import com.xt.landlords.game.regular.condition.LoseCondition;
+import com.xt.landlords.game.regular.condition.PlayingCondition;
 import com.xt.landlords.game.regular.condition.WinCondition;
 import com.xt.landlords.game.regular.phase.RaisePhaseData;
 import com.xt.landlords.game.regular.phase.RaisePhaseModel;
+import com.xt.landlords.game.regular.phase.RegularPlayPhaseDataItem;
+import com.xt.landlords.game.regular.phase.RegularPlayPhaseModel;
 import com.xt.landlords.ioc.SpringIocUtil;
 import com.xt.landlords.service.MoneyBetService;
 import com.xt.landlords.statemachine.GameController;
@@ -47,7 +50,7 @@ import org.sunyata.octopus.model.GameModel;
         @Transit(from = "Raise", to = "Dark", on = "Dark", callMethod = "OnDark"),
         @Transit(from = "Dark", to = "Playing", on = "Play", callMethod = "OnPlay"),
 
-        @Transit(from = "Playing", to = "Playing", on = "Play", callMethod = "OnPlay"),
+        @Transit(from = "Playing", to = "Playing", on = "Play", callMethod = "OnPlay", when = PlayingCondition.class),
         @Transit(from = "Playing", to = "Win", on = "Play", callMethod = "OnWin", when = WinCondition
                 .class),
         @Transit(from = "Playing", to = "Lose", on = "Play", callMethod = "OnLose", when = LoseCondition
@@ -91,7 +94,7 @@ public class GameRegularController extends GameController<GameRegularModel, Game
     public void OnRaise(GameRegularState from, GameRegularState to, GameRegularEvent event,
                         GameModel context) throws Exception {
         MoneyBetService moneyBetService = SpringIocUtil.getBean(MoneyBetService.class);
-        GameRegularModel gameModel = (GameRegularModel) context;
+        GameRegularModel gameModel = getGameModel();
         RaisePhaseModel phase = (RaisePhaseModel) gameModel.getPhase(GameRegularState.Raise.getValue());
         RaisePhaseData phaseData = phase.getPhaseData();
         TicketResult betResult = moneyBetService.betAndQueryPrizeLevel(this.getGameType(), gameModel.getUserName(),
@@ -122,6 +125,49 @@ public class GameRegularController extends GameController<GameRegularModel, Game
 //        phaseData.setTicketResult(betResult);
         setPhaseSuccess(GameRegularState.Bet.getValue());
         logger.append("on raise");
+    }
+
+
+    public void OnPlay(GameRegularState from, GameRegularState to, GameRegularEvent event, GameModel context) throws
+            Exception {
+        GameRegularModel gameModel = getGameModel();
+        RegularPlayPhaseModel phase = (RegularPlayPhaseModel) gameModel.getPhase(GameRegularState.Playing.getValue());
+        RegularPlayPhaseDataItem lastDataItem = phase.getPhaseData().getLastDataItem();
+//        boolean isAuto = lastDataItem.isAuto();
+//        List<Integer> playCards = new ArrayList<>(lastDataItem.getShowCards());
+//        int placeRole = lastDataItem.getNowPlace(); //玩家角色 1地主 2右边农民 3左边农民
+        if (phase.getPhaseData().isIfEnd()) {
+            setPhaseSuccess(GameRegularState.Playing.getValue());
+        }
+        logger.append("on play");
+    }
+
+    public void OnWin(GameRegularState from, GameRegularState to, GameRegularEvent event, GameModel context) throws
+            Exception {
+        GameRegularModel gameModel = getGameModel();
+        RegularPlayPhaseModel phase = (RegularPlayPhaseModel) gameModel.getPhase(GameRegularState.Playing.getValue());
+        RegularPlayPhaseDataItem lastDataItem = phase.getPhaseData().getLastDataItem();
+//        boolean isAuto = lastDataItem.isAuto();
+//        List<Integer> playCards = new ArrayList<>(lastDataItem.getShowCards());
+//        int placeRole = lastDataItem.getNowPlace(); //玩家角色 1地主 2右边农民 3左边农民
+        if (phase.getPhaseData().isIfEnd()) {
+            setPhaseSuccess(GameRegularState.Playing.getValue());
+        }
+        logger.append("on win");
+    }
+
+    public void OnLost(GameRegularState from, GameRegularState to, GameRegularEvent event, GameModel context) throws
+            Exception {
+        GameRegularModel gameModel = getGameModel();
+        RegularPlayPhaseModel phase = (RegularPlayPhaseModel) gameModel.getPhase(GameRegularState.Playing.getValue());
+        RegularPlayPhaseDataItem lastDataItem = phase.getPhaseData().getLastDataItem();
+//        boolean isAuto = lastDataItem.isAuto();
+//        List<Integer> playCards = new ArrayList<>(lastDataItem.getShowCards());
+//        int placeRole = lastDataItem.getNowPlace(); //玩家角色 1地主 2右边农民 3左边农民
+        if (phase.getPhaseData().isIfEnd()) {
+            setPhaseSuccess(GameRegularState.Playing.getValue());
+        }
+        logger.append("on lost");
     }
 
     public void OnGameOver(GameRegularState from, GameRegularState to, GameRegularEvent event,

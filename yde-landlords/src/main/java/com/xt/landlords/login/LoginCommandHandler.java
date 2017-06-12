@@ -5,10 +5,7 @@ import com.xt.landlords.*;
 import com.xt.landlords.event.LoginEventMessage;
 import com.xt.yde.protobuf.common.Common;
 import com.xt.yde.thrift.login.AckLoginMsg;
-import com.xt.yde.thrift.login.LoginMsg;
 import com.xt.yde.thrift.login.LoginResult;
-import com.xt.yde.thrift.login.LoginService;
-import info.developerblog.spring.thrift.annotation.ThriftClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +23,8 @@ public class LoginCommandHandler extends AbstractCommandHandler {
 
     Logger logger = LoggerFactory.getLogger(LoginCommandHandler.class);
 
-    @ThriftClient(serviceId = "yde-login-service", path = "/api")
-    LoginService.Client loginService;
+//    @ThriftClient(serviceId = "yde-login-service", path = "/api")
+//    LoginService.Client loginService;
 
     @Autowired
     StoreFactory storeFactory;
@@ -57,8 +54,10 @@ public class LoginCommandHandler extends AbstractCommandHandler {
         storeManager.storeGameModel(loginRequest.getUserName(), null);
         GameManager.onGameOver(loginRequest.getUserName());
         try {
-            AckLoginMsg loginRet = loginService.login(new LoginMsg(loginRequest.getUserName(), loginRequest.getPassword
-                    ()));
+            AckLoginMsg loginRet = new AckLoginMsg().setCode("000").setCoin(111).setDisplayName("lcl").setResult(LoginResult.ET_TYPE1);
+            //AckLoginMsg loginRet = loginService.login(new LoginMsg(loginRequest.getUserName(), loginRequest
+            // .getPassword
+              //      ()));
 
             if (!loginRet.getCode().equals("000") || !loginRet.getResult().equals(LoginResult.ET_TYPE1)) {
                 //logger.debug("取用户验证信息不正确:"+ackLoginD.toString());
@@ -67,7 +66,7 @@ public class LoginCommandHandler extends AbstractCommandHandler {
                 return;
             }
         } catch (Exception ex) {
-            logger.error("处理用户登录时发生错误{}", loginRequest.getUserName(), org.apache.commons.lang3.exception
+            logger.error("处理用户登录时发生错误{},error:{}", loginRequest.getUserName(), org.apache.commons.lang3.exception
                     .ExceptionUtils.getStackTrace(ex));
             response.setErrorCode(CommandErrorCode.LoginError).writeAndFlush();
             return;

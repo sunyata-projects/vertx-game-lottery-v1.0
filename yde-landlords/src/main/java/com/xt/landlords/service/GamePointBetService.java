@@ -1,5 +1,7 @@
 package com.xt.landlords.service;
 
+import com.xt.landlords.ai.core.util.myutil.AIUtil;
+import com.xt.landlords.ai.core.util.myutil.CardType;
 import com.xt.yde.thrift.card.eliminate.EliminateCards;
 import com.xt.yde.thrift.card.eliminate.EliminateCardsService;
 import info.developerblog.spring.thrift.annotation.ThriftClient;
@@ -11,6 +13,7 @@ import org.sunyata.quark.client.IdWorker;
 import org.sunyata.quark.client.QuarkClient;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -27,6 +30,45 @@ public class GamePointBetService {
     @ThriftClient(serviceId = "yde-card-service", path = "/eliminate")
     EliminateCardsService.Client cardService;
 
+    static HashMap<Integer, Integer> map = new HashMap<>();
+
+    public GamePointBetService() {
+        map.put(7, 20);
+        map.put(8, 50);
+        map.put(9, 80);
+        map.put(10, 100);
+        map.put(11, 200);
+        map.put(12, 500);
+        map.put(14, 800);
+        map.put(15, 1000);
+        map.put(16, 5000);
+        map.put(18, 10000);
+//        map.put(20, 0);
+    }
+
+    public int calculatorGamePointByLength(List<Integer> cards) {
+
+        int length = cards.size();
+        if (length < 7) {
+            return 0;
+        }
+        CardType cardType = AIUtil.jugdeType(cards);
+        if (length == 20) {
+            if (cardType == CardType.c1122) {
+                return 100000;
+            } else if (cardType == CardType.c11122234) {
+                return 50000;
+            } else if (cardType == CardType.c1112223344) {
+                return 80000;
+            }
+        } else {
+            //if (Arrays.asList(CardType.c422, CardType.c123, CardType.c111222).contains(cardType)) {
+            return map.getOrDefault(length, 0);
+            //}
+        }
+        return 0;
+    }
+
     public GamePointBetResult bet(String userName, int betAmt, String gameInstanceId) throws Exception {
 //        throw new Exception("下注失败");
         try {
@@ -34,18 +76,22 @@ public class GamePointBetService {
             EliminateCards cards = cardService.getCards(1, 2);
             //int result = 0;
             List<Integer> result = new ArrayList<>();
+            int totalGamePoint = 0;
             for (int i = 0; i < cards.getCards().size(); i++) {
                 if (i % 2 != 0) {//奇数
                     List<Integer> integers = cards.getCards().get(i);
+                    totalGamePoint += calculatorGamePointByLength(integers);
                     result.addAll(integers);
                 }
+
             }
             long count52 = result.stream().filter(p -> p.equals(52)).count();
             long count53 = result.stream().filter(p -> p.equals(53)).count();
             int bombNum = (int) (count52 > count53 ? count52 : count53);
             logger.info("双王数量:{}", bombNum);
+            totalGamePoint = totalGamePoint == 0 ? 0 : (int) (totalGamePoint * (betAmt / 100.00));
             return new GamePointBetResult().setSerialNo(serialNo).setAwardLevel(2).setDoubleKingCount(bombNum)
-                    .setAwardGamePoint(1000).setCards(cards.getCards());
+                    .setAwardGamePoint(totalGamePoint).setCards(cards.getCards());
         } catch (Exception ex) {
             return new GamePointBetResult().setErrorMessage(ex.getMessage());
         }

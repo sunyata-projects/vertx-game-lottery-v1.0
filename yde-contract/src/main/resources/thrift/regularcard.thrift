@@ -8,7 +8,7 @@ struct RegularCards {
   2: list<i32> center,
   3: list<i32> left,
   4: list<i32> right,
-  5: list<i32> under,
+  5: list<i32> under
 }
 
 service RegularCardsService {

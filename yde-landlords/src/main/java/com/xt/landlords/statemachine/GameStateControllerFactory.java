@@ -22,7 +22,7 @@ public class GameStateControllerFactory {
     static StateMachineBuilder<GamePuzzleController, GamePuzzleState, GamePuzzleEvent, GameModel> puzzleBuilder = null;
 
     static StateMachineBuilder<GameEliminateController, GameEliminateState, GameEliminateEvent, GameModel>
-            eliminateBuilder =null;
+            eliminateBuilder = null;
 
     public static synchronized StateMachineBuilder<GameRegularController, GameRegularState, GameRegularEvent, GameModel>
     getGameRegularBuilder() {
@@ -55,6 +55,7 @@ public class GameStateControllerFactory {
         GameEliminateController controller = getGameEliminateBuilder().newStateMachine(state);
         return controller;
     }
+
     public static synchronized StateMachineBuilder<GamePuzzleController, GamePuzzleState, GamePuzzleEvent, GameModel>
     getGamePuzzleBuilder() {
 
@@ -77,8 +78,11 @@ public class GameStateControllerFactory {
     getGameEliminateBuilder() {
 
         if (eliminateBuilder == null) {
-            eliminateBuilder = StateMachineBuilderFactory.create(GameEliminateController.class, GameEliminateState.class,
+            eliminateBuilder = StateMachineBuilderFactory.create(GameEliminateController.class, GameEliminateState
+                    .class,
                     GameEliminateEvent.class, GameModel.class, GameEliminateController.class);
+//            eliminateBuilder.transitions().fromAmong(GameEliminateState.Bet, GameEliminateState.Deal).to
+//                    (GameEliminateState.GameOver).on(GameEliminateEvent.ForceGameOver).callMethod("OnForceGameOver");
 //            eliminateBuilder.transitions().fromAmong(GameEliminateState.Play).to(GameEliminateState.GameOver).on
 //                    (GameEliminateEvent.GameOver).callMethod("OnGameOver");
 //            puzzleBuilder.transitions().fromAmong(GamePuzzleState.Init, GamePuzzleState.Bet).to(GamePuzzleState

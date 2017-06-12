@@ -1,9 +1,17 @@
 package com.xt.landlords.game.regular;
 
 import com.xt.landlords.GameTypes;
+import com.xt.landlords.game.phase.DealPhaseData;
+import com.xt.landlords.game.phase.DealPhaseModel;
+import com.xt.landlords.game.regular.phase.RaisePhaseData;
+import com.xt.landlords.game.regular.phase.RaisePhaseModel;
+import com.xt.landlords.game.regular.phase.RegularPlayPhaseData;
+import com.xt.landlords.game.regular.phase.RegularPlayPhaseModel;
 import org.sunyata.octopus.model.GameModel;
 import org.sunyata.octopus.model.GamePhaseModel;
 import org.sunyata.octopus.model.PhaseState;
+
+import java.util.List;
 
 /**
  * Created by leo on 17/5/15.
@@ -32,6 +40,37 @@ public class GameRegularModel extends GameModel {
 //        this.addOrUpdatePhase(gamePhaseModel);
 //    }
 
+    public void addRaisePhase(String gameInstanceId, int times, int betAmt) {
+        RaisePhaseModel raiseBetPhaseModel = new RaisePhaseModel(gameInstanceId, GameRegularState.Raise.getValue(), 3);
+        raiseBetPhaseModel.setPhaseData(new RaisePhaseData().setTimes(times).setBetAmt(betAmt));
+        addOrUpdatePhase(raiseBetPhaseModel);
+    }
+
+    public void addDealPhase(String cardId, List<Integer> cardCenter) {
+        DealPhaseModel dealPhaseModel = new DealPhaseModel(getGameInstanceId(), GameRegularState.Deal.getValue(), 2);
+        DealPhaseData dealPhaseData = new DealPhaseData();
+        dealPhaseData.setCardId(cardId);
+        dealPhaseData.setCenterCard(cardCenter);
+        dealPhaseModel.setPhaseData(dealPhaseData);
+        addOrUpdatePhase(dealPhaseModel);
+    }
+
+    public void addDarkPhase(String cardId, List<Integer> cardCenter, List<Integer> cardRight,
+                             List<Integer>
+                                     cardLeft,
+                             List<Integer> cardUnder) {
+        DealPhaseModel darkPhaseModel = new DealPhaseModel(this.getGameInstanceId(), GameRegularState.Dark.getValue(),
+                4);
+        DealPhaseData darkPhaseData = new DealPhaseData();
+        darkPhaseData
+                .setCardId(cardId)
+                .setCenterCard(cardCenter)
+                .setLeftCard(cardLeft)
+                .setRightCard(cardRight)
+                .setDarkCard(cardUnder);
+        darkPhaseModel.setPhaseData(darkPhaseData);
+        addOrUpdatePhase(darkPhaseModel);
+    }
 
     @Override
     public Object getFirstEvent() {
@@ -55,4 +94,15 @@ public class GameRegularModel extends GameModel {
         return GameRegularState.valueOf(getLastSuccessStateName());
     }
 
+    public RegularPlayPhaseModel addOrUpdatePlayPhase() {
+        RegularPlayPhaseModel playPhaseModel = (RegularPlayPhaseModel) getPhase(GameRegularState.Playing
+                .getValue());
+        if (playPhaseModel == null) {
+            playPhaseModel = new RegularPlayPhaseModel(this.getGameInstanceId());
+            RegularPlayPhaseData playPhaseData = new RegularPlayPhaseData();
+            playPhaseModel.setPhaseData(playPhaseData);
+            addOrUpdatePhase(playPhaseModel);
+        }
+        return playPhaseModel;
+    }
 }

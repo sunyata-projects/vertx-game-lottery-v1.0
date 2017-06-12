@@ -250,6 +250,14 @@ public final class WebSocketEliminateClient {
                     buffer.writeInt(53005).writeInt(2323232).writeFloat(1.0f).writeInt(bytes.length).writeBytes(bytes);
                     WebSocketFrame frame = new BinaryWebSocketFrame(buffer);
                     ch.writeAndFlush(frame);
+                } else if ("force".equals(msg.toLowerCase())) {
+                    Common.GiveUpGamePointProcessRequestMsg.Builder builder = Common.GiveUpGamePointProcessRequestMsg.newBuilder();
+                    Common.GiveUpGamePointProcessRequestMsg eliminateClearGameRequestMsg = builder.build();
+                    ByteBuf buffer = Unpooled.buffer();
+                    byte[] bytes = eliminateClearGameRequestMsg.toByteArray();
+                    buffer.writeInt(53006).writeInt(2323232).writeFloat(1.0f).writeInt(bytes.length).writeBytes(bytes);
+                    WebSocketFrame frame = new BinaryWebSocketFrame(buffer);
+                    ch.writeAndFlush(frame);
                 } else if ("test".equals(msg.toLowerCase())) {
                     concurrentTest(ch);
                 } else {

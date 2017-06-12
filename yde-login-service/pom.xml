@@ -13,7 +13,6 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <pagehelper.version>4.1.1</pagehelper.version>
         <java.version>1.8</java.version>
     </properties>
 
@@ -44,7 +43,7 @@
         <dependency>
             <groupId>org.apache.thrift</groupId>
             <artifactId>libthrift</artifactId>
-            <version>0.9.3</version>
+            <version>0.9.2</version>
         </dependency>
         <dependency>
             <groupId>info.developerblog.spring.thrift</groupId>

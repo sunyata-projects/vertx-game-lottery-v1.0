@@ -10,9 +10,10 @@ import org.springframework.stereotype.Component;
 import org.sunyata.octopus.json.Json;
 import ru.trylogic.spring.boot.thrift.annotation.ThriftController;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -41,7 +42,7 @@ public class PuzzleCardServiceHandler implements PuzzleCardsService.Iface {
     public List getWZ() {
         List list = map.get(99);
         int i1 = randomWz.nextInt(list.size());
-        List<List<Integer>>  o = (List) list.get(i1);//size为4
+        List<List<Integer>> o = (List) list.get(i1);//size为4
         return o;
     }
 
@@ -55,7 +56,7 @@ public class PuzzleCardServiceHandler implements PuzzleCardsService.Iface {
     public List getNormal(int grade) {
         List list = map.get(grade);
         int index22 = randomNormal.nextInt(list.size());
-        List<List<Integer>>  listResult22 = (List) list.get(index22);
+        List<List<Integer>> listResult22 = (List) list.get(index22);
         return listResult22;
     }
 
@@ -90,17 +91,43 @@ public class PuzzleCardServiceHandler implements PuzzleCardsService.Iface {
     public List test(String name) throws IOException {
         Resource resource = applicationContext.getResource(String.format("classpath:%s.json", name));
 
-        File file = resource.getFile();
-        byte[] buffer = new byte[(int) file.length()];
-        FileInputStream is = new FileInputStream(file);
+        InputStream is = resource.getInputStream();
 
-        is.read(buffer, 0, buffer.length);
+//        File file = resource.getFile();
+//        byte[] buffer = new byte[(int) file.length()];
+//        FileInputStream is = new FileInputStream(file);
 
-        is.close();
-        String str = new String(buffer);
+//        StringWriter writer = new StringWriter();
+//        int copy = IOUtils.copy(is, writer, "UTF-8");
+//        String theString = writer.toString();
+        String str = convertStreamToStream(is);
         List List = Json.decodeValue(str, List.class);
         return List;
 
+    }
+
+    public String convertStreamToStream(InputStream is) throws IOException {
+        InputStreamReader isr = null;
+        BufferedReader br = null;
+
+        StringBuilder sb = new StringBuilder();
+        String content;
+        try {
+            isr = new InputStreamReader(is);
+            br = new BufferedReader(isr);
+            while ((content = br.readLine()) != null) {
+                sb.append(content);
+            }
+        } catch (IOException ioe) {
+            System.out.println("IO Exception occurred");
+            ioe.printStackTrace();
+        } finally {
+            isr.close();
+            br.close();
+        }
+        String mystring = sb.toString();
+        System.out.println(mystring);
+        return mystring;
     }
 
     static HashMap<Integer, List> map = new HashMap<>();
