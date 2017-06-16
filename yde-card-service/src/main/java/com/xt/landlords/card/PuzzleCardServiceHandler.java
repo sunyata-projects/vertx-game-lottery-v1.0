@@ -3,12 +3,13 @@ package com.xt.landlords.card;
 import com.xt.yde.thrift.card.puzzle.PuzzleCards;
 import com.xt.yde.thrift.card.puzzle.PuzzleCardsService;
 import org.apache.thrift.TException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.sunyata.octopus.json.Json;
-import ru.trylogic.spring.boot.thrift.annotation.ThriftController;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,9 +25,10 @@ import java.util.Random;
 /**
  * Created by aleksandr on 01.09.15.
  */
-@Component
-@ThriftController("/puzzle")
+@Service
+//@ThriftController("/puzzle")
 public class PuzzleCardServiceHandler implements PuzzleCardsService.Iface {
+    Logger logger = LoggerFactory.getLogger(EliminateCardServiceHandler.class);
     @Autowired
     ApplicationContext applicationContext;
 
@@ -62,6 +64,7 @@ public class PuzzleCardServiceHandler implements PuzzleCardsService.Iface {
 
     @Override
     public PuzzleCards getCards(int grade) throws TException {
+        logger.info("grade:{}", grade);
         List<List<List<Integer>>> result = new ArrayList<>();
         int i = random4.nextInt(4);
         if (i == 0) {
@@ -84,6 +87,7 @@ public class PuzzleCardServiceHandler implements PuzzleCardsService.Iface {
 //            }
 //        }
         cards.setCardId("cardId").setCards(result);
+        logger.info("获取牌库成功");
         return cards;
     }
 
@@ -126,7 +130,7 @@ public class PuzzleCardServiceHandler implements PuzzleCardsService.Iface {
             br.close();
         }
         String mystring = sb.toString();
-        System.out.println(mystring);
+        //System.out.println(mystring);
         return mystring;
     }
 

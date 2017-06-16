@@ -1089,23 +1089,23 @@ public final class GameRegular {
   public interface RegularGuessSizeResponseMsgOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required int32 awardLevel = 1;
+    // required bool flag = 1;
     /**
-     * <code>required int32 awardLevel = 1;</code>
+     * <code>required bool flag = 1;</code>
      *
      * <pre>
-     *奖等
+     *是否翻牌,true翻
      * </pre>
      */
-    boolean hasAwardLevel();
+    boolean hasFlag();
     /**
-     * <code>required int32 awardLevel = 1;</code>
+     * <code>required bool flag = 1;</code>
      *
      * <pre>
-     *奖等
+     *是否翻牌,true翻
      * </pre>
      */
-    int getAwardLevel();
+    boolean getFlag();
 
     // required int32 totalMoney = 2;
     /**
@@ -1182,7 +1182,7 @@ public final class GameRegular {
             }
             case 8: {
               bitField0_ |= 0x00000001;
-              awardLevel_ = input.readInt32();
+              flag_ = input.readBool();
               break;
             }
             case 16: {
@@ -1230,28 +1230,28 @@ public final class GameRegular {
     }
 
     private int bitField0_;
-    // required int32 awardLevel = 1;
-    public static final int AWARDLEVEL_FIELD_NUMBER = 1;
-    private int awardLevel_;
+    // required bool flag = 1;
+    public static final int FLAG_FIELD_NUMBER = 1;
+    private boolean flag_;
     /**
-     * <code>required int32 awardLevel = 1;</code>
+     * <code>required bool flag = 1;</code>
      *
      * <pre>
-     *奖等
+     *是否翻牌,true翻
      * </pre>
      */
-    public boolean hasAwardLevel() {
+    public boolean hasFlag() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required int32 awardLevel = 1;</code>
+     * <code>required bool flag = 1;</code>
      *
      * <pre>
-     *奖等
+     *是否翻牌,true翻
      * </pre>
      */
-    public int getAwardLevel() {
-      return awardLevel_;
+    public boolean getFlag() {
+      return flag_;
     }
 
     // required int32 totalMoney = 2;
@@ -1279,7 +1279,7 @@ public final class GameRegular {
     }
 
     private void initFields() {
-      awardLevel_ = 0;
+      flag_ = false;
       totalMoney_ = 0;
     }
     private byte memoizedIsInitialized = -1;
@@ -1287,7 +1287,7 @@ public final class GameRegular {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized != -1) return isInitialized == 1;
 
-      if (!hasAwardLevel()) {
+      if (!hasFlag()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -1303,7 +1303,7 @@ public final class GameRegular {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, awardLevel_);
+        output.writeBool(1, flag_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt32(2, totalMoney_);
@@ -1319,7 +1319,7 @@ public final class GameRegular {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, awardLevel_);
+          .computeBoolSize(1, flag_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
@@ -1445,7 +1445,7 @@ public final class GameRegular {
 
       public Builder clear() {
         super.clear();
-        awardLevel_ = 0;
+        flag_ = false;
         bitField0_ = (bitField0_ & ~0x00000001);
         totalMoney_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -1480,7 +1480,7 @@ public final class GameRegular {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.awardLevel_ = awardLevel_;
+        result.flag_ = flag_;
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
@@ -1501,8 +1501,8 @@ public final class GameRegular {
 
       public Builder mergeFrom(com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg other) {
         if (other == com.xt.yde.protobuf.regular.GameRegular.RegularGuessSizeResponseMsg.getDefaultInstance()) return this;
-        if (other.hasAwardLevel()) {
-          setAwardLevel(other.getAwardLevel());
+        if (other.hasFlag()) {
+          setFlag(other.getFlag());
         }
         if (other.hasTotalMoney()) {
           setTotalMoney(other.getTotalMoney());
@@ -1512,7 +1512,7 @@ public final class GameRegular {
       }
 
       public final boolean isInitialized() {
-        if (!hasAwardLevel()) {
+        if (!hasFlag()) {
           
           return false;
         }
@@ -1542,51 +1542,51 @@ public final class GameRegular {
       }
       private int bitField0_;
 
-      // required int32 awardLevel = 1;
-      private int awardLevel_ ;
+      // required bool flag = 1;
+      private boolean flag_ ;
       /**
-       * <code>required int32 awardLevel = 1;</code>
+       * <code>required bool flag = 1;</code>
        *
        * <pre>
-       *奖等
+       *是否翻牌,true翻
        * </pre>
        */
-      public boolean hasAwardLevel() {
+      public boolean hasFlag() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required int32 awardLevel = 1;</code>
+       * <code>required bool flag = 1;</code>
        *
        * <pre>
-       *奖等
+       *是否翻牌,true翻
        * </pre>
        */
-      public int getAwardLevel() {
-        return awardLevel_;
+      public boolean getFlag() {
+        return flag_;
       }
       /**
-       * <code>required int32 awardLevel = 1;</code>
+       * <code>required bool flag = 1;</code>
        *
        * <pre>
-       *奖等
+       *是否翻牌,true翻
        * </pre>
        */
-      public Builder setAwardLevel(int value) {
+      public Builder setFlag(boolean value) {
         bitField0_ |= 0x00000001;
-        awardLevel_ = value;
+        flag_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 awardLevel = 1;</code>
+       * <code>required bool flag = 1;</code>
        *
        * <pre>
-       *奖等
+       *是否翻牌,true翻
        * </pre>
        */
-      public Builder clearAwardLevel() {
+      public Builder clearFlag() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        awardLevel_ = 0;
+        flag_ = false;
         onChanged();
         return this;
       }
@@ -2454,12 +2454,11 @@ public final class GameRegular {
       "\n\024gameregular.protobuf\022\033com.xt.yde.proto" +
       "buf.regular\"*\n\031RegularRaiseBetRequestMsg" +
       "\022\r\n\005times\030\001 \002(\005\"\034\n\032RegularRaiseBetRespon" +
-      "seMsg\"\034\n\032RegularGuessSizeRequestMsg\"E\n\033R" +
-      "egularGuessSizeResponseMsg\022\022\n\nawardLevel" +
-      "\030\001 \002(\005\022\022\n\ntotalMoney\030\002 \002(\005\"\034\n\032RegularCle" +
-      "arGameRequestMsg\"1\n\033RegularClearGameResp" +
-      "onseMsg\022\022\n\ntotalMoney\030\001 \002(\002B\rB\013GameRegul" +
-      "ar"
+      "seMsg\"\034\n\032RegularGuessSizeRequestMsg\"?\n\033R" +
+      "egularGuessSizeResponseMsg\022\014\n\004flag\030\001 \002(\010" +
+      "\022\022\n\ntotalMoney\030\002 \002(\005\"\034\n\032RegularClearGame" +
+      "RequestMsg\"1\n\033RegularClearGameResponseMs" +
+      "g\022\022\n\ntotalMoney\030\001 \002(\002B\rB\013GameRegular"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -2489,7 +2488,7 @@ public final class GameRegular {
           internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeResponseMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_xt_yde_protobuf_regular_RegularGuessSizeResponseMsg_descriptor,
-              new java.lang.String[] { "AwardLevel", "TotalMoney", });
+              new java.lang.String[] { "Flag", "TotalMoney", });
           internal_static_com_xt_yde_protobuf_regular_RegularClearGameRequestMsg_descriptor =
             getDescriptor().getMessageTypes().get(4);
           internal_static_com_xt_yde_protobuf_regular_RegularClearGameRequestMsg_fieldAccessorTable = new

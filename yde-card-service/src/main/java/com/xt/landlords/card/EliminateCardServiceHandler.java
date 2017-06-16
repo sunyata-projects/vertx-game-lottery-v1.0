@@ -3,14 +3,18 @@ package com.xt.landlords.card;
 import com.xt.yde.thrift.card.eliminate.EliminateCards;
 import com.xt.yde.thrift.card.eliminate.EliminateCardsService;
 import org.apache.thrift.TException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 import org.sunyata.octopus.json.Json;
-import ru.trylogic.spring.boot.thrift.annotation.ThriftController;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -22,8 +26,8 @@ import java.util.Random;
  * Created by aleksandr on 01.09.15.
  */
 @Component
-@ThriftController("/eliminate")
 public class EliminateCardServiceHandler implements EliminateCardsService.Iface {
+    Logger logger = LoggerFactory.getLogger(EliminateCardServiceHandler.class);
     @Autowired
     ApplicationContext applicationContext;
 
@@ -44,10 +48,12 @@ public class EliminateCardServiceHandler implements EliminateCardsService.Iface 
 
     @Override
     public EliminateCards getCards(int awardLevel, int bombNum) throws TException {
+        logger.info("awardLevel:{},bombNum:{}", awardLevel, bombNum);
         List<List<Integer>> result = new ArrayList<>();
         result = getWZ();
         EliminateCards cards = new EliminateCards();
         cards.setCardId("cardId").setCards(result);
+        logger.info("获取牌库成功");
         return cards;
     }
 
@@ -66,7 +72,7 @@ public class EliminateCardServiceHandler implements EliminateCardsService.Iface 
         InputStream inputStream = resource.getInputStream();
         String str = convertStreamToStream(inputStream);
         List List = Json.decodeValue(str, List.class);
-        System.out.println(str);
+        //System.out.println(str);
         return List;
 
     }
@@ -91,7 +97,7 @@ public class EliminateCardServiceHandler implements EliminateCardsService.Iface 
             br.close();
         }
         String mystring = sb.toString();
-        System.out.println(mystring);
+        //System.out.println(mystring);
         return mystring;
     }
 

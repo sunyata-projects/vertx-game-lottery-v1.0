@@ -61,31 +61,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>info.developerblog.spring.thrift</groupId>-->
-        <!--<artifactId>spring-thrift-starter</artifactId>-->
-        <!--<version>1.4.0.RELEASE</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>org.apache.thrift</groupId>-->
-        <!--<artifactId>libthrift</artifactId>-->
-        <!--<version>0.9.3</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>info.developerblog.spring.thrift</groupId>-->
-        <!--<artifactId>spring-thrift-autoconfigure</artifactId>-->
-        <!--<version>1.4.0.RELEASE</version>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>org.sunyata</groupId>
             <artifactId>yde-contract</artifactId>
             <version>1.0.0</version>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>org.sunyata</groupId>-->
-        <!--<artifactId>sunyata-quark-client</artifactId>-->
-        <!--<version>1.0.0-SNAPSHOT</version>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>org.sunyata</groupId>
             <artifactId>sunyata-quark-client</artifactId>

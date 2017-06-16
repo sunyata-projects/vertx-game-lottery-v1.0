@@ -11,7 +11,7 @@ import java.util.Map;
 public enum GameTypes {
     //常规赛
     Regular(10001),
-    //积分赛
+    //闯关赛
     Point(10002),
     //拼图
     Puzzle(10003),

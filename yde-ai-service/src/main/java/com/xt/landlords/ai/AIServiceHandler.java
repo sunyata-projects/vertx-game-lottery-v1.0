@@ -11,8 +11,7 @@ import com.xt.yde.thrift.ai.CheckCards;
 import com.xt.yde.thrift.ai.ShowCards;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
-import ru.trylogic.spring.boot.thrift.annotation.ThriftController;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 //import ru.trylogic.spring.boot.thrift.annotation.*;
@@ -21,8 +20,8 @@ import java.util.*;
 /**
  * Created by aleksandr on 01.09.15.
  */
-@Component
-@ThriftController("/ai")
+@Service
+//@ThriftController("/ai")
 public class AIServiceHandler implements AIService.Iface {
 
     Logger log = LoggerFactory.getLogger(AIServiceHandler.class);

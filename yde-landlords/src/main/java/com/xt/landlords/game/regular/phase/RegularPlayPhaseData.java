@@ -11,6 +11,7 @@ import java.util.List;
  */
 public class RegularPlayPhaseData extends PhaseData {
     private List<RegularPlayPhaseDataItem> items = new ArrayList<>();
+    private List<Integer> playCards;
 
     public List<RegularPlayPhaseDataItem> getItems() {
         return items;
@@ -119,4 +120,12 @@ public class RegularPlayPhaseData extends PhaseData {
 
 
     private boolean isWin;
+
+    public void setPlayCards(List<Integer> playCards) {
+        this.playCards = playCards;
+    }
+
+    public List<Integer> getPlayCards() {
+        return playCards;
+    }
 }

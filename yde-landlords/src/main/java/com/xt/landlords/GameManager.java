@@ -111,7 +111,6 @@ public class GameManager {
     public void saveGameModelToCacheAndAsyncDb(GameModel gameModel) throws Exception {
         storeManager.storeGameModel(gameModel.getUserName(), gameModel);
         messageClient.asyncSaveGameModel(gameModel);
-
     }
 
     public GameModel createGameModelAndBetPhase(int gameType, String userName, int betAmt) {

@@ -4,13 +4,14 @@ import com.xt.landlords.ai.core.util.myutil.AIUtil;
 import com.xt.landlords.ai.core.util.myutil.CardType;
 import com.xt.yde.thrift.card.eliminate.EliminateCards;
 import com.xt.yde.thrift.card.eliminate.EliminateCardsService;
-import info.developerblog.spring.thrift.annotation.ThriftClient;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.sunyata.quark.client.IdWorker;
 import org.sunyata.quark.client.QuarkClient;
+import org.sunyata.spring.thrift.client.annotation.ThriftClient;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -93,6 +94,7 @@ public class GamePointBetService {
             return new GamePointBetResult().setSerialNo(serialNo).setAwardLevel(2).setDoubleKingCount(bombNum)
                     .setAwardGamePoint(totalGamePoint).setCards(cards.getCards());
         } catch (Exception ex) {
+            logger.error(ExceptionUtils.getStackTrace(ex));
             return new GamePointBetResult().setErrorMessage(ex.getMessage());
         }
 //        HashMap<String, String> parameters = new HashMap<>();

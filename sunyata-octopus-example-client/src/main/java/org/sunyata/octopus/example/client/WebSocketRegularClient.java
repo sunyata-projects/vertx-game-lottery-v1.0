@@ -3,7 +3,6 @@ package org.sunyata.octopus.example.client; /**
  */
 
 import com.xt.yde.protobuf.common.Common;
-import com.xt.yde.protobuf.eliminate.Eliminate;
 import com.xt.yde.protobuf.regular.GameRegular;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
@@ -17,6 +16,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.http.DefaultHttpHeaders;
 import io.netty.handler.codec.http.HttpClientCodec;
+import io.netty.handler.codec.http.HttpHeaderNames;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.websocketx.*;
 import io.netty.handler.codec.http.websocketx.extensions.compression.WebSocketClientCompressionHandler;
@@ -39,7 +39,7 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 public final class WebSocketRegularClient {
 
-    static final String URL = System.getProperty("url", "ws://127.0.0.1:8000/websocket");
+    static final String URL = System.getProperty("url", "ws://127.0.0.1:8000/websocket?token=tokenValuehahaha");
     private static AtomicLong serialCount = new AtomicLong();
 
     public static Channel connect() throws SSLException, URISyntaxException {
@@ -78,10 +78,19 @@ public final class WebSocketRegularClient {
             // Connect with V13 (RFC 6455 aka HyBi-17). You can change it to V08 or V00.
             // If you change it to V00, ping is not supported and remember to change
             // HttpResponseDecoder to WebSocketHttpResponseDecoder in the pipeline.
+            io.netty.handler.codec.http.cookie.DefaultCookie cookie = new io.netty.handler.codec.http.cookie
+                    .DefaultCookie("cid", "tokenValud");
+            cookie.setPath("/");
+            cookie.setHttpOnly(true);
+            cookie.setSecure(false);
+
+            DefaultHttpHeaders entries = new DefaultHttpHeaders();
+            entries.add(HttpHeaderNames.SET_COOKIE, io.netty.handler.codec.http.cookie.ServerCookieEncoder.LAX.encode
+                    (cookie));
             final WebSocketClientHandler handler =
                     new WebSocketClientHandler(
                             WebSocketClientHandshakerFactory.newHandshaker(
-                                    uri, WebSocketVersion.V13, null, true, new DefaultHttpHeaders()));
+                                    uri, WebSocketVersion.V13, null, true, entries));
 
             Bootstrap b = new Bootstrap();
             b.group(group)
@@ -233,23 +242,37 @@ public final class WebSocketRegularClient {
                     WebSocketFrame frame = new BinaryWebSocketFrame(buffer);
                     ch.writeAndFlush(frame);
                 } else if ("play".equals(msg.toLowerCase())) {
-                    Common.PlayRequestMsg.Builder builder = Common.PlayRequestMsg.newBuilder();
-                    builder.setIsAuto(true);
-                    builder.setRolePosition(1);
-                    Common.PlayRequestMsg playRequestMsg = builder.build();
+                    for (int i = 0; i < 10; i++) {
+                        Common.PlayRequestMsg.Builder builder = Common.PlayRequestMsg.newBuilder();
+                        builder.setIsAuto(true);
+                        builder.setRolePosition(1);
+                        Common.PlayRequestMsg playRequestMsg = builder.build();
 
+                        ByteBuf buffer = Unpooled.buffer();
+                        byte[] bytes = playRequestMsg.toByteArray();
+                        buffer.writeInt(50006).writeInt(2323232).writeFloat(1.0f).writeInt(bytes.length).writeBytes
+                                (bytes);
+
+                        WebSocketFrame frame = new BinaryWebSocketFrame(buffer);
+                        ch.writeAndFlush(frame);
+                    }
+                } else if ("guess".equals(msg.toLowerCase())) {
+                    GameRegular.RegularGuessSizeRequestMsg.Builder builder = GameRegular.RegularGuessSizeRequestMsg
+                            .newBuilder();
+
+                    GameRegular.RegularGuessSizeRequestMsg regularGuessSizeRequestMsg = builder.build();
                     ByteBuf buffer = Unpooled.buffer();
-                    byte[] bytes = playRequestMsg.toByteArray();
-                    buffer.writeInt(50006).writeInt(2323232).writeFloat(1.0f).writeInt(bytes.length).writeBytes(bytes);
+                    byte[] bytes = regularGuessSizeRequestMsg.toByteArray();
+                    buffer.writeInt(50007).writeInt(2323232).writeFloat(1.0f).writeInt(bytes.length).writeBytes(bytes);
                     WebSocketFrame frame = new BinaryWebSocketFrame(buffer);
                     ch.writeAndFlush(frame);
-                } else if ("cleargame".equals(msg.toLowerCase())) {
-                    Eliminate.EliminateClearGameRequestMsg.Builder builder = Eliminate.EliminateClearGameRequestMsg
+                } else if ("clear".equals(msg.toLowerCase())) {
+                    GameRegular.RegularClearGameRequestMsg.Builder builder = GameRegular.RegularClearGameRequestMsg
                             .newBuilder();
-                    Eliminate.EliminateClearGameRequestMsg eliminateClearGameRequestMsg = builder.build();
+                    GameRegular.RegularClearGameRequestMsg regularClearGameRequestMsg = builder.build();
                     ByteBuf buffer = Unpooled.buffer();
-                    byte[] bytes = eliminateClearGameRequestMsg.toByteArray();
-                    buffer.writeInt(53005).writeInt(2323232).writeFloat(1.0f).writeInt(bytes.length).writeBytes(bytes);
+                    byte[] bytes = regularClearGameRequestMsg.toByteArray();
+                    buffer.writeInt(50008).writeInt(2323232).writeFloat(1.0f).writeInt(bytes.length).writeBytes(bytes);
                     WebSocketFrame frame = new BinaryWebSocketFrame(buffer);
                     ch.writeAndFlush(frame);
                 } else if ("test".equals(msg.toLowerCase())) {

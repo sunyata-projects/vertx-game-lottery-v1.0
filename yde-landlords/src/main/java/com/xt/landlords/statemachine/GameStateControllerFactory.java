@@ -30,7 +30,7 @@ public class GameStateControllerFactory {
         if (builder == null) {
             builder = StateMachineBuilderFactory.create(GameRegularController.class, GameRegularState.class,
                     GameRegularEvent.class, GameModel.class, GameRegularController.class);
-            builder.transitions().fromAmong(GameRegularState.Init, GameRegularState.Bet).
+            builder.transitions().fromAmong(GameRegularState.Init, GameRegularState.Bet, GameRegularState.GuessSize).
                     to(GameRegularState.GameOver).on(GameRegularEvent.GameOver).callMethod("OnGameOver");
 
         }
@@ -79,7 +79,7 @@ public class GameStateControllerFactory {
 
         if (eliminateBuilder == null) {
             eliminateBuilder = StateMachineBuilderFactory.create(GameEliminateController.class, GameEliminateState
-                    .class,
+                            .class,
                     GameEliminateEvent.class, GameModel.class, GameEliminateController.class);
 //            eliminateBuilder.transitions().fromAmong(GameEliminateState.Bet, GameEliminateState.Deal).to
 //                    (GameEliminateState.GameOver).on(GameEliminateEvent.ForceGameOver).callMethod("OnForceGameOver");

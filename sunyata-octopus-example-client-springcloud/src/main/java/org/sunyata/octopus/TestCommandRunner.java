@@ -1,10 +1,10 @@
 package org.sunyata.octopus;
 
-import info.developerblog.spring.thrift.annotation.ThriftClient;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.sunyata.octopus.thrift.TGreetingService;
 import org.sunyata.octopus.thrift.TName;
+import org.sunyata.spring.thrift.client.annotation.ThriftClient;
 
 /**
  * Created by leo on 17/4/18.

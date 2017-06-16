@@ -33,7 +33,7 @@ public class NettyServer implements Server {
         ServerBootstrap b = new ServerBootstrap();
         b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class).childHandler(createInitializer
                 (NettyServer.this));
-        int port = 8000;
+        int port = this.configuration.getPort();
         b.bind(port).sync().channel();
     }
 

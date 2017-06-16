@@ -19,7 +19,6 @@ import org.sunyata.quark.client.json.Json;
  */
 @Component
 @Configuration
-
 public class MessageClient {
     final Logger logger = LoggerFactory.getLogger(MessageClient.class);
 

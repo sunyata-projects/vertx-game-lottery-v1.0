@@ -9,13 +9,13 @@ import com.xt.landlords.statemachine.GameController;
 import com.xt.yde.protobuf.common.Common;
 import com.xt.yde.thrift.regular.RegularCards;
 import com.xt.yde.thrift.regular.RegularCardsService;
-import info.developerblog.spring.thrift.annotation.ThriftClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.squirrelframework.foundation.fsm.ImmutableState;
 import org.sunyata.octopus.OctopusRequest;
 import org.sunyata.octopus.OctopusResponse;
+import org.sunyata.spring.thrift.client.annotation.ThriftClient;
 
 /**
  * Created by leo on 17/5/15.

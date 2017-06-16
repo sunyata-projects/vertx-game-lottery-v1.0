@@ -5,7 +5,9 @@ import com.xt.landlords.*;
 import com.xt.landlords.event.LoginEventMessage;
 import com.xt.yde.protobuf.common.Common;
 import com.xt.yde.thrift.login.AckLoginMsg;
+import com.xt.yde.thrift.login.LoginMsg;
 import com.xt.yde.thrift.login.LoginResult;
+import com.xt.yde.thrift.login.LoginService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.sunyata.octopus.*;
 import org.sunyata.octopus.model.GameModel;
 import org.sunyata.octopus.store.Store;
 import org.sunyata.octopus.store.StoreFactory;
+import org.sunyata.spring.thrift.client.annotation.ThriftClient;
 
 /**
  * Created by leo on 17/4/18.
@@ -23,8 +26,8 @@ public class LoginCommandHandler extends AbstractCommandHandler {
 
     Logger logger = LoggerFactory.getLogger(LoginCommandHandler.class);
 
-//    @ThriftClient(serviceId = "yde-login-service", path = "/api")
-//    LoginService.Client loginService;
+    @ThriftClient(serviceId = "yde-login-service", path = "/api")
+    LoginService.Client loginService;
 
     @Autowired
     StoreFactory storeFactory;
@@ -54,10 +57,10 @@ public class LoginCommandHandler extends AbstractCommandHandler {
         storeManager.storeGameModel(loginRequest.getUserName(), null);
         GameManager.onGameOver(loginRequest.getUserName());
         try {
-            AckLoginMsg loginRet = new AckLoginMsg().setCode("000").setCoin(111).setDisplayName("lcl").setResult(LoginResult.ET_TYPE1);
-            //AckLoginMsg loginRet = loginService.login(new LoginMsg(loginRequest.getUserName(), loginRequest
-            // .getPassword
-              //      ()));
+            //AckLoginMsg loginRet = new AckLoginMsg().setCode("000").setCoin(111).setDisplayName("lcl").setResult
+            //      (LoginResult.ET_TYPE1);
+            AckLoginMsg loginRet = loginService.login(new LoginMsg(loginRequest.getUserName(), loginRequest
+                    .getPassword()));
 
             if (!loginRet.getCode().equals("000") || !loginRet.getResult().equals(LoginResult.ET_TYPE1)) {
                 //logger.debug("取用户验证信息不正确:"+ackLoginD.toString());

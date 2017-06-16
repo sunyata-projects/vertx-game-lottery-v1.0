@@ -8,18 +8,20 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.sunyata.quark.client.EnableQuarkClient;
+import org.sunyata.spring.thrift.client.annotation.EnableThriftClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
 //@EnableScheduling
 @EnableQuarkClient
+@EnableThriftClient
 public class Application {
 
 //    @Autowired
 //    BusinessManager businessManager;
 
     public static void main(String[] args) throws InterruptedException {
-        new SpringApplicationBuilder(Application.class).web(true).run(args);
+        new SpringApplicationBuilder(Application.class).web(false).run(args);
     }
 
     //

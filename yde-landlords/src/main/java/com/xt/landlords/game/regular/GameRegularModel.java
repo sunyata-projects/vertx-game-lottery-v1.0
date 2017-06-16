@@ -3,10 +3,7 @@ package com.xt.landlords.game.regular;
 import com.xt.landlords.GameTypes;
 import com.xt.landlords.game.phase.DealPhaseData;
 import com.xt.landlords.game.phase.DealPhaseModel;
-import com.xt.landlords.game.regular.phase.RaisePhaseData;
-import com.xt.landlords.game.regular.phase.RaisePhaseModel;
-import com.xt.landlords.game.regular.phase.RegularPlayPhaseData;
-import com.xt.landlords.game.regular.phase.RegularPlayPhaseModel;
+import com.xt.landlords.game.regular.phase.*;
 import org.sunyata.octopus.model.GameModel;
 import org.sunyata.octopus.model.GamePhaseModel;
 import org.sunyata.octopus.model.PhaseState;
@@ -104,5 +101,20 @@ public class GameRegularModel extends GameModel {
             addOrUpdatePhase(playPhaseModel);
         }
         return playPhaseModel;
+    }
+
+    public void addGuessSizePhase(String gameInstanceId) {
+        GuessSizePhaseModel raiseBetPhaseModel = new GuessSizePhaseModel(gameInstanceId);
+        raiseBetPhaseModel.setPhaseData(new GuessSizePhaseData());
+        addOrUpdatePhase(raiseBetPhaseModel);
+    }
+
+
+    public void addClearPhase() {
+        RegularClearPhaseModel phaseModel = new RegularClearPhaseModel(getGameInstanceId(),
+                GameRegularState.GameOver.getValue(), 7);
+        RegularClearPhaseData phaseData = new RegularClearPhaseData();
+        phaseModel.setPhaseData(phaseData);
+        addOrUpdatePhase(phaseModel);
     }
 }

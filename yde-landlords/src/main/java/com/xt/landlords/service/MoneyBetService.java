@@ -21,6 +21,14 @@ public class MoneyBetService {
 
     Random random = new Random();
 
+    public int nextInt(int from, int to) {
+        int max = to;
+        int min = from;
+        Random random = new Random();
+        int s = random.nextInt(max) % (max - min + 1) + min;
+        return s;
+    }
+
     public TicketResult betAndQueryPrizeLevel(int gameType, String userName, int betAmt, String gameInstanceId)
             throws Exception {
 //        throw new Exception("下注失败");
@@ -28,7 +36,7 @@ public class MoneyBetService {
         if (gameType == GameTypes.Regular.getValue()) {
             //return serialNo;
             //奖等 1,2,3,4,5,6
-            int prizeLevel = random.nextInt(6);
+            int prizeLevel = this.nextInt(1, 7);
             int cash = 0;
             if (prizeLevel == 1) {
                 cash = 1000;

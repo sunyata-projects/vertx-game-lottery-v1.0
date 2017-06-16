@@ -37,36 +37,10 @@
             <version>1.0.0</version>
         </dependency>
         <dependency>
-            <groupId>info.developerblog.spring.thrift</groupId>
-            <artifactId>spring-thrift-starter</artifactId>
-            <version>1.4.0.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.thrift</groupId>
-            <artifactId>libthrift</artifactId>
-            <version>0.9.2</version>
-        </dependency>
-        <dependency>
-            <groupId>info.developerblog.spring.thrift</groupId>
-            <artifactId>spring-thrift-autoconfigure</artifactId>
-            <version>1.4.0.RELEASE</version>
-        </dependency>
-        <dependency>
             <groupId>org.sunyata</groupId>
             <artifactId>yde-contract</artifactId>
             <version>1.0.0</version>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>org.squirrelframework</groupId>-->
-        <!--<artifactId>squirrel-foundation</artifactId>-->
-        <!--<version>0.3.8</version>-->
-        <!--<exclusions>-->
-        <!--<exclusion>-->
-        <!--<groupId>org.slf4j</groupId>-->
-        <!--<artifactId>slf4j-log4j12</artifactId>-->
-        <!--</exclusion>-->
-        <!--</exclusions>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
@@ -98,6 +72,11 @@
         <dependency>
             <groupId>org.sunyata</groupId>
             <artifactId>yde-ai-core</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.sunyata</groupId>
+            <artifactId>sunyata-spring-boot-thrift</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>

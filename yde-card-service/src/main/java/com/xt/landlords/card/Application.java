@@ -10,6 +10,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 import javax.annotation.PostConstruct;
+import java.io.IOException;
 
 @SpringBootApplication
 @EnableDiscoveryClient
@@ -30,9 +31,20 @@ public class Application {
 //    }
     @Autowired
     AppDBCards appDBCards;
+    @Autowired
+    EliminateCardServiceHandler eliminateCardServiceHandler;
+
+    @Autowired
+    RegularCardServiceHandler regularCardServiceHandler;
+
+    @Autowired
+    PuzzleCardServiceHandler puzzleCardServiceHandler;
 
     @PostConstruct
-    public void initCoordination() {
+    public void initCoordination() throws IOException {
+        puzzleCardServiceHandler.initialize();
+        eliminateCardServiceHandler.initialize();
+        regularCardServiceHandler.initialize();
         //appDBCards.initialize();
     }
 

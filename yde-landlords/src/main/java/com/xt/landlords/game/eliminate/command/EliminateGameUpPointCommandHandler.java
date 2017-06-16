@@ -6,13 +6,13 @@ import com.xt.landlords.game.eliminate.GameEliminateModel;
 import com.xt.landlords.statemachine.GameController;
 import com.xt.yde.protobuf.common.Common;
 import com.xt.yde.thrift.card.eliminate.EliminateCardsService;
-import info.developerblog.spring.thrift.annotation.ThriftClient;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.squirrelframework.foundation.fsm.ImmutableState;
 import org.sunyata.octopus.OctopusRequest;
 import org.sunyata.octopus.OctopusResponse;
+import org.sunyata.spring.thrift.client.annotation.ThriftClient;
 
 import java.util.Random;
 

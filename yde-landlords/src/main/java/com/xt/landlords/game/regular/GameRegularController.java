@@ -9,14 +9,11 @@ import com.xt.landlords.game.regular.condition.GuessSizeCondition;
 import com.xt.landlords.game.regular.condition.LoseCondition;
 import com.xt.landlords.game.regular.condition.PlayingCondition;
 import com.xt.landlords.game.regular.condition.WinCondition;
-import com.xt.landlords.game.regular.phase.RaisePhaseData;
-import com.xt.landlords.game.regular.phase.RaisePhaseModel;
-import com.xt.landlords.game.regular.phase.RegularPlayPhaseDataItem;
-import com.xt.landlords.game.regular.phase.RegularPlayPhaseModel;
+import com.xt.landlords.game.regular.phase.*;
 import com.xt.landlords.ioc.SpringIocUtil;
+import com.xt.landlords.service.GuessSizeBetService;
 import com.xt.landlords.service.MoneyBetService;
 import com.xt.landlords.statemachine.GameController;
-import com.xt.landlords.statemachine.MyCondition;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,16 +48,18 @@ import org.sunyata.octopus.model.GameModel;
         @Transit(from = "Dark", to = "Playing", on = "Play", callMethod = "OnPlay"),
 
         @Transit(from = "Playing", to = "Playing", on = "Play", callMethod = "OnPlay", when = PlayingCondition.class),
-        @Transit(from = "Playing", to = "Win", on = "Play", callMethod = "OnWin", when = WinCondition
-                .class),
-        @Transit(from = "Playing", to = "Lose", on = "Play", callMethod = "OnLose", when = LoseCondition
-                .class),
-        @Transit(from = "Win", to = "GuessSize", on = "GuessSize", callMethod = "OnGuessSize", when = GuessSizeCondition
-                .class),
-        @Transit(from = "Win", to = "LuckDraw", on = "LuckDraw", callMethod = "OnLuckDraw", when = MyCondition
-                .class),
-        @Transit(from = "Lose", to = "LuckDraw", on = "LuckDraw", callMethod = "OnLuckDraw", when = MyCondition
-                .class),
+        @Transit(from = "Playing", to = "Win", on = "Play", callMethod = "OnWin", when = WinCondition.class),
+        @Transit(from = "Playing", to = "Lose", on = "Play", callMethod = "OnLose", when = LoseCondition.class),
+
+        @Transit(from = "Win", to = "GuessSize", on = "GuessSize", callMethod = "OnGuessSize", when =
+                GuessSizeCondition.class),
+        @Transit(from = "Lose", to = "GuessSize", on = "GuessSize", callMethod = "OnGuessSize", when =
+                GuessSizeCondition.class),
+
+//        @Transit(from = "Win", to = "LuckDraw", on = "LuckDraw", callMethod = "OnLuckDraw", when = MyCondition.class),
+//        @Transit(from = "Lose", to = "LuckDraw", on = "LuckDraw", callMethod = "OnLuckDraw", when = MyCondition
+// .class),
+        @Transit(from = "GuessSize", to = "GameOver", on = "GameOver", callMethod = "OnGameOver"),
 })
 
 //@ContextEvent(finishEvent = "OnLuckDraw")
@@ -170,8 +169,43 @@ public class GameRegularController extends GameController<GameRegularModel, Game
         logger.append("on lost");
     }
 
+    public void OnGuessSize(GameRegularState from, GameRegularState to, GameRegularEvent event,
+                            GameModel context) throws Exception {
+        GameRegularModel gameModel = getGameModel();
+        GuessSizePhaseModel phase = (GuessSizePhaseModel) gameModel.getPhase(GameRegularState.GuessSize.getValue());
+        GuessSizePhaseData phaseData = phase.getPhaseData();
+
+        GuessSizeBetService betService = SpringIocUtil.getBean(GuessSizeBetService.class);
+        TicketResult betResult = betService.betAndQueryPrizeLevel(gameModel.getUserName(), phase.getGameInstanceId());
+        RegularPlayPhaseModel phaseModel = (RegularPlayPhaseModel) gameModel.getPhase(GameRegularState.Playing
+                .getValue());
+        boolean flag = phaseModel.getPhaseData().isWin() && phaseModel.getPhaseData().getCurrentBombNumbers() == 0;
+        betResult.setPrizeLevel(flag ? 1 : 0);
+        if (StringUtils.isEmpty(betResult.getTicketId())) {
+            throw new BetErrorException("下注失败,请重试");
+        }
+        phaseData.setBetSerialNo(betResult.getTicketId());
+        phaseData.setTicketResult(betResult);
+        setPhaseSuccess(GameRegularState.GuessSize.getValue());
+        logger.append("on raise");
+    }
+
     public void OnGameOver(GameRegularState from, GameRegularState to, GameRegularEvent event,
                            GameModel context) throws Exception {
+        RegularClearPhaseData phaseData = (RegularClearPhaseData) getPhaseData(GameRegularState.GameOver.getValue
+                ());
+        GameRegularModel gameModel = getGameModel();
+
+        MoneyBetService lastBetService = SpringIocUtil.getBean(MoneyBetService.class);
+        TicketResult ticketResult = lastBetService.betAndQueryPrizeLevel(GameTypes.Regular.getValue(), gameModel
+                .getUserName(), 0, gameModel
+                .getGameInstanceId());
+        if (StringUtils.isEmpty(ticketResult.getTicketId())) {
+            throw new BetErrorException("下注失败,请重试");
+        }
+        int totalMoney = ticketResult.getPrizeCash();
+        phaseData.setSerialNo(ticketResult.getTicketId()).setTotalMoney(totalMoney);
+        setPhaseSuccess(GameRegularState.GameOver.getValue());
         logger.append("game over");
     }
 
@@ -200,6 +234,7 @@ public class GameRegularController extends GameController<GameRegularModel, Game
         GameManager bean = SpringIocUtil.getBean(GameManager.class);
         bean.saveGameModelToCacheAndAsyncDb(gameModel);
         if (toState == GameRegularState.GameOver) {
+            GameManager.onGameOver(getGameModel().getUserName());
             bean.clearGameModelFromCache(gameModel.getUserName());
         }
     }

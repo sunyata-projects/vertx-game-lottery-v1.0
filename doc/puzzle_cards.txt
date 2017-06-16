@@ -1,0 +1,27 @@
+拼图牌库结构：
+投注后根据奖等取出一条记录,其中此记录拼图中4行5列的牌信息,如果炸弹数量为1,则会包含多个4行五列
+
+CREATE TABLE `puzzle_cards` (
+  `id` varchar(11) NOT NULL DEFAULT '',
+  `cards` varchar(255) DEFAULT NULL COMMENT '拼图牌',
+  `bomb_numbers` int(11) DEFAULT NULL COMMENT '炸弹数量,1or0',
+  `prize_level` int(11) DEFAULT NULL COMMENT '奖等',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='拼图牌库，每次根据奖等取出一条记录';
+
+
+其中cards字段内容如下：
+[
+    [
+        [1,2,3,4,5],
+        [1,2,3,4,5],
+        [1,2,3,4,5],
+        [1,2,3,4,5]]
+    ]
+    [
+        [1,2,3,4,5],
+        [1,2,3,4,5],
+        [1,2,3,4,5],
+        [1,2,3,4,5]]
+    ]
+]

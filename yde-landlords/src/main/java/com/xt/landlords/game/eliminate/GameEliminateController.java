@@ -118,6 +118,7 @@ public class GameEliminateController extends GameController<GameEliminateModel, 
         GamePointBetResult gamePointBetResult = gamePointBetService.bet(gameModel.getUserName(),
                 lastPlayPhaseDataItem.getBetGamePoint(), gameModel.getGameInstanceId());
         if (!StringUtils.isEmpty(gamePointBetResult.getErrorMessage())) {
+            logger.error(gamePointBetResult.getErrorMessage());
             throw new BetErrorException("下注失败,请重试");
         }
 

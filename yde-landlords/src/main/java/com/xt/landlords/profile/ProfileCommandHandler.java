@@ -5,10 +5,10 @@ import com.xt.landlords.AbstractAuthCommandHandler;
 import com.xt.landlords.Commands;
 import com.xt.yde.protobuf.common.Common;
 import com.xt.yde.thrift.login.LoginService;
-import info.developerblog.spring.thrift.annotation.ThriftClient;
 import org.springframework.stereotype.Component;
 import org.sunyata.octopus.OctopusRequest;
 import org.sunyata.octopus.OctopusResponse;
+import org.sunyata.spring.thrift.client.annotation.ThriftClient;
 
 /**
  * Created by leo on 17/4/18.

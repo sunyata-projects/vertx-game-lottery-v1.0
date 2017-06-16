@@ -25,10 +25,13 @@ import org.sunyata.quark.client.QuarkClientImpl;
 public class NettyServerConfiguration {
     Logger logger = LoggerFactory.getLogger(NettyServerConfiguration.class);
 
+    @Value("${yde.ws.port}")
+    private Integer wsPort;
+
     @Bean
     public OctopusConfiguration configuration(StoreFactory storeFactory) {
         OctopusConfiguration configuration = new OctopusConfiguration();
-        configuration.setPort(8000);
+        configuration.setPort(wsPort);
         configuration.setStoreFactory(storeFactory);
         configuration.setMethodHandlerLocator(SpringServiceLocator.class);
         return configuration;

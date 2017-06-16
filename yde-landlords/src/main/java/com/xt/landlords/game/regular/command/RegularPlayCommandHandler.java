@@ -17,7 +17,6 @@ import com.xt.yde.protobuf.common.Common;
 import com.xt.yde.thrift.ai.AIService;
 import com.xt.yde.thrift.ai.CheckCards;
 import com.xt.yde.thrift.ai.ShowCards;
-import info.developerblog.spring.thrift.annotation.ThriftClient;
 import org.apache.thrift.TException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +24,7 @@ import org.springframework.stereotype.Component;
 import org.squirrelframework.foundation.fsm.ImmutableState;
 import org.sunyata.octopus.OctopusRequest;
 import org.sunyata.octopus.OctopusResponse;
+import org.sunyata.spring.thrift.client.annotation.ThriftClient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,6 +94,9 @@ public class RegularPlayCommandHandler extends AbstractGameControllerCommandHand
 //                        .setCurrentBombNumbers(lastItem.getCurrentBombNumbers());
             }
             item.setAuto(isAuto);
+            if (!isAuto) {
+                item.setShowCards(playCards);
+            }
             phaseData.setNowPlace(phaseData.getNextPosition());//设置当前出牌位置为下一个
             play(item, phaseData);
 //            if (item.getShowCards().size() == 0 && lastItem != null) {
@@ -109,11 +112,12 @@ public class RegularPlayCommandHandler extends AbstractGameControllerCommandHand
                     .setIfEnd(phaseData.isIfEnd())
                     .setNextPerson(phaseData.getNextPosition())
                     .setBomNums(phaseData.getCurrentBombNumbers())
-                    .addAllCards(phaseData.getLastCards())
+                    .addAllCards(phaseData.getPlayCards())
                     .setRolePosition(phaseData.getNowPlace());
             ImmutableState currentRawState = gameController.getCurrentRawState();
             logger.info("{}:currentState:{}", this.getClass().getName(), currentRawState);
             response.setBody(builder.build().toByteArray());
+            logger.info("position:{},cards:{}", phaseData.getNextPosition(), phaseData.getPlayCards());
         } catch (Exception ex) {
             ExceptionProcessor.process(response, ex);
         } finally {
@@ -219,31 +223,7 @@ public class RegularPlayCommandHandler extends AbstractGameControllerCommandHand
             logger.debug(" Common Ai get cards time is :" + (end - start));
             cardsList = putList;
             logger.info("placeRole:" + placeRole + " ,  cardsList = " + cardsList);
-            // 缓存扣牌 如果没有牌了 那么地主输
-//            if (placeRole == 2) {
-//                for (Integer cardValue : cardsList) {
-//                    if (item.getRightCards().contains(cardValue)) {
-//                        item.getRightCards().remove(cardValue);
-//                    }
-//                }
-//                if (item.getRightCards().size() == 0) {
-//                    item.setIfEnd(true);
-//                }
-//                item.setNextPosition(3);
-//            } else if (placeRole == 3) {
-//                for (Integer cardValue : cardsList) {
-//                    if (item.getLeftCards().contains(cardValue)) {
-//                        item.getLeftCards().remove(cardValue);
-//                    }
-//                }
-//                if (item.getLeftCards().size() == 0) {
-//                    item.setIfEnd(true);
-//                }
-//                item.setNextPosition(1);
-//            }
             syncCards(phaseData, item, cardsList, placeRole);
-//            int bomNums = Utility.decideBomNums(cardsList);//所出的牌是否包含炸弹
-//            item.setCurrentBombNumbers(item.getCurrentBombNumbers() + bomNums);
         } else {
             //错误
             logger.error("出牌过程 ，出现错误！出现非法角色！");
@@ -253,6 +233,7 @@ public class RegularPlayCommandHandler extends AbstractGameControllerCommandHand
         if (cardsList.size() > 0) {
             phaseData.setLastPlace(placeRole);
             phaseData.setLastCards(cardsList);
+        } else {
         }
         phaseData.setWin(isWin);
     }
@@ -283,6 +264,7 @@ public class RegularPlayCommandHandler extends AbstractGameControllerCommandHand
                 result = true;
             }
         }
+        phaseData.setPlayCards(cardList);
         int bomNums = Utility.decideBomNums(cardList);//所出的牌是否包含炸弹
         phaseData.setCurrentBombNumbers(phaseData.getCurrentBombNumbers() + bomNums);
         return result;

@@ -22,10 +22,10 @@
             <artifactId>protobuf-java</artifactId>
             <version>2.5.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.sunyata</groupId>
-            <artifactId>sunyata-octopus</artifactId>
-            <version>1.0.0</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.sunyata</groupId>-->
+            <!--<artifactId>sunyata-octopus</artifactId>-->
+            <!--<version>1.0.0</version>-->
+        <!--</dependency>-->
     </dependencies>
 </project>

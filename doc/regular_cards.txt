@@ -1,0 +1,27 @@
+常规赛事牌库结构:
+1分两张表存储整手牌,首次投注后从regular_cards_17表随机获取的地方17张牌
+2加注后从regular_cards_37表根据奖等获取另外37张牌
+
+
+CREATE TABLE `regular_cards_17` (
+  `id` varchar(50) NOT NULL DEFAULT '',
+  `c_center` varchar(64) DEFAULT NULL COMMENT '地主牌',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='常规赛，首次发牌时地主手牌,此牌库随机获取';
+
+
+
+# Dump of table regular_cards_37
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `regular_cards_37`;
+
+CREATE TABLE `regular_cards_34` (
+  `id` varchar(50) NOT NULL DEFAULT '',
+  `center_id` varchar(50) DEFAULT NULL COMMENT '地主牌id',
+  `c_under` varchar(64) DEFAULT NULL COMMENT '底牌',
+  `c_right` varchar(64) DEFAULT NULL COMMENT '右手边机器人手牌',
+  `c_left` varchar(64) DEFAULT NULL COMMENT '左手边机器人手牌',
+  `prize_level` int(11) DEFAULT NULL COMMENT '奖等,1->一等奖，2->二等奖，3->三等奖,4->四等奖A，5->未中奖',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='常规赛，加倍后发牌,机器人手牌和底牌，根据奖等及地主手牌id查询';

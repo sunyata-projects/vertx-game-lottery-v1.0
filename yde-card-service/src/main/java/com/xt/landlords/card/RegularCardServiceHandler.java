@@ -6,9 +6,10 @@ import com.xt.landlords.card.store.CardRegularStore;
 import com.xt.yde.thrift.regular.RegularCards;
 import com.xt.yde.thrift.regular.RegularCardsService;
 import org.apache.thrift.TException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import ru.trylogic.spring.boot.thrift.annotation.ThriftController;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -20,10 +21,11 @@ import java.util.stream.Collectors;
 /**
  * Created by aleksandr on 01.09.15.
  */
-@Component
-@ThriftController("/regular")
+@Service
+//@ThriftController("/regular")
 public class RegularCardServiceHandler implements RegularCardsService.Iface {
 
+    Logger logger = LoggerFactory.getLogger(EliminateCardServiceHandler.class);
     @Autowired
     CardRegularStore cardRegularStore;
 

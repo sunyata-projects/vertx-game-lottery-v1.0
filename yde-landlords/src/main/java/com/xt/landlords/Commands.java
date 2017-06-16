@@ -1,9 +1,5 @@
 package com.xt.landlords;
 
-/**
- * Created by leo on 17/4/28.
- */
-
 public class Commands {
     //登录
     public static final String Login =      "10001";
@@ -26,10 +22,16 @@ public class Commands {
     public static final String RegularDeal =            "50003";
     //加注
     public static final String RegularRaise =           "50004";
-    //发暗牌及农民牌
-    public static final String RegularDark =            "50005";
+//    //发暗牌及农民牌
+//    public static final String RegularDark =            "50005";
     //出牌
     public static final String RegularPlay =            "50006";
+
+    //是否翻牌
+    public static final String RegularGuessSize =            "50007";
+
+    //结算
+    public static final String RegularClear =           "50008";
 
     //积分赛51
 
@@ -56,51 +58,3 @@ public class Commands {
     //放弃游戏点数
     public static final String EliminateGameUpGamePoint =           "53006";
 }
-//
-//public enum Commands {
-//    Login("1111"),//登录
-//    Logout("2222");//注销
-//
-//    /**
-//     * 描述
-//     */
-//    private String label;
-//
-//    private Commands(String label) {
-//        this.label = label;
-//    }
-//
-//    public String getValue() {
-//        return label;
-//    }
-//
-//    public void setValue(String label) {
-//        this.label = label;
-//    }
-//
-//
-//    public static List<Map<String, Object>> getList() {
-//        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-//        Commands[] val = Commands.values();
-//        for (Commands e : val) {
-//            Map<String, Object> map = new HashMap<String, Object>();
-//            map.put("label", e.getValue());
-//            map.put("name", e.name());
-//            list.add(map);
-//        }
-//        return list;
-//    }
-//
-//    public static Commands getEnum(String name) {
-//        Commands resultEnum = null;
-//        Commands[] enumAry = Commands.values();
-//        for (int i = 0; i < enumAry.length; i++) {
-//            if (enumAry[i].name().equals(name)) {
-//                resultEnum = enumAry[i];
-//                break;
-//            }
-//        }
-//        return resultEnum;
-//    }
-//
-//}

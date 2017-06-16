@@ -116,25 +116,11 @@
     <orderEntry type="library" name="Maven: io.projectreactor:reactor-core:2.0.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.8.6" level="project" />
-    <orderEntry type="library" name="Maven: info.developerblog.spring.thrift:spring-thrift-starter:1.4.0.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.springframework.boot:spring-boot-starter-actuator:1.5.1.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.springframework.boot:spring-boot-actuator:1.5.1.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.springframework.cloud:spring-cloud-starter-zipkin:1.1.2.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.springframework.cloud:spring-cloud-starter-sleuth:1.1.2.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.springframework.cloud:spring-cloud-sleuth-core:1.1.2.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.aspectj:aspectjrt:1.8.9" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.springframework.cloud:spring-cloud-sleuth-zipkin:1.1.2.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.zipkin.java:zipkin:1.19.2" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.zipkin.reporter:zipkin-reporter:0.6.12" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: io.zipkin.reporter:zipkin-sender-urlconnection:0.6.12" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.commons:commons-pool2:2.4.2" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: org.apache.commons:commons-lang3:3.5" level="project" />
     <orderEntry type="library" name="Maven: org.apache.thrift:libthrift:0.9.3" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.22" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.5.2" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.10" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.6" level="project" />
-    <orderEntry type="library" name="Maven: info.developerblog.spring.thrift:spring-thrift-autoconfigure:1.4.0.RELEASE" level="project" />
     <orderEntry type="module" module-name="yde-contract" />
     <orderEntry type="library" name="Maven: org.mybatis.spring.boot:mybatis-spring-boot-starter:1.2.0" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-jdbc:1.5.1.RELEASE" level="project" />
