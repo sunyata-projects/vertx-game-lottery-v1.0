@@ -33,7 +33,17 @@ public class Commands {
     //结算
     public static final String RegularClear =           "50008";
 
-    //积分赛51
+    //闯关赛51
+
+    //断线续玩
+    public static final String MissionBreakPlay =       "51001";
+    //发牌
+    public static final String MissionDeal =            "51002";
+    //出牌
+    public static final String MissionPlay =            "51003";
+    //结算
+    public static final String MissionClear =           "51004";
+
 
     //拼图赛52
     //断线续玩

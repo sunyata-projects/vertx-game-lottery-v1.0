@@ -1,4 +1,4 @@
-package com.xt.landlords.game.regular;
+package com.xt.landlords.game.mission;
 
 import com.xt.landlords.GameControllerState;
 
@@ -10,9 +10,8 @@ import java.util.Map;
 /**
  * Created by leo on 17/4/26.
  */
-public enum GameRegularEvent implements GameControllerState {
-    Bet("OnBet"), Raise("OnRaise"), Deal("OnDeal"), Dark("OnDark"), Play("OnPlay"), GuessSize("OnGuessSize"),
-    LuckDraw("OnLuckDraw"), GameOver("OnGameOver");
+public enum GameMissionEvent implements GameControllerState {
+    Bet("OnBet"), Deal("OnDeal"), Play("OnPlay"), GameOver("OnGameOver");
 
 
     /**
@@ -20,7 +19,7 @@ public enum GameRegularEvent implements GameControllerState {
      */
     private String value;
 
-    private GameRegularEvent(String value) {
+    private GameMissionEvent(String value) {
         this.value = value;
     }
 
@@ -35,8 +34,8 @@ public enum GameRegularEvent implements GameControllerState {
 
     public static List<Map<String, Object>> getList() {
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-        GameRegularEvent[] val = GameRegularEvent.values();
-        for (GameRegularEvent e : val) {
+        GameMissionEvent[] val = GameMissionEvent.values();
+        for (GameMissionEvent e : val) {
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("value", e.getValue());
             map.put("name", e.name());
@@ -45,9 +44,9 @@ public enum GameRegularEvent implements GameControllerState {
         return list;
     }
 
-    public static GameRegularEvent getEnum(String name) {
-        GameRegularEvent resultEnum = null;
-        GameRegularEvent[] enumAry = GameRegularEvent.values();
+    public static GameMissionEvent getEnum(String name) {
+        GameMissionEvent resultEnum = null;
+        GameMissionEvent[] enumAry = GameMissionEvent.values();
         for (int i = 0; i < enumAry.length; i++) {
             if (enumAry[i].name().equals(name)) {
                 resultEnum = enumAry[i];

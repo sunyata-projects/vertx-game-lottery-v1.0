@@ -1,4 +1,4 @@
-package com.xt.landlords.game.regular;
+package com.xt.landlords.game.mission;
 
 import com.xt.landlords.GameControllerState;
 
@@ -10,9 +10,16 @@ import java.util.Map;
 /**
  * Created by leo on 17/4/26.
  */
-public enum GameRegularEvent implements GameControllerState {
-    Bet("OnBet"), Raise("OnRaise"), Deal("OnDeal"), Dark("OnDark"), Play("OnPlay"), GuessSize("OnGuessSize"),
-    LuckDraw("OnLuckDraw"), GameOver("OnGameOver");
+public enum GameMissionState implements GameControllerState {
+    Init("Init"),
+    Bet("Bet"),
+    Deal("Deal"),
+    Play("Play"),
+    Playing("Playing"),
+    PlayEnd("PlayEnd"),
+    Win("Win"),
+    Lose("Lose"),
+    GameOver("GameOver");
 
 
     /**
@@ -20,7 +27,7 @@ public enum GameRegularEvent implements GameControllerState {
      */
     private String value;
 
-    private GameRegularEvent(String value) {
+    private GameMissionState(String value) {
         this.value = value;
     }
 
@@ -35,8 +42,8 @@ public enum GameRegularEvent implements GameControllerState {
 
     public static List<Map<String, Object>> getList() {
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-        GameRegularEvent[] val = GameRegularEvent.values();
-        for (GameRegularEvent e : val) {
+        GameMissionState[] val = GameMissionState.values();
+        for (GameMissionState e : val) {
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("value", e.getValue());
             map.put("name", e.name());
@@ -45,9 +52,9 @@ public enum GameRegularEvent implements GameControllerState {
         return list;
     }
 
-    public static GameRegularEvent getEnum(String name) {
-        GameRegularEvent resultEnum = null;
-        GameRegularEvent[] enumAry = GameRegularEvent.values();
+    public static GameMissionState getEnum(String name) {
+        GameMissionState resultEnum = null;
+        GameMissionState[] enumAry = GameMissionState.values();
         for (int i = 0; i < enumAry.length; i++) {
             if (enumAry[i].name().equals(name)) {
                 resultEnum = enumAry[i];

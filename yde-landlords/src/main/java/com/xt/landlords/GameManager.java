@@ -4,18 +4,19 @@ package com.xt.landlords;
 import com.xt.landlords.event.UserLeftEventMessage;
 import com.xt.landlords.game.eliminate.GameEliminateModel;
 import com.xt.landlords.game.eliminate.GameEliminateState;
-import com.xt.landlords.game.phase.ExchangePhaseData;
-import com.xt.landlords.game.phase.ExchangePhaseModel;
+import com.xt.landlords.game.mission.GameMissionModel;
+import com.xt.landlords.game.mission.GameMissionState;
 import com.xt.landlords.game.phase.BetPhaseData;
 import com.xt.landlords.game.phase.BetPhaseModel;
+import com.xt.landlords.game.phase.ExchangePhaseData;
+import com.xt.landlords.game.phase.ExchangePhaseModel;
 import com.xt.landlords.game.puzzle.GamePuzzleModel;
-//import com.xt.landlords.game.puzzle.GamePuzzlePhaseName;
 import com.xt.landlords.game.puzzle.GamePuzzleState;
 import com.xt.landlords.game.regular.GameRegularModel;
 import com.xt.landlords.game.regular.GameRegularState;
 import com.xt.landlords.message.MessageClient;
 import com.xt.landlords.statemachine.GameController;
-import com.xt.landlords.statemachine.GameStateControllerFactory;
+import com.xt.landlords.statemachine.GameControllerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,8 @@ import org.sunyata.quark.client.IdWorker;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+
+//import com.xt.landlords.game.puzzle.GamePuzzlePhaseName;
 
 /**
  * Created by leo on 17/4/27.
@@ -68,15 +71,17 @@ public class GameManager {
             gameControllerState) {
         if (gameType == GameTypes.Regular.getValue()) {
             GameRegularState state = (GameRegularState) gameControllerState;
-            return GameStateControllerFactory.createGameRegularController(state);
-        } else if (gameType == GameTypes.Point.getValue()) {
+            return GameControllerFactory.createGameRegularController(state);
+        } else if (gameType == GameTypes.Mission.getValue()) {
+            GameMissionState state = (GameMissionState) gameControllerState;
+            return GameControllerFactory.createGameMissionController(state);
 
         } else if (gameType == GameTypes.Puzzle.getValue()) {
             GamePuzzleState state = (GamePuzzleState) gameControllerState;
-            return GameStateControllerFactory.createGamePuzzleController(state);
+            return GameControllerFactory.createGamePuzzleController(state);
         } else if (gameType == GameTypes.Eliminate.getValue()) {
             GameEliminateState state = (GameEliminateState) gameControllerState;
-            return GameStateControllerFactory.createGameEliminateController(state);
+            return GameControllerFactory.createGameEliminateController(state);
         } else {
 
         }
@@ -125,8 +130,14 @@ public class GameManager {
                             (new BetPhaseData()
                                     .setBetAmt(betAmt));
             gameModel.addOrUpdatePhase(gamePhaseModel);
-        } else if (gameType == GameTypes.Point.getValue()) {
-
+        } else if (gameType == GameTypes.Mission.getValue()) {
+            gameModel = new GameMissionModel(gameInstanceId);
+            gameModel.setUserName(userName);
+            GamePhaseModel gamePhaseModel = new BetPhaseModel(gameInstanceId, GameCommonState.Bet.getValue(), 1)
+                    .setPhaseData
+                            (new BetPhaseData()
+                                    .setBetAmt(betAmt));
+            gameModel.addOrUpdatePhase(gamePhaseModel);
         } else if (gameType == GameTypes.Puzzle.getValue()) {
             gameModel = new GamePuzzleModel(gameInstanceId);
             gameModel.setUserName(userName);
@@ -154,9 +165,9 @@ public class GameManager {
                     .setPhaseData
                             (new ExchangePhaseData().setAmt(betAmt));
             gameModel.addOrUpdatePhase(gamePhaseModel);
-        } else if (gameType == GameTypes.Point.getValue()) {
+        } else if (gameType == GameTypes.Mission.getValue()) {
 
-        } else if (gameType == GameTypes.Point.getValue()) {
+        } else if (gameType == GameTypes.Puzzle.getValue()) {
             gameModel = new GamePuzzleModel(gameInstanceId);
             gameModel.setUserName(userName);
             GamePhaseModel gamePhaseModel = new BetPhaseModel(gameInstanceId, GamePuzzleState.Bet.getValue(), 1)

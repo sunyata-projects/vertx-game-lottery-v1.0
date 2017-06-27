@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class MyRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
-//        GameRegularController controller = GameStateControllerFactory
+//        GameRegularController controller = GameControllerFactory
 //                .createGameRegularController(new
 //                        GameModel());
 //        controller.start(controller.getContext());

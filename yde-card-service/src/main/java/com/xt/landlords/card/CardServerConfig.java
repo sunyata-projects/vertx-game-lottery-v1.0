@@ -1,8 +1,9 @@
 package com.xt.landlords.card;
 
 import com.xt.yde.thrift.card.eliminate.EliminateCardsService;
+import com.xt.yde.thrift.card.mission.MissionCardsService;
 import com.xt.yde.thrift.card.puzzle.PuzzleCardsService;
-import com.xt.yde.thrift.regular.RegularCardsService;
+import com.xt.yde.thrift.card.regular.RegularCardsService;
 import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.protocol.TProtocolFactory;
 import org.apache.thrift.server.TServlet;
@@ -48,6 +49,17 @@ public class CardServerConfig {
 
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(tServlet, "/regular");
         servletRegistrationBean.setName("regular");
+        return servletRegistrationBean;
+    }
+
+
+    @Bean
+    public ServletRegistrationBean thriftMissionServlet(TProtocolFactory protocolFactory, MissionCardServiceHandler
+            handler) {
+        TServlet tServlet = new TServlet(new MissionCardsService.Processor<>(handler), protocolFactory);
+
+        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(tServlet, "/mission");
+        servletRegistrationBean.setName("mission");
         return servletRegistrationBean;
     }
 }

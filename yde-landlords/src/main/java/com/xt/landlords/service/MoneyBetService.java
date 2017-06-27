@@ -56,6 +56,9 @@ public class MoneyBetService {
         } else if (gameType == GameTypes.Puzzle.getValue()) {
             return new TicketResult().setTicketId(serialNo).setPrizeType(2).setPrizeLevel(2).setPrizeCash
                     (1000);
+        } else if (gameType == GameTypes.Mission.getValue()) {
+            return new TicketResult().setTicketId(serialNo).setPrizeType(2).setPrizeLevel(3).setPrizeCash
+                    (1000);
         }
 //        HashMap<String, String> parameters = new HashMap<>();
 //        parameters.put("betAmt", String.valueOf(betAmt));

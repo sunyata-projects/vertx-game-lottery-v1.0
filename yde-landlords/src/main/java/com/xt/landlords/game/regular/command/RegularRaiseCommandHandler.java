@@ -9,7 +9,7 @@ import com.xt.landlords.game.regular.GameRegularState;
 import com.xt.landlords.statemachine.GameController;
 import com.xt.yde.protobuf.common.Common;
 import com.xt.yde.protobuf.regular.GameRegular;
-import com.xt.yde.thrift.regular.RegularCardsService;
+import com.xt.yde.thrift.card.regular.RegularCardsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;

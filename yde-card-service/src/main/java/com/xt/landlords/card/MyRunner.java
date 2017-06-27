@@ -1,7 +1,7 @@
 //package com.xt.landlords.card;
 //
 //import com.xt.yde.thrift.card.eliminate.EliminateCards;
-//import com.xt.yde.thrift.regular.RegularCards;
+//import com.xt.yde.thrift.card.regular.RegularCards;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.boot.CommandLineRunner;
 //import org.springframework.stereotype.Component;

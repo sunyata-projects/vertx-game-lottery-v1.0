@@ -52,7 +52,7 @@ public abstract class GameModel implements Serializable {
     }
 
 
-    private List<GamePhaseModel> phases = new ArrayList();
+    protected List<GamePhaseModel> phases = new ArrayList();
 
 
     public GameModel(int gameType, String gameInstanceId) {

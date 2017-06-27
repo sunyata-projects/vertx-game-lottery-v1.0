@@ -3,6 +3,9 @@ package com.xt.landlords.statemachine;
 import com.xt.landlords.game.eliminate.GameEliminateController;
 import com.xt.landlords.game.eliminate.GameEliminateEvent;
 import com.xt.landlords.game.eliminate.GameEliminateState;
+import com.xt.landlords.game.mission.GameMissionController;
+import com.xt.landlords.game.mission.GameMissionEvent;
+import com.xt.landlords.game.mission.GameMissionState;
 import com.xt.landlords.game.puzzle.GamePuzzleController;
 import com.xt.landlords.game.puzzle.GamePuzzleEvent;
 import com.xt.landlords.game.puzzle.GamePuzzleState;
@@ -16,13 +19,17 @@ import org.sunyata.octopus.model.GameModel;
 /**
  * Created by leo on 17/4/27.
  */
-public class GameStateControllerFactory {
+public class GameControllerFactory {
 
     static StateMachineBuilder<GameRegularController, GameRegularState, GameRegularEvent, GameModel> builder = null;
+
     static StateMachineBuilder<GamePuzzleController, GamePuzzleState, GamePuzzleEvent, GameModel> puzzleBuilder = null;
 
     static StateMachineBuilder<GameEliminateController, GameEliminateState, GameEliminateEvent, GameModel>
             eliminateBuilder = null;
+
+    static StateMachineBuilder<GameMissionController, GameMissionState, GameMissionEvent, GameModel>
+            missionBuilder = null;
 
     public static synchronized StateMachineBuilder<GameRegularController, GameRegularState, GameRegularEvent, GameModel>
     getGameRegularBuilder() {
@@ -38,10 +45,32 @@ public class GameStateControllerFactory {
         return builder;
     }
 
+    public static synchronized StateMachineBuilder<GameMissionController, GameMissionState, GameMissionEvent, GameModel>
+    getGameMissionBuilder() {
+
+        if (missionBuilder == null) {
+            missionBuilder = StateMachineBuilderFactory.create(GameMissionController.class, GameMissionState.class,
+                    GameMissionEvent.class, GameModel.class, GameMissionController.class);
+//            missionBuilder.transitions().fromAmong(GameMissionState.Init, GameMissionState.Bet).
+//                    to(GameMissionState.GameOver).on(GameMissionEvent.GameOver).callMethod("OnGameOver");
+
+        }
+
+        return missionBuilder;
+    }
+
+
     public static GameRegularController createGameRegularController(GameRegularState
                                                                             gameRegularState) {
         GameRegularController controller = getGameRegularBuilder().newStateMachine(gameRegularState);
 //        controller.setContext(gameModel);
+        return controller;
+    }
+
+
+    public static GameMissionController createGameMissionController(GameMissionState
+                                                                            gameMissionState) {
+        GameMissionController controller = getGameMissionBuilder().newStateMachine(gameMissionState);
         return controller;
     }
 

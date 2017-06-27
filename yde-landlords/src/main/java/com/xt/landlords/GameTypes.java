@@ -11,12 +11,12 @@ import java.util.Map;
 public enum GameTypes {
     //常规赛
     Regular(10001),
-    //闯关赛
-    Point(10002),
     //拼图
     Puzzle(10003),
     //消除
-    Eliminate(10004);
+    Eliminate(10004),
+    //闯关
+    Mission(10005);;
 
     /**
      * 描述
