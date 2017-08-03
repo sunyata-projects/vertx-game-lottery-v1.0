@@ -34,8 +34,10 @@ public class MissionCardServiceHandler implements MissionCardsService.Iface {
 
 
     @Override
-    public MissionCards getCards(boolean lose) throws TException {
-        MissionCard cards = cardRegularStore.getCards(lose);
+    public MissionCards getCards(boolean lose,int missionIndex) throws TException {
+        logger.info("闯关赛牌库是否必输{}", lose);
+        MissionCard cards = cardRegularStore.getCards(lose,missionIndex);
+        logger.info("闯关赛牌库id:{}", cards.getId());
         MissionCards result = new MissionCards();
 
         List<String> centerStringList = Arrays.asList(cards.getC_center().split(","));
@@ -55,4 +57,6 @@ public class MissionCardServiceHandler implements MissionCardsService.Iface {
         result.setUnder(under);
         return result;
     }
+
+
 }

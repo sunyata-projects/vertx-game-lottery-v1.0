@@ -43,15 +43,41 @@ public class CardMissionStore {
 
     Random random = new Random();
 
-    public MissionCard getCards(boolean lose) {
+    public MissionCard getCards(boolean lose, int missionIndex) {
         long startTime = System.currentTimeMillis();   //获取开始时间
         try (SqlSession session = sessionTemplate.getSqlSessionFactory().openSession(true)) {
             CardMissionMapper mapper = session.getMapper(CardMissionMapper.class);
             Integer count = mapper.findMissionCardCount(lose ? 1 : 0);
             int i = random.nextInt(count - 1);
             MissionCard missionCardsByRandom = mapper.findMissionCardsByRandom(lose ? 1 : 0, i);
+//            MissionCard missionCardsByRandom = null;
+//            if (missionIndex == 0) {
+//                missionCardsByRandom = mapper.findMissionCardsByCardId(22591);
+//            }
+// else if (missionIndex == 1) {
+//                missionCardsByRandom = mapper.findMissionCardsByCardId(22591);
+//
+//                //missionCardsByRandom = mapper.findMissionCardsByCardId(22591);
+//
+//            } else if (missionIndex == 2) {
+//                missionCardsByRandom = mapper.findMissionCardsByCardId(22229);
+//
+//            }
+//            else if (missionIndex == 3) {
+//                missionCardsByRandom = mapper.findMissionCardsByCardId(22593);
+//            }
+//            else if (missionIndex == 4) {
+//                missionCardsByRandom = mapper.findMissionCardsByCardId(22594);
+//            }
+//            else{
+//                missionCardsByRandom = mapper.findMissionCardsByCardId(22595);
+//            }
             return missionCardsByRandom;
-        } catch (Exception ex) {
+        } catch (
+                Exception ex
+                )
+
+        {
             System.out.println(ex);
             throw ex;
         }

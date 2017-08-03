@@ -3,12 +3,8 @@ package com.xt.landlords.game.mission.command;
 import com.xt.landlords.*;
 import com.xt.landlords.game.mission.GameMissionEvent;
 import com.xt.landlords.game.mission.GameMissionModel;
-import com.xt.landlords.game.mission.GameMissionState;
 import com.xt.landlords.game.mission.phase.MissionPlayPhaseData;
 import com.xt.landlords.game.mission.phase.MissionPlayPhaseModel;
-import com.xt.landlords.game.phase.BetPhaseData;
-import com.xt.landlords.game.phase.BetPhaseModel;
-import com.xt.landlords.game.phase.TicketResult;
 import com.xt.landlords.statemachine.GameController;
 import com.xt.yde.protobuf.common.Common;
 import com.xt.yde.thrift.card.mission.MissionCards;
@@ -19,7 +15,6 @@ import org.springframework.stereotype.Component;
 import org.squirrelframework.foundation.fsm.ImmutableState;
 import org.sunyata.octopus.OctopusRequest;
 import org.sunyata.octopus.OctopusResponse;
-import org.sunyata.octopus.model.GameModel;
 import org.sunyata.spring.thrift.client.annotation.ThriftClient;
 
 import java.util.HashMap;
@@ -67,7 +62,7 @@ public class MissionDealCommandHandler extends AbstractGameControllerCommandHand
             float times = gameModel.getTimes();
             long missionIndex = missionPlayPhaseModel.getMissionIndex();
             boolean isLose = getIsLose(times, missionIndex);
-            MissionCards cards = cardService.getCards(isLose);
+            MissionCards cards = cardService.getCards(isLose, (int) missionIndex);
 
             MissionPlayPhaseData phaseData = missionPlayPhaseModel.getPhaseData();
             builder.addAllDarkCard(cards.getUnder()).addAllCenterCard(cards.getCenter())
@@ -116,13 +111,13 @@ public class MissionDealCommandHandler extends AbstractGameControllerCommandHand
         return s;
     }
 
-    private int getTimes(GameModel gameModel) {
-        BetPhaseModel phase = (BetPhaseModel) gameModel.getPhase(GameMissionState.Bet.getValue());
-        BetPhaseData phaseData = phase.getPhaseData();
-        TicketResult ticketResult = phaseData.getTicketResult();
-        int prizeLevel = ticketResult.getPrizeLevel();
-        return prizeLevel;
-    }
+//    private int getTimes(GameModel gameModel) {
+//        BetPhaseModel phase = (BetPhaseModel) gameModel.getPhase(GameMissionState.Bet.getValue());
+//        BetPhaseData phaseData = phase.getPhaseData();
+//        TicketResult ticketResult = phaseData.getTicketResult();
+//        int prizeLevel = ticketResult.getPrizeLevel();
+//        return prizeLevel;
+//    }
 
     @Override
     public boolean isAsync() {

@@ -16,6 +16,6 @@ service MissionCardsService {
     * 获取发牌信息
     * lose：是否必输入
     */
-  MissionCards getCards(1:bool lose);
+  MissionCards getCards(1:bool lose,2:i32 missionIndex);
 
 }

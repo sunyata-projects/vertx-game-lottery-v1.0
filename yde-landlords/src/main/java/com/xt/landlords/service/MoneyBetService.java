@@ -1,12 +1,18 @@
 package com.xt.landlords.service;
 
+import com.xt.landlords.GameManager;
 import com.xt.landlords.GameTypes;
+import com.xt.landlords.account.Account;
 import com.xt.landlords.game.phase.TicketResult;
+import com.xt.landlords.statemachine.GameController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.sunyata.octopus.model.GameModel;
 import org.sunyata.quark.client.IdWorker;
 import org.sunyata.quark.client.QuarkClient;
 
+import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.Random;
 
 /**
@@ -16,6 +22,8 @@ import java.util.Random;
 public class MoneyBetService {
     private IdWorker worker = new IdWorker(0, 0);
 
+    @Autowired
+    GameManager gameManager;
     @Autowired
     QuarkClient quarkClient;
 
@@ -29,14 +37,37 @@ public class MoneyBetService {
         return s;
     }
 
+    HashMap<Integer, Float> map = new HashMap<>();
+
+    public MoneyBetService() {
+        map.put(1, 1.5f);
+        map.put(2, 3f);
+        map.put(3, 6f);
+        map.put(4, 50f);
+        map.put(5, 100f);
+        map.put(6, 200f);
+        map.put(7, 1000f);
+        map.put(8, 10000f);
+        map.put(9, 0f);
+        map.put(10, 0f);
+        map.put(11, 0f);
+        map.put(12, 0f);
+        map.put(13, 0f);
+        map.put(14, 0f);
+        map.put(15, 0f);
+    }
+
     public TicketResult betAndQueryPrizeLevel(int gameType, String userName, int betAmt, String gameInstanceId)
             throws Exception {
 //        throw new Exception("下注失败");
+        GameController gameController = GameManager.getGameController(userName);
+        GameModel gameModel = gameController.getGameModel();
+        Account.reductBalance(gameModel.getUserName (),new BigDecimal(betAmt));
         String serialNo = String.valueOf(worker.nextId());
         if (gameType == GameTypes.Regular.getValue()) {
             //return serialNo;
             //奖等 1,2,3,4,5,6
-            int prizeLevel = this.nextInt(1, 7);
+            int prizeLevel = this.nextInt(1, 6);
             int cash = 0;
             if (prizeLevel == 1) {
                 cash = 1000;
@@ -57,8 +88,11 @@ public class MoneyBetService {
             return new TicketResult().setTicketId(serialNo).setPrizeType(2).setPrizeLevel(2).setPrizeCash
                     (1000);
         } else if (gameType == GameTypes.Mission.getValue()) {
-            return new TicketResult().setTicketId(serialNo).setPrizeType(2).setPrizeLevel(3).setPrizeCash
-                    (1000);
+            int random = nextInt(1, 15);
+            Float times = map.getOrDefault(random, 0.0f);
+            float cash = (times * betAmt);
+            return new TicketResult().setTicketId(serialNo).setPrizeType(2).setPrizeLevel(times).setPrizeCash
+                    (cash);
         }
 //        HashMap<String, String> parameters = new HashMap<>();
 //        parameters.put("betAmt", String.valueOf(betAmt));

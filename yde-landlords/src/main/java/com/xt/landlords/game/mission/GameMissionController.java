@@ -2,8 +2,6 @@ package com.xt.landlords.game.mission;
 
 import com.xt.landlords.GameManager;
 import com.xt.landlords.GameTypes;
-import com.xt.landlords.exception.BetErrorException;
-import com.xt.landlords.game.mission.condition.DealCondition;
 import com.xt.landlords.game.mission.condition.LoseCondition;
 import com.xt.landlords.game.mission.condition.PlayingCondition;
 import com.xt.landlords.game.mission.condition.WinCondition;
@@ -14,7 +12,6 @@ import com.xt.landlords.game.phase.TicketResult;
 import com.xt.landlords.ioc.SpringIocUtil;
 import com.xt.landlords.service.MoneyBetService;
 import com.xt.landlords.statemachine.GameController;
-import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,10 +39,11 @@ import org.sunyata.octopus.model.GameModel;
         @Transit(from = "Init", to = "Bet", on = "Bet", callMethod = "OnBet"),
         @Transit(from = "Bet", to = "Deal", on = "Deal", callMethod = "OnDeal"),
         @Transit(from = "Deal", to = "Playing", on = "Play", callMethod = "OnPlay"),
-        @Transit(from = "Playing", to = "Playing", on = "Play", callMethod = "OnPlay",type = TransitionType.INTERNAL,when =PlayingCondition.class),
-        @Transit(from = "Playing", to = "Win", on = "Play", callMethod = "OnWin",when = WinCondition.class),
-        @Transit(from = "Playing", to = "Lose", on = "Play", callMethod = "OnLose",when = LoseCondition.class),
-        @Transit(from = "Win", to = "Deal", on = "Deal", callMethod = "OnDeal", when = DealCondition.class),
+        @Transit(from = "Playing", to = "Playing", on = "Play", callMethod = "OnPlay", type = TransitionType
+                .INTERNAL, when = PlayingCondition.class),
+        @Transit(from = "Playing", to = "Win", on = "Play", callMethod = "OnWin", when = WinCondition.class),
+        @Transit(from = "Playing", to = "Lose", on = "Play", callMethod = "OnLose", when = LoseCondition.class),
+        @Transit(from = "Win", to = "Deal", on = "Deal", callMethod = "OnDeal"),
         @Transit(from = "Win", to = "GameOver", on = "GameOver", callMethod = "OnGameOver"),
         @Transit(from = "Lose", to = "GameOver", on = "GameOver", callMethod = "OnGameOver"),
 })
@@ -75,6 +73,7 @@ public class GameMissionController extends GameController<GameMissionModel, Game
         phaseData.setBetSerialNo(ticketResult.getTicketId());
         phaseData.setTicketResult(ticketResult);
         setPhaseSuccess(GameMissionState.Bet.getValue());
+        LOGGER.info("闯关赛中奖倍数:{}", ticketResult.getPrizeLevel());
         logger.append("on bet");
     }
 
@@ -136,15 +135,18 @@ public class GameMissionController extends GameController<GameMissionModel, Game
                 ());
         GameMissionModel gameModel = getGameModel();
 
+        //GamePhaseModel phase = gameModel.getPhase(GameMissionState.Bet.getValue());
+        BetPhaseData betPhaseData = (BetPhaseData) getPhaseData(GameMissionState.Bet.getValue());
         MoneyBetService lastBetService = SpringIocUtil.getBean(MoneyBetService.class);
-        TicketResult ticketResult = lastBetService.betAndQueryPrizeLevel(GameTypes.Mission.getValue(), gameModel
-                .getUserName(), 0, gameModel
-                .getGameInstanceId());
-        if (StringUtils.isEmpty(ticketResult.getTicketId())) {
-            throw new BetErrorException("下注失败,请重试");
-        }
-        int totalMoney = ticketResult.getPrizeCash();
-        phaseData.setSerialNo(ticketResult.getTicketId()).setTotalMoney(totalMoney);
+//        TicketResult ticketResult = lastBetService.betAndQueryPrizeLevel(GameTypes.Mission.getValue(), gameModel
+//                .getUserName(), betPhaseData.getBetAmt(), gameModel.getGameInstanceId());
+
+//        if (StringUtils.isEmpty(ticketResult.getTicketId())) {
+//            throw new BetErrorException("下注失败,请重试");
+//        }
+        //float totalMoney = ticketResult.getPrizeCash();
+        float totalMoney = betPhaseData.getTicketResult().getPrizeCash();
+        phaseData.setSerialNo(betPhaseData.getTicketResult().getTicketId()).setTotalMoney(totalMoney);
         setPhaseSuccess(GameMissionState.GameOver.getValue());
         logger.append("game over");
     }

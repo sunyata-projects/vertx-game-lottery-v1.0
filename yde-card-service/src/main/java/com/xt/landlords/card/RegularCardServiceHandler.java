@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.sunyata.octopus.json.Json;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -40,12 +41,23 @@ public class RegularCardServiceHandler implements RegularCardsService.Iface {
         RegularCards regularCards = new RegularCards();
         List<String> strings = Arrays.asList(card17.getC_center().split(","));
         List<Integer> collect = strings.stream().map(Integer::valueOf).collect(Collectors.toList());
-        return regularCards.setCardId(card17.getId()).setCenter(collect);
+        regularCards.setCardId(card17.getId()).setCenter(collect);
+        logger.info("常规赛随机手牌为:" + Json.encode(regularCards));
+        return regularCards;
     }
 
     @Override
     public RegularCards getCards37(int prizeLevel, String centerId) throws TException {
-        RegularCard37 card37 = cardRegularStore.getCard37(prizeLevel, centerId);
+        //prize_level:1,2,3,4,5,6
+        int bombNums = prizeLevel;
+        if (prizeLevel == 5 || prizeLevel == 6) {
+            bombNums = -1;
+        }
+        if (prizeLevel == 4) {
+            bombNums = 0;
+        }
+        logger.info("常规赛 bombNums:{},centerId:{}", bombNums, centerId);
+        RegularCard37 card37 = cardRegularStore.getCard37(bombNums, centerId);
         RegularCards regularCards = new RegularCards();
 
         List<String> right = Arrays.asList(card37.getC_right().split(","));
@@ -62,6 +74,7 @@ public class RegularCardServiceHandler implements RegularCardsService.Iface {
         List<String> center = Arrays.asList(card17ById.getC_center().split(","));
         List<Integer> centerList = center.stream().map(Integer::valueOf).collect(Collectors.toList());
         regularCards.setCenter(centerList);
+        logger.info("常规赛prizeLevel:{},centerId:{},牌库:{}", prizeLevel, centerId, Json.encode(regularCards));
         return regularCards;
     }
 

@@ -20,8 +20,7 @@
 
 package com.xt.landlords.card.store;
 
-import com.xt.landlords.card.model.RegularCard17;
-import com.xt.landlords.card.model.RegularCard37;
+import com.xt.landlords.card.model.EliminateCard;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -30,21 +29,22 @@ import org.apache.ibatis.annotations.Select;
  * Created by leo on 17/3/20.
  */
 @Mapper
-public interface CardRegularMapper {
+public interface CardEliminateMapper {
 //    @Select("SELECT * FROM regular_cards_37 WHERE center_id = #{centerId} and prize_level=#{prizeLevel}")
 //    RegularCard37 findRegularCard37(@Param("prizeLevel") Integer prizeLevel, @Param("centerId") String centerId);
 
-    @Select("SELECT * FROM regular_cards_37 WHERE center_id = #{centerId} and prize_level=#{bombNums} Limit 1")
-    RegularCard37 findRegularCard37(@Param("bombNums") Integer bombNums, @Param("centerId") String centerId);
+    @Select("SELECT * FROM eliminate_cards WHERE prize_level = #{prizeLevel} and bomb_numbers=#{bombNums} Limit #{random},1")
+    EliminateCard getCards(@Param("bombNums") Integer bombNums, @Param("prizeLevel") int prizeLevel, @Param("random")
+    int random);
 
 
-    @Select("SELECT * FROM regular_cards_17 where id=#{id}")
-    RegularCard17 findRegularCard17ById(@Param("id") String id);
+//    @Select("SELECT * FROM regular_cards_17 where id=#{id}")
+//    RegularCard17 findRegularCard17ById(@Param("id") String id);
+//
+//    @Select("SELECT * FROM regular_cards_17 Limit #{random},1")
+//    RegularCard17 findRegularCard17ByRandom(@Param("random") Integer random);
 
-    @Select("SELECT * FROM regular_cards_17 Limit #{random},1")
-    RegularCard17 findRegularCard17ByRandom(@Param("random") Integer random);
-
-    @Select("SELECT count(*) FROM regular_cards_17")
-    Integer findRegularCard17Count();
+    @Select("SELECT count(*) FROM eliminate_cards WHERE prize_level = #{prizeLevel} and bomb_numbers=#{bombNums}")
+    Integer getCardsCount(@Param("bombNums") Integer bombNums, @Param("prizeLevel") int prizeLevel);
 
 }

@@ -1,8 +1,10 @@
 package com.xt.landlords.game.puzzle.command;
 
 import com.xt.landlords.*;
+import com.xt.landlords.game.phase.BetPhaseData;
 import com.xt.landlords.game.puzzle.GamePuzzleEvent;
 import com.xt.landlords.game.puzzle.GamePuzzleModel;
+import com.xt.landlords.game.puzzle.GamePuzzleState;
 import com.xt.landlords.statemachine.GameController;
 import com.xt.yde.protobuf.puzzle.GamePuzzle;
 import com.xt.yde.thrift.card.puzzle.PuzzleCards;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Component;
 import org.squirrelframework.foundation.fsm.ImmutableState;
 import org.sunyata.octopus.OctopusRequest;
 import org.sunyata.octopus.OctopusResponse;
+import org.sunyata.octopus.model.GamePhaseModel;
 import org.sunyata.spring.thrift.client.annotation.ThriftClient;
 
 import java.util.HashMap;
@@ -38,6 +41,14 @@ public class PuzzleDealCommandHandler extends AbstractGameControllerCommandHandl
     @Autowired
     StoreManager storeManager;
 
+    public int nextInt(int from, int to) {
+        int max = to;
+        int min = from;
+        Random random = new Random();
+        int s = random.nextInt(max) % (max - min + 1) + min;
+        return s;
+    }
+
     @Override
     public void execute(OctopusRequest request, OctopusResponse response) throws Exception {
         try {
@@ -60,7 +71,13 @@ public class PuzzleDealCommandHandler extends AbstractGameControllerCommandHandl
                 return;
             }
             GamePuzzle.DealResponseMsg.Builder builder = GamePuzzle.DealResponseMsg.newBuilder();
-            int grade = random.nextInt(9) + 1;
+//            int grade = random.nextInt(9) + 1;
+            //int grade = nextInt(0, 9);
+            int grade = 0;
+            if( nextInt(1,2)==2){
+                grade = 1;
+            }
+//            grade = 0;
             PuzzleCards cards = cardService.getCards(grade);
 
             List<List<List<Integer>>> cardList = cards.getCards();
@@ -74,7 +91,9 @@ public class PuzzleDealCommandHandler extends AbstractGameControllerCommandHandl
                 GamePuzzle.CardFourRow cardFourRow = cardFourRowBuilder.build();
                 builder.addCards(cardFourRow);
             }
-            int money = getMoney(grade);
+            GamePhaseModel phase = gameModel.getPhase(GamePuzzleState.Bet.getValue());
+            BetPhaseData phaseData = (BetPhaseData) phase.getPhaseData();
+            int money = getMoney(grade, phaseData.getBetAmt());
             builder.addTotalMoney(money);
             gameModel.addDealPhase("cardId", money);
             gameController.fire(GamePuzzleEvent.Deal, gameModel);
@@ -88,7 +107,7 @@ public class PuzzleDealCommandHandler extends AbstractGameControllerCommandHandl
         }
     }
 
-    public int getMoney(int grade) {
+    public int getMoney(int grade, int betAmt) {
         HashMap<Integer, Integer> map = new HashMap<>();
         map.put(1, 10000);
         map.put(2, 1000);
@@ -99,7 +118,8 @@ public class PuzzleDealCommandHandler extends AbstractGameControllerCommandHandl
         map.put(7, 5);
         map.put(8, 2);
         map.put(9, 1);
-        return map.get(grade);
+        map.put(0, 0);
+        return map.get(grade) * betAmt;
     }
 
     @Override

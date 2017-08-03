@@ -328,9 +328,9 @@ public final class Mission {
   public interface MissionClearGameResponseMsgOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required float times = 1;
+    // required string times = 1;
     /**
-     * <code>required float times = 1;</code>
+     * <code>required string times = 1;</code>
      *
      * <pre>
      *获奖倍数
@@ -338,13 +338,22 @@ public final class Mission {
      */
     boolean hasTimes();
     /**
-     * <code>required float times = 1;</code>
+     * <code>required string times = 1;</code>
      *
      * <pre>
      *获奖倍数
      * </pre>
      */
-    float getTimes();
+    java.lang.String getTimes();
+    /**
+     * <code>required string times = 1;</code>
+     *
+     * <pre>
+     *获奖倍数
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getTimesBytes();
 
     // required float totalMoney = 2;
     /**
@@ -419,9 +428,9 @@ public final class Mission {
               }
               break;
             }
-            case 13: {
+            case 10: {
               bitField0_ |= 0x00000001;
-              times_ = input.readFloat();
+              times_ = input.readBytes();
               break;
             }
             case 21: {
@@ -469,11 +478,11 @@ public final class Mission {
     }
 
     private int bitField0_;
-    // required float times = 1;
+    // required string times = 1;
     public static final int TIMES_FIELD_NUMBER = 1;
-    private float times_;
+    private java.lang.Object times_;
     /**
-     * <code>required float times = 1;</code>
+     * <code>required string times = 1;</code>
      *
      * <pre>
      *获奖倍数
@@ -483,14 +492,45 @@ public final class Mission {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required float times = 1;</code>
+     * <code>required string times = 1;</code>
      *
      * <pre>
      *获奖倍数
      * </pre>
      */
-    public float getTimes() {
-      return times_;
+    public java.lang.String getTimes() {
+      java.lang.Object ref = times_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          times_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string times = 1;</code>
+     *
+     * <pre>
+     *获奖倍数
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getTimesBytes() {
+      java.lang.Object ref = times_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        times_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     // required float totalMoney = 2;
@@ -518,7 +558,7 @@ public final class Mission {
     }
 
     private void initFields() {
-      times_ = 0F;
+      times_ = "";
       totalMoney_ = 0F;
     }
     private byte memoizedIsInitialized = -1;
@@ -542,7 +582,7 @@ public final class Mission {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeFloat(1, times_);
+        output.writeBytes(1, getTimesBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeFloat(2, totalMoney_);
@@ -558,7 +598,7 @@ public final class Mission {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(1, times_);
+          .computeBytesSize(1, getTimesBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
@@ -684,7 +724,7 @@ public final class Mission {
 
       public Builder clear() {
         super.clear();
-        times_ = 0F;
+        times_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
         totalMoney_ = 0F;
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -741,7 +781,9 @@ public final class Mission {
       public Builder mergeFrom(com.xt.yde.protobuf.mission.Mission.MissionClearGameResponseMsg other) {
         if (other == com.xt.yde.protobuf.mission.Mission.MissionClearGameResponseMsg.getDefaultInstance()) return this;
         if (other.hasTimes()) {
-          setTimes(other.getTimes());
+          bitField0_ |= 0x00000001;
+          times_ = other.times_;
+          onChanged();
         }
         if (other.hasTotalMoney()) {
           setTotalMoney(other.getTotalMoney());
@@ -781,10 +823,10 @@ public final class Mission {
       }
       private int bitField0_;
 
-      // required float times = 1;
-      private float times_ ;
+      // required string times = 1;
+      private java.lang.Object times_ = "";
       /**
-       * <code>required float times = 1;</code>
+       * <code>required string times = 1;</code>
        *
        * <pre>
        *获奖倍数
@@ -794,30 +836,62 @@ public final class Mission {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required float times = 1;</code>
+       * <code>required string times = 1;</code>
        *
        * <pre>
        *获奖倍数
        * </pre>
        */
-      public float getTimes() {
-        return times_;
+      public java.lang.String getTimes() {
+        java.lang.Object ref = times_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          times_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>required float times = 1;</code>
+       * <code>required string times = 1;</code>
        *
        * <pre>
        *获奖倍数
        * </pre>
        */
-      public Builder setTimes(float value) {
-        bitField0_ |= 0x00000001;
+      public com.google.protobuf.ByteString
+          getTimesBytes() {
+        java.lang.Object ref = times_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          times_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string times = 1;</code>
+       *
+       * <pre>
+       *获奖倍数
+       * </pre>
+       */
+      public Builder setTimes(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         times_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required float times = 1;</code>
+       * <code>required string times = 1;</code>
        *
        * <pre>
        *获奖倍数
@@ -825,7 +899,24 @@ public final class Mission {
        */
       public Builder clearTimes() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        times_ = 0F;
+        times_ = getDefaultInstance().getTimes();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string times = 1;</code>
+       *
+       * <pre>
+       *获奖倍数
+       * </pre>
+       */
+      public Builder setTimesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        times_ = value;
         onChanged();
         return this;
       }
@@ -912,7 +1003,7 @@ public final class Mission {
       "\n\024gamemission.protobuf\022\033com.xt.yde.proto" +
       "buf.mission\"\034\n\032MissionClearGameRequestMs" +
       "g\"@\n\033MissionClearGameResponseMsg\022\r\n\005time" +
-      "s\030\001 \002(\002\022\022\n\ntotalMoney\030\002 \002(\002B\tB\007Mission"
+      "s\030\001 \002(\t\022\022\n\ntotalMoney\030\002 \002(\002B\tB\007Mission"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

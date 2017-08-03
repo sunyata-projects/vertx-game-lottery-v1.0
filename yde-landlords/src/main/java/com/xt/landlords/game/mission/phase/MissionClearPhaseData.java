@@ -9,16 +9,16 @@ public class MissionClearPhaseData extends PhaseData {
 
     private String serialNo;
 
-    public int getTotalMoney() {
+    public float getTotalMoney() {
         return totalMoney;
     }
 
-    public MissionClearPhaseData setTotalMoney(int totalMoney) {
+    public MissionClearPhaseData setTotalMoney(float totalMoney) {
         this.totalMoney = totalMoney;
         return this;
     }
 
-    private int totalMoney;//获得的总奖金
+    private float totalMoney;//获得的总奖金
 
     public MissionClearPhaseData setSerialNo(String serialNo) {
         this.serialNo = serialNo;

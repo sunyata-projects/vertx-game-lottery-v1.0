@@ -2,6 +2,7 @@ package com.xt.landlords.game.eliminate;
 
 import com.xt.landlords.GameManager;
 import com.xt.landlords.GameTypes;
+import com.xt.landlords.account.Account;
 import com.xt.landlords.exception.BetErrorException;
 import com.xt.landlords.exception.ExchangeErrorException;
 import com.xt.landlords.game.eliminate.condition.BetCondition;
@@ -21,6 +22,8 @@ import org.squirrelframework.foundation.fsm.HistoryType;
 import org.squirrelframework.foundation.fsm.StateMachineStatus;
 import org.squirrelframework.foundation.fsm.annotation.*;
 import org.sunyata.octopus.model.GameModel;
+
+import java.math.BigDecimal;
 
 /**
  * Created by leo on 17/4/26.
@@ -42,7 +45,7 @@ import org.sunyata.octopus.model.GameModel;
 
         @Transit(from = "Bet", to = "Deal", on = "Deal", callMethod = "OnDeal", when = DealCondition.class),
         @Transit(from = "Deal", to = "Bet", on = "Bet", callMethod = "OnBet", when = BetCondition.class),
-
+        @Transit(from = "Exchange", to = "GameOver", on = "GameOver", callMethod = "OnGameOver"),
         @Transit(from = "Deal", to = "GameOver", on = "GameOver", callMethod = "OnGameOver"),
         @Transit(from = "Bet", to = "GameOver", on = "GameOver", callMethod = "OnForceGameOver"),
 //        @Transit(from = "Deal", to = "GameOver", on = "ForceGameOver", callMethod = "OnForceGameOver",)
@@ -111,6 +114,7 @@ public class GameEliminateController extends GameController<GameEliminateModel, 
         //剩余兑换点数
         exchangeGamePointBalance = (awardGamePoint >= betGamePoint) ? exchangeGamePointBalance :
                 (exchangeGamePointBalance - (betGamePoint - awardGamePoint));
+        logger.info("剩余兑换点数为:{}", exchangeGamePointBalance);
         //剩余奖励点数
         awardGamePoint = awardGamePoint >= betGamePoint ? (awardGamePoint - betGamePoint) : 0;
 
@@ -131,8 +135,9 @@ public class GameEliminateController extends GameController<GameEliminateModel, 
                 .setAwardGamePoint(gamePointBetResult.getAwardGamePoint())
                 .setDoubleKingCount(gamePointBetResult.getDoubleKingCount())
                 .setTotalAwardGamePoint(awardGamePoint)
-                .setTotalDoubleKingCount(totalDoubleKingCount)
-                .setCards(gamePointBetResult.getCards());
+                .setAwardLevel(gamePointBetResult.getAwardLevel())
+                .setTotalDoubleKingCount(totalDoubleKingCount);
+//                .setCards(gamePointBetResult.getCards());
         logger.info("on play");
     }
 
@@ -157,21 +162,51 @@ public class GameEliminateController extends GameController<GameEliminateModel, 
         EliminateClearPhaseData phaseData = (EliminateClearPhaseData) getPhaseData(GameEliminateState.GameOver.getValue
                 ());
         GameEliminateModel gameModel = getGameModel();
-
         EliminateLastBetService lastBetService = SpringIocUtil.getBean(EliminateLastBetService.class);
         EliminateLastBetResult lastBetResult = lastBetService.bet(gameModel.getUserName(), 22, "");
+
+
+        //lastBetResult.setTotalMoney((int) (lastPlayPhaseDataItem.getExchangeGamePointBalance() / 100.00));
         if (!StringUtils.isEmpty(lastBetResult.getErrorMessage())) {
             throw new BetErrorException("下注失败,请重试");
         }
         int totalMoney = lastBetResult.getTotalMoney();
         phaseData.setSerialNo(lastBetResult.getSerialNo()).setTotalMoney(totalMoney);
         setPhaseSuccess(GameEliminateState.GameOver.getValue());
+
+        EliminatePlayPhaseData playPhaseData = (EliminatePlayPhaseData) getPhaseData(GameEliminateState.Play.getValue
+                ());
+        int exchangeGamePointBalance = 0;
+        if (playPhaseData == null) {
+            ExchangePhaseData exchangePhaseData = (ExchangePhaseData) getPhaseData(GameEliminateState.Exchange
+                    .getValue());
+            exchangeGamePointBalance = exchangePhaseData.getGamePoint();
+        } else {
+
+
+            EliminatePlayPhaseDataItem lastPlayPhaseDataItem = playPhaseData.getLastPlayPhaseDataItem();
+            exchangeGamePointBalance = lastPlayPhaseDataItem.getExchangeGamePointBalance();
+        }
+        BigDecimal money = new BigDecimal(exchangeGamePointBalance).divide(new BigDecimal(100.00));
+        //float money = (float) (exchangeGamePointBalance * 1.00f / 100.00);
+        logger.info("游戏正常结束,归还游戏点数,换算成人民向为:{}", money);
+        Account.addBalance(gameModel.getUserName(), money);
         logger.info("game over");
     }
 
     public void OnForceGameOver(GameEliminateState from, GameEliminateState to, GameEliminateEvent event,
                                 GameModel context) throws Exception {
         setPhaseSuccess(GameEliminateState.GameOver.getValue());
+
+        EliminatePlayPhaseData playPhaseData = (EliminatePlayPhaseData) getPhaseData(GameEliminateState.Play.getValue
+                ());
+        EliminatePlayPhaseDataItem lastPlayPhaseDataItem = playPhaseData.getLastPlayPhaseDataItem();
+        GameEliminateModel gameModel = getGameModel();
+        ///float money = (float) (lastPlayPhaseDataItem.getExchangeGamePointBalance() * 1.00f / 100.00);
+        BigDecimal money = new BigDecimal(lastPlayPhaseDataItem.getExchangeGamePointBalance()).divide(new BigDecimal(100.00));
+
+        logger.info("游戏被迫结束,归还游戏点数,换算成人民向为:{}", money);
+        Account.addBalance(gameModel.getUserName(), money);
         logger.info("force game over");
     }
 

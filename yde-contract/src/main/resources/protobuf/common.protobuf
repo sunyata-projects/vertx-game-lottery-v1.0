@@ -29,11 +29,15 @@ message ProfileResponseMsg
 {
     optional string     userId       = 1; //账号
     optional string     displayName  = 2; //显示名
-    optional int64      money        = 3; // RMB
+    optional string      money        = 3; // RMB
     optional int64 	    vc           = 4;// 虚拟货币 (点数)
 }
 
-
+//余额变化
+message BalanceChangedResponseMsg
+{
+  required string  balance = 1; //当前余额
+}
 
 //下注请求
 message BetRequestMsg{

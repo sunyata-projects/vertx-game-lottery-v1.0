@@ -2,7 +2,6 @@ package com.xt.landlords.service;
 
 import com.xt.landlords.ai.core.util.myutil.AIUtil;
 import com.xt.landlords.ai.core.util.myutil.CardType;
-import com.xt.yde.thrift.card.eliminate.EliminateCards;
 import com.xt.yde.thrift.card.eliminate.EliminateCardsService;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
@@ -13,9 +12,9 @@ import org.sunyata.quark.client.IdWorker;
 import org.sunyata.quark.client.QuarkClient;
 import org.sunyata.spring.thrift.client.annotation.ThriftClient;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by leo on 17/5/16.
@@ -33,6 +32,8 @@ public class GamePointBetService {
 
     static HashMap<Integer, Integer> map = new HashMap<>();
 
+    static HashMap<Integer, Integer> mapPoints = new HashMap<>();
+
     public GamePointBetService() {
         map.put(7, 20);
         map.put(8, 50);
@@ -45,6 +46,59 @@ public class GamePointBetService {
         map.put(16, 5000);
         map.put(18, 10000);
 //        map.put(20, 0);
+
+
+        mapPoints.put(1, 100000);
+        mapPoints.put(2, 80000);
+        mapPoints.put(3, 70000);
+        mapPoints.put(4, 50000);
+        mapPoints.put(5, 20000);
+        mapPoints.put(6, 10000);
+        mapPoints.put(7, 8000);
+        mapPoints.put(8, 7000);
+        mapPoints.put(9, 5000);
+        mapPoints.put(10, 2000);
+        mapPoints.put(11, 1000);
+        mapPoints.put(12, 900);
+        mapPoints.put(13, 800);
+        mapPoints.put(14, 700);
+        mapPoints.put(15, 650);
+        mapPoints.put(16, 600);
+        mapPoints.put(17, 550);
+        mapPoints.put(18, 500);
+        mapPoints.put(19, 480);
+        mapPoints.put(20, 460);
+        mapPoints.put(21, 440);
+        mapPoints.put(22, 420);
+        mapPoints.put(23, 400);
+        mapPoints.put(24, 380);
+        mapPoints.put(25, 360);
+        mapPoints.put(26, 340);
+        mapPoints.put(27, 320);
+        mapPoints.put(28, 300);
+        mapPoints.put(29, 280);
+        mapPoints.put(30, 260);
+        mapPoints.put(31, 240);
+        mapPoints.put(32, 220);
+        mapPoints.put(33, 200);
+        mapPoints.put(34, 190);
+        mapPoints.put(35, 180);
+        mapPoints.put(36, 170);
+        mapPoints.put(37, 160);
+        mapPoints.put(38, 150);
+        mapPoints.put(39, 140);
+        mapPoints.put(40, 130);
+        mapPoints.put(41, 120);
+        mapPoints.put(42, 110);
+        mapPoints.put(43, 100);
+        mapPoints.put(44, 90);
+        mapPoints.put(45, 80);
+        mapPoints.put(46, 70);
+        mapPoints.put(47, 60);
+        mapPoints.put(48, 50);
+        mapPoints.put(49, 40);
+        mapPoints.put(50, 20);
+        mapPoints.put(0, 0);
     }
 
     public int calculatorGamePointByLength(List<Integer> cards) {
@@ -69,44 +123,76 @@ public class GamePointBetService {
         }
         return 0;
     }
+    Random random = new Random();
+
+    public int nextInt(int from, int to) {
+        int max = to;
+        int min = from;
+        int s = random.nextInt(max) % (max - min + 1) + min;
+        return s;
+    }
+
 
     public GamePointBetResult bet(String userName, int betAmt, String gameInstanceId) throws Exception {
-//        throw new Exception("下注失败");
         try {
             String serialNo = String.valueOf(worker.nextId());
-            EliminateCards cards = cardService.getCards(1, 2);
+            int prizeLevel = nextInt(0, 50);
+            int bombNumsRandom = nextInt(2, 3);
+            boolean bombFlag = bombNumsRandom == 2;
+//            EliminateCards cards = cardService.getCards(prizeLevel, bombFlag ? 1 : 0);
+            Integer totalGamePoint = mapPoints.getOrDefault(prizeLevel, 0);
             //int result = 0;
-            List<Integer> result = new ArrayList<>();
-            int totalGamePoint = 0;
-            for (int i = 0; i < cards.getCards().size(); i++) {
-                if (i % 2 != 0) {//奇数
-                    List<Integer> integers = cards.getCards().get(i);
-                    totalGamePoint += calculatorGamePointByLength(integers);
-                    result.addAll(integers);
-                }
+            //List<Integer> result = new ArrayList<>();
 
-            }
-            long count52 = result.stream().filter(p -> p.equals(52)).count();
-            long count53 = result.stream().filter(p -> p.equals(53)).count();
-            int bombNum = (int) (count52 > count53 ? count52 : count53);
-            logger.info("双王数量:{}", bombNum);
+//            for (int i = 0; i < cards.getCards().size(); i++) {
+//                if (i % 2 != 0) {//奇数
+//                    List<Integer> integers = cards.getCards().get(i);
+//                    totalGamePoint += calculatorGamePointByLength(integers);
+//                    result.addAll(integers);
+//                }
+//
+//            }
+//            long count52 = result.stream().filter(p -> p.equals(52)).count();
+//            long count53 = result.stream().filter(p -> p.equals(53)).count();
+//            int bombNum = (int) (count52 > count53 ? count52 : count53);
+            logger.info("双王数量:{}", bombFlag ? 1 : 0);
             totalGamePoint = totalGamePoint == 0 ? 0 : (int) (totalGamePoint * (betAmt / 100.00));
-            return new GamePointBetResult().setSerialNo(serialNo).setAwardLevel(2).setDoubleKingCount(bombNum)
-                    .setAwardGamePoint(totalGamePoint).setCards(cards.getCards());
+            GamePointBetResult gamePointBetResult = new GamePointBetResult().setSerialNo(serialNo).setAwardLevel(prizeLevel)
+                    .setDoubleKingCount(bombFlag ? 1 : 0)
+                    .setAwardGamePoint(totalGamePoint);//.setCards(cards.getCards());
+            logger.info("");
+            return gamePointBetResult;
         } catch (Exception ex) {
             logger.error(ExceptionUtils.getStackTrace(ex));
             return new GamePointBetResult().setErrorMessage(ex.getMessage());
         }
-//        HashMap<String, String> parameters = new HashMap<>();
-//        parameters.put("betAmt", String.valueOf(betAmt));
-//        JsonResponseResult createResult = quarkClient.create(String.valueOf(serialNo), BusinessComponents
-//                .LandLordsBetComponent, userName, String.valueOf(gameInstanceId), Json.encode(parameters), false);
-//        if (createResult.getCode() == 0) {
-//            JsonResponseResult betResult = quarkClient.runByManual(String.valueOf(serialNo), 1, null);
-//            if (betResult.getCode() == 0) {
-//                return serialNo;
-//            }
-//        }
-//        return null;
     }
+
+//    public GamePointBetResult bet(String userName, int betAmt, String gameInstanceId) throws Exception {
+//        try {
+//            String serialNo = String.valueOf(worker.nextId());
+//            EliminateCards cards = cardService.getCards(1, 2);
+//            //int result = 0;
+//            List<Integer> result = new ArrayList<>();
+//            int totalGamePoint = 0;
+//            for (int i = 0; i < cards.getCards().size(); i++) {
+//                if (i % 2 != 0) {//奇数
+//                    List<Integer> integers = cards.getCards().get(i);
+//                    totalGamePoint += calculatorGamePointByLength(integers);
+//                    result.addAll(integers);
+//                }
+//
+//            }
+//            long count52 = result.stream().filter(p -> p.equals(52)).count();
+//            long count53 = result.stream().filter(p -> p.equals(53)).count();
+//            int bombNum = (int) (count52 > count53 ? count52 : count53);
+//            logger.info("双王数量:{}", bombNum);
+//            totalGamePoint = totalGamePoint == 0 ? 0 : (int) (totalGamePoint * (betAmt / 100.00));
+//            return new GamePointBetResult().setSerialNo(serialNo).setAwardLevel(2).setDoubleKingCount(bombNum)
+//                    .setAwardGamePoint(totalGamePoint).setCards(cards.getCards());
+//        } catch (Exception ex) {
+//            logger.error(ExceptionUtils.getStackTrace(ex));
+//            return new GamePointBetResult().setErrorMessage(ex.getMessage());
+//        }
+//    }
 }

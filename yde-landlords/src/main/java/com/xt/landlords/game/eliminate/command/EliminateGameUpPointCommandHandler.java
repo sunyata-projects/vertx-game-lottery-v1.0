@@ -59,7 +59,8 @@ public class EliminateGameUpPointCommandHandler extends AbstractGameControllerCo
             gameController.fire(GameEliminateEvent.GameOver, gameModel);
             ImmutableState currentRawState = gameController.getCurrentRawState();
             logger.info("{}:currentState:{}", this.getClass().getName(), currentRawState);
-            Common.GiveUpGamePointProcessResponseMsg.Builder builder = Common.GiveUpGamePointProcessResponseMsg.newBuilder();
+            Common.GiveUpGamePointProcessResponseMsg.Builder builder = Common.GiveUpGamePointProcessResponseMsg
+                    .newBuilder();
             response.setBody(builder.build().toByteArray());
         } catch (Exception ex) {
             ExceptionProcessor.process(response, ex);
@@ -67,7 +68,6 @@ public class EliminateGameUpPointCommandHandler extends AbstractGameControllerCo
             response.writeAndFlush();
         }
     }
-
 
 
     @Override

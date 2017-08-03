@@ -33,6 +33,9 @@ public interface CardMissionMapper {
     @Select("SELECT * FROM mission_cards where lose = #{lose} Limit #{random},1")
     MissionCard findMissionCardsByRandom(@Param("lose") Integer lose, @Param("random") Integer random);
 
+    @Select("SELECT * FROM mission_cards where id = #{id}")
+    MissionCard findMissionCardsByCardId(@Param("id") Integer id);
+
     @Select("SELECT count(*) FROM mission_cards where lose = #{lose}")
     Integer findMissionCardCount(@Param("lose") int lose);
 

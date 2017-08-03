@@ -20,8 +20,7 @@
 
 package com.xt.landlords.card.store;
 
-import com.xt.landlords.card.model.RegularCard17;
-import com.xt.landlords.card.model.RegularCard37;
+import com.xt.landlords.card.model.PuzzleCard;
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -35,46 +34,52 @@ import java.util.Random;
  * Created by leo on 17/3/20.
  */
 @Component
-public class CardRegularStore {
+public class CardPuzzleStore {
 
-    Logger logger = LoggerFactory.getLogger(CardRegularStore.class);
+    Logger logger = LoggerFactory.getLogger(CardPuzzleStore.class);
 
     @Autowired
     SqlSessionTemplate sessionTemplate;
 
     Random random = new Random();
 
-    public RegularCard17 getCard17() {
-//        long startTime = System.currentTimeMillis();   //获取开始时间
+    public PuzzleCard getWZ() {
+        long startTime = System.currentTimeMillis();   //获取开始时间
         try (SqlSession session = sessionTemplate.getSqlSessionFactory().openSession(true)) {
-            CardRegularMapper mapper = session.getMapper(CardRegularMapper.class);
-            Integer regularCard17Count = mapper.findRegularCard17Count();
-            int i = random.nextInt(regularCard17Count - 1);
-            RegularCard17 regularCard17 = mapper.findRegularCard17ByRandom(i);
-            return regularCard17;
+            CardPuzzleMapper mapper = session.getMapper(CardPuzzleMapper.class);
+            Integer count = mapper.findWZCardCount();
+            int i = random.nextInt(count - 1);
+            PuzzleCard missionCardsByRandom = mapper.findWZCardsByRandom(i);
+            return missionCardsByRandom;
         } catch (Exception ex) {
             System.out.println(ex);
             throw ex;
         }
     }
 
-    public RegularCard17 getCard17ById(String id) {
-//        long startTime = System.currentTimeMillis();   //获取开始时间
+    public PuzzleCard get22() {
+        long startTime = System.currentTimeMillis();   //获取开始时间
         try (SqlSession session = sessionTemplate.getSqlSessionFactory().openSession(true)) {
-            CardRegularMapper mapper = session.getMapper(CardRegularMapper.class);
-            RegularCard17 regularCard17 = mapper.findRegularCard17ById(id);
-            return regularCard17;
+            CardPuzzleMapper mapper = session.getMapper(CardPuzzleMapper.class);
+            Integer count = mapper.find22CardCount();
+            int i = random.nextInt(count - 1);
+            PuzzleCard missionCardsByRandom = mapper.find22CardsByRandom(i);
+            return missionCardsByRandom;
         } catch (Exception ex) {
             System.out.println(ex);
             throw ex;
         }
     }
 
-    public RegularCard37 getCard37(int bombNums, String centerId) {
-        try (SqlSession session = sessionTemplate.getSqlSessionFactory().openSession(false)) {
-            CardRegularMapper mapper = session.getMapper(CardRegularMapper.class);
-            RegularCard37 regularCard37 = mapper.findRegularCard37(bombNums, centerId);
-            return regularCard37;
+
+    public PuzzleCard getNormal(int grade) {
+        long startTime = System.currentTimeMillis();   //获取开始时间
+        try (SqlSession session = sessionTemplate.getSqlSessionFactory().openSession(true)) {
+            CardPuzzleMapper mapper = session.getMapper(CardPuzzleMapper.class);
+            Integer count = mapper.findNormalCount(grade);
+            int i = random.nextInt(count - 1);
+            PuzzleCard missionCardsByRandom = mapper.findNormalCardsByRandom(grade, i);
+            return missionCardsByRandom;
         } catch (Exception ex) {
             System.out.println(ex);
             throw ex;

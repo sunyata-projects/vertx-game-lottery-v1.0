@@ -17,6 +17,7 @@ import com.xt.landlords.game.regular.GameRegularState;
 import com.xt.landlords.message.MessageClient;
 import com.xt.landlords.statemachine.GameController;
 import com.xt.landlords.statemachine.GameControllerFactory;
+import com.xt.yde.protobuf.common.Common;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,7 @@ import org.sunyata.octopus.model.GameModel;
 import org.sunyata.octopus.model.GamePhaseModel;
 import org.sunyata.quark.client.IdWorker;
 
+import java.math.BigDecimal;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -101,6 +103,21 @@ public class GameManager {
         }
         new OctopusResponse(session.getHandlerContext(), Integer.parseInt(Commands.KickPlayer), 0).writeAndFlush();
         session.getHandlerContext().channel().close();
+    }
+
+    public static void notifyBalanceChange(String userName, BigDecimal balance) {
+        Session session = SessionManager.getSession(userName);
+        if (session == null) {
+            logger.info("目标用户不存在,{}无法被踢除", userName);
+            return;
+        }
+        OctopusResponse octopusResponse = new OctopusResponse(session.getHandlerContext(), Integer.parseInt(Commands
+                .NotifyBalanceChanged), 0);
+        Common.BalanceChangedResponseMsg.Builder builder = Common.BalanceChangedResponseMsg.newBuilder();
+        builder.setBalance(balance.toPlainString());
+        Common.BalanceChangedResponseMsg responseMsg = builder.build();
+        octopusResponse.setBody(responseMsg.toByteArray());
+        octopusResponse.writeAndFlush();
     }
 
     @Autowired

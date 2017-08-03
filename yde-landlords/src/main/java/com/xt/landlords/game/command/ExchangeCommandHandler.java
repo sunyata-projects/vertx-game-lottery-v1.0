@@ -76,7 +76,7 @@ public class ExchangeCommandHandler extends AbstractAuthCommandHandler {
 
                 gameController = GameManager.createGameController(exchangeGamePointRequestMsg.getGameType(),
                         (GameControllerState)
-                        gameModel.getLastSuccessState());
+                                gameModel.getLastSuccessState());
                 gameController.setGameModel(gameModel);
                 GameManager.put(userName, gameController);
                 gameController.start();

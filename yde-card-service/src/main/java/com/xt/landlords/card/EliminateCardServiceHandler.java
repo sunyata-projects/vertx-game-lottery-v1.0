@@ -1,5 +1,7 @@
 package com.xt.landlords.card;
 
+import com.xt.landlords.card.model.EliminateCard;
+import com.xt.landlords.card.store.CardEliminateStore;
 import com.xt.yde.thrift.card.eliminate.EliminateCards;
 import com.xt.yde.thrift.card.eliminate.EliminateCardsService;
 import org.apache.thrift.TException;
@@ -15,7 +17,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
@@ -35,6 +36,8 @@ public class EliminateCardServiceHandler implements EliminateCardsService.Iface 
     //wz + normal
     //2
     //normal
+    @Autowired
+    CardEliminateStore cardEliminateStore;
 
     Random randomWz = new Random();
 
@@ -46,17 +49,28 @@ public class EliminateCardServiceHandler implements EliminateCardsService.Iface 
         return o;
     }
 
+//    @Override
+//    public EliminateCards getCards(int prizeLevel, int bombNum) throws TException {
+//        logger.info("awardLevel:{},bombNum:{}", prizeLevel, bombNum);
+//        List<List<Integer>> result = new ArrayList<>();
+//        result = getWZ();
+//        EliminateCards cards = new EliminateCards();
+//        cards.setCardId("cardId").setCards(result);
+//        logger.info("获取牌库成功");
+//        return cards;
+//    }
+
+
     @Override
-    public EliminateCards getCards(int awardLevel, int bombNum) throws TException {
-        logger.info("awardLevel:{},bombNum:{}", awardLevel, bombNum);
-        List<List<Integer>> result = new ArrayList<>();
-        result = getWZ();
+    public EliminateCards getCards(int prizeLevel, int bombNum) throws TException {
+        logger.info("awardLevel:{},bombNum:{}", prizeLevel, bombNum);
+        EliminateCard cardsFromDb = cardEliminateStore.getCards(prizeLevel, bombNum);
         EliminateCards cards = new EliminateCards();
-        cards.setCardId("cardId").setCards(result);
-        logger.info("获取牌库成功");
+        List list = Json.decodeValue(cardsFromDb.getCards(), List.class);
+        cards.setCardId(cardsFromDb.getId()).setCards(list);
+        logger.info("获取牌库成功,cardId:{},prizeLevel:{},bombNums:{}", cards.getCardId(), prizeLevel, bombNum);
         return cards;
     }
-
 
     public List readJson(String name) throws IOException {
         Resource resource = applicationContext.getResource(String.format("classpath:%s.json", name));

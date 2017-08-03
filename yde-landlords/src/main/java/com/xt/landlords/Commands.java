@@ -15,6 +15,10 @@ public class Commands {
     //兑换点数
     public static final String Exchange =             "10006";
 
+
+    //通知玩家余额发生变化
+    public static final String NotifyBalanceChanged =             "10007";
+
     //常规赛50
     //断线续玩
     public static final String RegularBreakPlay =       "50001";

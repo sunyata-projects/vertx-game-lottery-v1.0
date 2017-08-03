@@ -61,7 +61,7 @@ public class RegularDealCommandHandler extends AbstractGameControllerCommandHand
             BetPhaseModel phase = (BetPhaseModel) gameModel.getPhase(GameRegularState.Bet.getValue());
             BetPhaseData phaseData = phase.getPhaseData();
             TicketResult ticketResult = phaseData.getTicketResult();
-            int prizeLevel = ticketResult.getPrizeLevel();
+            int prizeLevel = (int) ticketResult.getPrizeLevel();
             Common.DealResponseMsg.Builder builder = Common.DealResponseMsg.newBuilder();
             if (isDeal) {
                 RegularCards cards17 = cardService.getCards17();

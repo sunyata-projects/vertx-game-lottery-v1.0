@@ -1,6 +1,7 @@
 package com.xt.landlords.game.regular.command;
 
 import com.xt.landlords.*;
+import com.xt.landlords.account.Account;
 import com.xt.landlords.game.regular.GameRegularEvent;
 import com.xt.landlords.game.regular.GameRegularModel;
 import com.xt.landlords.game.regular.GameRegularState;
@@ -12,6 +13,8 @@ import org.springframework.stereotype.Component;
 import org.squirrelframework.foundation.fsm.ImmutableState;
 import org.sunyata.octopus.OctopusRequest;
 import org.sunyata.octopus.OctopusResponse;
+
+import java.math.BigDecimal;
 
 //import com.xt.landlords.game.Eliminate.GameEliminatePhaseName;
 
@@ -50,8 +53,9 @@ public class RegularClearCommandHandler extends AbstractGameControllerCommandHan
                     .newBuilder();
             gameController.fire(GameRegularEvent.GameOver, gameModel);
             RegularClearPhaseData phaseData = (RegularClearPhaseData) gameController.getPhaseData(GameRegularState.GameOver.getValue());
-            int totalMoney = phaseData.getTotalMoney();
-            builder.setTotalMoney(totalMoney);
+            BigDecimal totalMoney = phaseData.getTotalMoney();
+            builder.setTotalMoney(Float.parseFloat(totalMoney.toPlainString()));
+            Account.addBalance(request.getSession().getCurrentUser().getName(), totalMoney);
             ImmutableState currentRawState = gameController.getCurrentRawState();
             logger.info("{}:currentState:{}", this.getClass().getName(), currentRawState);
             response.setBody(builder.build().toByteArray());

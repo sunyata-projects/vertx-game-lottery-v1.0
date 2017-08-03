@@ -2,56 +2,96 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c11c4c23-4ac5-43c9-98c4-56e10b8404b6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sunyata-octopus-example-client/src/main/java/org/sunyata/octopus/example/client/WebSocketMissionClient.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/MissionCardServiceHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/model/MissionCard.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardMissionMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardMissionStore.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gamemission.protobuf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-contract/src/main/resources/thrift/missioncard.thrift" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionEvent.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionState.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionClearCommandHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionDealCommandHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionPlayCommandHandler.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/condition/DealCondition.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/condition/LoseCondition.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/condition/PlayingCondition.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/condition/WinCondition.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionClearPhaseData.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionClearPhaseModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionPlayPhaseData.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionPlayPhaseDataItem.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionPlayPhaseDealDataItem.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionPlayPhaseModel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionPlayPhasePlayDataItem.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/statemachine/GameStateControllerFactory.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/thrift/regular/RegularCards.java" afterPath="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/thrift/card/regular/RegularCards.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/thrift/regular/RegularCardsService.java" afterPath="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/thrift/card/regular/RegularCardsService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/statemachine/GameStateControllerFactory.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/statemachine/GameControllerFactory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/model/EliminateCard.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/model/PuzzleCard.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardEliminateMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardEliminateStore.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardPuzzleMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardPuzzleStore.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/account/Account.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/token/JwtTestCase.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/token/TokenState.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/token/jwt.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sunyata-octopus/target/classes/org/sunyata/octopus/model/GameModel.class" afterPath="$PROJECT_DIR$/sunyata-octopus/target/classes/org/sunyata/octopus/model/GameModel.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-card-service/target/classes/com/xt/landlords/card/AppDBCards.class" afterPath="$PROJECT_DIR$/yde-card-service/target/classes/com/xt/landlords/card/AppDBCards.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-card-service/target/classes/com/xt/landlords/card/PuzzleCardServiceHandler.class" afterPath="$PROJECT_DIR$/yde-card-service/target/classes/com/xt/landlords/card/PuzzleCardServiceHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$1.class" afterPath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$BetRequestMsg$1.class" afterPath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$BetRequestMsg$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$BetRequestMsg$Builder.class" afterPath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$BetRequestMsg$Builder.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$BetRequestMsg.class" afterPath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$BetRequestMsg.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$BetResponseMsg$1.class" afterPath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$BetResponseMsg$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$BetResponseMsg$Builder.class" afterPath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$BetResponseMsg$Builder.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$BetResponseMsg.class" afterPath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$BetResponseMsg.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$ProfileResponseMsg$1.class" afterPath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$ProfileResponseMsg$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$ProfileResponseMsg$Builder.class" afterPath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$ProfileResponseMsg$Builder.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$ProfileResponseMsg.class" afterPath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$ProfileResponseMsg.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$ProfileResponseMsgOrBuilder.class" afterPath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common$ProfileResponseMsgOrBuilder.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common.class" afterPath="$PROJECT_DIR$/yde-contract/target/classes/com/xt/yde/protobuf/common/Common.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/Application.class" afterPath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/Application.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/Commands.class" afterPath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/Commands.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/ExceptionProcessor.class" afterPath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/ExceptionProcessor.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/GameManager.class" afterPath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/GameManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/GameTypes.class" afterPath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/GameTypes.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/game/regular/GameRegularEvent.class" afterPath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/game/regular/GameRegularEvent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/game/puzzle/command/PuzzleClearCommandHandler$CommandErrorCode.class" afterPath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/game/puzzle/command/PuzzleClearCommandHandler$CommandErrorCode.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/game/puzzle/command/PuzzleClearCommandHandler.class" afterPath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/game/puzzle/command/PuzzleClearCommandHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/game/puzzle/command/PuzzleDealCommandHandler$CommandErrorCode.class" afterPath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/game/puzzle/command/PuzzleDealCommandHandler$CommandErrorCode.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/game/puzzle/command/PuzzleDealCommandHandler.class" afterPath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/game/puzzle/command/PuzzleDealCommandHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/game/regular/GameRegularController.class" afterPath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/game/regular/GameRegularController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/login/LoginCommandHandler$CommandErrorCode.class" afterPath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/login/LoginCommandHandler$CommandErrorCode.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/login/LoginCommandHandler.class" afterPath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/login/LoginCommandHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/profile/ProfileCommandHandler.class" afterPath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/profile/ProfileCommandHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/statemachine/GameController.class" afterPath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/statemachine/GameController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sunyata-octopus/src/main/java/org/sunyata/octopus/model/GameModel.java" afterPath="$PROJECT_DIR$/sunyata-octopus/src/main/java/org/sunyata/octopus/model/GameModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/CardServerConfig.java" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/CardServerConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/MyRunner.java" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/MyRunner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/AppDBCards.java" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/AppDBCards.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/EliminateCardServiceHandler.java" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/EliminateCardServiceHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/MissionCardServiceHandler.java" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/MissionCardServiceHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/PuzzleCardServiceHandler.java" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/PuzzleCardServiceHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/RegularCardServiceHandler.java" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/RegularCardServiceHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardMissionMapper.java" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardMissionMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardMissionStore.java" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardMissionStore.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardRegularMapper.java" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardRegularMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardRegularStore.java" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardRegularStore.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-card-service/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/yde-card-service/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-card-service/target/classes/application.properties" afterPath="$PROJECT_DIR$/yde-card-service/target/classes/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/protobuf/common/Common.java" afterPath="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/protobuf/common/Common.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/protobuf/mission/Mission.java" afterPath="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/protobuf/mission/Mission.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/thrift/card/mission/MissionCards.java" afterPath="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/thrift/card/mission/MissionCards.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/thrift/card/mission/MissionCardsService.java" afterPath="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/thrift/card/mission/MissionCardsService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/common.protobuf" afterPath="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/common.protobuf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gamemission.protobuf" afterPath="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gamemission.protobuf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/src/main/resources/thrift/missioncard.thrift" afterPath="$PROJECT_DIR$/yde-contract/src/main/resources/thrift/missioncard.thrift" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/target/classes/protobuf/common.protobuf" afterPath="$PROJECT_DIR$/yde-contract/target/classes/protobuf/common.protobuf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/pom.xml" afterPath="$PROJECT_DIR$/yde-landlords/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/Application.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/Application.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/Commands.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/Commands.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/ExceptionProcessor.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/ExceptionProcessor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/GameManager.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/GameManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/GameTypes.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/GameTypes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/MyRunner.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/MyRunner.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/GameRegularEvent.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/GameRegularEvent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/command/ExchangeCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/command/ExchangeCommandHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/GameEliminateController.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/GameEliminateController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateClearCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateClearCommandHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateDealCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateDealCommandHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateGameUpPointCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateGameUpPointCommandHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionController.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionClearCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionClearCommandHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionDealCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionDealCommandHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionPlayCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionPlayCommandHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionClearPhaseData.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionClearPhaseData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/phase/TicketResult.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/phase/TicketResult.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/puzzle/command/PuzzleClearCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/puzzle/command/PuzzleClearCommandHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/puzzle/command/PuzzleDealCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/puzzle/command/PuzzleDealCommandHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/GameRegularController.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/GameRegularController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularClearCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularClearCommandHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularDealCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularDealCommandHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularGuessSizeCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularGuessSizeCommandHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularRaiseCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularRaiseCommandHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/phase/RegularPlayPhaseDataItem.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/phase/RegularPlayPhaseDataItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/phase/RegularClearPhaseData.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/phase/RegularClearPhaseData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/login/LoginCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/login/LoginCommandHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/profile/ProfileCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/profile/ProfileCommandHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/ExchangeService.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/ExchangeService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/GamePointBetService.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/GamePointBetService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/MoneyBetService.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/MoneyBetService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/yde-landlords/src/main/resources/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/target/classes/application.properties" afterPath="$PROJECT_DIR$/yde-landlords/target/classes/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/yde-landlords.iml" afterPath="$PROJECT_DIR$/yde-landlords/yde-landlords.iml" />
     </list>
     <ignored path="octopus.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -112,110 +152,42 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BetCommandHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/command/BetCommandHandler.java">
+    <leaf>
+      <file leaf-file-name="PuzzleCardServiceHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/PuzzleCardServiceHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <caret line="117" column="23" selection-start-line="117" selection-start-column="23" selection-end-line="117" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WinCondition.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/condition/WinCondition.java">
+      <file leaf-file-name="GamePuzzleController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/puzzle/GamePuzzleController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoseCondition.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/condition/LoseCondition.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameMissionController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="63" selection-start-line="49" selection-start-column="63" selection-end-line="49" selection-end-column="63" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MissionClearCommandHandler.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionClearCommandHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47457626">
-              <caret line="41" column="90" selection-start-line="41" selection-start-column="90" selection-end-line="41" selection-end-column="90" />
+              <caret line="59" column="48" selection-start-line="59" selection-start-column="48" selection-end-line="59" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MissionPlayCommandHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionPlayCommandHandler.java">
+      <file leaf-file-name="PuzzleDealCommandHandler.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/puzzle/command/PuzzleDealCommandHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.0">
-              <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
-              <folding>
-                <element signature="e#7072#7081#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractGameControllerCommandHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/AbstractGameControllerCommandHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.7654723">
+              <caret line="88" column="49" selection-start-line="88" selection-start-column="49" selection-end-line="88" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AIServiceHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yde-ai-service/src/main/java/com/xt/landlords/ai/AIServiceHandler.java">
+      <file leaf-file-name="MoneyBetService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/MoneyBetService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MissionDealCommandHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionDealCommandHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="66" column="39" selection-start-line="66" selection-start-column="39" selection-end-line="66" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameMissionModel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="104" column="17" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="17" />
+              <caret line="65" column="58" selection-start-line="65" selection-start-column="58" selection-end-line="65" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -253,57 +225,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/sunyata-octopus-example-client-springcloud/src/main/java/org/sunyata/octopus/TestCommandRunner.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/resources/bootstrap.properties" />
+        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardRegularStore.java" />
+        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/model/EliminateCard.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateDealCommandHandler.java" />
+        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardEliminateMapper.java" />
+        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardEliminateStore.java" />
+        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/EliminateCardServiceHandler.java" />
+        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/model/PuzzleCard.java" />
+        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardPuzzleMapper.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularDealCommandHandler.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/phase/TicketResult.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionClearPhaseData.java" />
+        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardPuzzleStore.java" />
+        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardMissionMapper.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/ExceptionProcessor.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionController.java" />
+        <option value="$PROJECT_DIR$/yde-contract/src/main/resources/thrift/missioncard.thrift" />
+        <option value="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/thrift/card/mission/MissionCards.java" />
+        <option value="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/thrift/card/mission/MissionCardsService.java" />
+        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/MissionCardServiceHandler.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionDealCommandHandler.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionPlayPhaseData.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionPlayCommandHandler.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/Commands.java" />
+        <option value="$PROJECT_DIR$/sunyata-octopus/src/main/java/org/sunyata/octopus/model/GameModel.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/login/LoginCommandHandler.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateClearCommandHandler.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateGameUpPointCommandHandler.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/phase/RegularClearPhaseData.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularClearCommandHandler.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/command/ExchangeCommandHandler.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/puzzle/command/PuzzleClearCommandHandler.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/command/BetCommandHandler.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/account/Account.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/GameEliminateController.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/ExchangeService.java" />
+        <option value="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/common.protobuf" />
+        <option value="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gamemission.protobuf" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionClearCommandHandler.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/GameManager.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/profile/ProfileCommandHandler.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/Application.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/message/MessageClient.java" />
+        <option value="$PROJECT_DIR$/sunyata-spring-boot-thrift/src/main/java/org/sunyata/spring/thrift/client/ThriftClientAutoConfiguration.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/sunyata-octopus-example-client/src/main/java/org/sunyata/octopus/example/client/WebSocketRegularClient.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/resources/application-demo.properties" />
-        <option value="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gameregular.protobuf" />
+        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/PuzzleCardServiceHandler.java" />
+        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/RegularCardServiceHandler.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularGuessSizeCommandHandler.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/GameRegularController.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularDealCommandHandler.java" />
-        <option value="$PROJECT_DIR$/sunyata-spring-boot-thrift/pom.xml" />
-        <option value="$PROJECT_DIR$/yde-landlords/pom.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gamemission.protobuf" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/GameRegularEvent.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionEvent.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/statemachine/GameStateControllerFactory.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/statemachine/GameControllerFactory.java" />
-        <option value="$PROJECT_DIR$/yde-contract/src/main/resources/thrift/missioncard.thrift" />
-        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/model/MissionCard.java" />
-        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardMissionMapper.java" />
-        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/MissionRegularStore.java" />
-        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/MissionCardServiceHandler.java" />
-        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/CardServerConfig.java" />
         <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardMissionStore.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionState.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/phase/RegularPlayPhaseDataItem.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionPlayPhasePlayDataItem.java" />
-        <option value="$PROJECT_DIR$/sunyata-octopus/src/main/java/org/sunyata/octopus/model/GameModel.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/RegularClearPhaseData.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/RegularClearPhaseModel.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionDealCommandHandler.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularPlayCommandHandler.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionPlayPhaseModel.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionPlayPhaseDealDataItem.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionPlayPhaseDataItem.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/Commands.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/GameManager.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/GamePointBetService.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/MoneyBetService.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionModel.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionPlayPhaseData.java" />
-        <option value="$PROJECT_DIR$/sunyata-octopus-example-client/src/main/java/org/sunyata/octopus/example/client/WebSocketMissionClient.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionController.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/condition/PlayingCondition.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/condition/WinCondition.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/condition/LoseCondition.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/condition/DealCondition.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/GameTypes.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionPlayCommandHandler.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionClearCommandHandler.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/puzzle/command/PuzzleDealCommandHandler.java" />
       </list>
     </option>
   </component>
@@ -327,71 +299,13 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
         </PATH_ELEMENT>
       </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="yde-landlords" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="yde-landlords" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Lifecycle" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="sunyata-spring-boot-thrift" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="sunyata-spring-boot-thrift" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Lifecycle" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="sunyata-octopus-example-client-springcloud" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-      </PATH>
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="4" />
-    <option name="y" value="24" />
-    <option name="width" value="1911" />
-    <option name="height" value="1012" />
+    <option name="x" value="9" />
+    <option name="y" value="25" />
+    <option name="width" value="1884" />
+    <option name="height" value="988" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -681,9 +595,75 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="yde-card-service">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="yde-card-service">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="yde-card-service">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="yde-card-service">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src/main">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="yde-card-service">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="yde-card-service">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src/main">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="java">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="com/xt/landlords/card">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -691,10 +671,6 @@
               <option name="myItemId" value="octopus" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -757,374 +733,14 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sunyata-octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yde-landlords" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sunyata-octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yde-landlords" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="landlords" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sunyata-octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yde-landlords" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="landlords" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sunyata-octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yde-landlords" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="landlords" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mission" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sunyata-octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yde-landlords" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="landlords" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="game" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mission" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="condition" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sunyata-octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yde-contract" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sunyata-octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yde-contract" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sunyata-octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yde-contract" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sunyata-octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yde-contract" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="protobuf" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sunyata-octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yde-contract" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sunyata-octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yde-card-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sunyata-octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yde-card-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sunyata-octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yde-card-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sunyata-octopus" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="yde-card-service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="card" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane">
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -1136,7 +752,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.46622184" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/yde-discover-service/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="254" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="264" />
@@ -1156,47 +772,40 @@
     <property name="last_directory_selection" value="$PROJECT_DIR$/sunyata-spring-boot-thrift/src/main/java" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.xt.landlords.exception" />
-      <recent name="com.xt.landlords.cardtype" />
-      <recent name="com.xt.landlords.game.phase" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase" />
-      <recent name="$PROJECT_DIR$/yde-contract/src/main/resources/thrift" />
-      <recent name="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/condition" />
-      <recent name="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf" />
-      <recent name="$PROJECT_DIR$/sunyata-spring-boot-thrift-test/src/main/resources" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.xt.landlords.game.mission.command" />
-      <recent name="org.sunyata.octopus.example.client" />
-      <recent name="com.xt.landlords.game.mission.phase" />
-      <recent name="com.xt.landlords.card.store" />
-      <recent name="com.xt.landlords.card.model" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/sunyata-thrift-starter/src/main/resources/META-INF" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/sunyata-thrift" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/token" />
+      <recent name="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase" />
+      <recent name="$PROJECT_DIR$/yde-contract/src/main/resources/thrift" />
+      <recent name="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/condition" />
+      <recent name="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xt.landlords.card.model" />
+      <recent name="com.xt.landlords.card.store" />
+      <recent name="com.xt.landlords.game.mission.command" />
+      <recent name="org.sunyata.octopus.example.client" />
+      <recent name="com.xt.landlords.game.mission.phase" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.xt.landlords.exception" />
+      <recent name="com.xt.landlords.cardtype" />
+      <recent name="com.xt.landlords.game.phase" />
+    </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Application (4)">
-    <configuration default="false" name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xt.landlords.Application" />
-      <module name="yde-landlords" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="WebSocketMissionClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="WebSocketEliminateClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="org.sunyata.octopus.example.client.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="org.sunyata.octopus.example.client.WebSocketMissionClient" />
+      <option name="MAIN_CLASS_NAME" value="org.sunyata.octopus.example.client.WebSocketEliminateClient" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -1209,10 +818,13 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="Application (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="landloards" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xt.yde.login.Application" />
-      <module name="yde-login-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xt.landlords.Application" />
+      <option name="VM_PARAMETERS" value="-Dspring.config.location=file:$USER_HOME$/tmp/" />
+      <option name="PROGRAM_PARAMETERS" value="--spring.profiles.active=dev" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <module name="yde-landlords" />
       <envs />
       <method />
     </configuration>
@@ -1226,7 +838,15 @@
     <configuration default="false" name="Application (4)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.xt.landlords.ai.Application" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <module name="yde-ai-service" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Application (2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xt.yde.login.Application" />
+      <module name="yde-login-service" />
       <envs />
       <method />
     </configuration>
@@ -1675,6 +1295,21 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
+    <configuration default="false" name="Unnamed" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="com.xt.landlords.token.JwtTestCase" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="yde-landlords" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="false" name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.xt.yde.job.Application" />
@@ -1696,23 +1331,24 @@
       <envs />
       <method />
     </configuration>
-    <list size="8">
-      <item index="0" class="java.lang.String" itemvalue="Spring Boot.Application" />
-      <item index="1" class="java.lang.String" itemvalue="Spring Boot.SimpleClientApplication" />
-      <item index="2" class="java.lang.String" itemvalue="Spring Boot.DiscoverServerApplication" />
-      <item index="3" class="java.lang.String" itemvalue="Spring Boot.Application (1)" />
-      <item index="4" class="java.lang.String" itemvalue="Application.WebSocketMissionClient" />
-      <item index="5" class="java.lang.String" itemvalue="Spring Boot.Application (2)" />
+    <list size="9">
+      <item index="0" class="java.lang.String" itemvalue="Application.Unnamed" />
+      <item index="1" class="java.lang.String" itemvalue="Spring Boot.Application" />
+      <item index="2" class="java.lang.String" itemvalue="Spring Boot.SimpleClientApplication" />
+      <item index="3" class="java.lang.String" itemvalue="Spring Boot.DiscoverServerApplication" />
+      <item index="4" class="java.lang.String" itemvalue="Application.WebSocketEliminateClient" />
+      <item index="5" class="java.lang.String" itemvalue="Spring Boot.landloards" />
       <item index="6" class="java.lang.String" itemvalue="Spring Boot.Application (3)" />
       <item index="7" class="java.lang.String" itemvalue="Spring Boot.Application (4)" />
+      <item index="8" class="java.lang.String" itemvalue="Spring Boot.Application (2)" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Spring Boot.Application (1)" />
+        <item index="0" class="java.lang.String" itemvalue="Spring Boot.landloards" />
         <item index="1" class="java.lang.String" itemvalue="Spring Boot.Application (4)" />
-        <item index="2" class="java.lang.String" itemvalue="Application.WebSocketMissionClient" />
+        <item index="2" class="java.lang.String" itemvalue="Spring Boot.Application (2)" />
         <item index="3" class="java.lang.String" itemvalue="Spring Boot.Application (3)" />
-        <item index="4" class="java.lang.String" itemvalue="Spring Boot.Application (2)" />
+        <item index="4" class="java.lang.String" itemvalue="Application.WebSocketEliminateClient" />
       </list>
     </recent_temporary>
   </component>
@@ -1744,77 +1380,83 @@
       <workItem from="1497606948600" duration="128000" />
       <workItem from="1497607091845" duration="12000" />
       <workItem from="1497610209994" duration="1282000" />
-      <workItem from="1498205757417" duration="24845000" />
+      <workItem from="1498205757417" duration="54799000" />
+      <workItem from="1499838051996" duration="51230000" />
+      <workItem from="1500366044285" duration="17648000" />
+      <workItem from="1500869344005" duration="549000" />
+      <workItem from="1500871172420" duration="1255000" />
+      <workItem from="1501472819254" duration="6790000" />
+      <workItem from="1501746972979" duration="924000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="234253000" />
+    <option name="totallyTimeSpent" value="342603000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="24" width="1911" height="1012" extended-state="6" />
+    <frame x="9" y="25" width="1884" height="988" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24782608" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30326086" sideWeight="0.50187266" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.083467096" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38586956" sideWeight="0.5040128" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1187801" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33695653" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41630435" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20326087" sideWeight="0.4927769" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel remote servers log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19208133" sideWeight="0.64724916" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24267101" sideWeight="0.68380064" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958803" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25326088" sideWeight="0.49812734" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19208133" sideWeight="0.3527508" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24267101" sideWeight="0.31619936" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28348213" sideWeight="0.49598715" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27597404" sideWeight="0.49384698" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17281969" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38586956" sideWeight="0.5040128" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1187801" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958803" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3256579" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31601733" sideWeight="0.49598715" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35855263" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24782608" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5120614" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41630435" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20326087" sideWeight="0.4927769" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel remote servers log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28517923" sideWeight="0.5804878" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24291065" sideWeight="0.6914557" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30372807" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28517923" sideWeight="0.41951218" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27597404" sideWeight="0.49384698" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24291065" sideWeight="0.3085443" order="5" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1833,7 +1475,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="289" />
+      <option name="time" value="377" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1842,438 +1484,377 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/thrift/card/mission/MissionCardsService.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/io/zipkin/reporter/zipkin-reporter/0.6.12/zipkin-reporter-0.6.12-sources.jar!/zipkin/reporter/BufferNextMessage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="24" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="24" />
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/zipkin/reporter/zipkin-reporter/0.6.12/zipkin-reporter-0.6.12-sources.jar!/zipkin/reporter/ByteBoundedQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-sleuth-zipkin/1.1.2.RELEASE/spring-cloud-sleuth-zipkin-1.1.2.RELEASE.jar!/org/springframework/cloud/sleuth/zipkin/ReporterMetricsAdapter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.740741">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/zipkin/reporter/zipkin-reporter/0.6.12/zipkin-reporter-0.6.12-sources.jar!/zipkin/reporter/AsyncReporter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="160" column="28" selection-start-line="160" selection-start-column="28" selection-end-line="160" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sunyata-spring-boot-thrift/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="5.8846154">
+          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sunyata-spring-boot-thrift/src/main/java/org/sunyata/spring/thrift/client/AbstractThriftClientKeyMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sunyata-spring-boot-thrift/src/main/java/org/sunyata/spring/thrift/client/PoolConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4257603">
+          <caret line="33" column="45" selection-start-line="33" selection-start-column="45" selection-end-line="33" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularPlayCommandHandler.java">
+    <entry file="file://$PROJECT_DIR$/sunyata-spring-boot-thrift/src/main/java/org/sunyata/spring/thrift/client/ThriftClientAutoConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionPlayPhaseDealDataItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/phase/RegularPlayPhaseDataItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="95" column="37" selection-start-line="11" selection-start-column="3" selection-end-line="95" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/phase/RegularPlayPhaseData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/src.zip!/java/util/function/Function.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="48" column="6" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionPlayPhasePlayDataItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionPlayPhaseDataItem.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-pool2/2.4.2/commons-pool2-2.4.2.jar!/org/apache/commons/pool2/BaseKeyedPooledObjectFactory.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1518#1519#0" expanded="false" />
-            <element signature="e#1548#1549#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="-3.7777777">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularDealCommandHandler.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-pool2/2.4.2/commons-pool2-2.4.2-sources.jar!/org/apache/commons/pool2/BaseKeyedPooledObjectFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="30" selection-start-line="90" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
+          <caret line="24" column="2" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sunyata-spring-boot-thrift/src/main/java/org/sunyata/spring/thrift/client/pool/ThriftClientPooledObjectFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="86" column="27" selection-start-line="86" selection-start-column="21" selection-end-line="86" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sunyata-spring-boot-thrift/src/main/java/org/sunyata/spring/thrift/client/transport/TLoadBalancerClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sunyata-spring-boot-thrift/src/main/java/org/sunyata/spring/thrift/client/sleuth/ThriftHttpTransportSpanInjector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="68" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-sleuth-core/1.1.2.RELEASE/spring-cloud-sleuth-core-1.1.2.RELEASE.jar!/org/springframework/cloud/sleuth/SpanInjector.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.7777777">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-sleuth-core/1.1.2.RELEASE/spring-cloud-sleuth-core-1.1.2.RELEASE.jar!/org/springframework/cloud/sleuth/SpanExtractor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.037037">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-sleuth-core/1.1.2.RELEASE/spring-cloud-sleuth-core-1.1.2.RELEASE-sources.jar!/org/springframework/cloud/sleuth/SpanInjector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-sleuth-core/1.1.2.RELEASE/spring-cloud-sleuth-core-1.1.2.RELEASE-sources.jar!/org/springframework/cloud/sleuth/SpanExtractor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-sleuth-core/1.1.2.RELEASE/spring-cloud-sleuth-core-1.1.2.RELEASE-sources.jar!/org/springframework/cloud/sleuth/SpanAccessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-sleuth-core/1.1.2.RELEASE/spring-cloud-sleuth-core-1.1.2.RELEASE-sources.jar!/org/springframework/cloud/sleuth/Tracer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0017889">
+          <caret line="97" column="39" selection-start-line="97" selection-start-column="39" selection-end-line="97" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/1.5.1.RELEASE/spring-boot-1.5.1.RELEASE-sources.jar!/org/springframework/boot/builder/SpringApplicationBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5459559">
+          <caret line="71" column="32" selection-start-line="71" selection-start-column="32" selection-end-line="71" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/phase/DealPhaseData.java">
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/resources/bootstrap.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
-          <folding />
+        <state vertical-scroll-proportion="0.40625">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/GameRegularModel.java">
+    <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/resources/application-demo.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="41" selection-start-line="51" selection-start-column="41" selection-end-line="51" selection-end-column="41" />
-          <folding />
+        <state vertical-scroll-proportion="0.595">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardMissionMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.425">
+          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularClearCommandHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-          <folding />
+          <caret line="54" column="68" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="68" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionClearPhaseModel.java">
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularDealCommandHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="66" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
-          <folding />
+          <caret line="66" column="58" selection-start-line="66" selection-start-column="58" selection-end-line="66" selection-end-column="58" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionClearPhaseData.java">
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularPlayCommandHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
+          <caret line="118" column="36" selection-start-line="118" selection-start-column="29" selection-end-line="118" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/GameManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59965634">
-          <caret line="172" column="56" selection-start-line="172" selection-start-column="56" selection-end-line="172" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/MoneyBetService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8539519">
-          <caret line="57" column="27" selection-start-line="57" selection-start-column="27" selection-end-line="57" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sunyata-octopus/src/main/java/org/sunyata/octopus/model/GamePhaseModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36254296">
-          <caret line="104" column="0" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/CardServerConfig.java">
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularGuessSizeCommandHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
+          <caret line="87" column="49" selection-start-line="87" selection-start-column="40" selection-end-line="87" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardMissionMapper.java">
+    <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/RegularCardServiceHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/model/MissionCard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/tomcat/embed/tomcat-embed-core/8.5.11/tomcat-embed-core-8.5.11.jar!/org/apache/catalina/core/ApplicationFilterChain.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.185185">
-          <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardMissionStore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="35" selection-start-line="54" selection-start-column="35" selection-end-line="54" selection-end-column="35" />
-          <folding />
+          <caret line="77" column="21" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/MissionCardServiceHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
+          <caret line="38" column="52" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionEvent.java">
+    <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardMissionStore.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-          <folding />
+          <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/statemachine/GameController.java">
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/GameRegularController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="89" column="0" selection-start-line="89" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-          <folding>
-            <element signature="e#1997#1998#0" expanded="false" />
-            <element signature="e#2029#2030#0" expanded="false" />
-            <element signature="e#2616#2617#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionPlayPhaseModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="15" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
-          <folding>
-            <element signature="e#574#575#0" expanded="false" />
-            <element signature="e#609#610#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sunyata-octopus/src/main/java/org/sunyata/octopus/model/GameModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
-          <folding>
-            <element signature="e#3228#3229#0" expanded="true" />
-            <element signature="e#3257#3258#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/ExceptionProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/org/squirrelframework/foundation/util/ReflectUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="342" column="0" selection-start-line="342" selection-start-column="0" selection-end-line="342" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/org/squirrelframework/foundation/fsm/impl/MethodCallActionImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/message/MessageClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="1" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionPlayPhaseData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="144" column="98" selection-start-line="144" selection-start-column="98" selection-end-line="144" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/jre/lib/rt.jar!/sun/nio/ch/KQueueArrayWrapper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35321102">
-          <caret line="138" column="23" selection-start-line="138" selection-start-column="23" selection-end-line="138" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sunyata-octopus-example-client/src/main/java/org/sunyata/octopus/example/client/WebSocketMissionClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="234" column="0" selection-start-line="234" selection-start-column="0" selection-end-line="235" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/condition/DealCondition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+          <caret line="86" column="64" selection-start-line="86" selection-start-column="64" selection-end-line="86" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="false" />
+            <element signature="e#13402#13403#0" expanded="false" />
+            <element signature="e#13453#13454#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/condition/PlayingCondition.java">
+    <entry file="file://$PROJECT_DIR$/yde-landlords/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65604025">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/org/squirrelframework/foundation/fsm/impl/TransitionImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="193" column="0" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+        <state vertical-scroll-proportion="-5.3018866">
+          <caret line="31" column="49" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/Commands.java">
+    <entry file="file://$PROJECT_DIR$/sunyata-octopus/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.884615">
+          <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/redisson/redisson/3.3.2/redisson-3.3.2.jar!/org/redisson/api/RLock.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.7777777">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/redisson/redisson/3.3.2/redisson-3.3.2.jar!/org/redisson/api/RedissonClient.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.7777777">
+          <caret line="61" column="17" selection-start-line="61" selection-start-column="17" selection-end-line="61" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/NettyServerConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="63" selection-start-line="0" selection-start-column="0" selection-end-line="69" selection-end-column="1" />
+          <caret line="72" column="5" selection-start-line="54" selection-start-column="2" selection-end-line="72" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/GameTypes.java">
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/resources/application-demo.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="31" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateClearCommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="63" column="17" selection-start-line="63" selection-start-column="17" selection-end-line="63" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/EliminateLastBetService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/EliminateCardServiceHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="26" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardEliminateStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="49" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/phase/EliminatePlayPhaseDataItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="44" selection-start-line="60" selection-start-column="44" selection-end-line="60" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateDealCommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="73" column="91" selection-start-line="73" selection-start-column="78" selection-end-line="73" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/GameEliminateController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="121" column="69" selection-start-line="121" selection-start-column="69" selection-end-line="121" selection-end-column="69" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gamemission.protobuf">
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/GamePointBetService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22818792">
-          <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.3228477">
+          <caret line="154" column="44" selection-start-line="154" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/command/BetCommandHandler.java">
+    <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/PuzzleCardServiceHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <caret line="117" column="23" selection-start-line="117" selection-start-column="23" selection-end-line="117" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/condition/WinCondition.java">
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/MoneyBetService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/AbstractGameControllerCommandHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+          <caret line="65" column="58" selection-start-line="65" selection-start-column="58" selection-end-line="65" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-ai-service/src/main/java/com/xt/landlords/ai/AIServiceHandler.java">
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/puzzle/GamePuzzleController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <caret line="59" column="48" selection-start-line="59" selection-start-column="48" selection-end-line="59" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionPlayCommandHandler.java">
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/puzzle/command/PuzzleDealCommandHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.0">
-          <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
-          <folding>
-            <element signature="e#7072#7081#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="63" selection-start-line="49" selection-start-column="63" selection-end-line="49" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/condition/LoseCondition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionDealCommandHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="66" column="39" selection-start-line="66" selection-start-column="39" selection-end-line="66" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="104" column="17" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionClearCommandHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47457626">
-          <caret line="41" column="90" selection-start-line="41" selection-start-column="90" selection-end-line="41" selection-end-column="90" />
+        <state vertical-scroll-proportion="0.7654723">
+          <caret line="88" column="49" selection-start-line="88" selection-start-column="49" selection-end-line="88" selection-end-column="49" />
           <folding />
         </state>
       </provider>

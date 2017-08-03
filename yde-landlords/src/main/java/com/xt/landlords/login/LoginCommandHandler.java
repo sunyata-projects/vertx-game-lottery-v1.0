@@ -2,6 +2,7 @@ package com.xt.landlords.login;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.xt.landlords.*;
+import com.xt.landlords.account.Account;
 import com.xt.landlords.event.LoginEventMessage;
 import com.xt.yde.protobuf.common.Common;
 import com.xt.yde.thrift.login.AckLoginMsg;
@@ -55,6 +56,7 @@ public class LoginCommandHandler extends AbstractCommandHandler {
 
         Common.LoginRequestMsg loginRequest = Common.LoginRequestMsg.parseFrom(request.getMessage().getBody());
         storeManager.storeGameModel(loginRequest.getUserName(), null);
+        Account.refresh(loginRequest.getUserName());
         GameManager.onGameOver(loginRequest.getUserName());
         try {
             //AckLoginMsg loginRet = new AckLoginMsg().setCode("000").setCoin(111).setDisplayName("lcl").setResult

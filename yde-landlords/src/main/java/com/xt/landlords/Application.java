@@ -7,13 +7,12 @@ package com.xt.landlords;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.sunyata.quark.client.EnableQuarkClient;
 import org.sunyata.spring.thrift.client.annotation.EnableThriftClient;
 
 @SpringBootApplication
 @EnableDiscoveryClient
 //@EnableScheduling
-@EnableQuarkClient
+//@EnableQuarkClient
 @EnableThriftClient
 public class Application {
 

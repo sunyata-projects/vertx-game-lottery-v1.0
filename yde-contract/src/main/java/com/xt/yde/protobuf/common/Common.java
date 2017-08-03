@@ -1575,9 +1575,9 @@ public final class Common {
     com.google.protobuf.ByteString
         getDisplayNameBytes();
 
-    // optional int64 money = 3;
+    // optional string money = 3;
     /**
-     * <code>optional int64 money = 3;</code>
+     * <code>optional string money = 3;</code>
      *
      * <pre>
      * RMB
@@ -1585,13 +1585,22 @@ public final class Common {
      */
     boolean hasMoney();
     /**
-     * <code>optional int64 money = 3;</code>
+     * <code>optional string money = 3;</code>
      *
      * <pre>
      * RMB
      * </pre>
      */
-    long getMoney();
+    java.lang.String getMoney();
+    /**
+     * <code>optional string money = 3;</code>
+     *
+     * <pre>
+     * RMB
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getMoneyBytes();
 
     // optional int64 vc = 4;
     /**
@@ -1676,9 +1685,9 @@ public final class Common {
               displayName_ = input.readBytes();
               break;
             }
-            case 24: {
+            case 26: {
               bitField0_ |= 0x00000004;
-              money_ = input.readInt64();
+              money_ = input.readBytes();
               break;
             }
             case 32: {
@@ -1836,11 +1845,11 @@ public final class Common {
       }
     }
 
-    // optional int64 money = 3;
+    // optional string money = 3;
     public static final int MONEY_FIELD_NUMBER = 3;
-    private long money_;
+    private java.lang.Object money_;
     /**
-     * <code>optional int64 money = 3;</code>
+     * <code>optional string money = 3;</code>
      *
      * <pre>
      * RMB
@@ -1850,14 +1859,45 @@ public final class Common {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional int64 money = 3;</code>
+     * <code>optional string money = 3;</code>
      *
      * <pre>
      * RMB
      * </pre>
      */
-    public long getMoney() {
-      return money_;
+    public java.lang.String getMoney() {
+      java.lang.Object ref = money_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          money_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string money = 3;</code>
+     *
+     * <pre>
+     * RMB
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getMoneyBytes() {
+      java.lang.Object ref = money_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        money_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     // optional int64 vc = 4;
@@ -1887,7 +1927,7 @@ public final class Common {
     private void initFields() {
       userId_ = "";
       displayName_ = "";
-      money_ = 0L;
+      money_ = "";
       vc_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
@@ -1909,7 +1949,7 @@ public final class Common {
         output.writeBytes(2, getDisplayNameBytes());
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt64(3, money_);
+        output.writeBytes(3, getMoneyBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeInt64(4, vc_);
@@ -1933,7 +1973,7 @@ public final class Common {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, money_);
+          .computeBytesSize(3, getMoneyBytes());
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
@@ -2063,7 +2103,7 @@ public final class Common {
         bitField0_ = (bitField0_ & ~0x00000001);
         displayName_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        money_ = 0L;
+        money_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
         vc_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -2138,7 +2178,9 @@ public final class Common {
           onChanged();
         }
         if (other.hasMoney()) {
-          setMoney(other.getMoney());
+          bitField0_ |= 0x00000004;
+          money_ = other.money_;
+          onChanged();
         }
         if (other.hasVc()) {
           setVc(other.getVc());
@@ -2366,10 +2408,10 @@ public final class Common {
         return this;
       }
 
-      // optional int64 money = 3;
-      private long money_ ;
+      // optional string money = 3;
+      private java.lang.Object money_ = "";
       /**
-       * <code>optional int64 money = 3;</code>
+       * <code>optional string money = 3;</code>
        *
        * <pre>
        * RMB
@@ -2379,30 +2421,62 @@ public final class Common {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional int64 money = 3;</code>
+       * <code>optional string money = 3;</code>
        *
        * <pre>
        * RMB
        * </pre>
        */
-      public long getMoney() {
-        return money_;
+      public java.lang.String getMoney() {
+        java.lang.Object ref = money_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          money_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>optional int64 money = 3;</code>
+       * <code>optional string money = 3;</code>
        *
        * <pre>
        * RMB
        * </pre>
        */
-      public Builder setMoney(long value) {
-        bitField0_ |= 0x00000004;
+      public com.google.protobuf.ByteString
+          getMoneyBytes() {
+        java.lang.Object ref = money_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          money_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string money = 3;</code>
+       *
+       * <pre>
+       * RMB
+       * </pre>
+       */
+      public Builder setMoney(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
         money_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int64 money = 3;</code>
+       * <code>optional string money = 3;</code>
        *
        * <pre>
        * RMB
@@ -2410,7 +2484,24 @@ public final class Common {
        */
       public Builder clearMoney() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        money_ = 0L;
+        money_ = getDefaultInstance().getMoney();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string money = 3;</code>
+       *
+       * <pre>
+       * RMB
+       * </pre>
+       */
+      public Builder setMoneyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        money_ = value;
         onChanged();
         return this;
       }
@@ -2473,6 +2564,541 @@ public final class Common {
     }
 
     // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.common.ProfileResponseMsg)
+  }
+
+  public interface BalanceChangedResponseMsgOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required string balance = 1;
+    /**
+     * <code>required string balance = 1;</code>
+     *
+     * <pre>
+     *当前余额
+     * </pre>
+     */
+    boolean hasBalance();
+    /**
+     * <code>required string balance = 1;</code>
+     *
+     * <pre>
+     *当前余额
+     * </pre>
+     */
+    java.lang.String getBalance();
+    /**
+     * <code>required string balance = 1;</code>
+     *
+     * <pre>
+     *当前余额
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getBalanceBytes();
+  }
+  /**
+   * Protobuf type {@code com.xt.yde.protobuf.common.BalanceChangedResponseMsg}
+   *
+   * <pre>
+   *余额变化
+   * </pre>
+   */
+  public static final class BalanceChangedResponseMsg extends
+      com.google.protobuf.GeneratedMessage
+      implements BalanceChangedResponseMsgOrBuilder {
+    // Use BalanceChangedResponseMsg.newBuilder() to construct.
+    private BalanceChangedResponseMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private BalanceChangedResponseMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final BalanceChangedResponseMsg defaultInstance;
+    public static BalanceChangedResponseMsg getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public BalanceChangedResponseMsg getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private BalanceChangedResponseMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              balance_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_BalanceChangedResponseMsg_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_BalanceChangedResponseMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg.class, com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<BalanceChangedResponseMsg> PARSER =
+        new com.google.protobuf.AbstractParser<BalanceChangedResponseMsg>() {
+      public BalanceChangedResponseMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new BalanceChangedResponseMsg(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<BalanceChangedResponseMsg> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required string balance = 1;
+    public static final int BALANCE_FIELD_NUMBER = 1;
+    private java.lang.Object balance_;
+    /**
+     * <code>required string balance = 1;</code>
+     *
+     * <pre>
+     *当前余额
+     * </pre>
+     */
+    public boolean hasBalance() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string balance = 1;</code>
+     *
+     * <pre>
+     *当前余额
+     * </pre>
+     */
+    public java.lang.String getBalance() {
+      java.lang.Object ref = balance_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          balance_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string balance = 1;</code>
+     *
+     * <pre>
+     *当前余额
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getBalanceBytes() {
+      java.lang.Object ref = balance_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        balance_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      balance_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasBalance()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getBalanceBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getBalanceBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.xt.yde.protobuf.common.BalanceChangedResponseMsg}
+     *
+     * <pre>
+     *余额变化
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_BalanceChangedResponseMsg_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_BalanceChangedResponseMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg.class, com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg.Builder.class);
+      }
+
+      // Construct using com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        balance_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_BalanceChangedResponseMsg_descriptor;
+      }
+
+      public com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg getDefaultInstanceForType() {
+        return com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg.getDefaultInstance();
+      }
+
+      public com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg build() {
+        com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg buildPartial() {
+        com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg result = new com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.balance_ = balance_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg) {
+          return mergeFrom((com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg other) {
+        if (other == com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg.getDefaultInstance()) return this;
+        if (other.hasBalance()) {
+          bitField0_ |= 0x00000001;
+          balance_ = other.balance_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasBalance()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.xt.yde.protobuf.common.Common.BalanceChangedResponseMsg) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required string balance = 1;
+      private java.lang.Object balance_ = "";
+      /**
+       * <code>required string balance = 1;</code>
+       *
+       * <pre>
+       *当前余额
+       * </pre>
+       */
+      public boolean hasBalance() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string balance = 1;</code>
+       *
+       * <pre>
+       *当前余额
+       * </pre>
+       */
+      public java.lang.String getBalance() {
+        java.lang.Object ref = balance_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          balance_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string balance = 1;</code>
+       *
+       * <pre>
+       *当前余额
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getBalanceBytes() {
+        java.lang.Object ref = balance_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          balance_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string balance = 1;</code>
+       *
+       * <pre>
+       *当前余额
+       * </pre>
+       */
+      public Builder setBalance(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        balance_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string balance = 1;</code>
+       *
+       * <pre>
+       *当前余额
+       * </pre>
+       */
+      public Builder clearBalance() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        balance_ = getDefaultInstance().getBalance();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string balance = 1;</code>
+       *
+       * <pre>
+       *当前余额
+       * </pre>
+       */
+      public Builder setBalanceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        balance_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.xt.yde.protobuf.common.BalanceChangedResponseMsg)
+    }
+
+    static {
+      defaultInstance = new BalanceChangedResponseMsg(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.common.BalanceChangedResponseMsg)
   }
 
   public interface BetRequestMsgOrBuilder
@@ -10919,6 +11545,11 @@ public final class Common {
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_xt_yde_protobuf_common_ProfileResponseMsg_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_xt_yde_protobuf_common_BalanceChangedResponseMsg_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_xt_yde_protobuf_common_BalanceChangedResponseMsg_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
     internal_static_com_xt_yde_protobuf_common_BetRequestMsg_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -11002,28 +11633,30 @@ public final class Common {
       "(\t\022\020\n\010password\030\002 \002(\t\")\n\020LoginResponseMsg" +
       "\022\025\n\rneedBreakPlay\030\001 \002(\010\"\023\n\021ProfileReques" +
       "tMsg\"T\n\022ProfileResponseMsg\022\016\n\006userId\030\001 \001" +
-      "(\t\022\023\n\013displayName\030\002 \001(\t\022\r\n\005money\030\003 \001(\003\022\n" +
-      "\n\002vc\030\004 \001(\003\".\n\rBetRequestMsg\022\020\n\010gameType\030" +
-      "\001 \002(\005\022\013\n\003amt\030\002 \002(\005\"\020\n\016BetResponseMsg\"\034\n\032" +
-      "GamePointProcessRequestMsg\"k\n\033GamePointP" +
-      "rocessResponseMsg\022\014\n\004flag\030\001 \002(\010\022\020\n\010gameT",
-      "ype\030\002 \002(\005\022\026\n\016awardGamePoint\030\003 \002(\005\022\024\n\014gam" +
-      "eProgress\030\004 \002(\005\"\"\n GiveUpGamePointProces" +
-      "sRequestMsg\"#\n!GiveUpGamePointProcessRes" +
-      "ponseMsg\"<\n\033ExchangeGamePointRequestMsg\022" +
-      "\020\n\010gameType\030\001 \002(\005\022\013\n\003amt\030\002 \002(\005\"1\n\034Exchan" +
-      "geGamePointResponseMsg\022\021\n\tgamePoint\030\001 \002(" +
-      "\005\"+\n\026GamePointBetRequestMsg\022\021\n\tgamePoint" +
-      "\030\001 \002(\005\"\031\n\027GamePointBetResponseMsg\"E\n\016Pla" +
-      "yRequestMsg\022\r\n\005cards\030\001 \003(\005\022\024\n\014rolePositi" +
-      "on\030\002 \002(\005\022\016\n\006isAuto\030\003 \001(\010\"\227\001\n\017PlayRespons",
-      "eMsg\022\024\n\014rolePosition\030\001 \002(\005\022\r\n\005cards\030\002 \003(" +
-      "\005\022\017\n\007bomNums\030\003 \002(\005\022\022\n\nnextPerson\030\004 \002(\005\022\r" +
-      "\n\005ifEnd\030\005 \002(\010\022\016\n\006center\030\006 \003(\005\022\014\n\004left\030\007 " +
-      "\003(\005\022\r\n\005right\030\010 \003(\005\"\"\n\016DealRequestMsg\022\020\n\010" +
-      "gameType\030\001 \002(\005\"\\\n\017DealResponseMsg\022\020\n\010dar" +
-      "kCard\030\001 \003(\005\022\022\n\ncenterCard\030\002 \003(\005\022\020\n\010leftC" +
-      "ard\030\003 \003(\005\022\021\n\trightCard\030\004 \003(\005B\010B\006Common"
+      "(\t\022\023\n\013displayName\030\002 \001(\t\022\r\n\005money\030\003 \001(\t\022\n" +
+      "\n\002vc\030\004 \001(\003\",\n\031BalanceChangedResponseMsg\022" +
+      "\017\n\007balance\030\001 \002(\t\".\n\rBetRequestMsg\022\020\n\010gam" +
+      "eType\030\001 \002(\005\022\013\n\003amt\030\002 \002(\005\"\020\n\016BetResponseM" +
+      "sg\"\034\n\032GamePointProcessRequestMsg\"k\n\033Game",
+      "PointProcessResponseMsg\022\014\n\004flag\030\001 \002(\010\022\020\n" +
+      "\010gameType\030\002 \002(\005\022\026\n\016awardGamePoint\030\003 \002(\005\022" +
+      "\024\n\014gameProgress\030\004 \002(\005\"\"\n GiveUpGamePoint" +
+      "ProcessRequestMsg\"#\n!GiveUpGamePointProc" +
+      "essResponseMsg\"<\n\033ExchangeGamePointReque" +
+      "stMsg\022\020\n\010gameType\030\001 \002(\005\022\013\n\003amt\030\002 \002(\005\"1\n\034" +
+      "ExchangeGamePointResponseMsg\022\021\n\tgamePoin" +
+      "t\030\001 \002(\005\"+\n\026GamePointBetRequestMsg\022\021\n\tgam" +
+      "ePoint\030\001 \002(\005\"\031\n\027GamePointBetResponseMsg\"" +
+      "E\n\016PlayRequestMsg\022\r\n\005cards\030\001 \003(\005\022\024\n\014role",
+      "Position\030\002 \002(\005\022\016\n\006isAuto\030\003 \001(\010\"\227\001\n\017PlayR" +
+      "esponseMsg\022\024\n\014rolePosition\030\001 \002(\005\022\r\n\005card" +
+      "s\030\002 \003(\005\022\017\n\007bomNums\030\003 \002(\005\022\022\n\nnextPerson\030\004" +
+      " \002(\005\022\r\n\005ifEnd\030\005 \002(\010\022\016\n\006center\030\006 \003(\005\022\014\n\004l" +
+      "eft\030\007 \003(\005\022\r\n\005right\030\010 \003(\005\"\"\n\016DealRequestM" +
+      "sg\022\020\n\010gameType\030\001 \002(\005\"\\\n\017DealResponseMsg\022" +
+      "\020\n\010darkCard\030\001 \003(\005\022\022\n\ncenterCard\030\002 \003(\005\022\020\n" +
+      "\010leftCard\030\003 \003(\005\022\021\n\trightCard\030\004 \003(\005B\010B\006Co" +
+      "mmon"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -11054,86 +11687,92 @@ public final class Common {
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_xt_yde_protobuf_common_ProfileResponseMsg_descriptor,
               new java.lang.String[] { "UserId", "DisplayName", "Money", "Vc", });
-          internal_static_com_xt_yde_protobuf_common_BetRequestMsg_descriptor =
+          internal_static_com_xt_yde_protobuf_common_BalanceChangedResponseMsg_descriptor =
             getDescriptor().getMessageTypes().get(4);
+          internal_static_com_xt_yde_protobuf_common_BalanceChangedResponseMsg_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_xt_yde_protobuf_common_BalanceChangedResponseMsg_descriptor,
+              new java.lang.String[] { "Balance", });
+          internal_static_com_xt_yde_protobuf_common_BetRequestMsg_descriptor =
+            getDescriptor().getMessageTypes().get(5);
           internal_static_com_xt_yde_protobuf_common_BetRequestMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_xt_yde_protobuf_common_BetRequestMsg_descriptor,
               new java.lang.String[] { "GameType", "Amt", });
           internal_static_com_xt_yde_protobuf_common_BetResponseMsg_descriptor =
-            getDescriptor().getMessageTypes().get(5);
+            getDescriptor().getMessageTypes().get(6);
           internal_static_com_xt_yde_protobuf_common_BetResponseMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_xt_yde_protobuf_common_BetResponseMsg_descriptor,
               new java.lang.String[] { });
           internal_static_com_xt_yde_protobuf_common_GamePointProcessRequestMsg_descriptor =
-            getDescriptor().getMessageTypes().get(6);
+            getDescriptor().getMessageTypes().get(7);
           internal_static_com_xt_yde_protobuf_common_GamePointProcessRequestMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_xt_yde_protobuf_common_GamePointProcessRequestMsg_descriptor,
               new java.lang.String[] { });
           internal_static_com_xt_yde_protobuf_common_GamePointProcessResponseMsg_descriptor =
-            getDescriptor().getMessageTypes().get(7);
+            getDescriptor().getMessageTypes().get(8);
           internal_static_com_xt_yde_protobuf_common_GamePointProcessResponseMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_xt_yde_protobuf_common_GamePointProcessResponseMsg_descriptor,
               new java.lang.String[] { "Flag", "GameType", "AwardGamePoint", "GameProgress", });
           internal_static_com_xt_yde_protobuf_common_GiveUpGamePointProcessRequestMsg_descriptor =
-            getDescriptor().getMessageTypes().get(8);
+            getDescriptor().getMessageTypes().get(9);
           internal_static_com_xt_yde_protobuf_common_GiveUpGamePointProcessRequestMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_xt_yde_protobuf_common_GiveUpGamePointProcessRequestMsg_descriptor,
               new java.lang.String[] { });
           internal_static_com_xt_yde_protobuf_common_GiveUpGamePointProcessResponseMsg_descriptor =
-            getDescriptor().getMessageTypes().get(9);
+            getDescriptor().getMessageTypes().get(10);
           internal_static_com_xt_yde_protobuf_common_GiveUpGamePointProcessResponseMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_xt_yde_protobuf_common_GiveUpGamePointProcessResponseMsg_descriptor,
               new java.lang.String[] { });
           internal_static_com_xt_yde_protobuf_common_ExchangeGamePointRequestMsg_descriptor =
-            getDescriptor().getMessageTypes().get(10);
+            getDescriptor().getMessageTypes().get(11);
           internal_static_com_xt_yde_protobuf_common_ExchangeGamePointRequestMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_xt_yde_protobuf_common_ExchangeGamePointRequestMsg_descriptor,
               new java.lang.String[] { "GameType", "Amt", });
           internal_static_com_xt_yde_protobuf_common_ExchangeGamePointResponseMsg_descriptor =
-            getDescriptor().getMessageTypes().get(11);
+            getDescriptor().getMessageTypes().get(12);
           internal_static_com_xt_yde_protobuf_common_ExchangeGamePointResponseMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_xt_yde_protobuf_common_ExchangeGamePointResponseMsg_descriptor,
               new java.lang.String[] { "GamePoint", });
           internal_static_com_xt_yde_protobuf_common_GamePointBetRequestMsg_descriptor =
-            getDescriptor().getMessageTypes().get(12);
+            getDescriptor().getMessageTypes().get(13);
           internal_static_com_xt_yde_protobuf_common_GamePointBetRequestMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_xt_yde_protobuf_common_GamePointBetRequestMsg_descriptor,
               new java.lang.String[] { "GamePoint", });
           internal_static_com_xt_yde_protobuf_common_GamePointBetResponseMsg_descriptor =
-            getDescriptor().getMessageTypes().get(13);
+            getDescriptor().getMessageTypes().get(14);
           internal_static_com_xt_yde_protobuf_common_GamePointBetResponseMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_xt_yde_protobuf_common_GamePointBetResponseMsg_descriptor,
               new java.lang.String[] { });
           internal_static_com_xt_yde_protobuf_common_PlayRequestMsg_descriptor =
-            getDescriptor().getMessageTypes().get(14);
+            getDescriptor().getMessageTypes().get(15);
           internal_static_com_xt_yde_protobuf_common_PlayRequestMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_xt_yde_protobuf_common_PlayRequestMsg_descriptor,
               new java.lang.String[] { "Cards", "RolePosition", "IsAuto", });
           internal_static_com_xt_yde_protobuf_common_PlayResponseMsg_descriptor =
-            getDescriptor().getMessageTypes().get(15);
+            getDescriptor().getMessageTypes().get(16);
           internal_static_com_xt_yde_protobuf_common_PlayResponseMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_xt_yde_protobuf_common_PlayResponseMsg_descriptor,
               new java.lang.String[] { "RolePosition", "Cards", "BomNums", "NextPerson", "IfEnd", "Center", "Left", "Right", });
           internal_static_com_xt_yde_protobuf_common_DealRequestMsg_descriptor =
-            getDescriptor().getMessageTypes().get(16);
+            getDescriptor().getMessageTypes().get(17);
           internal_static_com_xt_yde_protobuf_common_DealRequestMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_xt_yde_protobuf_common_DealRequestMsg_descriptor,
               new java.lang.String[] { "GameType", });
           internal_static_com_xt_yde_protobuf_common_DealResponseMsg_descriptor =
-            getDescriptor().getMessageTypes().get(17);
+            getDescriptor().getMessageTypes().get(18);
           internal_static_com_xt_yde_protobuf_common_DealResponseMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_xt_yde_protobuf_common_DealResponseMsg_descriptor,

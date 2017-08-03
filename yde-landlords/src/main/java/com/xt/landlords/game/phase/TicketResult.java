@@ -7,9 +7,9 @@ public class TicketResult {
     private String ticketId;
     private int status;
     private int prizeType;//1：未中奖；2：小奖；3：大奖
-    private int prizeLevel;
+    private float prizeLevel;
     private String prizeContent;
-    private int prizeCash;
+    private float prizeCash;
     private int prizeInfaceCash;
     private int prizePoint;
 
@@ -31,11 +31,11 @@ public class TicketResult {
         return this;
     }
 
-    public int getPrizeCash() {
+    public float getPrizeCash() {
         return prizeCash;
     }
 
-    public TicketResult setPrizeCash(int prizeCash) {
+    public TicketResult setPrizeCash(float prizeCash) {
         this.prizeCash = prizeCash;
         return this;
     }
@@ -49,11 +49,11 @@ public class TicketResult {
         return this;
     }
 
-    public int getPrizeLevel() {
+    public float getPrizeLevel() {
         return prizeLevel;
     }
 
-    public TicketResult setPrizeLevel(int prizeLevel) {
+    public TicketResult setPrizeLevel(float prizeLevel) {
         this.prizeLevel = prizeLevel;
         return this;
     }

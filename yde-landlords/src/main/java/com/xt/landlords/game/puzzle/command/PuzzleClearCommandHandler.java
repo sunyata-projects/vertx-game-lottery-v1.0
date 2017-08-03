@@ -1,6 +1,7 @@
 package com.xt.landlords.game.puzzle.command;
 
 import com.xt.landlords.*;
+import com.xt.landlords.account.Account;
 import com.xt.landlords.game.puzzle.GamePuzzleEvent;
 import com.xt.landlords.game.puzzle.GamePuzzleModel;
 import com.xt.landlords.game.puzzle.GamePuzzleState;
@@ -13,6 +14,8 @@ import org.springframework.stereotype.Component;
 import org.squirrelframework.foundation.fsm.ImmutableState;
 import org.sunyata.octopus.OctopusRequest;
 import org.sunyata.octopus.OctopusResponse;
+
+import java.math.BigDecimal;
 
 /**
  * Created by leo on 17/5/15.
@@ -50,6 +53,8 @@ public class PuzzleClearCommandHandler extends AbstractGameControllerCommandHand
             GamePuzzle.ClearGameResponseMsg.Builder builder = GamePuzzle.ClearGameResponseMsg.newBuilder();
             PuzzleDealPhaseData phaseData = (PuzzleDealPhaseData) gameController.getPhaseData(GamePuzzleState.Deal.getValue());
             builder.setTotalMoney(phaseData.getTotalMoney());
+            Account.addBalance(request.getSession().getCurrentUser().getName(), new BigDecimal( phaseData
+                    .getTotalMoney()));
             gameController.fire(GamePuzzleEvent.GameOver, gameModel);
             ImmutableState currentRawState = gameController.getCurrentRawState();
             logger.info("{}:currentState:{}", this.getClass().getName(), currentRawState);

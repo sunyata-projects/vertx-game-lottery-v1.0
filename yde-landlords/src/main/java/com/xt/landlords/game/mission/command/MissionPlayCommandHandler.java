@@ -5,7 +5,6 @@ import com.xt.landlords.exception.InvalidPlayException;
 import com.xt.landlords.exception.InvalidRoleException;
 import com.xt.landlords.game.mission.GameMissionEvent;
 import com.xt.landlords.game.mission.GameMissionModel;
-import com.xt.landlords.game.mission.GameMissionState;
 import com.xt.landlords.game.mission.phase.*;
 import com.xt.landlords.statemachine.GameController;
 import com.xt.landlords.utils.Utility;
@@ -73,7 +72,7 @@ public class MissionPlayCommandHandler extends AbstractGameControllerCommandHand
             MissionPlayPhasePlayDataItem item = new MissionPlayPhasePlayDataItem();
 
             if (lastItem == null) {//此次为第一次出牌
-                GamePhaseModel phase = gameModel.getPhase(GameMissionState.Play.getValue());
+                GamePhaseModel phase = gameModel.getLastPlayPhaseModel();
                 MissionPlayPhaseData playPhaseData = (MissionPlayPhaseData) phase.getPhaseData();
                 MissionPlayPhaseDealDataItem dealPhaseData = playPhaseData.getDealDataItem();
                 item.setCenterCards(new ArrayList<>(dealPhaseData.getCenterCards()))

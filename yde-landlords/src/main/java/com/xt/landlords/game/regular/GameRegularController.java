@@ -4,6 +4,7 @@ import com.xt.landlords.GameManager;
 import com.xt.landlords.GameTypes;
 import com.xt.landlords.exception.BetErrorException;
 import com.xt.landlords.game.phase.BetPhaseData;
+import com.xt.landlords.game.phase.BetPhaseModel;
 import com.xt.landlords.game.phase.TicketResult;
 import com.xt.landlords.game.regular.condition.GuessSizeCondition;
 import com.xt.landlords.game.regular.condition.LoseCondition;
@@ -21,6 +22,8 @@ import org.squirrelframework.foundation.fsm.HistoryType;
 import org.squirrelframework.foundation.fsm.StateMachineStatus;
 import org.squirrelframework.foundation.fsm.annotation.*;
 import org.sunyata.octopus.model.GameModel;
+
+import java.math.BigDecimal;
 
 /**
  * Created by leo on 17/4/26.
@@ -97,8 +100,7 @@ public class GameRegularController extends GameController<GameRegularModel, Game
         RaisePhaseModel phase = (RaisePhaseModel) gameModel.getPhase(GameRegularState.Raise.getValue());
         RaisePhaseData phaseData = phase.getPhaseData();
         TicketResult betResult = moneyBetService.betAndQueryPrizeLevel(this.getGameType(), gameModel.getUserName(),
-                phaseData
-                        .getBetAmt(),
+                phaseData.getBetAmt() * (phaseData.getTimes() - 1),
                 phase.getGameInstanceId());
         if (StringUtils.isEmpty(betResult.getTicketId())) {
             throw new BetErrorException("下注失败,请重试");
@@ -181,6 +183,31 @@ public class GameRegularController extends GameController<GameRegularModel, Game
                 .getValue());
         boolean flag = phaseModel.getPhaseData().isWin() && phaseModel.getPhaseData().getCurrentBombNumbers() == 0;
         betResult.setPrizeLevel(flag ? 1 : 0);
+
+
+        BetPhaseModel betPhaseModel = (BetPhaseModel) gameModel.getPhase(GameRegularState.Bet.getValue());
+        RaisePhaseModel raisePhaseModel = (RaisePhaseModel) gameModel.getPhase(GameRegularState.Raise.getValue());
+        float totalMoney = 0.0f;
+        if (!flag) {//如果不翻牌
+            if (phaseModel.getPhaseData().isWin()) {
+                Integer currentBombNumbers = phaseModel.getPhaseData().getCurrentBombNumbers();
+                if (currentBombNumbers == 3) {
+                    totalMoney = 10;
+                } else if (currentBombNumbers == 2) {
+                    totalMoney = 3;
+                } else if (currentBombNumbers == 1) {
+                    totalMoney = 2;
+                } else {
+                    totalMoney = 0;
+                }
+            }
+        } else {
+            totalMoney = 1.5f;
+        }
+        totalMoney = betPhaseModel.getPhaseData().getBetAmt() * totalMoney * raisePhaseModel.getPhaseData()
+                .getTimes();
+        betResult.setPrizeCash(totalMoney);
+
         if (StringUtils.isEmpty(betResult.getTicketId())) {
             throw new BetErrorException("下注失败,请重试");
         }
@@ -203,8 +230,9 @@ public class GameRegularController extends GameController<GameRegularModel, Game
         if (StringUtils.isEmpty(ticketResult.getTicketId())) {
             throw new BetErrorException("下注失败,请重试");
         }
-        int totalMoney = ticketResult.getPrizeCash();
-        phaseData.setSerialNo(ticketResult.getTicketId()).setTotalMoney(totalMoney);
+
+        float totalMoney = ticketResult.getPrizeCash();
+        phaseData.setSerialNo(ticketResult.getTicketId()).setTotalMoney(new BigDecimal(totalMoney));
         setPhaseSuccess(GameRegularState.GameOver.getValue());
         logger.append("game over");
     }

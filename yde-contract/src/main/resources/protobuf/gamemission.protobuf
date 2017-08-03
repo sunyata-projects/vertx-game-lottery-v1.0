@@ -7,6 +7,6 @@ message MissionClearGameRequestMsg{
 
 //结算应答
 message MissionClearGameResponseMsg{
-required float times = 1;//获奖倍数
+required string times = 1;//获奖倍数
 required float totalMoney = 2;//获奖金额
 }

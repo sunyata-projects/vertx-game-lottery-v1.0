@@ -73,6 +73,7 @@ public class EliminateClearCommandHandler extends AbstractGameControllerCommandH
                     (GameEliminateState.GameOver.getValue());
             int totalMoney = phaseData.getTotalMoney();
             builder.setTotalMoney(totalMoney);
+            //Account.addBalance(request.getSession().getCurrentUser().getName(), totalMoney);
             ImmutableState currentRawState = gameController.getCurrentRawState();
             logger.info("{}:currentState:{}", this.getClass().getName(), currentRawState);
             response.setBody(builder.build().toByteArray());

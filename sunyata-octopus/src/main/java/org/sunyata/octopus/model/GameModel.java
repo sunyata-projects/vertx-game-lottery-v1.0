@@ -23,6 +23,19 @@ public abstract class GameModel implements Serializable {
 
     //游戏唯一标识
     private String gameInstanceId;
+//
+//    public float getAccountBalance() {
+//        return accountBalance;
+//    }
+//
+//    public GameModel setAccountBalance(Long accountBalance) {
+//        this.accountBalance = accountBalance;
+//        return this;
+//    }
+
+
+//    //进入游戏时资金,单位为毫
+//    private float accountBalance;
 
     public abstract boolean getCompleted();
 
@@ -146,7 +159,6 @@ public abstract class GameModel implements Serializable {
 
     @JsonIgnore
     public abstract Object getLastSuccessState();
-
 
 
 }

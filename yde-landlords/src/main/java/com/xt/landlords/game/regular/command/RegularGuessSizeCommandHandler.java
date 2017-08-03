@@ -1,6 +1,7 @@
 package com.xt.landlords.game.regular.command;
 
 import com.xt.landlords.*;
+import com.xt.landlords.account.Account;
 import com.xt.landlords.game.phase.TicketResult;
 import com.xt.landlords.game.regular.GameRegularEvent;
 import com.xt.landlords.game.regular.GameRegularModel;
@@ -16,6 +17,8 @@ import org.squirrelframework.foundation.fsm.ImmutableState;
 import org.sunyata.octopus.OctopusRequest;
 import org.sunyata.octopus.OctopusResponse;
 import org.sunyata.spring.thrift.client.annotation.ThriftClient;
+
+import java.math.BigDecimal;
 
 /**
  * Created by leo on 17/5/15.
@@ -79,11 +82,11 @@ public class RegularGuessSizeCommandHandler extends AbstractGameControllerComman
             gameController.fire(GameRegularEvent.GuessSize, gameModel);//需要下注确定翻牌
             GuessSizePhaseModel phase = (GuessSizePhaseModel) gameModel.getPhase(GameRegularState.GuessSize.getValue());
             TicketResult ticketResult = phase.getPhaseData().getTicketResult();
-            int prizeCash = ticketResult.getPrizeCash();//中奖金额
-            int prizeLevel = ticketResult.getPrizeLevel();//奖等
-            GameRegular.RegularGuessSizeResponseMsg.Builder builder = GameRegular.RegularGuessSizeResponseMsg
-                    .newBuilder();
-            builder.setTotalMoney(prizeCash).setFlag(prizeLevel == 1);
+            float prizeCash = ticketResult.getPrizeCash();//中奖金额
+            int prizeLevel = (int) ticketResult.getPrizeLevel();//奖等
+            GameRegular.RegularGuessSizeResponseMsg.Builder builder = GameRegular.RegularGuessSizeResponseMsg.newBuilder();
+            builder.setTotalMoney((int) prizeCash).setFlag(prizeLevel == 1);
+            Account.addBalance(request.getSession().getCurrentUser().getName(), new BigDecimal( prizeCash));
             ImmutableState currentRawState = gameController.getCurrentRawState();
             logger.info("{}:currentState:{}", this.getClass().getName(), currentRawState);
             response.setBody(builder.build().toByteArray());

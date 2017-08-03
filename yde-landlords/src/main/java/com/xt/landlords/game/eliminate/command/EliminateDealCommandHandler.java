@@ -75,9 +75,10 @@ public class EliminateDealCommandHandler extends AbstractGameControllerCommandHa
                     .getDoubleKingCount());
             Eliminate.EliminateDealResponseMsg.Builder builder = Eliminate.EliminateDealResponseMsg.newBuilder();
 
+            lastPlayPhaseDataItem.setCardId(cards.getCardId()).setCards(cards.getCards());
             gameController.fire(GameEliminateEvent.Deal, gameModel);
             //List<List<Integer>> cardList = cards.getCards();
-            List<List<Integer>> cardList = lastPlayPhaseDataItem.getCards();
+            List<List<Integer>> cardList = cards.getCards();// lastPlayPhaseDataItem.getCards();
             for (List<Integer> cardRow : cardList) {
                 Eliminate.CardRow.Builder builderCardRow = Eliminate.CardRow.newBuilder();
                 builderCardRow.addAllCards(cardRow);
