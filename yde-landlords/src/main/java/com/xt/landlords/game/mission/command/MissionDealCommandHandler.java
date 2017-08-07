@@ -102,11 +102,11 @@ public class MissionDealCommandHandler extends AbstractGameControllerCommandHand
             return times < 50;
         }
     }
+    Random random = new Random();
 
     public int nextInt(int from, int to) {
         int max = to;
         int min = from;
-        Random random = new Random();
         int s = random.nextInt(max) % (max - min + 1) + min;
         return s;
     }

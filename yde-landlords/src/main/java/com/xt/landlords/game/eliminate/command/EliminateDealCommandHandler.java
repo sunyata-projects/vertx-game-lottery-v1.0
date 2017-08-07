@@ -71,14 +71,18 @@ public class EliminateDealCommandHandler extends AbstractGameControllerCommandHa
                     .getValue());
             EliminatePlayPhaseData phaseData = phase.getPhaseData();
             EliminatePlayPhaseDataItem lastPlayPhaseDataItem = phaseData.getLastPlayPhaseDataItem();
-            EliminateCards cards = cardService.getCards(lastPlayPhaseDataItem.getAwardLevel(), lastPlayPhaseDataItem
-                    .getDoubleKingCount());
-            Eliminate.EliminateDealResponseMsg.Builder builder = Eliminate.EliminateDealResponseMsg.newBuilder();
 
+            EliminateCards cards = null;
+            cards = cardService.getCards(lastPlayPhaseDataItem.getAwardLevel(), lastPlayPhaseDataItem
+                    .getDoubleKingCount());
             lastPlayPhaseDataItem.setCardId(cards.getCardId()).setCards(cards.getCards());
+
+
             gameController.fire(GameEliminateEvent.Deal, gameModel);
-            //List<List<Integer>> cardList = cards.getCards();
-            List<List<Integer>> cardList = cards.getCards();// lastPlayPhaseDataItem.getCards();
+
+            Eliminate.EliminateDealResponseMsg.Builder builder = Eliminate.EliminateDealResponseMsg.newBuilder();
+            builder.setZhiZun(lastPlayPhaseDataItem.getAwardLevel() == 99);
+            List<List<Integer>> cardList = cards.getCards();
             for (List<Integer> cardRow : cardList) {
                 Eliminate.CardRow.Builder builderCardRow = Eliminate.CardRow.newBuilder();
                 builderCardRow.addAllCards(cardRow);

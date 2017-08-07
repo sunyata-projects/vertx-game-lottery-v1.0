@@ -71,12 +71,11 @@ public class PuzzleDealCommandHandler extends AbstractGameControllerCommandHandl
                 return;
             }
             GamePuzzle.DealResponseMsg.Builder builder = GamePuzzle.DealResponseMsg.newBuilder();
-//            int grade = random.nextInt(9) + 1;
-            //int grade = nextInt(0, 9);
-            int grade = 0;
-            if( nextInt(1,2)==2){
-                grade = 1;
-            }
+            int grade = nextInt(0, 9);
+//            int grade = 0;
+//            if( nextInt(1,2)==2){
+//                grade = 1;
+//            }
 //            grade = 0;
             PuzzleCards cards = cardService.getCards(grade);
 

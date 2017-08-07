@@ -9,16 +9,16 @@ public class EliminateClearPhaseData extends PhaseData {
 
     private String serialNo;
 
-    public int getTotalMoney() {
+    public Integer getTotalMoney() {
         return totalMoney;
     }
 
-    public EliminateClearPhaseData setTotalMoney(int totalMoney) {
+    public EliminateClearPhaseData setTotalMoney(Integer totalMoney) {
         this.totalMoney = totalMoney;
         return this;
     }
 
-    private int totalMoney;//获得的总奖金
+    private Integer totalMoney;//获得的总奖金
 
     public EliminateClearPhaseData setSerialNo(String serialNo) {
         this.serialNo = serialNo;

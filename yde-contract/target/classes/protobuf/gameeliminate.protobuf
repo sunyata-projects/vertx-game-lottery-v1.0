@@ -23,6 +23,7 @@ message EliminateDealResponseMsg
    required int32 exchangeGamePointBalance = 2;//剩余兑换点数
    required int32 totalAwardGamePoint = 3;//剩余奖励点数
    required int32 gameProgress = 4;//游戏进度
+   required bool zhiZun = 5;//是否至尊牌型
 }
 
 //结算请求

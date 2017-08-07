@@ -917,7 +917,7 @@ public final class Eliminate {
      * <code>required int32 totalAwardGamePoint = 3;</code>
      *
      * <pre>
-     *总奖励点数
+     *剩余奖励点数
      * </pre>
      */
     boolean hasTotalAwardGamePoint();
@@ -925,7 +925,7 @@ public final class Eliminate {
      * <code>required int32 totalAwardGamePoint = 3;</code>
      *
      * <pre>
-     *总奖励点数
+     *剩余奖励点数
      * </pre>
      */
     int getTotalAwardGamePoint();
@@ -947,6 +947,24 @@ public final class Eliminate {
      * </pre>
      */
     int getGameProgress();
+
+    // required bool zhiZun = 5;
+    /**
+     * <code>required bool zhiZun = 5;</code>
+     *
+     * <pre>
+     *是否至尊牌型
+     * </pre>
+     */
+    boolean hasZhiZun();
+    /**
+     * <code>required bool zhiZun = 5;</code>
+     *
+     * <pre>
+     *是否至尊牌型
+     * </pre>
+     */
+    boolean getZhiZun();
   }
   /**
    * Protobuf type {@code com.xt.yde.protobuf.eliminate.EliminateDealResponseMsg}
@@ -1025,6 +1043,11 @@ public final class Eliminate {
             case 32: {
               bitField0_ |= 0x00000004;
               gameProgress_ = input.readInt32();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000008;
+              zhiZun_ = input.readBool();
               break;
             }
           }
@@ -1157,7 +1180,7 @@ public final class Eliminate {
      * <code>required int32 totalAwardGamePoint = 3;</code>
      *
      * <pre>
-     *总奖励点数
+     *剩余奖励点数
      * </pre>
      */
     public boolean hasTotalAwardGamePoint() {
@@ -1167,7 +1190,7 @@ public final class Eliminate {
      * <code>required int32 totalAwardGamePoint = 3;</code>
      *
      * <pre>
-     *总奖励点数
+     *剩余奖励点数
      * </pre>
      */
     public int getTotalAwardGamePoint() {
@@ -1198,11 +1221,36 @@ public final class Eliminate {
       return gameProgress_;
     }
 
+    // required bool zhiZun = 5;
+    public static final int ZHIZUN_FIELD_NUMBER = 5;
+    private boolean zhiZun_;
+    /**
+     * <code>required bool zhiZun = 5;</code>
+     *
+     * <pre>
+     *是否至尊牌型
+     * </pre>
+     */
+    public boolean hasZhiZun() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required bool zhiZun = 5;</code>
+     *
+     * <pre>
+     *是否至尊牌型
+     * </pre>
+     */
+    public boolean getZhiZun() {
+      return zhiZun_;
+    }
+
     private void initFields() {
       cards_ = java.util.Collections.emptyList();
       exchangeGamePointBalance_ = 0;
       totalAwardGamePoint_ = 0;
       gameProgress_ = 0;
+      zhiZun_ = false;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1218,6 +1266,10 @@ public final class Eliminate {
         return false;
       }
       if (!hasGameProgress()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasZhiZun()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -1239,6 +1291,9 @@ public final class Eliminate {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt32(4, gameProgress_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBool(5, zhiZun_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -1264,6 +1319,10 @@ public final class Eliminate {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, gameProgress_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, zhiZun_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1399,6 +1458,8 @@ public final class Eliminate {
         bitField0_ = (bitField0_ & ~0x00000004);
         gameProgress_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
+        zhiZun_ = false;
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -1448,6 +1509,10 @@ public final class Eliminate {
           to_bitField0_ |= 0x00000004;
         }
         result.gameProgress_ = gameProgress_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.zhiZun_ = zhiZun_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1499,6 +1564,9 @@ public final class Eliminate {
         if (other.hasGameProgress()) {
           setGameProgress(other.getGameProgress());
         }
+        if (other.hasZhiZun()) {
+          setZhiZun(other.getZhiZun());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -1513,6 +1581,10 @@ public final class Eliminate {
           return false;
         }
         if (!hasGameProgress()) {
+          
+          return false;
+        }
+        if (!hasZhiZun()) {
           
           return false;
         }
@@ -1905,7 +1977,7 @@ public final class Eliminate {
        * <code>required int32 totalAwardGamePoint = 3;</code>
        *
        * <pre>
-       *总奖励点数
+       *剩余奖励点数
        * </pre>
        */
       public boolean hasTotalAwardGamePoint() {
@@ -1915,7 +1987,7 @@ public final class Eliminate {
        * <code>required int32 totalAwardGamePoint = 3;</code>
        *
        * <pre>
-       *总奖励点数
+       *剩余奖励点数
        * </pre>
        */
       public int getTotalAwardGamePoint() {
@@ -1925,7 +1997,7 @@ public final class Eliminate {
        * <code>required int32 totalAwardGamePoint = 3;</code>
        *
        * <pre>
-       *总奖励点数
+       *剩余奖励点数
        * </pre>
        */
       public Builder setTotalAwardGamePoint(int value) {
@@ -1938,7 +2010,7 @@ public final class Eliminate {
        * <code>required int32 totalAwardGamePoint = 3;</code>
        *
        * <pre>
-       *总奖励点数
+       *剩余奖励点数
        * </pre>
        */
       public Builder clearTotalAwardGamePoint() {
@@ -1993,6 +2065,55 @@ public final class Eliminate {
       public Builder clearGameProgress() {
         bitField0_ = (bitField0_ & ~0x00000008);
         gameProgress_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // required bool zhiZun = 5;
+      private boolean zhiZun_ ;
+      /**
+       * <code>required bool zhiZun = 5;</code>
+       *
+       * <pre>
+       *是否至尊牌型
+       * </pre>
+       */
+      public boolean hasZhiZun() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>required bool zhiZun = 5;</code>
+       *
+       * <pre>
+       *是否至尊牌型
+       * </pre>
+       */
+      public boolean getZhiZun() {
+        return zhiZun_;
+      }
+      /**
+       * <code>required bool zhiZun = 5;</code>
+       *
+       * <pre>
+       *是否至尊牌型
+       * </pre>
+       */
+      public Builder setZhiZun(boolean value) {
+        bitField0_ |= 0x00000010;
+        zhiZun_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bool zhiZun = 5;</code>
+       *
+       * <pre>
+       *是否至尊牌型
+       * </pre>
+       */
+      public Builder clearZhiZun() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        zhiZun_ = false;
         onChanged();
         return this;
       }
@@ -2805,14 +2926,14 @@ public final class Eliminate {
     java.lang.String[] descriptorData = {
       "\n\026gameeliminate.protobuf\022\035com.xt.yde.pro" +
       "tobuf.eliminate\"\031\n\027EliminateDealRequestM" +
-      "sg\"\030\n\007CardRow\022\r\n\005Cards\030\001 \003(\005\"\246\001\n\030Elimina" +
+      "sg\"\030\n\007CardRow\022\r\n\005Cards\030\001 \003(\005\"\266\001\n\030Elimina" +
       "teDealResponseMsg\0225\n\005Cards\030\001 \003(\0132&.com.x" +
       "t.yde.protobuf.eliminate.CardRow\022 \n\030exch" +
       "angeGamePointBalance\030\002 \002(\005\022\033\n\023totalAward" +
-      "GamePoint\030\003 \002(\005\022\024\n\014gameProgress\030\004 \002(\005\"\036\n" +
-      "\034EliminateClearGameRequestMsg\"3\n\035Elimina" +
-      "teClearGameResponseMsg\022\022\n\ntotalMoney\030\001 \002" +
-      "(\002B\013B\tEliminate"
+      "GamePoint\030\003 \002(\005\022\024\n\014gameProgress\030\004 \002(\005\022\016\n" +
+      "\006zhiZun\030\005 \002(\010\"\036\n\034EliminateClearGameReque" +
+      "stMsg\"3\n\035EliminateClearGameResponseMsg\022\022" +
+      "\n\ntotalMoney\030\001 \002(\002B\013B\tEliminate"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -2836,7 +2957,7 @@ public final class Eliminate {
           internal_static_com_xt_yde_protobuf_eliminate_EliminateDealResponseMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_xt_yde_protobuf_eliminate_EliminateDealResponseMsg_descriptor,
-              new java.lang.String[] { "Cards", "ExchangeGamePointBalance", "TotalAwardGamePoint", "GameProgress", });
+              new java.lang.String[] { "Cards", "ExchangeGamePointBalance", "TotalAwardGamePoint", "GameProgress", "ZhiZun", });
           internal_static_com_xt_yde_protobuf_eliminate_EliminateClearGameRequestMsg_descriptor =
             getDescriptor().getMessageTypes().get(3);
           internal_static_com_xt_yde_protobuf_eliminate_EliminateClearGameRequestMsg_fieldAccessorTable = new

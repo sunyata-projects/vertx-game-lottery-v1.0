@@ -6,14 +6,14 @@ package com.xt.landlords.service;
 public class EliminateLastBetResult {
     private String serialNo;//下注序列号
     private int awardLevel;//奖等
-    private int totalMoney;//获得的总奖金
+    private Integer totalMoney;//获得的总奖金
     private String errorMessage;
 
-    public int getTotalMoney() {
+    public Integer getTotalMoney() {
         return totalMoney;
     }
 
-    public EliminateLastBetResult setTotalMoney(int totalMoney) {
+    public EliminateLastBetResult setTotalMoney(Integer totalMoney) {
         this.totalMoney = totalMoney;
         return this;
     }

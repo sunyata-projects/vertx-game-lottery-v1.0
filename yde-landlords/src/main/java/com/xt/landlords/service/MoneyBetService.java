@@ -32,7 +32,6 @@ public class MoneyBetService {
     public int nextInt(int from, int to) {
         int max = to;
         int min = from;
-        Random random = new Random();
         int s = random.nextInt(max) % (max - min + 1) + min;
         return s;
     }

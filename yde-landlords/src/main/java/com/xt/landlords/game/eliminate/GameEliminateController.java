@@ -159,38 +159,49 @@ public class GameEliminateController extends GameController<GameEliminateModel, 
 
     public void OnGameOver(GameEliminateState from, GameEliminateState to, GameEliminateEvent event,
                            GameModel context) throws Exception {
+        Integer totalMoney = 0;
         EliminateClearPhaseData phaseData = (EliminateClearPhaseData) getPhaseData(GameEliminateState.GameOver.getValue
                 ());
         GameEliminateModel gameModel = getGameModel();
         EliminateLastBetService lastBetService = SpringIocUtil.getBean(EliminateLastBetService.class);
-        EliminateLastBetResult lastBetResult = lastBetService.bet(gameModel.getUserName(), 22, "");
 
 
-        //lastBetResult.setTotalMoney((int) (lastPlayPhaseDataItem.getExchangeGamePointBalance() / 100.00));
-        if (!StringUtils.isEmpty(lastBetResult.getErrorMessage())) {
-            throw new BetErrorException("下注失败,请重试");
+        EliminatePlayPhaseData playPhaseData = (EliminatePlayPhaseData) getPhaseData(GameEliminateState.Play
+                .getValue());
+        EliminatePlayPhaseDataItem lastPlayPhaseDataItem = null;
+        if (playPhaseData != null) {
+            lastPlayPhaseDataItem = playPhaseData.getLastPlayPhaseDataItem();
+
+            EliminateLastBetResult lastBetResult = lastBetService.bet(gameModel.getUserName(), lastPlayPhaseDataItem
+                    .getBetGamePoint(), "");
+
+            //lastBetResult.setTotalMoney((int) (lastPlayPhaseDataItem.getExchangeGamePointBalance() / 100.00));
+            if (!StringUtils.isEmpty(lastBetResult.getErrorMessage())) {
+                throw new BetErrorException("下注失败,请重试");
+            }
+            totalMoney = lastBetResult.getTotalMoney();
+            phaseData.setSerialNo(lastBetResult.getSerialNo()).setTotalMoney(totalMoney);
         }
-        int totalMoney = lastBetResult.getTotalMoney();
-        phaseData.setSerialNo(lastBetResult.getSerialNo()).setTotalMoney(totalMoney);
+
         setPhaseSuccess(GameEliminateState.GameOver.getValue());
 
-        EliminatePlayPhaseData playPhaseData = (EliminatePlayPhaseData) getPhaseData(GameEliminateState.Play.getValue
-                ());
+//        EliminatePlayPhaseData playPhaseData = (EliminatePlayPhaseData) getPhaseData(GameEliminateState.Play.getValue
+//                ());
         int exchangeGamePointBalance = 0;
-        if (playPhaseData == null) {
+        if (lastPlayPhaseDataItem == null) {
             ExchangePhaseData exchangePhaseData = (ExchangePhaseData) getPhaseData(GameEliminateState.Exchange
                     .getValue());
             exchangeGamePointBalance = exchangePhaseData.getGamePoint();
         } else {
-
-
-            EliminatePlayPhaseDataItem lastPlayPhaseDataItem = playPhaseData.getLastPlayPhaseDataItem();
+            //lastPlayPhaseDataItem = playPhaseData.getLastPlayPhaseDataItem();
             exchangeGamePointBalance = lastPlayPhaseDataItem.getExchangeGamePointBalance();
         }
         BigDecimal money = new BigDecimal(exchangeGamePointBalance).divide(new BigDecimal(100.00));
         //float money = (float) (exchangeGamePointBalance * 1.00f / 100.00);
         logger.info("游戏正常结束,归还游戏点数,换算成人民向为:{}", money);
         Account.addBalance(gameModel.getUserName(), money);
+        logger.info("游戏正常结束,奖金关获得奖奖励:{}", totalMoney);
+        Account.addBalance(gameModel.getUserName(), new BigDecimal(totalMoney));
         logger.info("game over");
     }
 
@@ -203,7 +214,8 @@ public class GameEliminateController extends GameController<GameEliminateModel, 
         EliminatePlayPhaseDataItem lastPlayPhaseDataItem = playPhaseData.getLastPlayPhaseDataItem();
         GameEliminateModel gameModel = getGameModel();
         ///float money = (float) (lastPlayPhaseDataItem.getExchangeGamePointBalance() * 1.00f / 100.00);
-        BigDecimal money = new BigDecimal(lastPlayPhaseDataItem.getExchangeGamePointBalance()).divide(new BigDecimal(100.00));
+        BigDecimal money = new BigDecimal(lastPlayPhaseDataItem.getExchangeGamePointBalance()).divide(new BigDecimal
+                (100.00));
 
         logger.info("游戏被迫结束,归还游戏点数,换算成人民向为:{}", money);
         Account.addBalance(gameModel.getUserName(), money);

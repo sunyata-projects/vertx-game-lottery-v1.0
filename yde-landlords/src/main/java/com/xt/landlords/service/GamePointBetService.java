@@ -123,6 +123,7 @@ public class GamePointBetService {
         }
         return 0;
     }
+
     Random random = new Random();
 
     public int nextInt(int from, int to) {
@@ -135,32 +136,29 @@ public class GamePointBetService {
 
     public GamePointBetResult bet(String userName, int betAmt, String gameInstanceId) throws Exception {
         try {
+            int prizeLevel = 0;
             String serialNo = String.valueOf(worker.nextId());
-            int prizeLevel = nextInt(0, 50);
-            int bombNumsRandom = nextInt(2, 3);
+            int bombNumsRandom = 0;
+            Integer totalGamePoint = 0;
+            if (betAmt > 100) {//如果投注额大于100,则有机会中累计奖
+                prizeLevel = nextInt(0, 60);
+            } else {
+                prizeLevel = nextInt(0, 50);
+                bombNumsRandom = nextInt(2, 3);
+                totalGamePoint = mapPoints.getOrDefault(prizeLevel, 0);
+                totalGamePoint = totalGamePoint == 0 ? 0 : (int) (totalGamePoint * (betAmt / 100.00));
+            }
             boolean bombFlag = bombNumsRandom == 2;
-//            EliminateCards cards = cardService.getCards(prizeLevel, bombFlag ? 1 : 0);
-            Integer totalGamePoint = mapPoints.getOrDefault(prizeLevel, 0);
-            //int result = 0;
-            //List<Integer> result = new ArrayList<>();
-
-//            for (int i = 0; i < cards.getCards().size(); i++) {
-//                if (i % 2 != 0) {//奇数
-//                    List<Integer> integers = cards.getCards().get(i);
-//                    totalGamePoint += calculatorGamePointByLength(integers);
-//                    result.addAll(integers);
-//                }
-//
-//            }
-//            long count52 = result.stream().filter(p -> p.equals(52)).count();
-//            long count53 = result.stream().filter(p -> p.equals(53)).count();
-//            int bombNum = (int) (count52 > count53 ? count52 : count53);
             logger.info("双王数量:{}", bombFlag ? 1 : 0);
-            totalGamePoint = totalGamePoint == 0 ? 0 : (int) (totalGamePoint * (betAmt / 100.00));
-            GamePointBetResult gamePointBetResult = new GamePointBetResult().setSerialNo(serialNo).setAwardLevel(prizeLevel)
+            //如果大于50,则视为中至尊牌型
+            if (prizeLevel > 50) {//则视为中至尊牌型
+                prizeLevel = 99;
+            }
+
+            GamePointBetResult gamePointBetResult = new GamePointBetResult().setSerialNo(serialNo).setAwardLevel
+                    (prizeLevel)
                     .setDoubleKingCount(bombFlag ? 1 : 0)
                     .setAwardGamePoint(totalGamePoint);//.setCards(cards.getCards());
-            logger.info("");
             return gamePointBetResult;
         } catch (Exception ex) {
             logger.error(ExceptionUtils.getStackTrace(ex));
