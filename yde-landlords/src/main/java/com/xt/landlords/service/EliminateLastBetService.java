@@ -1,10 +1,13 @@
 package com.xt.landlords.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.sunyata.quark.client.IdWorker;
 import org.sunyata.quark.client.QuarkClient;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Random;
 
@@ -15,6 +18,7 @@ import java.util.Random;
 public class EliminateLastBetService {
     private IdWorker worker = new IdWorker(0, 0);
 
+    Logger logger = LoggerFactory.getLogger(EliminateLastBetService.class);
     HashMap<Integer, Float> map = new HashMap<>();
 
     public EliminateLastBetService() {
@@ -55,14 +59,51 @@ public class EliminateLastBetService {
     QuarkClient quarkClient;
 
 
-    public EliminateLastBetResult bet(String userName, int betGamePoint, String gameInstanceId) throws Exception {
-//        throw new Exception("下注失败");
+    public EliminateLastBetResult bet(String userName, int betGamePoint, String gameInstanceId, boolean isZhiZun) throws
+            Exception {
+//        try {
+//            String serialNo = String.valueOf(worker.nextId());
+//            int i = nextInt(0, 20);
+//            Float aFloat = map.get(i);
+//            int totalMoney = (int) (aFloat * (betGamePoint / 100.00));
+//            return new EliminateLastBetResult().setSerialNo(serialNo).setAwardLevel(i).setTotalMoney(totalMoney);
+//        } catch (Exception ex) {
+//            return new EliminateLastBetResult().setErrorMessage(ex.getMessage());
+//        }
+        if (isZhiZun) {
+            return betForZhiZun(userName, betGamePoint, gameInstanceId);
+        } else {
+            return bet(userName, betGamePoint, gameInstanceId);
+        }
+    }
+
+
+    public EliminateLastBetResult bet(String userName, int betGamePoint, String gameInstanceId) throws
+            Exception {
         try {
             String serialNo = String.valueOf(worker.nextId());
             int i = nextInt(0, 20);
-            Float aFloat = map.get(i);
-            int totalMoney = (int) (aFloat * (betGamePoint / 100.00));
+            Float money = map.get(i);
+            logger.info("消除赛100点时中奖金额为:{}", money);
+            BigDecimal totalMoney = new BigDecimal(money.toString()).multiply(new BigDecimal(String.valueOf
+                    (betGamePoint))).divide(new BigDecimal("100"));
+            logger.info("消除赛换算实际中奖金额为:{}", totalMoney);
             return new EliminateLastBetResult().setSerialNo(serialNo).setAwardLevel(i).setTotalMoney(totalMoney);
+        } catch (Exception ex) {
+            return new EliminateLastBetResult().setErrorMessage(ex.getMessage());
+        }
+    }
+
+    public EliminateLastBetResult betForZhiZun(String userName, int betGamePoint, String gameInstanceId) throws
+            Exception {
+//        throw new Exception("下注失败");
+        try {
+            String serialNo = String.valueOf(worker.nextId());
+//            int i = nextInt(0, 20);
+//            Float aFloat = map.get(i);
+//            int totalMoney = (int) (aFloat * (betGamePoint / 100.00));
+            return new EliminateLastBetResult().setSerialNo(serialNo).setAwardLevel(99).setTotalMoney(new BigDecimal
+                    (300000));
         } catch (Exception ex) {
             return new EliminateLastBetResult().setErrorMessage(ex.getMessage());
         }

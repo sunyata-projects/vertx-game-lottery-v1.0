@@ -54,7 +54,7 @@ public class RegularClearCommandHandler extends AbstractGameControllerCommandHan
             gameController.fire(GameRegularEvent.GameOver, gameModel);
             RegularClearPhaseData phaseData = (RegularClearPhaseData) gameController.getPhaseData(GameRegularState.GameOver.getValue());
             BigDecimal totalMoney = phaseData.getTotalMoney();
-            builder.setTotalMoney(Float.parseFloat(totalMoney.toPlainString()));
+            builder.setTotalMoney(totalMoney.toPlainString());
             Account.addBalance(request.getSession().getCurrentUser().getName(), totalMoney);
             ImmutableState currentRawState = gameController.getCurrentRawState();
             logger.info("{}:currentState:{}", this.getClass().getName(), currentRawState);

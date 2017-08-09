@@ -55,9 +55,9 @@ public class MissionClearCommandHandler extends AbstractGameControllerCommandHan
             MissionClearPhaseData phaseData = (MissionClearPhaseData) gameController.getPhaseData(GameMissionState
                     .GameOver.getValue());
             //BetPhaseData betPhaseData = (BetPhaseData) gameController.getPhaseData(GameMissionState.Bet.getValue());
-            float totalMoney = phaseData.getTotalMoney();
-            builder.setTotalMoney(totalMoney);
-            Account.addBalance(request.getSession().getCurrentUser().getName(), new BigDecimal( totalMoney));
+            BigDecimal totalMoney = phaseData.getTotalMoney();
+            builder.setTotalMoney(totalMoney.toPlainString());
+            Account.addBalance(request.getSession().getCurrentUser().getName(), totalMoney);
             builder.setTimes(new BigDecimal( gameModel.getTimes()).toPlainString());
             ImmutableState currentRawState = gameController.getCurrentRawState();
             logger.info("{}:currentState:{}", this.getClass().getName(), currentRawState);

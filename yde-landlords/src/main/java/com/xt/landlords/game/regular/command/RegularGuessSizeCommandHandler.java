@@ -82,11 +82,11 @@ public class RegularGuessSizeCommandHandler extends AbstractGameControllerComman
             gameController.fire(GameRegularEvent.GuessSize, gameModel);//需要下注确定翻牌
             GuessSizePhaseModel phase = (GuessSizePhaseModel) gameModel.getPhase(GameRegularState.GuessSize.getValue());
             TicketResult ticketResult = phase.getPhaseData().getTicketResult();
-            float prizeCash = ticketResult.getPrizeCash();//中奖金额
+            BigDecimal prizeCash = ticketResult.getPrizeCash();//中奖金额
             int prizeLevel = (int) ticketResult.getPrizeLevel();//奖等
             GameRegular.RegularGuessSizeResponseMsg.Builder builder = GameRegular.RegularGuessSizeResponseMsg.newBuilder();
-            builder.setTotalMoney((int) prizeCash).setFlag(prizeLevel == 1);
-            Account.addBalance(request.getSession().getCurrentUser().getName(), new BigDecimal( prizeCash));
+            builder.setTotalMoney(prizeCash.toPlainString()).setFlag(prizeLevel == 1);
+            Account.addBalance(request.getSession().getCurrentUser().getName(), prizeCash);
             ImmutableState currentRawState = gameController.getCurrentRawState();
             logger.info("{}:currentState:{}", this.getClass().getName(), currentRawState);
             response.setBody(builder.build().toByteArray());

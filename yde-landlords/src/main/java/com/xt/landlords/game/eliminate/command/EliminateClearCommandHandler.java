@@ -16,6 +16,8 @@ import org.squirrelframework.foundation.fsm.ImmutableState;
 import org.sunyata.octopus.OctopusRequest;
 import org.sunyata.octopus.OctopusResponse;
 
+import java.math.BigDecimal;
+
 //import com.xt.landlords.game.Eliminate.GameEliminatePhaseName;
 
 /**
@@ -56,7 +58,7 @@ public class EliminateClearCommandHandler extends AbstractGameControllerCommandH
                 if (phaseData != null) {
                     EliminatePlayPhaseDataItem lastPlayPhaseDataItem = phaseData.getLastPlayPhaseDataItem();
                     if (lastPlayPhaseDataItem != null) {
-                        if (lastPlayPhaseDataItem.getTotalDoubleKingCount() != 7 || lastPlayPhaseDataItem.getAwardLevel
+                        if (lastPlayPhaseDataItem.getTotalDoubleKingCount() != 7 && lastPlayPhaseDataItem.getAwardLevel
                                 () != 99) {
                             response.setErrorCode(CommonCommandErrorCode.CanNotAcceptEventException);
                             return;
@@ -72,9 +74,8 @@ public class EliminateClearCommandHandler extends AbstractGameControllerCommandH
             gameController.fire(GameEliminateEvent.GameOver, gameModel);
             EliminateClearPhaseData phaseData = (EliminateClearPhaseData) gameController.getPhaseData
                     (GameEliminateState.GameOver.getValue());
-            Integer totalMoney = phaseData.getTotalMoney();
-            builder.setTotalMoney(totalMoney);
-            //Account.addBalance(request.getSession().getCurrentUser().getName(), totalMoney);
+            BigDecimal totalMoney = phaseData.getTotalMoney();
+            builder.setTotalMoney(totalMoney.toPlainString());
             ImmutableState currentRawState = gameController.getCurrentRawState();
             logger.info("{}:currentState:{}", this.getClass().getName(), currentRawState);
             response.setBody(builder.build().toByteArray());

@@ -6,22 +6,31 @@
   <component name="ChangeListManager">
     <list default="true" id="c11c4c23-4ac5-43c9-98c4-56e10b8404b6" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-card-service/target/classes/com/xt/landlords/card/PuzzleCardServiceHandler.class" afterPath="$PROJECT_DIR$/yde-card-service/target/classes/com/xt/landlords/card/PuzzleCardServiceHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/game/puzzle/command/PuzzleDealCommandHandler.class" afterPath="$PROJECT_DIR$/yde-landlords/target/classes/com/xt/landlords/game/puzzle/command/PuzzleDealCommandHandler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/EliminateCardServiceHandler.java" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/EliminateCardServiceHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/PuzzleCardServiceHandler.java" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/PuzzleCardServiceHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardMissionStore.java" afterPath="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardMissionStore.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/protobuf/eliminate/Eliminate.java" afterPath="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/protobuf/eliminate/Eliminate.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/protobuf/mission/Mission.java" afterPath="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/protobuf/mission/Mission.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/protobuf/regular/GameRegular.java" afterPath="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/protobuf/regular/GameRegular.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gameeliminate.protobuf" afterPath="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gameeliminate.protobuf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gamemission.protobuf" afterPath="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gamemission.protobuf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gameregular.protobuf" afterPath="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gameregular.protobuf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-contract/target/classes/protobuf/gameeliminate.protobuf" afterPath="$PROJECT_DIR$/yde-contract/target/classes/protobuf/gameeliminate.protobuf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/GameEliminateController.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/GameEliminateController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateClearCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateClearCommandHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateDealCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateDealCommandHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/phase/EliminateClearPhaseData.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/phase/EliminateClearPhaseData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionDealCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionDealCommandHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/puzzle/command/PuzzleDealCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/puzzle/command/PuzzleDealCommandHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionController.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionClearCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionClearCommandHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionClearPhaseData.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionClearPhaseData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/phase/TicketResult.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/phase/TicketResult.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/GameRegularController.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/GameRegularController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularClearCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularClearCommandHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularGuessSizeCommandHandler.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularGuessSizeCommandHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/EliminateLastBetResult.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/EliminateLastBetResult.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/EliminateLastBetService.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/EliminateLastBetService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/GamePointBetService.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/GamePointBetService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/GuessSizeBetService.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/GuessSizeBetService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/MoneyBetService.java" afterPath="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/MoneyBetService.java" />
     </list>
     <ignored path="octopus.iws" />
@@ -84,101 +93,74 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PuzzleCardServiceHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/PuzzleCardServiceHandler.java">
+      <file leaf-file-name="RegularClearCommandHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularClearCommandHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+              <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegularCardServiceHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/RegularCardServiceHandler.java">
+      <file leaf-file-name="RegularClearPhaseData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/phase/RegularClearPhaseData.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="63" column="56" selection-start-line="63" selection-start-column="56" selection-end-line="63" selection-end-column="56" />
+              <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+              <folding>
+                <element signature="e#283#284#0" expanded="true" />
+                <element signature="e#316#317#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameRegularController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/GameRegularController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="228" column="59" selection-start-line="228" selection-start-column="59" selection-end-line="228" selection-end-column="59" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameEliminateController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/GameEliminateController.java">
+      <file leaf-file-name="MoneyBetService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/MoneyBetService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="133" column="70" selection-start-line="133" selection-start-column="70" selection-end-line="133" selection-end-column="70" />
+            <state vertical-scroll-proportion="0.6350711">
+              <caret line="73" column="27" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EliminateDealCommandHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateDealCommandHandler.java">
+      <file leaf-file-name="gameregular.protobuf" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gameregular.protobuf">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="71" column="68" selection-start-line="71" selection-start-column="68" selection-end-line="71" selection-end-column="68" />
+              <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EliminateClearCommandHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateClearCommandHandler.java">
+      <file leaf-file-name="readme.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/readme.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="51" column="69" selection-start-line="51" selection-start-column="69" selection-end-line="51" selection-end-column="69" />
+              <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EliminateLastBetService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/EliminateLastBetService.java">
+      <file leaf-file-name="RegularGuessSizeCommandHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularGuessSizeCommandHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="61" column="35" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GamePointBetService.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/GamePointBetService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4187192">
-              <caret line="142" column="29" selection-start-line="142" selection-start-column="29" selection-end-line="142" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EliminateCardServiceHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/EliminateCardServiceHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="66" column="30" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MissionCardServiceHandler.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/MissionCardServiceHandler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="47" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gameeliminate.protobuf" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gameeliminate.protobuf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+              <caret line="87" column="59" selection-start-line="87" selection-start-column="59" selection-end-line="87" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -216,15 +198,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/model/PuzzleCard.java" />
-        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardPuzzleMapper.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularDealCommandHandler.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/phase/TicketResult.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionClearPhaseData.java" />
         <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardPuzzleStore.java" />
         <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardMissionMapper.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/ExceptionProcessor.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionController.java" />
         <option value="$PROJECT_DIR$/yde-contract/src/main/resources/thrift/missioncard.thrift" />
         <option value="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/thrift/card/mission/MissionCards.java" />
         <option value="$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/thrift/card/mission/MissionCardsService.java" />
@@ -236,37 +212,43 @@
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/login/LoginCommandHandler.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateGameUpPointCommandHandler.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/phase/RegularClearPhaseData.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularClearCommandHandler.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/command/ExchangeCommandHandler.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/puzzle/command/PuzzleClearCommandHandler.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/command/BetCommandHandler.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/account/Account.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/ExchangeService.java" />
         <option value="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/common.protobuf" />
-        <option value="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gamemission.protobuf" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionClearCommandHandler.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/GameManager.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/profile/ProfileCommandHandler.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/Application.java" />
         <option value="$PROJECT_DIR$/sunyata-spring-boot-thrift/src/main/java/org/sunyata/spring/thrift/client/ThriftClientAutoConfiguration.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/RegularCardServiceHandler.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularGuessSizeCommandHandler.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/GameRegularController.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/puzzle/command/PuzzleDealCommandHandler.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/MoneyBetService.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionDealCommandHandler.java" />
-        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardMissionStore.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateDealCommandHandler.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateBetCommandHandler.java" />
+        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/EliminateCardServiceHandler.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/EliminateLastBetResult.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/EliminateLastBetService.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/phase/EliminateClearPhaseData.java" />
         <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/GameEliminateController.java" />
-        <option value="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gameeliminate.protobuf" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/GamePointBetService.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateDealCommandHandler.java" />
-        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateClearCommandHandler.java" />
         <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/PuzzleCardServiceHandler.java" />
-        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/EliminateCardServiceHandler.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/EliminateLastBetService.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/GamePointBetService.java" />
+        <option value="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gameeliminate.protobuf" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateClearCommandHandler.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/phase/TicketResult.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/GuessSizeBetService.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/GameRegularController.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionController.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionClearPhaseData.java" />
+        <option value="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gamemission.protobuf" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionClearCommandHandler.java" />
+        <option value="$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardMissionStore.java" />
+        <option value="$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gameregular.protobuf" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularGuessSizeCommandHandler.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularClearCommandHandler.java" />
+        <option value="$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/MoneyBetService.java" />
       </list>
     </option>
   </component>
@@ -293,8 +275,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="34" />
-    <option name="y" value="63" />
+    <option name="x" value="25" />
+    <option name="y" value="23" />
     <option name="width" value="1884" />
     <option name="height" value="988" />
   </component>
@@ -601,6 +583,370 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sunyata-octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sunyata-octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yde-landlords" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sunyata-octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yde-landlords" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sunyata-octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yde-landlords" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sunyata-octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yde-landlords" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sunyata-octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yde-landlords" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="landlords" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sunyata-octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yde-landlords" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="landlords" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sunyata-octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yde-contract" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sunyata-octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yde-contract" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sunyata-octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yde-contract" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sunyata-octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yde-contract" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protobuf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sunyata-octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yde-contract" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="thrift" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sunyata-octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yde-contract" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yde" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sunyata-octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yde-contract" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yde" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protobuf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sunyata-octopus" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yde-contract" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="yde" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protobuf" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mission" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1365,10 +1711,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Spring Boot.Application (3)" />
-        <item index="1" class="java.lang.String" itemvalue="Spring Boot.Application (4)" />
-        <item index="2" class="java.lang.String" itemvalue="Spring Boot.landloards" />
-        <item index="3" class="java.lang.String" itemvalue="Spring Boot.Application (2)" />
+        <item index="0" class="java.lang.String" itemvalue="Spring Boot.landloards" />
+        <item index="1" class="java.lang.String" itemvalue="Spring Boot.Application (2)" />
+        <item index="2" class="java.lang.String" itemvalue="Spring Boot.Application (3)" />
+        <item index="3" class="java.lang.String" itemvalue="Spring Boot.Application (4)" />
         <item index="4" class="java.lang.String" itemvalue="Application.WebSocketEliminateClient" />
       </list>
     </recent_temporary>
@@ -1409,15 +1755,15 @@
       <workItem from="1501472819254" duration="6790000" />
       <workItem from="1501746972979" duration="2711000" />
       <workItem from="1501829769543" duration="1024000" />
-      <workItem from="1501831341021" duration="10022000" />
+      <workItem from="1501831341021" duration="26095000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="355436000" />
+    <option name="totallyTimeSpent" value="371509000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="34" y="63" width="1884" height="988" extended-state="0" />
+    <frame x="25" y="23" width="1884" height="988" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1429,21 +1775,21 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1194354" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel Executor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41630435" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49776787" sideWeight="0.4927769" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.49776787" sideWeight="0.4927769" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel remote servers log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1883822" sideWeight="0.58986175" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2247557" sideWeight="0.5888889" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="JRebel" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32958803" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5546875" sideWeight="0.49384698" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41294643" sideWeight="0.49384698" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1883822" sideWeight="0.41013825" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.515625" sideWeight="0.49598715" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2247557" sideWeight="0.41111112" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46986607" sideWeight="0.49598715" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1495,24 +1841,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/GamePointBetService.java</url>
-          <line>150</line>
-          <properties />
-          <option name="timeStamp" value="382" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/GameEliminateController.java</url>
-          <line>129</line>
-          <properties />
-          <option name="timeStamp" value="383" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="384" />
+      <option name="time" value="396" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1521,83 +1853,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/commons/commons-pool2/2.4.2/commons-pool2-2.4.2-sources.jar!/org/apache/commons/pool2/BaseKeyedPooledObjectFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="2" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sunyata-spring-boot-thrift/src/main/java/org/sunyata/spring/thrift/client/pool/ThriftClientPooledObjectFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="27" selection-start-line="86" selection-start-column="21" selection-end-line="86" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sunyata-spring-boot-thrift/src/main/java/org/sunyata/spring/thrift/client/transport/TLoadBalancerClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="16" selection-start-line="51" selection-start-column="16" selection-end-line="51" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sunyata-spring-boot-thrift/src/main/java/org/sunyata/spring/thrift/client/sleuth/ThriftHttpTransportSpanInjector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="68" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-sleuth-core/1.1.2.RELEASE/spring-cloud-sleuth-core-1.1.2.RELEASE.jar!/org/springframework/cloud/sleuth/SpanInjector.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.7777777">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-sleuth-core/1.1.2.RELEASE/spring-cloud-sleuth-core-1.1.2.RELEASE.jar!/org/springframework/cloud/sleuth/SpanExtractor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.037037">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-sleuth-core/1.1.2.RELEASE/spring-cloud-sleuth-core-1.1.2.RELEASE-sources.jar!/org/springframework/cloud/sleuth/SpanInjector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-sleuth-core/1.1.2.RELEASE/spring-cloud-sleuth-core-1.1.2.RELEASE-sources.jar!/org/springframework/cloud/sleuth/SpanExtractor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-sleuth-core/1.1.2.RELEASE/spring-cloud-sleuth-core-1.1.2.RELEASE-sources.jar!/org/springframework/cloud/sleuth/SpanAccessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/cloud/spring-cloud-sleuth-core/1.1.2.RELEASE/spring-cloud-sleuth-core-1.1.2.RELEASE-sources.jar!/org/springframework/cloud/sleuth/Tracer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0017889">
-          <caret line="97" column="39" selection-start-line="97" selection-start-column="39" selection-end-line="97" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/1.5.1.RELEASE/spring-boot-1.5.1.RELEASE-sources.jar!/org/springframework/boot/builder/SpringApplicationBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5459559">
-          <caret line="71" column="32" selection-start-line="71" selection-start-column="32" selection-end-line="71" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/Application.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1627,43 +1882,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularClearCommandHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="54" column="68" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularDealCommandHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="66" column="58" selection-start-line="66" selection-start-column="58" selection-end-line="66" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularPlayCommandHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="118" column="36" selection-start-line="118" selection-start-column="29" selection-end-line="118" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularGuessSizeCommandHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="87" column="49" selection-start-line="87" selection-start-column="40" selection-end-line="87" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/GameRegularController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="64" selection-start-line="86" selection-start-column="64" selection-end-line="86" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#13402#13403#0" expanded="false" />
-            <element signature="e#13453#13454#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1749,14 +1971,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardMissionStore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/account/Account.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1765,61 +1979,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionClearCommandHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="34" selection-start-line="52" selection-start-column="34" selection-end-line="52" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/MoneyBetService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="28" selection-start-line="38" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/puzzle/command/PuzzleDealCommandHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="49" column="5" selection-start-line="43" selection-start-column="3" selection-end-line="49" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/EliminateLastBetResult.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/phase/EliminateClearPhaseData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-          <folding>
-            <element signature="e#254#255#0" expanded="true" />
-            <element signature="e#287#288#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/readme.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/protobuf/eliminate/Eliminate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="945" column="10" selection-start-line="945" selection-start-column="10" selection-end-line="945" selection-end-column="10" />
           <folding />
         </state>
       </provider>
@@ -1840,58 +2003,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateBetCommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="82" selection-start-line="52" selection-start-column="82" selection-end-line="52" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateDealCommandHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="71" column="68" selection-start-line="71" selection-start-column="68" selection-end-line="71" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateClearCommandHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="69" selection-start-line="51" selection-start-column="69" selection-end-line="51" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gameeliminate.protobuf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/MissionCardServiceHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="47" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/RegularCardServiceHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="56" selection-start-line="63" selection-start-column="56" selection-end-line="63" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/PuzzleCardServiceHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/EliminateLastBetService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="35" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
+          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1899,23 +2022,654 @@
     <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/EliminateCardServiceHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="66" column="30" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
+          <caret line="71" column="73" selection-start-line="71" selection-start-column="73" selection-end-line="71" selection-end-column="73" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/GameEliminateController.java">
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/phase/EliminateClearPhaseData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="133" column="70" selection-start-line="133" selection-start-column="70" selection-end-line="133" selection-end-column="70" />
+          <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/PuzzleCardServiceHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="32" selection-start-line="70" selection-start-column="32" selection-end-line="70" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/GamePointBetService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4187192">
-          <caret line="142" column="29" selection-start-line="142" selection-start-column="29" selection-end-line="142" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="154" column="51" selection-start-line="154" selection-start-column="51" selection-end-line="154" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/EliminateLastBetService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/EliminateLastBetResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="e#323#324#0" expanded="true" />
+            <element signature="e#356#357#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/GameEliminateController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="203" column="62" selection-start-line="203" selection-start-column="52" selection-end-line="203" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/protobuf/eliminate/Eliminate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2954" column="9" selection-start-line="2954" selection-start-column="9" selection-end-line="2954" selection-end-column="9" />
+          <folding>
+            <element signature="e#14578#14579#0" expanded="false" />
+            <element signature="e#22447#22448#0" expanded="false" />
+            <element signature="e#42592#42593#0" expanded="false" />
+            <element signature="e#44980#44981#0" expanded="false" />
+            <element signature="e#75636#75637#0" expanded="false" />
+            <marker date="1502174731000" expanded="true" signature="406:533" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="687:13058" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="844:928" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="981:1063" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="1193:1202" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="1225:1231" placeholder=" }" />
+            <marker date="1502174731000" expanded="false" signature="1295:1304" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="1327:1333" placeholder=" }" />
+            <marker date="1502174731000" expanded="false" signature="1507:1516" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="1542:1548" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="1773:2764" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="2856:2998" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="3110:3468" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="3623:3958" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="3873:3952" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="4066:4075" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="4089:4095" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="4127:4134" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="4221:4389" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="4512:4588" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="4670:4880" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="5050:5092" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="5298:5342" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="5616:5679" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="5851:5895" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="6145:6208" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="6641:6705" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="6869:6923" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="7165:7238" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="7419:7464" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="7714:7778" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="7819:7847" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="7887:7911" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="8024:8079" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="8111:8139" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="8273:8347" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="8352:8491" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="8691:12839" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="8788:8934" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="9050:9416" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="9543:9554" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="9588:9596" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="9690:9765" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="9819:9913" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="9951:9962" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="9983:9991" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="10022:10075" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="10105:10116" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="10158:10166" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="10257:10403" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="10510:10620" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="10707:10943" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="11037:11244" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="11312:11601" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="11705:11914" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="11958:11969" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="11981:11989" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="12185:12729" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="12852:12954" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="13147:13654" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="13187:13302" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="13361:13476" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="13506:13621" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="13657:13731" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="13853:30608" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="13978:14062" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="14099:14181" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="14279:14288" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="14311:14317" placeholder=" }" />
+            <marker date="1502174731000" expanded="false" signature="14365:14374" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="14397:14403" placeholder=" }" />
+            <marker date="1502174731000" expanded="false" signature="14612:14618" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="16956:17082" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="17194:17504" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="17627:17930" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="17861:17924" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="18022:18031" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="18045:18051" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="18196:18311" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="18379:18388" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="18402:18408" placeholder=" }" />
+            <marker date="1502174731000" expanded="false" signature="18559:18568" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="18589:18595" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="18600:18715" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="18750:18759" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="18784:18790" placeholder=" }" />
+            <marker date="1502174731000" expanded="false" signature="18821:18830" placeholder=" { " />
+            <marker date="1502174731000" expanded="true" signature="18966:19134" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="19257:19434" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="19516:20008" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="20178:20220" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="20410:20454" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="20712:20775" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="20931:20975" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="21209:21272" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="21411:21456" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="21673:21737" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="21885:21939" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="22165:22238" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="22403:22448" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="22682:22746" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="22787:22815" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="22855:22879" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="22976:23031" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="23063:23091" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="23225:23299" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="23304:23382" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="23566:30421" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="23663:23793" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="23909:24227" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="24338:24349" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="24383:24391" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="24485:24560" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="24614:24708" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="24746:24757" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="24778:24786" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="24817:24971" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="25001:25012" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="25054:25062" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="25153:25283" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="25374:25468" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="25539:25759" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="25837:26271" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="26339:26596" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="26684:27179" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="27223:27234" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="27246:27254" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="27450:27962" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="28163:28348" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="28355:28482" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="28554:28565" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="28619:28627" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="28634:28761" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="28794:28805" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="28826:28834" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="28841:28968" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="29005:29016" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="29041:29049" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="29056:29183" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="29247:29364" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="29371:29498" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="29540:29650" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="29657:29784" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="29885:30006" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="30013:30140" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="30175:30327" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="30434:30520" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="30714:33319" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="30787:30929" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="31027:31169" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="31247:31389" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="31419:31561" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="31687:31829" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="31987:32110" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="32158:32281" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="32373:32491" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="32534:32652" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="32732:32841" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="32877:32986" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="33052:33156" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="33186:33290" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="33322:33459" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="33615:70890" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="33774:33858" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="33912:33994" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="34126:34135" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="34158:34164" placeholder=" }" />
+            <marker date="1502174731000" expanded="false" signature="34229:34238" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="34261:34267" placeholder=" }" />
+            <marker date="1502174731000" expanded="false" signature="34441:34450" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="34476:34482" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="34708:36892" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="36984:37127" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="37239:37600" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="37757:38094" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="38008:38088" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="38203:38212" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="38226:38232" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="38468:38610" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="38700:38709" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="38723:38729" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="38734:38876" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="39003:39012" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="39026:39032" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="39037:39179" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="39210:39219" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="39240:39246" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="39251:39393" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="39472:39481" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="39506:39512" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="39517:39659" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="39766:39805" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="39977:40100" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="40149:40158" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="40207:40213" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="40218:40341" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="40428:40434" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="40591:40709" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="40753:40762" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="40811:40817" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="40822:40940" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="40980:40989" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="41017:41023" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="41159:41268" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="41305:41314" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="41363:41369" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="41374:41483" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="41516:41525" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="41546:41552" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="41673:41777" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="41808:41817" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="41866:41872" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="41877:41981" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="42012:42021" placeholder=" { " />
+            <marker date="1502174731000" expanded="true" signature="42074:42248" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="42335:42904" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="43027:43650" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="43732:44769" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="44939:44981" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="45188:45232" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="45507:45570" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="45743:45787" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="46038:46101" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="46257:46302" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="46536:46600" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="46765:46819" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="47062:47135" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="47317:47362" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="47613:47677" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="47718:47746" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="47786:47810" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="47924:47979" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="48011:48039" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="48173:48247" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="48252:48403" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="48604:70669" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="48701:48848" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="48964:49333" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="49461:49472" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="49506:49514" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="49608:49683" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="49737:49865" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="49903:49914" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="49935:49943" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="49974:50550" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="50580:50591" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="50633:50641" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="50732:50879" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="50987:51098" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="51186:51423" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="51518:52837" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="52905:53196" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="53301:54855" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="54900:55259" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="55455:56001" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="56273:56488" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="56742:56896" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="56989:57176" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="57183:57337" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="57371:57519" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="57526:57680" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="57762:57921" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="57928:58082" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="58190:58516" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="58523:58677" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="58803:59076" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="59083:59237" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="59323:59635" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="59642:59796" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="59904:60230" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="60237:60391" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="60506:60765" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="60772:60926" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="61052:61325" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="61332:61486" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="61617:61856" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="61863:62017" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="62052:62307" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="62314:62468" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="62513:62735" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="63004:63070" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="63077:63231" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="63342:63503" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="63510:63664" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="63797:63993" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="64000:64154" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="64242:64384" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="64391:64545" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="64653:64802" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="64809:64963" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="65082:65093" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="65140:65148" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="65413:65934" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="66042:66177" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="66228:66239" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="66288:66296" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="66303:66438" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="66485:66496" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="66529:66537" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="66544:66679" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="66740:66868" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="66875:67010" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="67064:67203" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="67301:67431" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="67477:67488" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="67537:67545" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="67552:67682" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="67724:67735" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="67763:67771" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="67778:67908" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="67964:68087" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="68094:68224" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="68273:68407" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="68491:68612" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="68651:68662" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="68711:68719" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="68726:68847" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="68882:68893" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="68914:68922" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="68929:69050" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="69099:69215" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="69222:69343" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="69385:69512" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="69587:69703" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="69736:69747" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="69796:69804" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="69811:69927" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="false" signature="69960:69971" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="69986:69994" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="70001:70117" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="70164:70274" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="70281:70397" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="70433:70558" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="70682:70785" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="71008:71140" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="71304:83930" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="71471:71555" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="71613:71695" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="71835:71844" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="71867:71873" placeholder=" }" />
+            <marker date="1502174731000" expanded="false" signature="71942:71951" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="71974:71980" placeholder=" }" />
+            <marker date="1502174731000" expanded="false" signature="72154:72163" placeholder=" { " />
+            <marker date="1502174731000" expanded="true" signature="72425:73416" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="73508:73655" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="73767:74140" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="74305:74650" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="74560:74644" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="74763:74772" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="74786:74792" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="74824:74831" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="74918:75086" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="75209:75285" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="75367:75577" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="75747:75789" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="76000:76044" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="76323:76386" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="76563:76607" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="76862:76925" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="77085:77130" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="77368:77432" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="77601:77655" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="77902:77975" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="78161:78206" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="78461:78525" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="78566:78594" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="78634:78658" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="78776:78831" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="78863:78891" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="79025:79099" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="79104:79248" placeholder="/**...*/" />
+            <marker date="1502174731000" expanded="true" signature="79453:83701" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="79550:79701" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="79817:80198" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="80330:80341" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="80375:80383" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="80477:80552" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="80606:80700" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="80738:80749" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="80770:80778" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="80809:80862" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="80892:80903" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="80945:80953" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="81044:81195" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="81307:81422" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="81514:81755" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="81854:82071" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="82139:82438" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="82547:82761" placeholder="{...}" />
+            <marker date="1502174731000" expanded="false" signature="82805:82816" placeholder=" { " />
+            <marker date="1502174731000" expanded="false" signature="82828:82836" placeholder=" }" />
+            <marker date="1502174731000" expanded="true" signature="83032:83586" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="83714:83821" placeholder="{...}" />
+            <marker date="1502174731000" expanded="true" signature="84041:84060" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gameeliminate.protobuf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="38" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/eliminate/command/EliminateClearCommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="62" selection-start-line="60" selection-start-column="62" selection-end-line="60" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/phase/TicketResult.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding>
+            <element signature="e#834#835#0" expanded="true" />
+            <element signature="e#866#867#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/GuessSizeBetService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7883065">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/protobuf/regular/GameRegular.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43346775">
+          <caret line="1622" column="21" selection-start-line="1622" selection-start-column="21" selection-end-line="1622" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/phase/MissionClearPhaseData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/protobuf/mission/Mission.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43346775">
+          <caret line="1022" column="21" selection-start-line="1022" selection-start-column="21" selection-end-line="1022" selection-end-column="21" />
+          <folding>
+            <element signature="e#31731#31732#0" expanded="false" />
+            <element signature="e#37426#37427#0" expanded="false" />
+            <element signature="e#37453#37454#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gamemission.protobuf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41129032">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/command/MissionClearCommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.41330644">
+          <caret line="42" column="23" selection-start-line="42" selection-start-column="23" selection-end-line="42" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/mission/GameMissionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="162" column="52" selection-start-line="162" selection-start-column="52" selection-end-line="162" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/MissionCardServiceHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="49" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/store/CardMissionStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="24" selection-start-line="58" selection-start-column="24" selection-end-line="58" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-contract/src/main/java/com/xt/yde/thrift/card/regular/RegularCardsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="255" column="0" selection-start-line="255" selection-start-column="0" selection-end-line="256" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-card-service/src/main/java/com/xt/landlords/card/RegularCardServiceHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="30" selection-start-line="38" selection-start-column="30" selection-end-line="38" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularDealCommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84879035">
+          <caret line="81" column="50" selection-start-line="81" selection-start-column="50" selection-end-line="81" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/phase/RegularClearPhaseData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="39" selection-start-line="17" selection-start-column="39" selection-end-line="17" selection-end-column="39" />
+          <folding>
+            <element signature="e#283#284#0" expanded="true" />
+            <element signature="e#316#317#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/gameregular.protobuf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-contract/src/main/resources/protobuf/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularGuessSizeCommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="87" column="59" selection-start-line="87" selection-start-column="59" selection-end-line="87" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/command/RegularClearCommandHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/game/regular/GameRegularController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="228" column="59" selection-start-line="228" selection-start-column="59" selection-end-line="228" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/yde-landlords/src/main/java/com/xt/landlords/service/MoneyBetService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6350711">
+          <caret line="73" column="27" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
           <folding />
         </state>
       </provider>

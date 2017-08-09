@@ -355,9 +355,9 @@ public final class Mission {
     com.google.protobuf.ByteString
         getTimesBytes();
 
-    // required float totalMoney = 2;
+    // required string totalMoney = 2;
     /**
-     * <code>required float totalMoney = 2;</code>
+     * <code>required string totalMoney = 2;</code>
      *
      * <pre>
      *获奖金额
@@ -365,13 +365,22 @@ public final class Mission {
      */
     boolean hasTotalMoney();
     /**
-     * <code>required float totalMoney = 2;</code>
+     * <code>required string totalMoney = 2;</code>
      *
      * <pre>
      *获奖金额
      * </pre>
      */
-    float getTotalMoney();
+    java.lang.String getTotalMoney();
+    /**
+     * <code>required string totalMoney = 2;</code>
+     *
+     * <pre>
+     *获奖金额
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getTotalMoneyBytes();
   }
   /**
    * Protobuf type {@code com.xt.yde.protobuf.mission.MissionClearGameResponseMsg}
@@ -433,9 +442,9 @@ public final class Mission {
               times_ = input.readBytes();
               break;
             }
-            case 21: {
+            case 18: {
               bitField0_ |= 0x00000002;
-              totalMoney_ = input.readFloat();
+              totalMoney_ = input.readBytes();
               break;
             }
           }
@@ -533,11 +542,11 @@ public final class Mission {
       }
     }
 
-    // required float totalMoney = 2;
+    // required string totalMoney = 2;
     public static final int TOTALMONEY_FIELD_NUMBER = 2;
-    private float totalMoney_;
+    private java.lang.Object totalMoney_;
     /**
-     * <code>required float totalMoney = 2;</code>
+     * <code>required string totalMoney = 2;</code>
      *
      * <pre>
      *获奖金额
@@ -547,19 +556,50 @@ public final class Mission {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required float totalMoney = 2;</code>
+     * <code>required string totalMoney = 2;</code>
      *
      * <pre>
      *获奖金额
      * </pre>
      */
-    public float getTotalMoney() {
-      return totalMoney_;
+    public java.lang.String getTotalMoney() {
+      java.lang.Object ref = totalMoney_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          totalMoney_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string totalMoney = 2;</code>
+     *
+     * <pre>
+     *获奖金额
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getTotalMoneyBytes() {
+      java.lang.Object ref = totalMoney_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        totalMoney_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private void initFields() {
       times_ = "";
-      totalMoney_ = 0F;
+      totalMoney_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -585,7 +625,7 @@ public final class Mission {
         output.writeBytes(1, getTimesBytes());
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeFloat(2, totalMoney_);
+        output.writeBytes(2, getTotalMoneyBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -602,7 +642,7 @@ public final class Mission {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(2, totalMoney_);
+          .computeBytesSize(2, getTotalMoneyBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -726,7 +766,7 @@ public final class Mission {
         super.clear();
         times_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
-        totalMoney_ = 0F;
+        totalMoney_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
@@ -786,7 +826,9 @@ public final class Mission {
           onChanged();
         }
         if (other.hasTotalMoney()) {
-          setTotalMoney(other.getTotalMoney());
+          bitField0_ |= 0x00000002;
+          totalMoney_ = other.totalMoney_;
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -921,10 +963,10 @@ public final class Mission {
         return this;
       }
 
-      // required float totalMoney = 2;
-      private float totalMoney_ ;
+      // required string totalMoney = 2;
+      private java.lang.Object totalMoney_ = "";
       /**
-       * <code>required float totalMoney = 2;</code>
+       * <code>required string totalMoney = 2;</code>
        *
        * <pre>
        *获奖金额
@@ -934,30 +976,62 @@ public final class Mission {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required float totalMoney = 2;</code>
+       * <code>required string totalMoney = 2;</code>
        *
        * <pre>
        *获奖金额
        * </pre>
        */
-      public float getTotalMoney() {
-        return totalMoney_;
+      public java.lang.String getTotalMoney() {
+        java.lang.Object ref = totalMoney_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          totalMoney_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>required float totalMoney = 2;</code>
+       * <code>required string totalMoney = 2;</code>
        *
        * <pre>
        *获奖金额
        * </pre>
        */
-      public Builder setTotalMoney(float value) {
-        bitField0_ |= 0x00000002;
+      public com.google.protobuf.ByteString
+          getTotalMoneyBytes() {
+        java.lang.Object ref = totalMoney_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          totalMoney_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string totalMoney = 2;</code>
+       *
+       * <pre>
+       *获奖金额
+       * </pre>
+       */
+      public Builder setTotalMoney(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         totalMoney_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required float totalMoney = 2;</code>
+       * <code>required string totalMoney = 2;</code>
        *
        * <pre>
        *获奖金额
@@ -965,7 +1039,24 @@ public final class Mission {
        */
       public Builder clearTotalMoney() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        totalMoney_ = 0F;
+        totalMoney_ = getDefaultInstance().getTotalMoney();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string totalMoney = 2;</code>
+       *
+       * <pre>
+       *获奖金额
+       * </pre>
+       */
+      public Builder setTotalMoneyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        totalMoney_ = value;
         onChanged();
         return this;
       }
@@ -1003,7 +1094,7 @@ public final class Mission {
       "\n\024gamemission.protobuf\022\033com.xt.yde.proto" +
       "buf.mission\"\034\n\032MissionClearGameRequestMs" +
       "g\"@\n\033MissionClearGameResponseMsg\022\r\n\005time" +
-      "s\030\001 \002(\t\022\022\n\ntotalMoney\030\002 \002(\002B\tB\007Mission"
+      "s\030\001 \002(\t\022\022\n\ntotalMoney\030\002 \002(\tB\tB\007Mission"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

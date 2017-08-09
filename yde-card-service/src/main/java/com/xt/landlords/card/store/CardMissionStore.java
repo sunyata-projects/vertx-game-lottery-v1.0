@@ -49,9 +49,9 @@ public class CardMissionStore {
             CardMissionMapper mapper = session.getMapper(CardMissionMapper.class);
             Integer count = mapper.findMissionCardCount(lose ? 1 : 0);
             int i = random.nextInt(count - 1);
-//            MissionCard missionCardsByRandom = mapper.findMissionCardsByRandom(lose ? 1 : 0, i);
-            MissionCard missionCardsByRandom = null;
-                            missionCardsByRandom = mapper.findMissionCardsByCardId(6595);
+            MissionCard missionCardsByRandom = mapper.findMissionCardsByRandom(lose ? 1 : 0, i);
+//            MissionCard missionCardsByRandom = null;
+//                            missionCardsByRandom = mapper.findMissionCardsByCardId(6595);
 //            if (missionIndex == 0) {
 //                missionCardsByRandom = mapper.findMissionCardsByCardId(22591);
 //            }

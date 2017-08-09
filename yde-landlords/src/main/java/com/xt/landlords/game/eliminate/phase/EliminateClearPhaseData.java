@@ -2,6 +2,8 @@ package com.xt.landlords.game.eliminate.phase;
 
 import org.sunyata.octopus.model.PhaseData;
 
+import java.math.BigDecimal;
+
 /**
  * Created by leo on 17/5/16.
  */
@@ -9,16 +11,16 @@ public class EliminateClearPhaseData extends PhaseData {
 
     private String serialNo;
 
-    public Integer getTotalMoney() {
+    public BigDecimal getTotalMoney() {
         return totalMoney;
     }
 
-    public EliminateClearPhaseData setTotalMoney(Integer totalMoney) {
+    public EliminateClearPhaseData setTotalMoney(BigDecimal totalMoney) {
         this.totalMoney = totalMoney;
         return this;
     }
 
-    private Integer totalMoney;//获得的总奖金
+    private BigDecimal totalMoney;//获得的总奖金
 
     public EliminateClearPhaseData setSerialNo(String serialNo) {
         this.serialNo = serialNo;

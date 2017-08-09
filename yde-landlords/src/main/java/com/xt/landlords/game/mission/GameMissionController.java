@@ -21,6 +21,8 @@ import org.squirrelframework.foundation.fsm.TransitionType;
 import org.squirrelframework.foundation.fsm.annotation.*;
 import org.sunyata.octopus.model.GameModel;
 
+import java.math.BigDecimal;
+
 /**
  * Created by leo on 17/4/26.
  */
@@ -145,7 +147,7 @@ public class GameMissionController extends GameController<GameMissionModel, Game
 //            throw new BetErrorException("下注失败,请重试");
 //        }
         //float totalMoney = ticketResult.getPrizeCash();
-        float totalMoney = betPhaseData.getTicketResult().getPrizeCash();
+        BigDecimal totalMoney = betPhaseData.getTicketResult().getPrizeCash();
         phaseData.setSerialNo(betPhaseData.getTicketResult().getTicketId()).setTotalMoney(totalMoney);
         setPhaseSuccess(GameMissionState.GameOver.getValue());
         logger.append("game over");

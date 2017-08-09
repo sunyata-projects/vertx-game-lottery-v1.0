@@ -1107,9 +1107,9 @@ public final class GameRegular {
      */
     boolean getFlag();
 
-    // required int32 totalMoney = 2;
+    // required string totalMoney = 2;
     /**
-     * <code>required int32 totalMoney = 2;</code>
+     * <code>required string totalMoney = 2;</code>
      *
      * <pre>
      *中奖金额,有符合预期和不符合预期两种算法
@@ -1117,13 +1117,22 @@ public final class GameRegular {
      */
     boolean hasTotalMoney();
     /**
-     * <code>required int32 totalMoney = 2;</code>
+     * <code>required string totalMoney = 2;</code>
      *
      * <pre>
      *中奖金额,有符合预期和不符合预期两种算法
      * </pre>
      */
-    int getTotalMoney();
+    java.lang.String getTotalMoney();
+    /**
+     * <code>required string totalMoney = 2;</code>
+     *
+     * <pre>
+     *中奖金额,有符合预期和不符合预期两种算法
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getTotalMoneyBytes();
   }
   /**
    * Protobuf type {@code com.xt.yde.protobuf.regular.RegularGuessSizeResponseMsg}
@@ -1185,9 +1194,9 @@ public final class GameRegular {
               flag_ = input.readBool();
               break;
             }
-            case 16: {
+            case 18: {
               bitField0_ |= 0x00000002;
-              totalMoney_ = input.readInt32();
+              totalMoney_ = input.readBytes();
               break;
             }
           }
@@ -1254,11 +1263,11 @@ public final class GameRegular {
       return flag_;
     }
 
-    // required int32 totalMoney = 2;
+    // required string totalMoney = 2;
     public static final int TOTALMONEY_FIELD_NUMBER = 2;
-    private int totalMoney_;
+    private java.lang.Object totalMoney_;
     /**
-     * <code>required int32 totalMoney = 2;</code>
+     * <code>required string totalMoney = 2;</code>
      *
      * <pre>
      *中奖金额,有符合预期和不符合预期两种算法
@@ -1268,19 +1277,50 @@ public final class GameRegular {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required int32 totalMoney = 2;</code>
+     * <code>required string totalMoney = 2;</code>
      *
      * <pre>
      *中奖金额,有符合预期和不符合预期两种算法
      * </pre>
      */
-    public int getTotalMoney() {
-      return totalMoney_;
+    public java.lang.String getTotalMoney() {
+      java.lang.Object ref = totalMoney_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          totalMoney_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string totalMoney = 2;</code>
+     *
+     * <pre>
+     *中奖金额,有符合预期和不符合预期两种算法
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getTotalMoneyBytes() {
+      java.lang.Object ref = totalMoney_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        totalMoney_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private void initFields() {
       flag_ = false;
-      totalMoney_ = 0;
+      totalMoney_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1306,7 +1346,7 @@ public final class GameRegular {
         output.writeBool(1, flag_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, totalMoney_);
+        output.writeBytes(2, getTotalMoneyBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -1323,7 +1363,7 @@ public final class GameRegular {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, totalMoney_);
+          .computeBytesSize(2, getTotalMoneyBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1447,7 +1487,7 @@ public final class GameRegular {
         super.clear();
         flag_ = false;
         bitField0_ = (bitField0_ & ~0x00000001);
-        totalMoney_ = 0;
+        totalMoney_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
@@ -1505,7 +1545,9 @@ public final class GameRegular {
           setFlag(other.getFlag());
         }
         if (other.hasTotalMoney()) {
-          setTotalMoney(other.getTotalMoney());
+          bitField0_ |= 0x00000002;
+          totalMoney_ = other.totalMoney_;
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1591,10 +1633,10 @@ public final class GameRegular {
         return this;
       }
 
-      // required int32 totalMoney = 2;
-      private int totalMoney_ ;
+      // required string totalMoney = 2;
+      private java.lang.Object totalMoney_ = "";
       /**
-       * <code>required int32 totalMoney = 2;</code>
+       * <code>required string totalMoney = 2;</code>
        *
        * <pre>
        *中奖金额,有符合预期和不符合预期两种算法
@@ -1604,30 +1646,62 @@ public final class GameRegular {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required int32 totalMoney = 2;</code>
+       * <code>required string totalMoney = 2;</code>
        *
        * <pre>
        *中奖金额,有符合预期和不符合预期两种算法
        * </pre>
        */
-      public int getTotalMoney() {
-        return totalMoney_;
+      public java.lang.String getTotalMoney() {
+        java.lang.Object ref = totalMoney_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          totalMoney_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>required int32 totalMoney = 2;</code>
+       * <code>required string totalMoney = 2;</code>
        *
        * <pre>
        *中奖金额,有符合预期和不符合预期两种算法
        * </pre>
        */
-      public Builder setTotalMoney(int value) {
-        bitField0_ |= 0x00000002;
+      public com.google.protobuf.ByteString
+          getTotalMoneyBytes() {
+        java.lang.Object ref = totalMoney_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          totalMoney_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string totalMoney = 2;</code>
+       *
+       * <pre>
+       *中奖金额,有符合预期和不符合预期两种算法
+       * </pre>
+       */
+      public Builder setTotalMoney(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         totalMoney_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required int32 totalMoney = 2;</code>
+       * <code>required string totalMoney = 2;</code>
        *
        * <pre>
        *中奖金额,有符合预期和不符合预期两种算法
@@ -1635,7 +1709,24 @@ public final class GameRegular {
        */
       public Builder clearTotalMoney() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        totalMoney_ = 0;
+        totalMoney_ = getDefaultInstance().getTotalMoney();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string totalMoney = 2;</code>
+       *
+       * <pre>
+       *中奖金额,有符合预期和不符合预期两种算法
+       * </pre>
+       */
+      public Builder setTotalMoneyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        totalMoney_ = value;
         onChanged();
         return this;
       }
@@ -1971,9 +2062,9 @@ public final class GameRegular {
   public interface RegularClearGameResponseMsgOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required float totalMoney = 1;
+    // required string totalMoney = 1;
     /**
-     * <code>required float totalMoney = 1;</code>
+     * <code>required string totalMoney = 1;</code>
      *
      * <pre>
      *获奖金额
@@ -1981,13 +2072,22 @@ public final class GameRegular {
      */
     boolean hasTotalMoney();
     /**
-     * <code>required float totalMoney = 1;</code>
+     * <code>required string totalMoney = 1;</code>
      *
      * <pre>
      *获奖金额
      * </pre>
      */
-    float getTotalMoney();
+    java.lang.String getTotalMoney();
+    /**
+     * <code>required string totalMoney = 1;</code>
+     *
+     * <pre>
+     *获奖金额
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getTotalMoneyBytes();
   }
   /**
    * Protobuf type {@code com.xt.yde.protobuf.regular.RegularClearGameResponseMsg}
@@ -2044,9 +2144,9 @@ public final class GameRegular {
               }
               break;
             }
-            case 13: {
+            case 10: {
               bitField0_ |= 0x00000001;
-              totalMoney_ = input.readFloat();
+              totalMoney_ = input.readBytes();
               break;
             }
           }
@@ -2089,11 +2189,11 @@ public final class GameRegular {
     }
 
     private int bitField0_;
-    // required float totalMoney = 1;
+    // required string totalMoney = 1;
     public static final int TOTALMONEY_FIELD_NUMBER = 1;
-    private float totalMoney_;
+    private java.lang.Object totalMoney_;
     /**
-     * <code>required float totalMoney = 1;</code>
+     * <code>required string totalMoney = 1;</code>
      *
      * <pre>
      *获奖金额
@@ -2103,18 +2203,49 @@ public final class GameRegular {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required float totalMoney = 1;</code>
+     * <code>required string totalMoney = 1;</code>
      *
      * <pre>
      *获奖金额
      * </pre>
      */
-    public float getTotalMoney() {
-      return totalMoney_;
+    public java.lang.String getTotalMoney() {
+      java.lang.Object ref = totalMoney_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          totalMoney_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string totalMoney = 1;</code>
+     *
+     * <pre>
+     *获奖金额
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getTotalMoneyBytes() {
+      java.lang.Object ref = totalMoney_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        totalMoney_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private void initFields() {
-      totalMoney_ = 0F;
+      totalMoney_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -2133,7 +2264,7 @@ public final class GameRegular {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeFloat(1, totalMoney_);
+        output.writeBytes(1, getTotalMoneyBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -2146,7 +2277,7 @@ public final class GameRegular {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(1, totalMoney_);
+          .computeBytesSize(1, getTotalMoneyBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -2268,7 +2399,7 @@ public final class GameRegular {
 
       public Builder clear() {
         super.clear();
-        totalMoney_ = 0F;
+        totalMoney_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
@@ -2319,7 +2450,9 @@ public final class GameRegular {
       public Builder mergeFrom(com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg other) {
         if (other == com.xt.yde.protobuf.regular.GameRegular.RegularClearGameResponseMsg.getDefaultInstance()) return this;
         if (other.hasTotalMoney()) {
-          setTotalMoney(other.getTotalMoney());
+          bitField0_ |= 0x00000001;
+          totalMoney_ = other.totalMoney_;
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -2352,10 +2485,10 @@ public final class GameRegular {
       }
       private int bitField0_;
 
-      // required float totalMoney = 1;
-      private float totalMoney_ ;
+      // required string totalMoney = 1;
+      private java.lang.Object totalMoney_ = "";
       /**
-       * <code>required float totalMoney = 1;</code>
+       * <code>required string totalMoney = 1;</code>
        *
        * <pre>
        *获奖金额
@@ -2365,30 +2498,62 @@ public final class GameRegular {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required float totalMoney = 1;</code>
+       * <code>required string totalMoney = 1;</code>
        *
        * <pre>
        *获奖金额
        * </pre>
        */
-      public float getTotalMoney() {
-        return totalMoney_;
+      public java.lang.String getTotalMoney() {
+        java.lang.Object ref = totalMoney_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          totalMoney_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>required float totalMoney = 1;</code>
+       * <code>required string totalMoney = 1;</code>
        *
        * <pre>
        *获奖金额
        * </pre>
        */
-      public Builder setTotalMoney(float value) {
-        bitField0_ |= 0x00000001;
+      public com.google.protobuf.ByteString
+          getTotalMoneyBytes() {
+        java.lang.Object ref = totalMoney_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          totalMoney_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string totalMoney = 1;</code>
+       *
+       * <pre>
+       *获奖金额
+       * </pre>
+       */
+      public Builder setTotalMoney(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         totalMoney_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required float totalMoney = 1;</code>
+       * <code>required string totalMoney = 1;</code>
        *
        * <pre>
        *获奖金额
@@ -2396,7 +2561,24 @@ public final class GameRegular {
        */
       public Builder clearTotalMoney() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        totalMoney_ = 0F;
+        totalMoney_ = getDefaultInstance().getTotalMoney();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string totalMoney = 1;</code>
+       *
+       * <pre>
+       *获奖金额
+       * </pre>
+       */
+      public Builder setTotalMoneyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        totalMoney_ = value;
         onChanged();
         return this;
       }
@@ -2456,9 +2638,9 @@ public final class GameRegular {
       "\022\r\n\005times\030\001 \002(\005\"\034\n\032RegularRaiseBetRespon" +
       "seMsg\"\034\n\032RegularGuessSizeRequestMsg\"?\n\033R" +
       "egularGuessSizeResponseMsg\022\014\n\004flag\030\001 \002(\010" +
-      "\022\022\n\ntotalMoney\030\002 \002(\005\"\034\n\032RegularClearGame" +
+      "\022\022\n\ntotalMoney\030\002 \002(\t\"\034\n\032RegularClearGame" +
       "RequestMsg\"1\n\033RegularClearGameResponseMs" +
-      "g\022\022\n\ntotalMoney\030\001 \002(\002B\rB\013GameRegular"
+      "g\022\022\n\ntotalMoney\030\001 \002(\tB\rB\013GameRegular"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

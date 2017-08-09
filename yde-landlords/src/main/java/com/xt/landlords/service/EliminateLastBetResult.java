@@ -1,19 +1,21 @@
 package com.xt.landlords.service;
 
+import java.math.BigDecimal;
+
 /**
  * Created by leo on 17/6/1.
  */
 public class EliminateLastBetResult {
     private String serialNo;//下注序列号
     private int awardLevel;//奖等
-    private Integer totalMoney;//获得的总奖金
+    private BigDecimal totalMoney;//获得的总奖金
     private String errorMessage;
 
-    public Integer getTotalMoney() {
+    public BigDecimal getTotalMoney() {
         return totalMoney;
     }
 
-    public EliminateLastBetResult setTotalMoney(Integer totalMoney) {
+    public EliminateLastBetResult setTotalMoney(BigDecimal totalMoney) {
         this.totalMoney = totalMoney;
         return this;
     }

@@ -32,5 +32,5 @@ message EliminateClearGameRequestMsg{
 
 //结算应答
 message EliminateClearGameResponseMsg{
-required float totalMoney = 1;//获奖金额
+required string totalMoney = 1;//获奖金额
 }

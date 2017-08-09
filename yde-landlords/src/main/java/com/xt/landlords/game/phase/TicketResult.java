@@ -1,5 +1,7 @@
 package com.xt.landlords.game.phase;
 
+import java.math.BigDecimal;
+
 /**
  * Created by leo on 17/6/2.
  */
@@ -9,7 +11,7 @@ public class TicketResult {
     private int prizeType;//1：未中奖；2：小奖；3：大奖
     private float prizeLevel;
     private String prizeContent;
-    private float prizeCash;
+    private BigDecimal prizeCash;
     private int prizeInfaceCash;
     private int prizePoint;
 
@@ -31,11 +33,11 @@ public class TicketResult {
         return this;
     }
 
-    public float getPrizeCash() {
+    public BigDecimal getPrizeCash() {
         return prizeCash;
     }
 
-    public TicketResult setPrizeCash(float prizeCash) {
+    public TicketResult setPrizeCash(BigDecimal prizeCash) {
         this.prizeCash = prizeCash;
         return this;
     }

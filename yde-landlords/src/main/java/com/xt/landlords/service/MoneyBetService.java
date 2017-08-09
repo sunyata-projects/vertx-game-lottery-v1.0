@@ -61,7 +61,7 @@ public class MoneyBetService {
 //        throw new Exception("下注失败");
         GameController gameController = GameManager.getGameController(userName);
         GameModel gameModel = gameController.getGameModel();
-        Account.reductBalance(gameModel.getUserName (),new BigDecimal(betAmt));
+        Account.reductBalance(gameModel.getUserName(), new BigDecimal(betAmt));
         String serialNo = String.valueOf(worker.nextId());
         if (gameType == GameTypes.Regular.getValue()) {
             //return serialNo;
@@ -82,16 +82,15 @@ public class MoneyBetService {
                 cash = 0;
             }
             return new TicketResult().setTicketId(serialNo).setPrizeType(2).setPrizeLevel(prizeLevel).setPrizeCash
-                    (cash);
+                    (new BigDecimal(String.valueOf(cash)));
         } else if (gameType == GameTypes.Puzzle.getValue()) {
             return new TicketResult().setTicketId(serialNo).setPrizeType(2).setPrizeLevel(2).setPrizeCash
-                    (1000);
+                    (new BigDecimal("1000"));
         } else if (gameType == GameTypes.Mission.getValue()) {
             int random = nextInt(1, 15);
             Float times = map.getOrDefault(random, 0.0f);
-            float cash = (times * betAmt);
-            return new TicketResult().setTicketId(serialNo).setPrizeType(2).setPrizeLevel(times).setPrizeCash
-                    (cash);
+            BigDecimal cash = new BigDecimal(times.toString()).multiply(new BigDecimal(String.valueOf(betAmt)));
+            return new TicketResult().setTicketId(serialNo).setPrizeType(2).setPrizeLevel(times).setPrizeCash(cash);
         }
 //        HashMap<String, String> parameters = new HashMap<>();
 //        parameters.put("betAmt", String.valueOf(betAmt));

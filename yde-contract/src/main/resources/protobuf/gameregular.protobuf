@@ -24,7 +24,7 @@ message RegularGuessSizeRequestMsg{
 //翻牌应答
 message RegularGuessSizeResponseMsg{
     required bool  flag = 1; //是否翻牌,true翻
-    required int32  totalMoney = 2; //中奖金额,有符合预期和不符合预期两种算法
+    required string  totalMoney = 2; //中奖金额,有符合预期和不符合预期两种算法
 }
 
 //结算请求
@@ -33,5 +33,5 @@ message RegularClearGameRequestMsg{
 
 //结算应答
 message RegularClearGameResponseMsg{
-required float totalMoney = 1;//获奖金额
+required string totalMoney = 1;//获奖金额
 }

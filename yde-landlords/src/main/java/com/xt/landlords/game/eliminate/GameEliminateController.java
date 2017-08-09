@@ -159,7 +159,7 @@ public class GameEliminateController extends GameController<GameEliminateModel, 
 
     public void OnGameOver(GameEliminateState from, GameEliminateState to, GameEliminateEvent event,
                            GameModel context) throws Exception {
-        Integer totalMoney = 0;
+        BigDecimal totalMoney = BigDecimal.ZERO;
         EliminateClearPhaseData phaseData = (EliminateClearPhaseData) getPhaseData(GameEliminateState.GameOver.getValue
                 ());
         GameEliminateModel gameModel = getGameModel();
@@ -173,7 +173,7 @@ public class GameEliminateController extends GameController<GameEliminateModel, 
             lastPlayPhaseDataItem = playPhaseData.getLastPlayPhaseDataItem();
 
             EliminateLastBetResult lastBetResult = lastBetService.bet(gameModel.getUserName(), lastPlayPhaseDataItem
-                    .getBetGamePoint(), "");
+                    .getBetGamePoint(), "", lastPlayPhaseDataItem.getAwardLevel() == 99);
 
             //lastBetResult.setTotalMoney((int) (lastPlayPhaseDataItem.getExchangeGamePointBalance() / 100.00));
             if (!StringUtils.isEmpty(lastBetResult.getErrorMessage())) {
@@ -201,7 +201,7 @@ public class GameEliminateController extends GameController<GameEliminateModel, 
         logger.info("游戏正常结束,归还游戏点数,换算成人民向为:{}", money);
         Account.addBalance(gameModel.getUserName(), money);
         logger.info("游戏正常结束,奖金关获得奖奖励:{}", totalMoney);
-        Account.addBalance(gameModel.getUserName(), new BigDecimal(totalMoney));
+        Account.addBalance(gameModel.getUserName(), totalMoney);
         logger.info("game over");
     }
 

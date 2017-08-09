@@ -204,9 +204,11 @@ public class GameRegularController extends GameController<GameRegularModel, Game
         } else {
             totalMoney = 1.5f;
         }
-        totalMoney = betPhaseModel.getPhaseData().getBetAmt() * totalMoney * raisePhaseModel.getPhaseData()
-                .getTimes();
-        betResult.setPrizeCash(totalMoney);
+        BigDecimal lastTotalMoney = new BigDecimal(String.valueOf(betPhaseModel.getPhaseData().getBetAmt())).multiply(new
+                BigDecimal
+                (String.valueOf(totalMoney))).multiply(new BigDecimal(String.valueOf(raisePhaseModel.getPhaseData().getTimes
+                ())));
+        betResult.setPrizeCash(lastTotalMoney);
 
         if (StringUtils.isEmpty(betResult.getTicketId())) {
             throw new BetErrorException("下注失败,请重试");
@@ -231,8 +233,8 @@ public class GameRegularController extends GameController<GameRegularModel, Game
             throw new BetErrorException("下注失败,请重试");
         }
 
-        float totalMoney = ticketResult.getPrizeCash();
-        phaseData.setSerialNo(ticketResult.getTicketId()).setTotalMoney(new BigDecimal(totalMoney));
+        BigDecimal totalMoney = ticketResult.getPrizeCash();
+        phaseData.setSerialNo(ticketResult.getTicketId()).setTotalMoney(totalMoney);
         setPhaseSuccess(GameRegularState.GameOver.getValue());
         logger.append("game over");
     }

@@ -33,17 +33,19 @@ public class PuzzleCardServiceHandler implements PuzzleCardsService.Iface {
 
     public List getWZ() {
         PuzzleCard wz = cardPuzzleStore.getWZ();
+        logger.info("拼图赛WZ牌库id:{}", wz.getId());
         return Json.decodeValue(wz.getCards(), List.class);
     }
 
     public List get22() {
         PuzzleCard wz = cardPuzzleStore.get22();
+        logger.info("拼图赛222牌库id:{}", wz.getId());
         return Json.decodeValue(wz.getCards(), List.class);
     }
 
     public List getNormal(int grade) {
         PuzzleCard wz = cardPuzzleStore.getNormal(grade);
-        logger.info("拼图赛牌库id:{}", wz.getId());
+        logger.info("拼图赛Normal牌库id:{}", wz.getId());
         return Json.decodeValue(wz.getCards(), List.class);
     }
 

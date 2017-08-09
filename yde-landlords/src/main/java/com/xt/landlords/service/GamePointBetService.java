@@ -141,13 +141,17 @@ public class GamePointBetService {
             int bombNumsRandom = 0;
             Integer totalGamePoint = 0;
             if (betAmt > 100) {//如果投注额大于100,则有机会中累计奖
-                prizeLevel = nextInt(0, 60);
+                prizeLevel = nextInt(0, 55);
             } else {
                 prizeLevel = nextInt(0, 50);
-                bombNumsRandom = nextInt(2, 3);
+            }
+            if (prizeLevel <= 50) {
                 totalGamePoint = mapPoints.getOrDefault(prizeLevel, 0);
                 totalGamePoint = totalGamePoint == 0 ? 0 : (int) (totalGamePoint * (betAmt / 100.00));
+                bombNumsRandom = nextInt(2, 2);//又王的中奖机率为100%
             }
+
+
             boolean bombFlag = bombNumsRandom == 2;
             logger.info("双王数量:{}", bombFlag ? 1 : 0);
             //如果大于50,则视为中至尊牌型

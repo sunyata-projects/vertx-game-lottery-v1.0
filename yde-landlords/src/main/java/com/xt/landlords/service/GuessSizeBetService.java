@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.sunyata.quark.client.IdWorker;
 
+import java.math.BigDecimal;
 import java.util.Random;
 
 /**
@@ -25,8 +26,8 @@ public class GuessSizeBetService {
         String serialNo = String.valueOf(worker.nextId());
         int i = r.nextInt(7);
         if (i % 2 == 0) {
-            return new TicketResult().setTicketId(serialNo).setPrizeCash(0).setPrizeLevel(-1);
+            return new TicketResult().setTicketId(serialNo).setPrizeCash(BigDecimal.ZERO).setPrizeLevel(-1);
         }
-        return new TicketResult().setTicketId(serialNo).setPrizeCash(10).setPrizeLevel(1);
+        return new TicketResult().setTicketId(serialNo).setPrizeCash(new BigDecimal("10")).setPrizeLevel(1);
     }
 }

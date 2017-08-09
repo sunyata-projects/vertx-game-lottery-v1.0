@@ -61,8 +61,9 @@ public class EliminateCardServiceHandler implements EliminateCardsService.Iface 
         logger.info("消除赛awardLevel:{},bombNum:{}", prizeLevel, bombNum);
         EliminateCard cardsFromDb = null;
         if (prizeLevel == 99) {
-            cardsFromDb = new EliminateCard().setId("-1").setBomb_numbers(0).setCards("53,52,51,38,25,12,50,37,24,49," +
-                    "48,47,46,45,44,43,42,41,40,39");
+            cardsFromDb = new EliminateCard().setId("-1").setBomb_numbers(0).setCards("[[53,52,51,38,25,12,50,37,24," +
+                    "49," +
+                    "48,47,46,45,44,43,42,41,40,39]]");
         } else {
             cardsFromDb = cardEliminateStore.getCards(prizeLevel, bombNum);
             logger.info("消除赛牌库id:{}", cardsFromDb.getId());
