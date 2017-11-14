@@ -1,9 +1,9 @@
 package com.xt.landlords.game.regular;
 
-import com.xt.landlords.GameTypes;
 import com.xt.landlords.game.phase.DealPhaseData;
 import com.xt.landlords.game.phase.DealPhaseModel;
 import com.xt.landlords.game.regular.phase.*;
+import com.xt.yde.GameTypes;
 import org.sunyata.octopus.model.GameModel;
 import org.sunyata.octopus.model.GamePhaseModel;
 import org.sunyata.octopus.model.PhaseState;

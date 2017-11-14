@@ -145,6 +145,7 @@ public class GamePointBetService {
             } else {
                 prizeLevel = nextInt(0, 50);
             }
+//            prizeLevel = 51;
             if (prizeLevel <= 50) {
                 totalGamePoint = mapPoints.getOrDefault(prizeLevel, 0);
                 totalGamePoint = totalGamePoint == 0 ? 0 : (int) (totalGamePoint * (betAmt / 100.00));

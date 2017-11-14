@@ -1,9 +1,9 @@
 package com.xt.landlords.game.puzzle;
 
-import com.xt.landlords.GameTypes;
 import com.xt.landlords.game.puzzle.phase.PuzzleClearPhaseModel;
 import com.xt.landlords.game.puzzle.phase.PuzzleDealPhaseData;
 import com.xt.landlords.game.puzzle.phase.PuzzleDealPhaseModel;
+import com.xt.yde.GameTypes;
 import org.sunyata.octopus.model.GameModel;
 import org.sunyata.octopus.model.GamePhaseModel;
 import org.sunyata.octopus.model.PhaseState;

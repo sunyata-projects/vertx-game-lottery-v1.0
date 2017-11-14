@@ -1,7 +1,6 @@
 package com.xt.landlords.game.eliminate;
 
 import com.xt.landlords.GameManager;
-import com.xt.landlords.GameTypes;
 import com.xt.landlords.account.Account;
 import com.xt.landlords.exception.BetErrorException;
 import com.xt.landlords.exception.ExchangeErrorException;
@@ -14,6 +13,7 @@ import com.xt.landlords.game.phase.ExchangePhaseData;
 import com.xt.landlords.ioc.SpringIocUtil;
 import com.xt.landlords.service.*;
 import com.xt.landlords.statemachine.GameController;
+import com.xt.yde.GameTypes;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
@@ -173,13 +173,22 @@ public class GameEliminateController extends GameController<GameEliminateModel, 
             lastPlayPhaseDataItem = playPhaseData.getLastPlayPhaseDataItem();
 
             EliminateLastBetResult lastBetResult = lastBetService.bet(gameModel.getUserName(), lastPlayPhaseDataItem
-                    .getBetGamePoint(), "", lastPlayPhaseDataItem.getAwardLevel() == 99);
+                    .getBetGamePoint(), lastPlayPhaseDataItem.getTotalAwardGamePoint(), "", lastPlayPhaseDataItem
+                    .getAwardLevel() == 99);
 
             //lastBetResult.setTotalMoney((int) (lastPlayPhaseDataItem.getExchangeGamePointBalance() / 100.00));
             if (!StringUtils.isEmpty(lastBetResult.getErrorMessage())) {
                 throw new BetErrorException("下注失败,请重试");
             }
-            totalMoney = lastBetResult.getTotalMoney();
+            if (lastPlayPhaseDataItem.getTotalDoubleKingCount() < 7) {
+                if (lastBetResult.getAwardLevel() == 99) {
+                    totalMoney = new BigDecimal("1000000");
+                } else {
+                    totalMoney = BigDecimal.ZERO;
+                }
+            } else {
+                totalMoney = lastBetResult.getTotalMoney();
+            }
             phaseData.setSerialNo(lastBetResult.getSerialNo()).setTotalMoney(totalMoney);
         }
 

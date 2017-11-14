@@ -2,10 +2,10 @@ package com.xt.landlords.ai;
 
 import com.xt.landlords.ai.core.trusteeship.TrusteeshipAI;
 import com.xt.landlords.ai.core.util.complex.AIConstant;
-import com.xt.landlords.ai.core.util.complex.CaipiaoAI;
 import com.xt.landlords.ai.core.util.complex.GameStatus;
 import com.xt.landlords.ai.core.util.myutil.AIUtil;
 import com.xt.landlords.ai.core.util.myutil.CardType;
+import com.xt.landlords.ai.core.util.simple.CaipiaoAI;
 import com.xt.yde.thrift.ai.AIService;
 import com.xt.yde.thrift.ai.CheckCards;
 import com.xt.yde.thrift.ai.ShowCards;

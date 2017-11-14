@@ -59,7 +59,9 @@ public class EliminateLastBetService {
     QuarkClient quarkClient;
 
 
-    public EliminateLastBetResult bet(String userName, int betGamePoint, String gameInstanceId, boolean isZhiZun) throws
+    public EliminateLastBetResult bet(String userName, int betGamePoint,int totalAwardGamePoint, String gameInstanceId,
+                                      boolean isZhiZun)
+            throws
             Exception {
 //        try {
 //            String serialNo = String.valueOf(worker.nextId());
@@ -73,22 +75,21 @@ public class EliminateLastBetService {
         if (isZhiZun) {
             return betForZhiZun(userName, betGamePoint, gameInstanceId);
         } else {
-            return bet(userName, betGamePoint, gameInstanceId);
+            return bet(userName, totalAwardGamePoint, gameInstanceId);
         }
     }
 
 
-    public EliminateLastBetResult bet(String userName, int betGamePoint, String gameInstanceId) throws
+    public EliminateLastBetResult bet(String userName, int totalAwardGamePoint, String gameInstanceId) throws
             Exception {
         try {
             String serialNo = String.valueOf(worker.nextId());
-            int i = nextInt(0, 20);
-            Float money = map.get(i);
-            logger.info("消除赛100点时中奖金额为:{}", money);
-            BigDecimal totalMoney = new BigDecimal(money.toString()).multiply(new BigDecimal(String.valueOf
-                    (betGamePoint))).divide(new BigDecimal("100"));
+            //int i = nextInt(0, 20);
+//            Float money = map.get(i);
+//            logger.info("消除赛100点时中奖金额为:{}", money);
+            BigDecimal totalMoney = new BigDecimal(String.valueOf(totalAwardGamePoint)).divide(new BigDecimal("100"));
             logger.info("消除赛换算实际中奖金额为:{}", totalMoney);
-            return new EliminateLastBetResult().setSerialNo(serialNo).setAwardLevel(i).setTotalMoney(totalMoney);
+            return new EliminateLastBetResult().setSerialNo(serialNo).setAwardLevel(1).setTotalMoney(totalMoney);
         } catch (Exception ex) {
             return new EliminateLastBetResult().setErrorMessage(ex.getMessage());
         }
@@ -103,7 +104,7 @@ public class EliminateLastBetService {
 //            Float aFloat = map.get(i);
 //            int totalMoney = (int) (aFloat * (betGamePoint / 100.00));
             return new EliminateLastBetResult().setSerialNo(serialNo).setAwardLevel(99).setTotalMoney(new BigDecimal
-                    (300000));
+                    (1000000));
         } catch (Exception ex) {
             return new EliminateLastBetResult().setErrorMessage(ex.getMessage());
         }

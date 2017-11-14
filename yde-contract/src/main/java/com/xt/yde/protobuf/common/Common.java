@@ -10472,6 +10472,24 @@ public final class Common {
      * </pre>
      */
     int getRightCard(int index);
+
+    // optional bool isZhiZun = 5;
+    /**
+     * <code>optional bool isZhiZun = 5;</code>
+     *
+     * <pre>
+     *是否为至尊牌型,经典赛使用
+     * </pre>
+     */
+    boolean hasIsZhiZun();
+    /**
+     * <code>optional bool isZhiZun = 5;</code>
+     *
+     * <pre>
+     *是否为至尊牌型,经典赛使用
+     * </pre>
+     */
+    boolean getIsZhiZun();
   }
   /**
    * Protobuf type {@code com.xt.yde.protobuf.common.DealResponseMsg}
@@ -10613,6 +10631,11 @@ public final class Common {
               input.popLimit(limit);
               break;
             }
+            case 40: {
+              bitField0_ |= 0x00000001;
+              isZhiZun_ = input.readBool();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -10664,6 +10687,7 @@ public final class Common {
       return PARSER;
     }
 
+    private int bitField0_;
     // repeated int32 darkCard = 1;
     public static final int DARKCARD_FIELD_NUMBER = 1;
     private java.util.List<java.lang.Integer> darkCard_;
@@ -10804,11 +10828,36 @@ public final class Common {
       return rightCard_.get(index);
     }
 
+    // optional bool isZhiZun = 5;
+    public static final int ISZHIZUN_FIELD_NUMBER = 5;
+    private boolean isZhiZun_;
+    /**
+     * <code>optional bool isZhiZun = 5;</code>
+     *
+     * <pre>
+     *是否为至尊牌型,经典赛使用
+     * </pre>
+     */
+    public boolean hasIsZhiZun() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional bool isZhiZun = 5;</code>
+     *
+     * <pre>
+     *是否为至尊牌型,经典赛使用
+     * </pre>
+     */
+    public boolean getIsZhiZun() {
+      return isZhiZun_;
+    }
+
     private void initFields() {
       darkCard_ = java.util.Collections.emptyList();
       centerCard_ = java.util.Collections.emptyList();
       leftCard_ = java.util.Collections.emptyList();
       rightCard_ = java.util.Collections.emptyList();
+      isZhiZun_ = false;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -10833,6 +10882,9 @@ public final class Common {
       }
       for (int i = 0; i < rightCard_.size(); i++) {
         output.writeInt32(4, rightCard_.get(i));
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBool(5, isZhiZun_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -10878,6 +10930,10 @@ public final class Common {
         }
         size += dataSize;
         size += 1 * getRightCardList().size();
+      }
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, isZhiZun_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -11008,6 +11064,8 @@ public final class Common {
         bitField0_ = (bitField0_ & ~0x00000004);
         rightCard_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000008);
+        isZhiZun_ = false;
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -11035,6 +11093,7 @@ public final class Common {
       public com.xt.yde.protobuf.common.Common.DealResponseMsg buildPartial() {
         com.xt.yde.protobuf.common.Common.DealResponseMsg result = new com.xt.yde.protobuf.common.Common.DealResponseMsg(this);
         int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (((bitField0_ & 0x00000001) == 0x00000001)) {
           darkCard_ = java.util.Collections.unmodifiableList(darkCard_);
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -11055,6 +11114,11 @@ public final class Common {
           bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.rightCard_ = rightCard_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.isZhiZun_ = isZhiZun_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -11109,6 +11173,9 @@ public final class Common {
             rightCard_.addAll(other.rightCard_);
           }
           onChanged();
+        }
+        if (other.hasIsZhiZun()) {
+          setIsZhiZun(other.getIsZhiZun());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -11513,6 +11580,55 @@ public final class Common {
         return this;
       }
 
+      // optional bool isZhiZun = 5;
+      private boolean isZhiZun_ ;
+      /**
+       * <code>optional bool isZhiZun = 5;</code>
+       *
+       * <pre>
+       *是否为至尊牌型,经典赛使用
+       * </pre>
+       */
+      public boolean hasIsZhiZun() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional bool isZhiZun = 5;</code>
+       *
+       * <pre>
+       *是否为至尊牌型,经典赛使用
+       * </pre>
+       */
+      public boolean getIsZhiZun() {
+        return isZhiZun_;
+      }
+      /**
+       * <code>optional bool isZhiZun = 5;</code>
+       *
+       * <pre>
+       *是否为至尊牌型,经典赛使用
+       * </pre>
+       */
+      public Builder setIsZhiZun(boolean value) {
+        bitField0_ |= 0x00000010;
+        isZhiZun_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool isZhiZun = 5;</code>
+       *
+       * <pre>
+       *是否为至尊牌型,经典赛使用
+       * </pre>
+       */
+      public Builder clearIsZhiZun() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        isZhiZun_ = false;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:com.xt.yde.protobuf.common.DealResponseMsg)
     }
 
@@ -11522,6 +11638,3345 @@ public final class Common {
     }
 
     // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.common.DealResponseMsg)
+  }
+
+  public interface ClearGameRequestMsgOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code com.xt.yde.protobuf.common.ClearGameRequestMsg}
+   *
+   * <pre>
+   *游戏结算
+   * </pre>
+   */
+  public static final class ClearGameRequestMsg extends
+      com.google.protobuf.GeneratedMessage
+      implements ClearGameRequestMsgOrBuilder {
+    // Use ClearGameRequestMsg.newBuilder() to construct.
+    private ClearGameRequestMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private ClearGameRequestMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final ClearGameRequestMsg defaultInstance;
+    public static ClearGameRequestMsg getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public ClearGameRequestMsg getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ClearGameRequestMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_ClearGameRequestMsg_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_ClearGameRequestMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.xt.yde.protobuf.common.Common.ClearGameRequestMsg.class, com.xt.yde.protobuf.common.Common.ClearGameRequestMsg.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<ClearGameRequestMsg> PARSER =
+        new com.google.protobuf.AbstractParser<ClearGameRequestMsg>() {
+      public ClearGameRequestMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ClearGameRequestMsg(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ClearGameRequestMsg> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.xt.yde.protobuf.common.Common.ClearGameRequestMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.common.Common.ClearGameRequestMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.ClearGameRequestMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.common.Common.ClearGameRequestMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.ClearGameRequestMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.ClearGameRequestMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.ClearGameRequestMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.ClearGameRequestMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.ClearGameRequestMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.ClearGameRequestMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.xt.yde.protobuf.common.Common.ClearGameRequestMsg prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.xt.yde.protobuf.common.ClearGameRequestMsg}
+     *
+     * <pre>
+     *游戏结算
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.xt.yde.protobuf.common.Common.ClearGameRequestMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_ClearGameRequestMsg_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_ClearGameRequestMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.xt.yde.protobuf.common.Common.ClearGameRequestMsg.class, com.xt.yde.protobuf.common.Common.ClearGameRequestMsg.Builder.class);
+      }
+
+      // Construct using com.xt.yde.protobuf.common.Common.ClearGameRequestMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_ClearGameRequestMsg_descriptor;
+      }
+
+      public com.xt.yde.protobuf.common.Common.ClearGameRequestMsg getDefaultInstanceForType() {
+        return com.xt.yde.protobuf.common.Common.ClearGameRequestMsg.getDefaultInstance();
+      }
+
+      public com.xt.yde.protobuf.common.Common.ClearGameRequestMsg build() {
+        com.xt.yde.protobuf.common.Common.ClearGameRequestMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.xt.yde.protobuf.common.Common.ClearGameRequestMsg buildPartial() {
+        com.xt.yde.protobuf.common.Common.ClearGameRequestMsg result = new com.xt.yde.protobuf.common.Common.ClearGameRequestMsg(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.xt.yde.protobuf.common.Common.ClearGameRequestMsg) {
+          return mergeFrom((com.xt.yde.protobuf.common.Common.ClearGameRequestMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.xt.yde.protobuf.common.Common.ClearGameRequestMsg other) {
+        if (other == com.xt.yde.protobuf.common.Common.ClearGameRequestMsg.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.xt.yde.protobuf.common.Common.ClearGameRequestMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.xt.yde.protobuf.common.Common.ClearGameRequestMsg) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.xt.yde.protobuf.common.ClearGameRequestMsg)
+    }
+
+    static {
+      defaultInstance = new ClearGameRequestMsg(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.common.ClearGameRequestMsg)
+  }
+
+  public interface ClearGameResponseMsgOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required string money = 1;
+    /**
+     * <code>required string money = 1;</code>
+     *
+     * <pre>
+     * 钱数
+     * </pre>
+     */
+    boolean hasMoney();
+    /**
+     * <code>required string money = 1;</code>
+     *
+     * <pre>
+     * 钱数
+     * </pre>
+     */
+    java.lang.String getMoney();
+    /**
+     * <code>required string money = 1;</code>
+     *
+     * <pre>
+     * 钱数
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getMoneyBytes();
+  }
+  /**
+   * Protobuf type {@code com.xt.yde.protobuf.common.ClearGameResponseMsg}
+   *
+   * <pre>
+   *游戏结算
+   * </pre>
+   */
+  public static final class ClearGameResponseMsg extends
+      com.google.protobuf.GeneratedMessage
+      implements ClearGameResponseMsgOrBuilder {
+    // Use ClearGameResponseMsg.newBuilder() to construct.
+    private ClearGameResponseMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private ClearGameResponseMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final ClearGameResponseMsg defaultInstance;
+    public static ClearGameResponseMsg getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public ClearGameResponseMsg getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ClearGameResponseMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              money_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_ClearGameResponseMsg_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_ClearGameResponseMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.xt.yde.protobuf.common.Common.ClearGameResponseMsg.class, com.xt.yde.protobuf.common.Common.ClearGameResponseMsg.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<ClearGameResponseMsg> PARSER =
+        new com.google.protobuf.AbstractParser<ClearGameResponseMsg>() {
+      public ClearGameResponseMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ClearGameResponseMsg(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ClearGameResponseMsg> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required string money = 1;
+    public static final int MONEY_FIELD_NUMBER = 1;
+    private java.lang.Object money_;
+    /**
+     * <code>required string money = 1;</code>
+     *
+     * <pre>
+     * 钱数
+     * </pre>
+     */
+    public boolean hasMoney() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string money = 1;</code>
+     *
+     * <pre>
+     * 钱数
+     * </pre>
+     */
+    public java.lang.String getMoney() {
+      java.lang.Object ref = money_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          money_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string money = 1;</code>
+     *
+     * <pre>
+     * 钱数
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getMoneyBytes() {
+      java.lang.Object ref = money_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        money_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private void initFields() {
+      money_ = "";
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasMoney()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getMoneyBytes());
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getMoneyBytes());
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.xt.yde.protobuf.common.Common.ClearGameResponseMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.common.Common.ClearGameResponseMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.ClearGameResponseMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.common.Common.ClearGameResponseMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.ClearGameResponseMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.ClearGameResponseMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.ClearGameResponseMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.ClearGameResponseMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.ClearGameResponseMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.ClearGameResponseMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.xt.yde.protobuf.common.Common.ClearGameResponseMsg prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.xt.yde.protobuf.common.ClearGameResponseMsg}
+     *
+     * <pre>
+     *游戏结算
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.xt.yde.protobuf.common.Common.ClearGameResponseMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_ClearGameResponseMsg_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_ClearGameResponseMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.xt.yde.protobuf.common.Common.ClearGameResponseMsg.class, com.xt.yde.protobuf.common.Common.ClearGameResponseMsg.Builder.class);
+      }
+
+      // Construct using com.xt.yde.protobuf.common.Common.ClearGameResponseMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        money_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_ClearGameResponseMsg_descriptor;
+      }
+
+      public com.xt.yde.protobuf.common.Common.ClearGameResponseMsg getDefaultInstanceForType() {
+        return com.xt.yde.protobuf.common.Common.ClearGameResponseMsg.getDefaultInstance();
+      }
+
+      public com.xt.yde.protobuf.common.Common.ClearGameResponseMsg build() {
+        com.xt.yde.protobuf.common.Common.ClearGameResponseMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.xt.yde.protobuf.common.Common.ClearGameResponseMsg buildPartial() {
+        com.xt.yde.protobuf.common.Common.ClearGameResponseMsg result = new com.xt.yde.protobuf.common.Common.ClearGameResponseMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.money_ = money_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.xt.yde.protobuf.common.Common.ClearGameResponseMsg) {
+          return mergeFrom((com.xt.yde.protobuf.common.Common.ClearGameResponseMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.xt.yde.protobuf.common.Common.ClearGameResponseMsg other) {
+        if (other == com.xt.yde.protobuf.common.Common.ClearGameResponseMsg.getDefaultInstance()) return this;
+        if (other.hasMoney()) {
+          bitField0_ |= 0x00000001;
+          money_ = other.money_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasMoney()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.xt.yde.protobuf.common.Common.ClearGameResponseMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.xt.yde.protobuf.common.Common.ClearGameResponseMsg) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required string money = 1;
+      private java.lang.Object money_ = "";
+      /**
+       * <code>required string money = 1;</code>
+       *
+       * <pre>
+       * 钱数
+       * </pre>
+       */
+      public boolean hasMoney() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string money = 1;</code>
+       *
+       * <pre>
+       * 钱数
+       * </pre>
+       */
+      public java.lang.String getMoney() {
+        java.lang.Object ref = money_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          money_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string money = 1;</code>
+       *
+       * <pre>
+       * 钱数
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getMoneyBytes() {
+        java.lang.Object ref = money_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          money_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string money = 1;</code>
+       *
+       * <pre>
+       * 钱数
+       * </pre>
+       */
+      public Builder setMoney(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        money_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string money = 1;</code>
+       *
+       * <pre>
+       * 钱数
+       * </pre>
+       */
+      public Builder clearMoney() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        money_ = getDefaultInstance().getMoney();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string money = 1;</code>
+       *
+       * <pre>
+       * 钱数
+       * </pre>
+       */
+      public Builder setMoneyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        money_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.xt.yde.protobuf.common.ClearGameResponseMsg)
+    }
+
+    static {
+      defaultInstance = new ClearGameResponseMsg(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.common.ClearGameResponseMsg)
+  }
+
+  public interface EnterDoubleRequestMsgOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required int32 type = 1;
+    /**
+     * <code>required int32 type = 1;</code>
+     *
+     * <pre>
+     *比倍类型 0全比，1半比
+     * </pre>
+     */
+    boolean hasType();
+    /**
+     * <code>required int32 type = 1;</code>
+     *
+     * <pre>
+     *比倍类型 0全比，1半比
+     * </pre>
+     */
+    int getType();
+  }
+  /**
+   * Protobuf type {@code com.xt.yde.protobuf.common.EnterDoubleRequestMsg}
+   *
+   * <pre>
+   *进入比倍
+   * </pre>
+   */
+  public static final class EnterDoubleRequestMsg extends
+      com.google.protobuf.GeneratedMessage
+      implements EnterDoubleRequestMsgOrBuilder {
+    // Use EnterDoubleRequestMsg.newBuilder() to construct.
+    private EnterDoubleRequestMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private EnterDoubleRequestMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final EnterDoubleRequestMsg defaultInstance;
+    public static EnterDoubleRequestMsg getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public EnterDoubleRequestMsg getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private EnterDoubleRequestMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              type_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_EnterDoubleRequestMsg_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_EnterDoubleRequestMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg.class, com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<EnterDoubleRequestMsg> PARSER =
+        new com.google.protobuf.AbstractParser<EnterDoubleRequestMsg>() {
+      public EnterDoubleRequestMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new EnterDoubleRequestMsg(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<EnterDoubleRequestMsg> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required int32 type = 1;
+    public static final int TYPE_FIELD_NUMBER = 1;
+    private int type_;
+    /**
+     * <code>required int32 type = 1;</code>
+     *
+     * <pre>
+     *比倍类型 0全比，1半比
+     * </pre>
+     */
+    public boolean hasType() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 type = 1;</code>
+     *
+     * <pre>
+     *比倍类型 0全比，1半比
+     * </pre>
+     */
+    public int getType() {
+      return type_;
+    }
+
+    private void initFields() {
+      type_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasType()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, type_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, type_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.xt.yde.protobuf.common.EnterDoubleRequestMsg}
+     *
+     * <pre>
+     *进入比倍
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_EnterDoubleRequestMsg_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_EnterDoubleRequestMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg.class, com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg.Builder.class);
+      }
+
+      // Construct using com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        type_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_EnterDoubleRequestMsg_descriptor;
+      }
+
+      public com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg getDefaultInstanceForType() {
+        return com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg.getDefaultInstance();
+      }
+
+      public com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg build() {
+        com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg buildPartial() {
+        com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg result = new com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.type_ = type_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg) {
+          return mergeFrom((com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg other) {
+        if (other == com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg.getDefaultInstance()) return this;
+        if (other.hasType()) {
+          setType(other.getType());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasType()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.xt.yde.protobuf.common.Common.EnterDoubleRequestMsg) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required int32 type = 1;
+      private int type_ ;
+      /**
+       * <code>required int32 type = 1;</code>
+       *
+       * <pre>
+       *比倍类型 0全比，1半比
+       * </pre>
+       */
+      public boolean hasType() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 type = 1;</code>
+       *
+       * <pre>
+       *比倍类型 0全比，1半比
+       * </pre>
+       */
+      public int getType() {
+        return type_;
+      }
+      /**
+       * <code>required int32 type = 1;</code>
+       *
+       * <pre>
+       *比倍类型 0全比，1半比
+       * </pre>
+       */
+      public Builder setType(int value) {
+        bitField0_ |= 0x00000001;
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 type = 1;</code>
+       *
+       * <pre>
+       *比倍类型 0全比，1半比
+       * </pre>
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        type_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.xt.yde.protobuf.common.EnterDoubleRequestMsg)
+    }
+
+    static {
+      defaultInstance = new EnterDoubleRequestMsg(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.common.EnterDoubleRequestMsg)
+  }
+
+  public interface EnterDoubleResponseMsgOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code com.xt.yde.protobuf.common.EnterDoubleResponseMsg}
+   *
+   * <pre>
+   *进入比倍结果
+   * </pre>
+   */
+  public static final class EnterDoubleResponseMsg extends
+      com.google.protobuf.GeneratedMessage
+      implements EnterDoubleResponseMsgOrBuilder {
+    // Use EnterDoubleResponseMsg.newBuilder() to construct.
+    private EnterDoubleResponseMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private EnterDoubleResponseMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final EnterDoubleResponseMsg defaultInstance;
+    public static EnterDoubleResponseMsg getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public EnterDoubleResponseMsg getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private EnterDoubleResponseMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_EnterDoubleResponseMsg_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_EnterDoubleResponseMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg.class, com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<EnterDoubleResponseMsg> PARSER =
+        new com.google.protobuf.AbstractParser<EnterDoubleResponseMsg>() {
+      public EnterDoubleResponseMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new EnterDoubleResponseMsg(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<EnterDoubleResponseMsg> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.xt.yde.protobuf.common.EnterDoubleResponseMsg}
+     *
+     * <pre>
+     *进入比倍结果
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_EnterDoubleResponseMsg_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_EnterDoubleResponseMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg.class, com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg.Builder.class);
+      }
+
+      // Construct using com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_EnterDoubleResponseMsg_descriptor;
+      }
+
+      public com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg getDefaultInstanceForType() {
+        return com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg.getDefaultInstance();
+      }
+
+      public com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg build() {
+        com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg buildPartial() {
+        com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg result = new com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg) {
+          return mergeFrom((com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg other) {
+        if (other == com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.xt.yde.protobuf.common.Common.EnterDoubleResponseMsg) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.xt.yde.protobuf.common.EnterDoubleResponseMsg)
+    }
+
+    static {
+      defaultInstance = new EnterDoubleResponseMsg(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.common.EnterDoubleResponseMsg)
+  }
+
+  public interface DoubleGuessRequestMsgOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code com.xt.yde.protobuf.common.DoubleGuessRequestMsg}
+   *
+   * <pre>
+   *比倍猜一次大小
+   * </pre>
+   */
+  public static final class DoubleGuessRequestMsg extends
+      com.google.protobuf.GeneratedMessage
+      implements DoubleGuessRequestMsgOrBuilder {
+    // Use DoubleGuessRequestMsg.newBuilder() to construct.
+    private DoubleGuessRequestMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private DoubleGuessRequestMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final DoubleGuessRequestMsg defaultInstance;
+    public static DoubleGuessRequestMsg getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public DoubleGuessRequestMsg getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DoubleGuessRequestMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_DoubleGuessRequestMsg_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_DoubleGuessRequestMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg.class, com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<DoubleGuessRequestMsg> PARSER =
+        new com.google.protobuf.AbstractParser<DoubleGuessRequestMsg>() {
+      public DoubleGuessRequestMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DoubleGuessRequestMsg(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DoubleGuessRequestMsg> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.xt.yde.protobuf.common.DoubleGuessRequestMsg}
+     *
+     * <pre>
+     *比倍猜一次大小
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_DoubleGuessRequestMsg_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_DoubleGuessRequestMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg.class, com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg.Builder.class);
+      }
+
+      // Construct using com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_DoubleGuessRequestMsg_descriptor;
+      }
+
+      public com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg getDefaultInstanceForType() {
+        return com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg.getDefaultInstance();
+      }
+
+      public com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg build() {
+        com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg buildPartial() {
+        com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg result = new com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg) {
+          return mergeFrom((com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg other) {
+        if (other == com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.xt.yde.protobuf.common.Common.DoubleGuessRequestMsg) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.xt.yde.protobuf.common.DoubleGuessRequestMsg)
+    }
+
+    static {
+      defaultInstance = new DoubleGuessRequestMsg(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.common.DoubleGuessRequestMsg)
+  }
+
+  public interface DoubleGuessResponseMsgOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required bool result = 1;
+    /**
+     * <code>required bool result = 1;</code>
+     *
+     * <pre>
+     *猜大小输赢，true为赢，false为输
+     * </pre>
+     */
+    boolean hasResult();
+    /**
+     * <code>required bool result = 1;</code>
+     *
+     * <pre>
+     *猜大小输赢，true为赢，false为输
+     * </pre>
+     */
+    boolean getResult();
+  }
+  /**
+   * Protobuf type {@code com.xt.yde.protobuf.common.DoubleGuessResponseMsg}
+   *
+   * <pre>
+   *比倍猜一次大小结果
+   * </pre>
+   */
+  public static final class DoubleGuessResponseMsg extends
+      com.google.protobuf.GeneratedMessage
+      implements DoubleGuessResponseMsgOrBuilder {
+    // Use DoubleGuessResponseMsg.newBuilder() to construct.
+    private DoubleGuessResponseMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private DoubleGuessResponseMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final DoubleGuessResponseMsg defaultInstance;
+    public static DoubleGuessResponseMsg getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public DoubleGuessResponseMsg getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DoubleGuessResponseMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              result_ = input.readBool();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_DoubleGuessResponseMsg_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_DoubleGuessResponseMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg.class, com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<DoubleGuessResponseMsg> PARSER =
+        new com.google.protobuf.AbstractParser<DoubleGuessResponseMsg>() {
+      public DoubleGuessResponseMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new DoubleGuessResponseMsg(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DoubleGuessResponseMsg> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required bool result = 1;
+    public static final int RESULT_FIELD_NUMBER = 1;
+    private boolean result_;
+    /**
+     * <code>required bool result = 1;</code>
+     *
+     * <pre>
+     *猜大小输赢，true为赢，false为输
+     * </pre>
+     */
+    public boolean hasResult() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required bool result = 1;</code>
+     *
+     * <pre>
+     *猜大小输赢，true为赢，false为输
+     * </pre>
+     */
+    public boolean getResult() {
+      return result_;
+    }
+
+    private void initFields() {
+      result_ = false;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasResult()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBool(1, result_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, result_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.xt.yde.protobuf.common.DoubleGuessResponseMsg}
+     *
+     * <pre>
+     *比倍猜一次大小结果
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_DoubleGuessResponseMsg_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_DoubleGuessResponseMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg.class, com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg.Builder.class);
+      }
+
+      // Construct using com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        result_ = false;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_DoubleGuessResponseMsg_descriptor;
+      }
+
+      public com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg getDefaultInstanceForType() {
+        return com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg.getDefaultInstance();
+      }
+
+      public com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg build() {
+        com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg buildPartial() {
+        com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg result = new com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.result_ = result_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg) {
+          return mergeFrom((com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg other) {
+        if (other == com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg.getDefaultInstance()) return this;
+        if (other.hasResult()) {
+          setResult(other.getResult());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasResult()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.xt.yde.protobuf.common.Common.DoubleGuessResponseMsg) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required bool result = 1;
+      private boolean result_ ;
+      /**
+       * <code>required bool result = 1;</code>
+       *
+       * <pre>
+       *猜大小输赢，true为赢，false为输
+       * </pre>
+       */
+      public boolean hasResult() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required bool result = 1;</code>
+       *
+       * <pre>
+       *猜大小输赢，true为赢，false为输
+       * </pre>
+       */
+      public boolean getResult() {
+        return result_;
+      }
+      /**
+       * <code>required bool result = 1;</code>
+       *
+       * <pre>
+       *猜大小输赢，true为赢，false为输
+       * </pre>
+       */
+      public Builder setResult(boolean value) {
+        bitField0_ |= 0x00000001;
+        result_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bool result = 1;</code>
+       *
+       * <pre>
+       *猜大小输赢，true为赢，false为输
+       * </pre>
+       */
+      public Builder clearResult() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        result_ = false;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.xt.yde.protobuf.common.DoubleGuessResponseMsg)
+    }
+
+    static {
+      defaultInstance = new DoubleGuessResponseMsg(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.common.DoubleGuessResponseMsg)
+  }
+
+  public interface TurntableRequestMsgOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * Protobuf type {@code com.xt.yde.protobuf.common.TurntableRequestMsg}
+   *
+   * <pre>
+   *请求转盘补奖，用于经典赛和排位赛
+   * </pre>
+   */
+  public static final class TurntableRequestMsg extends
+      com.google.protobuf.GeneratedMessage
+      implements TurntableRequestMsgOrBuilder {
+    // Use TurntableRequestMsg.newBuilder() to construct.
+    private TurntableRequestMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TurntableRequestMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TurntableRequestMsg defaultInstance;
+    public static TurntableRequestMsg getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TurntableRequestMsg getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TurntableRequestMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_TurntableRequestMsg_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_TurntableRequestMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.xt.yde.protobuf.common.Common.TurntableRequestMsg.class, com.xt.yde.protobuf.common.Common.TurntableRequestMsg.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TurntableRequestMsg> PARSER =
+        new com.google.protobuf.AbstractParser<TurntableRequestMsg>() {
+      public TurntableRequestMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TurntableRequestMsg(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TurntableRequestMsg> getParserForType() {
+      return PARSER;
+    }
+
+    private void initFields() {
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.xt.yde.protobuf.common.Common.TurntableRequestMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.common.Common.TurntableRequestMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.TurntableRequestMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.common.Common.TurntableRequestMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.TurntableRequestMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.TurntableRequestMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.TurntableRequestMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.TurntableRequestMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.TurntableRequestMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.TurntableRequestMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.xt.yde.protobuf.common.Common.TurntableRequestMsg prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.xt.yde.protobuf.common.TurntableRequestMsg}
+     *
+     * <pre>
+     *请求转盘补奖，用于经典赛和排位赛
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.xt.yde.protobuf.common.Common.TurntableRequestMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_TurntableRequestMsg_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_TurntableRequestMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.xt.yde.protobuf.common.Common.TurntableRequestMsg.class, com.xt.yde.protobuf.common.Common.TurntableRequestMsg.Builder.class);
+      }
+
+      // Construct using com.xt.yde.protobuf.common.Common.TurntableRequestMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_TurntableRequestMsg_descriptor;
+      }
+
+      public com.xt.yde.protobuf.common.Common.TurntableRequestMsg getDefaultInstanceForType() {
+        return com.xt.yde.protobuf.common.Common.TurntableRequestMsg.getDefaultInstance();
+      }
+
+      public com.xt.yde.protobuf.common.Common.TurntableRequestMsg build() {
+        com.xt.yde.protobuf.common.Common.TurntableRequestMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.xt.yde.protobuf.common.Common.TurntableRequestMsg buildPartial() {
+        com.xt.yde.protobuf.common.Common.TurntableRequestMsg result = new com.xt.yde.protobuf.common.Common.TurntableRequestMsg(this);
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.xt.yde.protobuf.common.Common.TurntableRequestMsg) {
+          return mergeFrom((com.xt.yde.protobuf.common.Common.TurntableRequestMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.xt.yde.protobuf.common.Common.TurntableRequestMsg other) {
+        if (other == com.xt.yde.protobuf.common.Common.TurntableRequestMsg.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.xt.yde.protobuf.common.Common.TurntableRequestMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.xt.yde.protobuf.common.Common.TurntableRequestMsg) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.xt.yde.protobuf.common.TurntableRequestMsg)
+    }
+
+    static {
+      defaultInstance = new TurntableRequestMsg(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.common.TurntableRequestMsg)
+  }
+
+  public interface TurntableResponseMsgOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // required string money = 1;
+    /**
+     * <code>required string money = 1;</code>
+     *
+     * <pre>
+     *补钱 经典赛排位赛都用
+     * </pre>
+     */
+    boolean hasMoney();
+    /**
+     * <code>required string money = 1;</code>
+     *
+     * <pre>
+     *补钱 经典赛排位赛都用
+     * </pre>
+     */
+    java.lang.String getMoney();
+    /**
+     * <code>required string money = 1;</code>
+     *
+     * <pre>
+     *补钱 经典赛排位赛都用
+     * </pre>
+     */
+    com.google.protobuf.ByteString
+        getMoneyBytes();
+
+    // optional int32 score = 2;
+    /**
+     * <code>optional int32 score = 2;</code>
+     *
+     * <pre>
+     *补分 用于排位赛
+     * </pre>
+     */
+    boolean hasScore();
+    /**
+     * <code>optional int32 score = 2;</code>
+     *
+     * <pre>
+     *补分 用于排位赛
+     * </pre>
+     */
+    int getScore();
+  }
+  /**
+   * Protobuf type {@code com.xt.yde.protobuf.common.TurntableResponseMsg}
+   *
+   * <pre>
+   *转盘补奖结果
+   * </pre>
+   */
+  public static final class TurntableResponseMsg extends
+      com.google.protobuf.GeneratedMessage
+      implements TurntableResponseMsgOrBuilder {
+    // Use TurntableResponseMsg.newBuilder() to construct.
+    private TurntableResponseMsg(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private TurntableResponseMsg(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final TurntableResponseMsg defaultInstance;
+    public static TurntableResponseMsg getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public TurntableResponseMsg getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private TurntableResponseMsg(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              money_ = input.readBytes();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              score_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_TurntableResponseMsg_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_TurntableResponseMsg_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.xt.yde.protobuf.common.Common.TurntableResponseMsg.class, com.xt.yde.protobuf.common.Common.TurntableResponseMsg.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<TurntableResponseMsg> PARSER =
+        new com.google.protobuf.AbstractParser<TurntableResponseMsg>() {
+      public TurntableResponseMsg parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new TurntableResponseMsg(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TurntableResponseMsg> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // required string money = 1;
+    public static final int MONEY_FIELD_NUMBER = 1;
+    private java.lang.Object money_;
+    /**
+     * <code>required string money = 1;</code>
+     *
+     * <pre>
+     *补钱 经典赛排位赛都用
+     * </pre>
+     */
+    public boolean hasMoney() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required string money = 1;</code>
+     *
+     * <pre>
+     *补钱 经典赛排位赛都用
+     * </pre>
+     */
+    public java.lang.String getMoney() {
+      java.lang.Object ref = money_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          money_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>required string money = 1;</code>
+     *
+     * <pre>
+     *补钱 经典赛排位赛都用
+     * </pre>
+     */
+    public com.google.protobuf.ByteString
+        getMoneyBytes() {
+      java.lang.Object ref = money_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        money_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional int32 score = 2;
+    public static final int SCORE_FIELD_NUMBER = 2;
+    private int score_;
+    /**
+     * <code>optional int32 score = 2;</code>
+     *
+     * <pre>
+     *补分 用于排位赛
+     * </pre>
+     */
+    public boolean hasScore() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional int32 score = 2;</code>
+     *
+     * <pre>
+     *补分 用于排位赛
+     * </pre>
+     */
+    public int getScore() {
+      return score_;
+    }
+
+    private void initFields() {
+      money_ = "";
+      score_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasMoney()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getMoneyBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, score_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getMoneyBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, score_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.xt.yde.protobuf.common.Common.TurntableResponseMsg parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.common.Common.TurntableResponseMsg parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.TurntableResponseMsg parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.xt.yde.protobuf.common.Common.TurntableResponseMsg parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.TurntableResponseMsg parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.TurntableResponseMsg parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.TurntableResponseMsg parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.TurntableResponseMsg parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.xt.yde.protobuf.common.Common.TurntableResponseMsg parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.xt.yde.protobuf.common.Common.TurntableResponseMsg parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.xt.yde.protobuf.common.Common.TurntableResponseMsg prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.xt.yde.protobuf.common.TurntableResponseMsg}
+     *
+     * <pre>
+     *转盘补奖结果
+     * </pre>
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.xt.yde.protobuf.common.Common.TurntableResponseMsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_TurntableResponseMsg_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_TurntableResponseMsg_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.xt.yde.protobuf.common.Common.TurntableResponseMsg.class, com.xt.yde.protobuf.common.Common.TurntableResponseMsg.Builder.class);
+      }
+
+      // Construct using com.xt.yde.protobuf.common.Common.TurntableResponseMsg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        money_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        score_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.xt.yde.protobuf.common.Common.internal_static_com_xt_yde_protobuf_common_TurntableResponseMsg_descriptor;
+      }
+
+      public com.xt.yde.protobuf.common.Common.TurntableResponseMsg getDefaultInstanceForType() {
+        return com.xt.yde.protobuf.common.Common.TurntableResponseMsg.getDefaultInstance();
+      }
+
+      public com.xt.yde.protobuf.common.Common.TurntableResponseMsg build() {
+        com.xt.yde.protobuf.common.Common.TurntableResponseMsg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.xt.yde.protobuf.common.Common.TurntableResponseMsg buildPartial() {
+        com.xt.yde.protobuf.common.Common.TurntableResponseMsg result = new com.xt.yde.protobuf.common.Common.TurntableResponseMsg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.money_ = money_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.score_ = score_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.xt.yde.protobuf.common.Common.TurntableResponseMsg) {
+          return mergeFrom((com.xt.yde.protobuf.common.Common.TurntableResponseMsg)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.xt.yde.protobuf.common.Common.TurntableResponseMsg other) {
+        if (other == com.xt.yde.protobuf.common.Common.TurntableResponseMsg.getDefaultInstance()) return this;
+        if (other.hasMoney()) {
+          bitField0_ |= 0x00000001;
+          money_ = other.money_;
+          onChanged();
+        }
+        if (other.hasScore()) {
+          setScore(other.getScore());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasMoney()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.xt.yde.protobuf.common.Common.TurntableResponseMsg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.xt.yde.protobuf.common.Common.TurntableResponseMsg) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // required string money = 1;
+      private java.lang.Object money_ = "";
+      /**
+       * <code>required string money = 1;</code>
+       *
+       * <pre>
+       *补钱 经典赛排位赛都用
+       * </pre>
+       */
+      public boolean hasMoney() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required string money = 1;</code>
+       *
+       * <pre>
+       *补钱 经典赛排位赛都用
+       * </pre>
+       */
+      public java.lang.String getMoney() {
+        java.lang.Object ref = money_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          money_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>required string money = 1;</code>
+       *
+       * <pre>
+       *补钱 经典赛排位赛都用
+       * </pre>
+       */
+      public com.google.protobuf.ByteString
+          getMoneyBytes() {
+        java.lang.Object ref = money_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          money_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>required string money = 1;</code>
+       *
+       * <pre>
+       *补钱 经典赛排位赛都用
+       * </pre>
+       */
+      public Builder setMoney(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        money_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string money = 1;</code>
+       *
+       * <pre>
+       *补钱 经典赛排位赛都用
+       * </pre>
+       */
+      public Builder clearMoney() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        money_ = getDefaultInstance().getMoney();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required string money = 1;</code>
+       *
+       * <pre>
+       *补钱 经典赛排位赛都用
+       * </pre>
+       */
+      public Builder setMoneyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        money_ = value;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 score = 2;
+      private int score_ ;
+      /**
+       * <code>optional int32 score = 2;</code>
+       *
+       * <pre>
+       *补分 用于排位赛
+       * </pre>
+       */
+      public boolean hasScore() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int32 score = 2;</code>
+       *
+       * <pre>
+       *补分 用于排位赛
+       * </pre>
+       */
+      public int getScore() {
+        return score_;
+      }
+      /**
+       * <code>optional int32 score = 2;</code>
+       *
+       * <pre>
+       *补分 用于排位赛
+       * </pre>
+       */
+      public Builder setScore(int value) {
+        bitField0_ |= 0x00000002;
+        score_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 score = 2;</code>
+       *
+       * <pre>
+       *补分 用于排位赛
+       * </pre>
+       */
+      public Builder clearScore() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        score_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:com.xt.yde.protobuf.common.TurntableResponseMsg)
+    }
+
+    static {
+      defaultInstance = new TurntableResponseMsg(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:com.xt.yde.protobuf.common.TurntableResponseMsg)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
@@ -11619,6 +15074,46 @@ public final class Common {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_com_xt_yde_protobuf_common_DealResponseMsg_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_xt_yde_protobuf_common_ClearGameRequestMsg_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_xt_yde_protobuf_common_ClearGameRequestMsg_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_xt_yde_protobuf_common_ClearGameResponseMsg_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_xt_yde_protobuf_common_ClearGameResponseMsg_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_xt_yde_protobuf_common_EnterDoubleRequestMsg_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_xt_yde_protobuf_common_EnterDoubleRequestMsg_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_xt_yde_protobuf_common_EnterDoubleResponseMsg_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_xt_yde_protobuf_common_EnterDoubleResponseMsg_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_xt_yde_protobuf_common_DoubleGuessRequestMsg_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_xt_yde_protobuf_common_DoubleGuessRequestMsg_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_xt_yde_protobuf_common_DoubleGuessResponseMsg_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_xt_yde_protobuf_common_DoubleGuessResponseMsg_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_xt_yde_protobuf_common_TurntableRequestMsg_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_xt_yde_protobuf_common_TurntableRequestMsg_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_xt_yde_protobuf_common_TurntableResponseMsg_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_com_xt_yde_protobuf_common_TurntableResponseMsg_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -11653,10 +15148,17 @@ public final class Common {
       "s\030\002 \003(\005\022\017\n\007bomNums\030\003 \002(\005\022\022\n\nnextPerson\030\004" +
       " \002(\005\022\r\n\005ifEnd\030\005 \002(\010\022\016\n\006center\030\006 \003(\005\022\014\n\004l" +
       "eft\030\007 \003(\005\022\r\n\005right\030\010 \003(\005\"\"\n\016DealRequestM" +
-      "sg\022\020\n\010gameType\030\001 \002(\005\"\\\n\017DealResponseMsg\022" +
+      "sg\022\020\n\010gameType\030\001 \002(\005\"n\n\017DealResponseMsg\022" +
       "\020\n\010darkCard\030\001 \003(\005\022\022\n\ncenterCard\030\002 \003(\005\022\020\n" +
-      "\010leftCard\030\003 \003(\005\022\021\n\trightCard\030\004 \003(\005B\010B\006Co" +
-      "mmon"
+      "\010leftCard\030\003 \003(\005\022\021\n\trightCard\030\004 \003(\005\022\020\n\010is" +
+      "ZhiZun\030\005 \001(\010\"\025\n\023ClearGameRequestMsg\"%\n\024C" +
+      "learGameResponseMsg\022\r\n\005money\030\001 \002(\t\"%\n\025En",
+      "terDoubleRequestMsg\022\014\n\004type\030\001 \002(\005\"\030\n\026Ent" +
+      "erDoubleResponseMsg\"\027\n\025DoubleGuessReques" +
+      "tMsg\"(\n\026DoubleGuessResponseMsg\022\016\n\006result" +
+      "\030\001 \002(\010\"\025\n\023TurntableRequestMsg\"4\n\024Turntab" +
+      "leResponseMsg\022\r\n\005money\030\001 \002(\t\022\r\n\005score\030\002 " +
+      "\001(\005B\010B\006Common"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -11776,7 +15278,55 @@ public final class Common {
           internal_static_com_xt_yde_protobuf_common_DealResponseMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_com_xt_yde_protobuf_common_DealResponseMsg_descriptor,
-              new java.lang.String[] { "DarkCard", "CenterCard", "LeftCard", "RightCard", });
+              new java.lang.String[] { "DarkCard", "CenterCard", "LeftCard", "RightCard", "IsZhiZun", });
+          internal_static_com_xt_yde_protobuf_common_ClearGameRequestMsg_descriptor =
+            getDescriptor().getMessageTypes().get(19);
+          internal_static_com_xt_yde_protobuf_common_ClearGameRequestMsg_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_xt_yde_protobuf_common_ClearGameRequestMsg_descriptor,
+              new java.lang.String[] { });
+          internal_static_com_xt_yde_protobuf_common_ClearGameResponseMsg_descriptor =
+            getDescriptor().getMessageTypes().get(20);
+          internal_static_com_xt_yde_protobuf_common_ClearGameResponseMsg_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_xt_yde_protobuf_common_ClearGameResponseMsg_descriptor,
+              new java.lang.String[] { "Money", });
+          internal_static_com_xt_yde_protobuf_common_EnterDoubleRequestMsg_descriptor =
+            getDescriptor().getMessageTypes().get(21);
+          internal_static_com_xt_yde_protobuf_common_EnterDoubleRequestMsg_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_xt_yde_protobuf_common_EnterDoubleRequestMsg_descriptor,
+              new java.lang.String[] { "Type", });
+          internal_static_com_xt_yde_protobuf_common_EnterDoubleResponseMsg_descriptor =
+            getDescriptor().getMessageTypes().get(22);
+          internal_static_com_xt_yde_protobuf_common_EnterDoubleResponseMsg_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_xt_yde_protobuf_common_EnterDoubleResponseMsg_descriptor,
+              new java.lang.String[] { });
+          internal_static_com_xt_yde_protobuf_common_DoubleGuessRequestMsg_descriptor =
+            getDescriptor().getMessageTypes().get(23);
+          internal_static_com_xt_yde_protobuf_common_DoubleGuessRequestMsg_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_xt_yde_protobuf_common_DoubleGuessRequestMsg_descriptor,
+              new java.lang.String[] { });
+          internal_static_com_xt_yde_protobuf_common_DoubleGuessResponseMsg_descriptor =
+            getDescriptor().getMessageTypes().get(24);
+          internal_static_com_xt_yde_protobuf_common_DoubleGuessResponseMsg_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_xt_yde_protobuf_common_DoubleGuessResponseMsg_descriptor,
+              new java.lang.String[] { "Result", });
+          internal_static_com_xt_yde_protobuf_common_TurntableRequestMsg_descriptor =
+            getDescriptor().getMessageTypes().get(25);
+          internal_static_com_xt_yde_protobuf_common_TurntableRequestMsg_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_xt_yde_protobuf_common_TurntableRequestMsg_descriptor,
+              new java.lang.String[] { });
+          internal_static_com_xt_yde_protobuf_common_TurntableResponseMsg_descriptor =
+            getDescriptor().getMessageTypes().get(26);
+          internal_static_com_xt_yde_protobuf_common_TurntableResponseMsg_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_com_xt_yde_protobuf_common_TurntableResponseMsg_descriptor,
+              new java.lang.String[] { "Money", "Score", });
           return null;
         }
       };

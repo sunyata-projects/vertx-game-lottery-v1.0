@@ -1,13 +1,13 @@
 package com.xt.landlords.game.puzzle;
 
-import com.xt.landlords.game.phase.TicketResult;
-import com.xt.landlords.service.MoneyBetService;
 import com.xt.landlords.GameManager;
-import com.xt.landlords.GameTypes;
 import com.xt.landlords.exception.BetErrorException;
 import com.xt.landlords.game.phase.BetPhaseData;
+import com.xt.landlords.game.phase.TicketResult;
 import com.xt.landlords.ioc.SpringIocUtil;
+import com.xt.landlords.service.MoneyBetService;
 import com.xt.landlords.statemachine.GameController;
+import com.xt.yde.GameTypes;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

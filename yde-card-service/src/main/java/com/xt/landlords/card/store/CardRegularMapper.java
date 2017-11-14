@@ -37,6 +37,9 @@ public interface CardRegularMapper {
     @Select("SELECT * FROM regular_cards_37 WHERE center_id = #{centerId} and prize_level=#{bombNums} Limit 1")
     RegularCard37 findRegularCard37(@Param("bombNums") Integer bombNums, @Param("centerId") String centerId);
 
+    @Select("SELECT * FROM regular_cards_37 WHERE id = #{id}")
+    RegularCard37 findRegularCard37ById(@Param("id") String id);
+
 
     @Select("SELECT * FROM regular_cards_17 where id=#{id}")
     RegularCard17 findRegularCard17ById(@Param("id") String id);

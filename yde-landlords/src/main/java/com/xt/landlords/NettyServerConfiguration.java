@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.sunyata.octopus.OctopusConfiguration;
 import org.sunyata.octopus.store.RedissonStoreFactory;
@@ -22,6 +23,7 @@ import org.sunyata.quark.client.QuarkClientImpl;
  * Created by leo on 17/4/19.
  */
 @Configuration
+@ComponentScan("com.xt.yde.custom")
 public class NettyServerConfiguration {
     Logger logger = LoggerFactory.getLogger(NettyServerConfiguration.class);
 

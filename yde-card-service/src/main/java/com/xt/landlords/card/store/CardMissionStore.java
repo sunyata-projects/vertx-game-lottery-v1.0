@@ -83,4 +83,42 @@ public class CardMissionStore {
             throw ex;
         }
     }
+
+    public MissionCard getCardsById(String id) {
+        long startTime = System.currentTimeMillis();   //获取开始时间
+        try (SqlSession session = sessionTemplate.getSqlSessionFactory().openSession(true)) {
+            CardMissionMapper mapper = session.getMapper(CardMissionMapper.class);
+            MissionCard missionCardsByRandom = null;
+                            missionCardsByRandom = mapper.findMissionCardsByCardId(id);
+//            if (missionIndex == 0) {
+//                missionCardsByRandom = mapper.findMissionCardsByCardId(22591);
+//            }
+// else if (missionIndex == 1) {
+//                missionCardsByRandom = mapper.findMissionCardsByCardId(22591);
+//
+//                //missionCardsByRandom = mapper.findMissionCardsByCardId(22591);
+//
+//            } else if (missionIndex == 2) {
+//                missionCardsByRandom = mapper.findMissionCardsByCardId(22229);
+//
+//            }
+//            else if (missionIndex == 3) {
+//                missionCardsByRandom = mapper.findMissionCardsByCardId(22593);
+//            }
+//            else if (missionIndex == 4) {
+//                missionCardsByRandom = mapper.findMissionCardsByCardId(22594);
+//            }
+//            else{
+//                missionCardsByRandom = mapper.findMissionCardsByCardId(22595);
+//            }
+            return missionCardsByRandom;
+        } catch (
+                Exception ex
+                )
+
+        {
+            System.out.println(ex);
+            throw ex;
+        }
+    }
 }

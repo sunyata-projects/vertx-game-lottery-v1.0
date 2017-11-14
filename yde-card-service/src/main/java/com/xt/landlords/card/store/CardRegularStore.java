@@ -44,7 +44,7 @@ public class CardRegularStore {
 
     Random random = new Random();
 
-    public RegularCard17 getCard17() {
+    public RegularCard17 getCard17WithRandom() {
 //        long startTime = System.currentTimeMillis();   //获取开始时间
         try (SqlSession session = sessionTemplate.getSqlSessionFactory().openSession(true)) {
             CardRegularMapper mapper = session.getMapper(CardRegularMapper.class);
@@ -74,6 +74,17 @@ public class CardRegularStore {
         try (SqlSession session = sessionTemplate.getSqlSessionFactory().openSession(false)) {
             CardRegularMapper mapper = session.getMapper(CardRegularMapper.class);
             RegularCard37 regularCard37 = mapper.findRegularCard37(bombNums, centerId);
+            return regularCard37;
+        } catch (Exception ex) {
+            System.out.println(ex);
+            throw ex;
+        }
+    }
+
+    public RegularCard37 getCard37ById(String id) {
+        try (SqlSession session = sessionTemplate.getSqlSessionFactory().openSession(false)) {
+            CardRegularMapper mapper = session.getMapper(CardRegularMapper.class);
+            RegularCard37 regularCard37 = mapper.findRegularCard37ById(id);
             return regularCard37;
         } catch (Exception ex) {
             System.out.println(ex);

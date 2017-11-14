@@ -1,12 +1,12 @@
 package com.xt.landlords.game.mission;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.xt.landlords.GameTypes;
 import com.xt.landlords.game.mission.phase.MissionClearPhaseData;
 import com.xt.landlords.game.mission.phase.MissionClearPhaseModel;
 import com.xt.landlords.game.mission.phase.MissionPlayPhaseData;
 import com.xt.landlords.game.mission.phase.MissionPlayPhaseModel;
 import com.xt.landlords.game.phase.BetPhaseModel;
+import com.xt.yde.GameTypes;
 import org.sunyata.octopus.model.GameModel;
 import org.sunyata.octopus.model.GamePhaseModel;
 import org.sunyata.octopus.model.PhaseState;

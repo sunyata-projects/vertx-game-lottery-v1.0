@@ -1,7 +1,6 @@
 package com.xt.landlords.game.regular;
 
 import com.xt.landlords.GameManager;
-import com.xt.landlords.GameTypes;
 import com.xt.landlords.exception.BetErrorException;
 import com.xt.landlords.game.phase.BetPhaseData;
 import com.xt.landlords.game.phase.BetPhaseModel;
@@ -14,7 +13,9 @@ import com.xt.landlords.game.regular.phase.*;
 import com.xt.landlords.ioc.SpringIocUtil;
 import com.xt.landlords.service.GuessSizeBetService;
 import com.xt.landlords.service.MoneyBetService;
+import com.xt.landlords.service.RegularLastBetService;
 import com.xt.landlords.statemachine.GameController;
+import com.xt.yde.GameTypes;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -202,7 +203,11 @@ public class GameRegularController extends GameController<GameRegularModel, Game
                 }
             }
         } else {
-            totalMoney = 1.5f;
+            if(raisePhaseModel.getPhaseData().getTicketResult().getPrizeLevel()==5) {
+                totalMoney = 0.0f;
+            }else{
+                totalMoney = 1.5f;
+            }
         }
         BigDecimal lastTotalMoney = new BigDecimal(String.valueOf(betPhaseModel.getPhaseData().getBetAmt())).multiply(new
                 BigDecimal
@@ -225,9 +230,14 @@ public class GameRegularController extends GameController<GameRegularModel, Game
                 ());
         GameRegularModel gameModel = getGameModel();
 
-        MoneyBetService lastBetService = SpringIocUtil.getBean(MoneyBetService.class);
+        RaisePhaseModel phase = (RaisePhaseModel) gameModel.getPhase(GameRegularState.Raise.getValue());
+        RaisePhaseData raisePhaseData = phase.getPhaseData();
+//        TicketResult betResult = moneyBetService.betAndQueryPrizeLevel(this.getGameType(), gameModel.getUserName(),
+//                phaseData.getBetAmt() * (phaseData.getTimes() - 1),
+//                phase.getGameInstanceId());
+        RegularLastBetService lastBetService = SpringIocUtil.getBean(RegularLastBetService.class);
         TicketResult ticketResult = lastBetService.betAndQueryPrizeLevel(GameTypes.Regular.getValue(), gameModel
-                .getUserName(), 0, gameModel
+                .getUserName(), raisePhaseData.getBetAmt() * (raisePhaseData.getTimes()), gameModel
                 .getGameInstanceId());
         if (StringUtils.isEmpty(ticketResult.getTicketId())) {
             throw new BetErrorException("下注失败,请重试");

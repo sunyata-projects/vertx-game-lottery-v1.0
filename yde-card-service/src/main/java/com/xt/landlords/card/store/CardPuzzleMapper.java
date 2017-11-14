@@ -42,10 +42,10 @@ public interface CardPuzzleMapper {
     @Select("SELECT * FROM puzzle_nuke_cards Limit #{random},1")
     PuzzleCard findWZCardsByRandom(@Param("random") int random);
 
-    @Select("SELECT count(*) FROM puzzle_two_cards")
+    @Select("SELECT count(*) FROM puzzle_two_cards where two_number>1")
     Integer find22CardCount();
 
-    @Select("SELECT * FROM puzzle_two_cards Limit #{random},1")
+    @Select("SELECT * FROM puzzle_two_cards  where two_number>1  Limit #{random},1")
     PuzzleCard find22CardsByRandom(@Param("random") int random);
 
 

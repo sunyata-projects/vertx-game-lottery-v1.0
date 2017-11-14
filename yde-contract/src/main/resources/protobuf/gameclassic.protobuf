@@ -1,0 +1,13 @@
+package com.xt.yde.protobuf.classic;
+option java_outer_classname = "GameClassic";
+
+//经典赛比大小前结算
+message SummaryClearGameRequestMsg
+{
+
+}
+//经典赛比大小前结算
+message SummaryClearGameResponseMsg
+{
+  required string money = 1; // 总钱数
+}

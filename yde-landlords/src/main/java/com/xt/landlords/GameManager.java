@@ -2,6 +2,10 @@ package com.xt.landlords;
 
 
 import com.xt.landlords.event.UserLeftEventMessage;
+import com.xt.landlords.game.classic.GameClassicModel;
+import com.xt.landlords.game.classic.GameClassicState;
+import com.xt.landlords.game.crazy.GameCrazyModel;
+import com.xt.landlords.game.crazy.GameCrazyState;
 import com.xt.landlords.game.eliminate.GameEliminateModel;
 import com.xt.landlords.game.eliminate.GameEliminateState;
 import com.xt.landlords.game.mission.GameMissionModel;
@@ -12,11 +16,14 @@ import com.xt.landlords.game.phase.ExchangePhaseData;
 import com.xt.landlords.game.phase.ExchangePhaseModel;
 import com.xt.landlords.game.puzzle.GamePuzzleModel;
 import com.xt.landlords.game.puzzle.GamePuzzleState;
+import com.xt.landlords.game.rank.GameRankModel;
+import com.xt.landlords.game.rank.GameRankState;
 import com.xt.landlords.game.regular.GameRegularModel;
 import com.xt.landlords.game.regular.GameRegularState;
 import com.xt.landlords.message.MessageClient;
 import com.xt.landlords.statemachine.GameController;
 import com.xt.landlords.statemachine.GameControllerFactory;
+import com.xt.yde.GameTypes;
 import com.xt.yde.protobuf.common.Common;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -84,6 +91,16 @@ public class GameManager {
         } else if (gameType == GameTypes.Eliminate.getValue()) {
             GameEliminateState state = (GameEliminateState) gameControllerState;
             return GameControllerFactory.createGameEliminateController(state);
+        } else if (gameType == GameTypes.Crazy.getValue()) {
+            GameCrazyState state = (GameCrazyState) gameControllerState;
+            return GameControllerFactory.createGameCrazyController(state);
+        } else if (gameType == GameTypes.Rank.getValue()) {
+            GameRankState state = (GameRankState) gameControllerState;
+            return GameControllerFactory.createGameRankController(state);
+        } else if (gameType == GameTypes.Classic.getValue()) {
+            GameClassicState state = (GameClassicState) gameControllerState;
+            return GameControllerFactory.createGameClassicController(state);
+
         } else {
 
         }
@@ -159,6 +176,33 @@ public class GameManager {
             gameModel = new GamePuzzleModel(gameInstanceId);
             gameModel.setUserName(userName);
             GamePhaseModel gamePhaseModel = new BetPhaseModel(gameInstanceId, GamePuzzleState.Bet.getValue(), 1)
+                    .setPhaseData
+                            (new BetPhaseData()
+                                    .setBetAmt(betAmt));
+            gameModel.addOrUpdatePhase(gamePhaseModel);
+
+        } else if (gameType == GameTypes.Crazy.getValue()) {
+            gameModel = new GameCrazyModel(gameInstanceId);
+            gameModel.setUserName(userName);
+            GamePhaseModel gamePhaseModel = new BetPhaseModel(gameInstanceId, GamePuzzleState.Bet.getValue(), 1)
+                    .setPhaseData
+                            (new BetPhaseData()
+                                    .setBetAmt(betAmt));
+            gameModel.addOrUpdatePhase(gamePhaseModel);
+
+
+        } else if (gameType == GameTypes.Rank.getValue()) {
+            gameModel = new GameRankModel(gameInstanceId);
+            gameModel.setUserName(userName);
+            GamePhaseModel gamePhaseModel = new BetPhaseModel(gameInstanceId, GameRankState.Bet.getValue(), 1)
+                    .setPhaseData
+                            (new BetPhaseData()
+                                    .setBetAmt(betAmt));
+            gameModel.addOrUpdatePhase(gamePhaseModel);
+        } else if (gameType == GameTypes.Classic.getValue()) {
+            gameModel = new GameClassicModel(gameInstanceId);
+            gameModel.setUserName(userName);
+            GamePhaseModel gamePhaseModel = new BetPhaseModel(gameInstanceId, GameClassicState.Bet.getValue(), 1)
                     .setPhaseData
                             (new BetPhaseData()
                                     .setBetAmt(betAmt));

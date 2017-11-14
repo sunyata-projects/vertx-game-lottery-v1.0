@@ -2,21 +2,34 @@ package com.xt.landlords.game.phase;
 
 import org.sunyata.octopus.model.PhaseData;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by leo on 17/5/16.
  */
 public class BetPhaseData extends PhaseData {
     private String betSerialNo;
     private int betAmt;
-    private TicketResult ticketResult;
 
+
+
+    private List<TicketResult> ticketResults = new ArrayList<>();
 
     public TicketResult getTicketResult() {
-        return ticketResult;
+        if (ticketResults.size() > 0) {
+            return ticketResults.get(0);
+        }
+        return null;
+    }
+
+    public List<TicketResult> getTicketResults() {
+        return ticketResults;
     }
 
     public BetPhaseData setTicketResult(TicketResult ticketResult) {
-        this.ticketResult = ticketResult;
+        //this.ticketResult = ticketResult;
+        ticketResults.add(ticketResult);
         return this;
     }
 

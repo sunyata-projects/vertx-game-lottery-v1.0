@@ -1,0 +1,56 @@
+id:22645 c_center:4,50,43,42,7,17,22,13,53,46,2,37,3,27,52,48,5,16,0,38 c_hight:8,35,6,26,33,41,18,1,15,10,32,28,29,9,39,47,44 c_upCard:31,25,30,21,40,34,12,14,19,51,23,24,45,36,11,49,20
+7775,XD,QQ,pass,2,33,pass,AA,TT,pass,pass,6664,8,value=3
+66677745,QQ,XD,33,AA,pass,TT,pass,pass,2,8,value=2
+33,pass,pass,2,TT,AA,QQ,66677745,8,XD,value=1
+1
+id:22646 c_center:5,22,32,25,52,14,45,8,30,4,2,49,11,10,20,47,9,13,21,37 c_hight:34,1,3,17,27,40,26,28,18,16,12,53,23,48,15,39,31 c_upCard:38,43,51,7,29,36,41,19,6,44,0,24,42,35,46,33,50
+JJ,pass,pass,pass,X,pass,pass,AA,4,2,89TJQ,5,9,pass,pass,Q,pass,77,KK,3,value=3
+JJ,pass,pass,pass,X,pass,pass,AA,4,2,89TJQ,5,9,pass,pass,Q,pass,pass,KK,77,3,value=4
+JJ,pass,QQ,pass,pass,2,pass,pass,AA,3,pass,7,X,789TJ,KK,4,pass,pass,pass,5,pass,9,value=2
+JJ,pass,QQ,pass,2,pass,pass,AA,3,pass,7,X,789TJ,KK,4,pass,pass,pass,pass,5,pass,9,value=1
+9,X,pass,JJJ77,AA,pass,KK,pass,9,2,5,8,pass,QQ,3,pass,pass,4,pass,pass,T,value=0
+0
+id:22647 c_center:37,32,3,29,9,38,41,15,47,44,53,35,30,7,28,46,42,8,24,21 c_hight:26,23,34,22,11,20,0,39,48,4,12,27,14,40,45,10,50 c_upCard:1,51,43,18,49,16,5,31,19,6,33,2,25,36,52,13,17
+TT,pass,pass,pass,D,55566678,JJJ9,QQ,pass,pass,pass,2,pass,AA,value=2
+TT,pass,pass,pass,D,55566678,JJJ9,AA,pass,pass,pass,2,pass,QQ,value=1
+TT,pass,55566678,JJJ9,2,D,QQ,AA,value=0
+0
+id:22648 c_center:24,9,7,20,10,48,14,6,4,26,46,8,13,50,30,28,43,2,19,11 c_hight:1,34,32,25,49,23,5,51,0,21,35,22,38,29,3,16,37 c_upCard:39,52,36,27,45,42,47,17,40,15,44,18,31,53,41,12,33
+77733,pass,A,55,QQ,AA,pass,pass,K,pass,TTT4,pass,99,pass,pass,pass,pass,pass,J,value=3
+77733,pass,A,55,QQ,AA,pass,K,pass,TTT4,pass,99,pass,pass,pass,pass,pass,J,value=2
+9,pass,7774,pass,9,pass,K,AAA33,TTT55,pass,QQ,pass,pass,pass,pass,pass,pass,pass,pass,J,value=0
+1
+id:22649 c_center:45,48,3,34,31,6,33,19,36,14,53,1,7,42,50,18,39,4,8,22 c_hight:43,0,44,49,28,23,40,41,16,21,12,11,25,27,15,52,26 c_upCard:2,38,30,47,24,29,17,20,9,5,51,37,46,13,10,32,35
+9993,44,88,pass,66,pass,pass,A,D,TTJJQQ,7,K,value=1
+9993,66,pass,88,pass,pass,pass,A,D,JJ,pass,pass,K,pass,QQ,TT,44,7,value=0
+0
+id:22650 c_center:43,50,12,2,11,34,17,0,15,33,36,48,18,23,24,10,4,29,8,46 c_hight:13,25,35,45,7,40,41,21,52,39,6,28,53,3,26,38,19 c_upCard:9,1,31,47,49,51,16,30,44,32,27,37,22,5,42,14,20
+KKKAAA36,Q,pass,pass,pass,JJ,pass,2,TT,pass,pass,pass,pass,pass,7778,55,value=3
+KKKAAA36,Q,pass,pass,TT,pass,pass,2,JJ,pass,pass,77755,8,value=2
+8,Q,pass,7773,AAA5,pass,pass,pass,KKK5,2,JJ,TT,6,value=1
+8,Q,pass,7773,pass,JJ,AAATT,pass,2,KKK6,55,value=0
+8,Q,pass,7773,pass,JJ,KKK55,pass,2,AAA6,TT,value=0
+1
+id:22651 c_center:10,4,11,27,50,40,17,48,19,47,5,2,21,43,38,24,22,33,30,34 c_hight:35,3,32,12,6,26,18,13,36,14,9,44,49,39,8,23,0 c_upCard:37,31,45,51,52,7,42,46,41,16,53,25,20,1,29,15,28
+44,pass,pass,7777,JJJ5,AAA8,pass,QQ,pass,pass,2,9,pass,K,T,value=4
+89TJQK,44,JJ,7777,pass,pass,AAA5,pass,2,Q,value=2
+3
+id:22652 c_center:30,28,22,50,9,2,24,25,53,42,33,36,10,1,34,52,40,43,45,6 c_hight:3,44,12,37,8,26,38,18,35,31,7,11,23,48,27,16,13 c_upCard:5,39,17,47,21,32,4,46,49,0,19,29,14,15,51,20,41
+TJQKA,55,pass,pass,99,XD,44,pass,2,77,pass,pass,pass,A,pass,K,pass,Q,pass,pass,pass,6,value=4
+TJQKA,55,pass,XD,44,pass,99,pass,pass,77,pass,pass,2,A,pass,K,pass,Q,6,value=3
+TJQKA,55,XD,44,pass,pass,99,pass,pass,77,pass,pass,2,A,pass,K,pass,Q,6,value=2
+1
+id:22653 c_center:37,14,3,42,32,17,28,45,30,12,6,25,47,53,16,35,18,21,19,44 c_hight:8,43,39,40,9,10,7,0,24,33,41,5,38,29,22,31,20 c_upCard:26,36,49,51,11,34,27,13,15,52,4,48,23,2,46,50,1
+JJ,pass,9999,6664,pass,pass,22,77,pass,pass,88,Q,A,D,5,value=4
+JJ,pass,9999,D,7,pass,pass,22,45678,pass,Q,pass,8,A,pass,66,value=3
+JJ,9999,5,D,Q,pass,pass,88,22,6664,77,A,value=2
+66,22,7,Q,pass,JJ,8,A,D,45678,9999,value=1
+77,22,JJ,88,6664,5,Q,D,A,9999,value=0
+1
+id:22654 c_center:5,36,13,17,45,20,0,7,26,25,37,47,21,28,42,1,4,30,24,6 c_hight:2,32,29,9,10,50,40,14,15,43,18,51,39,8,16,46,3 c_upCard:49,48,12,33,53,11,52,23,27,38,34,35,44,22,19,31,41
+JJ,AA,pass,pass,pass,pass,TT,99,6,pass,pass,7774,pass,2,3335,K,8,value=4
+JJ,AA,pass,pass,pass,pass,TT,99,6,pass,pass,7774,pass,K,3335,2,8,value=4
+JJ,AA,pass,pass,pass,pass,TT,99,6,K,pass,pass,7774,pass,2,3335,8,value=3
+JJ,AA,pass,pass,pass,pass,TT,99,3334,7775,pass,8,2,K,6,value=2
+JJ,AA,pass,pass,2,pass,8,pass,99,34567,pass,TT,33,77,K,value=0
+1

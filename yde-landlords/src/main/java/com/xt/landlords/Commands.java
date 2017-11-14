@@ -71,4 +71,67 @@ public class Commands {
 
     //放弃游戏点数
     public static final String EliminateGameUpGamePoint =           "53006";
+
+
+    //疯狂63
+    public static final String CrazyBreakPlay =       "63001";
+    //发牌
+    public static final String CrazyDeal =            "63004";
+    //拖拽
+    public static final String CrazyDrag =            "63005";
+    //拖拽结束
+    public static final String CrazyDragOver =            "63006";
+    //进入比倍
+    public static final String CrazyEnterGuessSize =            "63007";
+    //一次比倍
+    public static final String CrazyGuessSize =            "63008";
+    //结算
+    public static final String CrazyClear =           "63009";
+
+    //排名赛54
+
+    //断线续玩
+    public static final String RankBreakPlay =       "54001";
+    //发牌
+    public static final String RankDeal =            "54002";
+    //出牌
+    public static final String RankPlay =            "54003";
+    //转盘
+    public static final String RankTurn =            "54004";
+
+    //每局结算
+    public static final String RoundClear =            "54005";
+    //游戏结算
+    public static final String RankClear =           "54006";
+
+
+    public static final String RankRemainTime = "54007";
+
+    //请求排行榜 前三十名
+    public static final String RankList = "54008";
+
+    //历史排行
+    public static final String RankHistoryList = "54009";
+
+
+    //经典赛55
+
+    //断线续玩
+    public static final String ClassicBreakPlay =       "55001";
+    //发牌
+    public static final String ClassicDeal =            "55002";
+    //出牌
+    public static final String ClassicPlay =            "55003";
+    //转盘
+    public static final String ClassicTurn =            "55004";
+    //进入比倍
+    public static final String ClassicEnterGuessSize =            "55005";
+
+    //一次比倍
+    public static final String ClassicGuessSize =            "55006";
+
+    //中间过程结算
+    public static final String ClassicSummaryClear =            "55007";
+    //游戏结算
+    public static final String ClassicClear =           "55008";
 }

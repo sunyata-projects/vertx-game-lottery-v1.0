@@ -1,7 +1,6 @@
 package com.xt.landlords.game.mission;
 
 import com.xt.landlords.GameManager;
-import com.xt.landlords.GameTypes;
 import com.xt.landlords.game.mission.condition.LoseCondition;
 import com.xt.landlords.game.mission.condition.PlayingCondition;
 import com.xt.landlords.game.mission.condition.WinCondition;
@@ -12,6 +11,7 @@ import com.xt.landlords.game.phase.TicketResult;
 import com.xt.landlords.ioc.SpringIocUtil;
 import com.xt.landlords.service.MoneyBetService;
 import com.xt.landlords.statemachine.GameController;
+import com.xt.yde.GameTypes;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

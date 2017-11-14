@@ -125,6 +125,10 @@ public abstract class GameModel implements Serializable {
         }
     }
 
+    public void addPhase(GamePhaseModel gamePhaseModel) {
+        phases.add(gamePhaseModel);
+    }
+
     @JsonIgnore
     public int getPhaseCount() {
         return phases.size();

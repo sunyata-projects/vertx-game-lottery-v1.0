@@ -1,7 +1,7 @@
 package com.xt.landlords.game.eliminate;
 
-import com.xt.landlords.GameTypes;
 import com.xt.landlords.game.eliminate.phase.*;
+import com.xt.yde.GameTypes;
 import org.sunyata.octopus.model.GameModel;
 import org.sunyata.octopus.model.GamePhaseModel;
 import org.sunyata.octopus.model.PhaseState;

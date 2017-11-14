@@ -3,6 +3,9 @@ package com.xt.landlords.card;
 import com.xt.landlords.card.model.RegularCard17;
 import com.xt.landlords.card.model.RegularCard37;
 import com.xt.landlords.card.store.CardRegularStore;
+import com.xt.yde.GameTypes;
+import com.xt.yde.custom.CardConfigInfo;
+import com.xt.yde.custom.CurrentCardConfig;
 import com.xt.yde.thrift.card.regular.RegularCards;
 import com.xt.yde.thrift.card.regular.RegularCardsService;
 import org.apache.thrift.TException;
@@ -34,10 +37,18 @@ public class RegularCardServiceHandler implements RegularCardsService.Iface {
 
     }
 
+    @Autowired
+    CurrentCardConfig currentCardConfig;
 
     @Override
     public RegularCards getCards17() throws TException {
-        RegularCard17 card17 = cardRegularStore.getCard17();
+        RegularCard17 card17 = null;
+        CardConfigInfo cardConfigInfo = currentCardConfig.getCardConfigInfo(GameTypes.Regular.getValue());
+        if (cardConfigInfo != null) {
+            card17 = cardRegularStore.getCard17ById(cardConfigInfo.getCardIds().get(0));
+        } else {
+            card17 = cardRegularStore.getCard17WithRandom();
+        }
         RegularCards regularCards = new RegularCards();
         List<String> strings = Arrays.asList(card17.getC_center().split(","));
         List<Integer> collect = strings.stream().map(Integer::valueOf).collect(Collectors.toList());
@@ -57,7 +68,14 @@ public class RegularCardServiceHandler implements RegularCardsService.Iface {
             bombNums = 0;
         }
         logger.info("常规赛 bombNums:{},centerId:{}", bombNums, centerId);
-        RegularCard37 card37 = cardRegularStore.getCard37(bombNums, centerId);
+        RegularCard37 card37 = null;
+        CardConfigInfo cardConfigInfo = currentCardConfig.getCardConfigInfo(GameTypes.Regular.getValue());
+
+        if (cardConfigInfo != null) {
+            card37 = cardRegularStore.getCard37ById(cardConfigInfo.getCardIds().get(1));
+        } else {
+            card37 = cardRegularStore.getCard37(bombNums, centerId);
+        }
         RegularCards regularCards = new RegularCards();
 
         List<String> right = Arrays.asList(card37.getC_right().split(","));

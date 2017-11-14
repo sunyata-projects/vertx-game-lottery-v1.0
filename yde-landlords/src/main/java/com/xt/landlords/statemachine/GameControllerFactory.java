@@ -1,5 +1,11 @@
 package com.xt.landlords.statemachine;
 
+import com.xt.landlords.game.classic.GameClassicController;
+import com.xt.landlords.game.classic.GameClassicEvent;
+import com.xt.landlords.game.classic.GameClassicState;
+import com.xt.landlords.game.crazy.GameCrazyController;
+import com.xt.landlords.game.crazy.GameCrazyEvent;
+import com.xt.landlords.game.crazy.GameCrazyState;
 import com.xt.landlords.game.eliminate.GameEliminateController;
 import com.xt.landlords.game.eliminate.GameEliminateEvent;
 import com.xt.landlords.game.eliminate.GameEliminateState;
@@ -9,6 +15,9 @@ import com.xt.landlords.game.mission.GameMissionState;
 import com.xt.landlords.game.puzzle.GamePuzzleController;
 import com.xt.landlords.game.puzzle.GamePuzzleEvent;
 import com.xt.landlords.game.puzzle.GamePuzzleState;
+import com.xt.landlords.game.rank.GameRankController;
+import com.xt.landlords.game.rank.GameRankEvent;
+import com.xt.landlords.game.rank.GameRankState;
 import com.xt.landlords.game.regular.GameRegularController;
 import com.xt.landlords.game.regular.GameRegularEvent;
 import com.xt.landlords.game.regular.GameRegularState;
@@ -28,8 +37,29 @@ public class GameControllerFactory {
     static StateMachineBuilder<GameEliminateController, GameEliminateState, GameEliminateEvent, GameModel>
             eliminateBuilder = null;
 
+    static StateMachineBuilder<GameCrazyController, GameCrazyState, GameCrazyEvent, GameModel> crazyBuilder = null;
+
     static StateMachineBuilder<GameMissionController, GameMissionState, GameMissionEvent, GameModel>
             missionBuilder = null;
+    static StateMachineBuilder<GameRankController, GameRankState, GameRankEvent, GameModel> rankBuilder = null;
+
+    static StateMachineBuilder<GameClassicController, GameClassicState, GameClassicEvent, GameModel> classicBuilder =
+            null;
+
+
+    public static synchronized StateMachineBuilder<GameClassicController, GameClassicState, GameClassicEvent, GameModel>
+    getGameClassicBuilder() {
+
+        if (classicBuilder == null) {
+            classicBuilder = StateMachineBuilderFactory.create(GameClassicController.class, GameClassicState.class,
+                    GameClassicEvent.class, GameModel.class, GameClassicController.class);
+            classicBuilder.transitions().fromAmong(GameClassicState.Init, GameClassicState.Bet, GameClassicState.GuessSize).
+                    to(GameClassicState.GameOver).on(GameClassicEvent.GameOver).callMethod("OnGameOver");
+
+        }
+
+        return classicBuilder;
+    }
 
     public static synchronized StateMachineBuilder<GameRegularController, GameRegularState, GameRegularEvent, GameModel>
     getGameRegularBuilder() {
@@ -93,9 +123,6 @@ public class GameControllerFactory {
                     GamePuzzleEvent.class, GameModel.class, GamePuzzleController.class);
             puzzleBuilder.transitions().fromAmong(GamePuzzleState.Deal).to(GamePuzzleState.GameOver).on
                     (GamePuzzleEvent.GameOver).callMethod("OnGameOver");
-//            puzzleBuilder.transitions().fromAmong(GamePuzzleState.Init, GamePuzzleState.Bet).to(GamePuzzleState
-//                    .GameOver).on(GamePuzzleEvent.GameOver).callMethod("OnForceGameOver");
-
         }
 
         return puzzleBuilder;
@@ -110,15 +137,44 @@ public class GameControllerFactory {
             eliminateBuilder = StateMachineBuilderFactory.create(GameEliminateController.class, GameEliminateState
                             .class,
                     GameEliminateEvent.class, GameModel.class, GameEliminateController.class);
-//            eliminateBuilder.transitions().fromAmong(GameEliminateState.Bet, GameEliminateState.Deal).to
-//                    (GameEliminateState.GameOver).on(GameEliminateEvent.ForceGameOver).callMethod("OnForceGameOver");
-//            eliminateBuilder.transitions().fromAmong(GameEliminateState.Play).to(GameEliminateState.GameOver).on
-//                    (GameEliminateEvent.GameOver).callMethod("OnGameOver");
-//            puzzleBuilder.transitions().fromAmong(GamePuzzleState.Init, GamePuzzleState.Bet).to(GamePuzzleState
-//                    .GameOver).on(GamePuzzleEvent.GameOver).callMethod("OnForceGameOver");
-
         }
 
         return eliminateBuilder;
+    }
+
+    public static synchronized StateMachineBuilder<GameCrazyController, GameCrazyState, GameCrazyEvent, GameModel>
+    getGameCrazyBuilder() {
+
+        if (crazyBuilder == null) {
+            crazyBuilder = StateMachineBuilderFactory.create(GameCrazyController.class, GameCrazyState.class,
+                    GameCrazyEvent.class, GameModel.class, GameCrazyController.class);
+        }
+
+        return crazyBuilder;
+    }
+
+    public static GameController createGameCrazyController(GameCrazyState state) {
+        GameCrazyController controller = getGameCrazyBuilder().newStateMachine(state);
+        return controller;
+    }
+
+    public static GameController createGameRankController(GameRankState state) {
+        GameRankController controller = getGameRankBuilder().newStateMachine(state);
+        return controller;
+    }
+
+    public static synchronized StateMachineBuilder<GameRankController, GameRankState, GameRankEvent, GameModel>
+    getGameRankBuilder() {
+        if (rankBuilder == null) {
+            rankBuilder = StateMachineBuilderFactory.create(GameRankController.class, GameRankState.class,
+                    GameRankEvent.class, GameModel.class, GameRankController.class);
+        }
+        return rankBuilder;
+    }
+
+
+    public static GameClassicController createGameClassicController(GameClassicState gameClassicState) {
+        GameClassicController controller = getGameClassicBuilder().newStateMachine(gameClassicState);
+        return controller;
     }
 }

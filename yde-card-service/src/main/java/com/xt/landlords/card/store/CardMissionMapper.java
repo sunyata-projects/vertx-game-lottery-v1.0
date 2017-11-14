@@ -34,7 +34,7 @@ public interface CardMissionMapper {
     MissionCard findMissionCardsByRandom(@Param("lose") Integer lose, @Param("random") Integer random);
 
     @Select("SELECT * FROM mission_cards where id = #{id}")
-    MissionCard findMissionCardsByCardId(@Param("id") Integer id);
+    MissionCard findMissionCardsByCardId(@Param("id") String id);
 
     @Select("SELECT count(*) FROM mission_cards where lose = #{lose}")
     Integer findMissionCardCount(@Param("lose") int lose);

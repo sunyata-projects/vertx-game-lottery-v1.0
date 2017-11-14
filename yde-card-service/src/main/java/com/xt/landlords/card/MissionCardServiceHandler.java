@@ -2,6 +2,9 @@ package com.xt.landlords.card;
 
 import com.xt.landlords.card.model.MissionCard;
 import com.xt.landlords.card.store.CardMissionStore;
+import com.xt.yde.GameTypes;
+import com.xt.yde.custom.CardConfigInfo;
+import com.xt.yde.custom.CurrentCardConfig;
 import com.xt.yde.thrift.card.mission.MissionCards;
 import com.xt.yde.thrift.card.mission.MissionCardsService;
 import org.apache.thrift.TException;
@@ -32,11 +35,21 @@ public class MissionCardServiceHandler implements MissionCardsService.Iface {
 
     }
 
+    @Autowired
+    CurrentCardConfig currentCardConfig;
 
     @Override
-    public MissionCards getCards(boolean lose,int missionIndex) throws TException {
+    public MissionCards getCards(boolean lose, int missionIndex) throws TException {
         logger.info("闯关赛牌库是否必输{}", lose);
-        MissionCard cards = cardRegularStore.getCards(lose,missionIndex);
+        MissionCard cards = null;
+        CardConfigInfo cardConfigInfo = currentCardConfig.getCardConfigInfo(GameTypes.Mission.getValue());
+        if (cardConfigInfo != null) {
+            String s = cardConfigInfo.getCardIds().get(missionIndex);
+            cards = cardRegularStore.getCardsById(s);
+        } else {
+            cards = cardRegularStore.getCards(lose, missionIndex);
+        }
+
         logger.info("闯关赛牌库id:{}", cards.getId());
         MissionCards result = new MissionCards();
 

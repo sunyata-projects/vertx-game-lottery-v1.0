@@ -65,29 +65,12 @@ public class RegularDealCommandHandler extends AbstractGameControllerCommandHand
             Common.DealResponseMsg.Builder builder = Common.DealResponseMsg.newBuilder();
             if (isDeal) {
                 RegularCards cards17 = cardService.getCards17();
-//                DealPhaseModel dealPhaseModel = new DealPhaseModel();
-//                DealPhaseData dealPhaseData = new DealPhaseData();
-//                dealPhaseData.setCardId(cards17.getCardId());
-//                dealPhaseData.setCenterCard(cards17.getCenter());
-//                dealPhaseModel.setPhaseData(dealPhaseData);
-//                gameModel.addOrUpdatePhase(dealPhaseModel);
                 gameModel.addDealPhase(cards17.getCardId(), cards17.getCenter());
                 builder.addAllCenterCard(cards17.getCenter());
             } else {
                 DealPhaseModel dealPhase = (DealPhaseModel) gameModel.getPhase(GameRegularState.Deal.getValue());
                 DealPhaseData dealPhaseData = dealPhase.getPhaseData();
                 RegularCards cards37 = cardService.getCards37(prizeLevel, dealPhaseData.getCardId());
-
-//                DealPhaseModel darkPhaseModel = new DealPhaseModel();
-//                DealPhaseData darkPhaseData = new DealPhaseData();
-//                darkPhaseData
-//                        .setCardId(cards37.getCardId())
-//                        .setCenterCard(cards37.getCenter())
-//                        .setLeftCard(cards37.getLeft())
-//                        .setRightCard(cards37.getRight())
-//                        .setDarkCard(cards37.getUnder());
-//                darkPhaseModel.setPhaseData(darkPhaseData);
-//                gameModel.addOrUpdatePhase(darkPhaseModel);
                 gameModel.addDarkPhase(cards37.getCardId(), cards37.getCenter(), cards37.getRight(), cards37
                                 .getLeft(),
                         cards37.getUnder());
@@ -100,7 +83,6 @@ public class RegularDealCommandHandler extends AbstractGameControllerCommandHand
             } else {
                 gameController.fire(GameRegularEvent.Dark, gameModel);
             }
-            //List<List<Integer>> cardList = cards.getCards();
             ImmutableState currentRawState = gameController.getCurrentRawState();
             logger.info("{}:currentState:{}", this.getClass().getName(), currentRawState);
             response.setBody(builder.build().toByteArray());

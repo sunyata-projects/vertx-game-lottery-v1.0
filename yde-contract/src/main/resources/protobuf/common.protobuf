@@ -132,4 +132,50 @@ message DealResponseMsg
    repeated int32 centerCard = 2; //可选,当前玩家的手牌,不包括底牌
    repeated int32 leftCard = 3; //可选,左边玩家的手牌,不包括底牌
    repeated int32 rightCard = 4; //可选,右边玩家的手牌,不包括底牌
+   optional bool isZhiZun = 5;//是否为至尊牌型,经典赛使用
+}
+
+
+
+//游戏结算
+message ClearGameRequestMsg
+{
+
+}
+//游戏结算
+message ClearGameResponseMsg
+{
+  required string money = 1; // 钱数
+}
+//进入比倍
+message EnterDoubleRequestMsg
+{
+  required int32 type = 1; //比倍类型 0全比，1半比
+}
+//进入比倍结果
+message EnterDoubleResponseMsg
+{
+
+}
+//比倍猜一次大小
+message DoubleGuessRequestMsg
+{
+
+}
+//比倍猜一次大小结果
+message DoubleGuessResponseMsg
+{
+  required bool result = 1;//猜大小输赢，true为赢，false为输
+}
+
+//请求转盘补奖，用于经典赛和排位赛
+message TurntableRequestMsg
+{
+
+}
+//转盘补奖结果
+message TurntableResponseMsg
+{
+  required string money = 1;//补钱 经典赛排位赛都用
+  optional int32 score = 2;//补分 用于排位赛
 }

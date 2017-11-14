@@ -18,6 +18,6 @@ service RegularCardsService {
     */
   RegularCards getCards17();
 
-  RegularCards getCards37(1:i32 prizeLevel,2:string centerId);
+  RegularCards getCards37(1:i32 prizeRandom,2:string centerId);
 
 }
