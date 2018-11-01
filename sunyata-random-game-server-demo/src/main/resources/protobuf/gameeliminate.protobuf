@@ -1,0 +1,36 @@
+package com.xt.yde.protobuf.eliminate;
+option java_outer_classname = "Eliminate";
+/*********
+通用消息protobuf定义,除各游戏内,其它的通用消息都放在此文件中
+*********/
+
+//发牌请求
+message EliminateDealRequestMsg{
+
+}
+
+
+message CardRow
+{
+   repeated int32 Cards = 1;//消除中初始牌,补牌,消牌,数量不等
+}
+
+//发牌应答
+//返回牌型
+message EliminateDealResponseMsg
+{
+   repeated CardRow Cards = 1;//初始+ 消除与补牌交替
+   required int32 exchangeGamePointBalance = 2;//剩余兑换点数
+   required int32 totalAwardGamePoint = 3;//剩余奖励点数
+   required int32 gameProgress = 4;//游戏进度
+   required bool zhiZun = 5;//是否至尊牌型
+}
+
+//结算请求
+message EliminateClearGameRequestMsg{
+}
+
+//结算应答
+message EliminateClearGameResponseMsg{
+required string totalMoney = 1;//获奖金额
+}

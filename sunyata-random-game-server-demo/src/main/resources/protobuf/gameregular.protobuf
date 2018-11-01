@@ -1,0 +1,37 @@
+package com.xt.yde.protobuf.regular;
+option java_outer_classname = "GameRegular";
+
+//常规赛事消息protobuf定义
+
+
+
+//raise请求
+message RegularRaiseBetRequestMsg{
+required int32 times = 1;//1,2,3,下注倍数
+}
+
+//下注应答
+message RegularRaiseBetResponseMsg
+{
+}
+
+
+//翻牌
+message RegularGuessSizeRequestMsg{
+
+}
+
+//翻牌应答
+message RegularGuessSizeResponseMsg{
+    required bool  flag = 1; //是否翻牌,true翻
+    required string  totalMoney = 2; //中奖金额,有符合预期和不符合预期两种算法
+}
+
+//结算请求
+message RegularClearGameRequestMsg{
+}
+
+//结算应答
+message RegularClearGameResponseMsg{
+required string totalMoney = 1;//获奖金额
+}

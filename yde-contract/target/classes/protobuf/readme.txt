@@ -1,7 +1,5 @@
-cd /Users/apple/work/java/sunyata-octopus/yde-contract/src/main/resources/protobuf
-/usr/local/protobuf/bin/protoc --java_out=/Users/apple/work/java/sunyata-octopus/yde-contract/src/main/java/ common.protobuf
-
-/usr/local/protobuf/bin/protoc --java_out=/Users/apple/work/java/sunyata-octopus/yde-contract/src/main/java/ gameregular.protobuf
+cd /Users/apple/work/java/sunyata-octopus/sunyata-random-game-server-demo/src/main/resources/protobuf
+/usr/local/protobuf/bin/protoc --java_out=/Users/apple/work/java/sunyata-octopus/sunyata-random-game-server-demo//src/main/java/ common.protobuf
 
 
 接口说明:

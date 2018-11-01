@@ -1,0 +1,1013 @@
+//========================================================================================
+// landlords消息结构定义
+// 创建:满洪亮
+// 日期:20150906
+//========================================================================================
+
+package com.lianzhong.gameserver.landlordsproto;
+
+option java_package = "com.lianzhong.gameserver.landlordsproto";
+option java_outer_classname = "landlords";
+
+
+//=========================================================================================
+//				心跳
+//=========================================================================================
+
+// 心跳(无消息体)  消息号 12345
+
+//=========================================================================================
+//				大厅 (1 ~ 50)
+//========================================================================================
+//SERVER = 18321856          CLIENT = 12345
+// 牌类型:0-53
+// 牌值: 0-12 (3 - 2)
+//牌的花色 : 0-3 ( 方片-梅花-红桃-黑桃)
+//小王:52
+//大王:53
+
+// 玩家登录验证  (CLIENT + 1)
+message OGReqLoginMsg
+{
+    optional string         UserId	  = 1; // 账号(渠道Id!=0使用)
+    optional string         Cert      = 2; // 长证书
+    optional int32          comfromId = 3; // 渠道Id
+    optional string         nickName  = 4; // 360角色名
+}
+message UserLevelPrivilege{
+    required int32 level = 1;
+    required string pDes = 2;
+}
+//发送玩家信息(SERVER + 2)
+message OGAckLoginMsg
+{
+    enum E_ErrorType
+    {
+        ET_UNKNOWN          = 0;
+        ET_TYPE1            = 1; // 重复登录
+        ET_TYPE2            = 2; // 消息解析错误
+        ET_TYPE3            = 3; // 证书验证失败
+        ET_TYPE4    	    = 4; // 登录参数错误
+	ET_TYPE5    	    = 5; // 没有角色
+	ET_TYPE6    	    = 6; // 账号被冻结,请联系官方客服！
+	ET_TYPE7    	    = 7; // 游戏维护中
+	ET_TYPE8    	    = 8; // 账号或角色名有特殊字符
+    }
+    enum E_TRResult
+    {
+        ET_SUCCESS          = 0; // 成功
+        ET_FAILED           = 1; // 失败
+    }
+
+    required E_TRResult  Result     = 1; // 登录结果
+    optional E_ErrorType Reason     = 2; // 出错原因
+
+    optional string     userId       = 3; //账号
+    optional string     displayname  = 4; //显示名
+
+    optional int64      gold         = 5; // 金币
+    optional string 	chip	     = 6;// 第二种货币 (兑换券)
+
+    //断线续完消息
+    optional int32     brokeGameState = 7;//游戏断线状态 游戏类型常规赛 11投注成功,没有发牌,1打牌中 ,2打牌结束 3,结算完毕,4比倍过程
+    optional int32     brokeGameType = 8; //游戏类型 1 = 常规赛 2=疯狂赛 3 = 积分赛
+    //签到状态
+    optional int32     signInStatus  = 9; //签到状态 0 未签到, 1已签到
+
+    optional int32     ulevel = 10; //用户等级
+    optional int64     currentExp = 11;//用户当前经验
+    optional int64     levelTotalExp = 12;//用户当前等级总经验
+    repeated UserLevelPrivilege userPrivilegeList = 13; //用户特权描述
+    optional bool     isNewPlayer = 14; //是否是新手
+    optional int32 			crazyEnterLev = 15;	//疯狂赛开启等级
+    optional string 	avatar		 = 16;//玩家头像
+    optional int32    isCrazyTen = 17;//是否为疯狂赛十连发[0:不是十连发|1:十连发]
+}
+
+//请求玩家断线续完初始化消息(CLIENT + 20)
+message OGReqBrokeData
+{
+}
+//积分赛缓存上几局比赛情况
+message AmoutAward
+{
+  required bool  result = 1;//打牌结果 true赢 false=输
+  required int32 money = 2;  //所中的钱
+  required int32 amount = 3; // 所中积分
+  optional int32 bombsNum =4; //炸弹数量
+}
+//地主拽牌情况
+message DragCenterContent
+{
+  required int32 place = 1; //所分牌的位置 0,1,2
+  required int32 card = 2; //所拽的牌
+}
+//玩家断线续完出牌阶段返回消息(SERVER + 23)
+message OGAckPutCardsBrokeData
+{
+  required int32 brokeGameState = 1; //游戏断线状态
+
+  repeated int32 underCard = 2;//底牌数组
+  repeated int32 dizhuPai = 3; //当前玩家的手牌,不包括底牌
+  repeated int32 leftPai = 4;//左边玩家的牌
+  repeated int32 rightPai = 5;//右边玩家的牌
+  //常规赛
+  optional int32 lastRole1 = 6; //前一个出牌人
+  repeated int32 lastCards1 = 7; //前一次所出的牌
+  optional int32 lastRole2 = 8;
+  repeated int32 lastCards2 = 9;
+  required int32 currentBomsNums = 10;
+  optional int32 nextPerson = 12; //下一出牌人
+
+  optional int32 awardCoins = 11; //疯狂赛发牌所中的奖金
+
+  optional bool  isWin  = 13;//地主输赢true = 赢
+  optional int32 addCoin = 14; // 转盘赢取金币
+  optional int32 addIntegral = 15; //转盘赢取积分
+  optional int32 playAwardMoney = 16;//打牌赢的奖金
+  optional int32 playAwardIntegral = 17; //打牌赢的积分
+  optional int32 playerAwardsType = 18; //赢得奖项 可能 1 对应一等奖 2对应二等奖 。。
+  optional int64 playerGold = 19;//用户金币
+  optional bool integralGameOver = 20;//积分赛是否结束
+  optional bool hasDouble = 21;//是否有比倍
+  optional bool isZhiZun = 22;//至尊奖
+
+ //疯狂赛
+  optional int32 dragFarmerRight = 23[default=-1];//右边农民所拽的牌 -----------------------------------
+  optional int32 dragFarmerLeft = 24[default=-1];//左边农民所拽的牌       -------------------------
+  repeated DragCenterContent dragCenter = 25; //地主所拽的牌            ----------------------
+  repeated int32 listPai = 26; //显示的公牌5张牌的位置 1=存在 ---------------------------------
+
+
+  //积分赛数据
+  repeated AmoutAward ListAmoutAward = 27; //积分赛缓存上几局比赛情况
+  optional int32 turnTableLimit		= 39;//积分赛转盘限制
+  optional int32 curGameCount		= 28;//积分赛当前游戏局数
+
+  //比倍记录
+  repeated DoublePai doublePaiList = 29;
+  optional bool  firstIshalf = 30; //比倍第一把是否为半倍 =true ,半倍
+  optional int32  firstGold = 31; //初始奖金
+  optional int32  currentDoubleGold = 32;//当前比倍金额
+
+  //本局比赛开始游戏投注索引
+  optional int32 startGoldIndex = 33;
+  optional int32 crazyCount = 34;			//疯狂赛投注次数
+  optional int32 crazyCountCur = 35;		//疯狂赛投注次数当前执行到的次数
+  repeated CrazyResult resultList = 36; //结果集列表
+  optional int64 exp = 37;							//当局获得的经验
+  optional int32 serialId = 38;					//下注序号
+
+
+}
+
+message CrazyResult
+{
+	optional int32 serial = 1;		//第几局序号
+	optional int32 bombs = 2;			//炸弹数
+	optional int64 award = 3;			//获得奖励数
+}
+
+message DoublePai
+{
+  required int32 leftPai = 1;
+  required int32 rightPai = 2;
+  required int32 win = 3;		//输赢 1=win  0=lose
+
+}
+
+message BetLevelBase
+{
+	required int32 serial 			= 1; //档位序号
+	required int64 carryingvalue 	= 2; //玩家携带
+	required int32 matchId			= 3; //1常规赛 2 疯狂赛
+	repeated int32 betLevelList 	= 4; // 档位数据
+}
+
+message MatchAwardBase
+{
+	required int32 awardLevel = 1; //奖等
+	required int64 winGold	= 2; // 赢取宝分
+	required int64 score	= 3; // 积分
+}
+//(SERVER + 1)
+message OGAckGameBetLevelData
+{
+	required int32 nomalBetBase			= 1; //常规赛基准值
+	required int32 crazyBetBase			= 2; //疯狂赛基准值
+	required int64 crazyBigAwardLimit	= 3; //疯狂赛大奖金额限制
+	required int64 commonBigAwardLimit	= 4; //常规赛大奖金额限制
+	repeated BetLevelBase betLevelList  = 5; // 投注数据
+	repeated MatchAwardBase nomalMatchList = 6; //常规赛奖励数据
+	repeated MatchAwardBase crazyMatchList = 7; //疯狂赛奖励数据
+}
+
+//游戏投注(CLIENT + 2)
+message OGReqEnterGame
+{
+   required int32 gameType = 1;
+   required int32 startGold = 2;//投注档位 0第一档1=第二档位
+   optional int32 anteCount = 3[default=1];//下注次数 主要应用于疯狂赛(新增)
+   required int32 serial	= 4;//投注序号~
+}
+//返回确认投注消息(SERVER + 3)
+message OGAckGameMsg{
+   required int32 gameType = 1;
+   required int32 startGold = 2;
+   optional int64 playerGold = 3;
+   optional bool  isScuess = 4; //true成功,false失败
+   optional int32 errorType =5 ;//000－正常 001－服务器错误 002－用户达到投注限额 003－服务器止损 004－余额不足 1 投注发生错误 3 服务器止损 4 比赛次数达到限制 5日志录入错误 6 扣除道具发生错误 7 获取奖期错误 8 比赛已经结束
+   optional string content = 6;
+   optional int32 curGameCount = 7;//锦标赛用(当前奖期下游戏数)
+   optional int32 totalGameCount = 8[default = 9];//游戏总局数
+}
+//请求发牌消息(CLIENT + 21)
+message OGReqSendPai
+{
+   required int32 gameType = 1;
+}
+//请求重新发牌次数信息(CLIENT + 22)
+message OGReqSendPaiNums{
+}
+//返回重新发牌次数(SERVER + 26)
+message OGAckSendPaiNums{
+   required int32 sendPaiChanceNo = 1;//重新发牌机会次数
+   required int32 sendPaiTotalNo = 2;//重新发牌机会最大数(目前只能是3)
+   required int32 currentGetChanceNo = 3;//例如3次投注获得一次重新发牌机会 ,这个参数为当前积攒投注次数,3次清0
+   required int32 everyNumGetChance = 4;//积攒3次获取一次机会,这个是3这个值
+   required bool hasRedealTips = 5; //重新发牌提示面板(true有|false无)
+}
+
+//返回牌型 针对积分赛和常规赛 (SERVER + 4)
+message OGAckDisplayGame
+{
+   repeated int32 underCard = 1;//底牌数组
+   repeated int32 dizhuPai = 2; //当前玩家的手牌,不包括底牌
+   repeated int32 leftPai = 3;//可选左边玩家的牌
+   repeated int32 rightPai = 4;//可选右边玩家的牌
+   required bool isZhiZun = 5;//是否为至尊牌型,true是至尊牌型,false不是,至尊牌型的时候直接结算消息
+   optional int32 bomNums = 6;//疯狂赛发牌后炸弹数
+   optional int32 awardCoins = 7;//疯狂赛发牌所中的奖金
+}
+//用于测试用(SERVER + 88)
+message OGAckDisplayGameTest
+{
+   repeated int32 leftPai = 1;//可选左边玩家的牌
+   repeated int32 rightPai = 2;//可选右边玩家的牌
+   optional string test = 3; //用于测试字段
+}
+//出牌(CLIENT + 4)
+message OGReqShowCard
+{
+  repeated int32  cards = 1; // 所出的牌 例 2,2,2,3,3
+  required int32  placeRole = 2; //可选的方位,如果不是自己,那就是帮农民出牌 1地主 2右边农民 3左边农民
+  optional bool  isAuto = 3; //地主是否托管true = 托管,false = 地主出牌
+}
+
+//出牌结果(SERVER + 5)
+message  OGAckShowCardResult
+{
+  required int32  placeRole = 1; //可选的方位
+  repeated int32  cards = 2; // 所出的牌 例 2,2,2,3,3
+  required int32  bomNums = 3;//当前的炸弹数量
+  required int32  nextPerson = 4; //下一个出牌的玩家
+  required bool   ifEnd = 5; //必须是否出牌结束 true,出牌结束 false,出牌进行中
+
+  repeated int32  center = 6; //地主剩余牌
+  repeated int32  left = 7;  //农民剩余牌
+  repeated int32  right = 8; //农民剩余牌
+
+}
+//客户端请求是否有转盘(CLIENT + 9)
+message OGReqHasTurnTable{
+}
+
+message Prize
+{
+	required int32 id 			= 1;
+	required string awardName 	= 2;//奖励名称
+	required int32 awardId		= 3;//奖励ID,道具以逻辑服务配置id,默认０为宝分
+	required double awardNum 	= 4;//奖励数量
+	optional string picPath		= 5;//图片地址
+	required bool  isHide 		= 6;//是否隐藏,是的话就显示随机问号
+}
+
+//返回是否有转盘(SERVER + 11)
+message OGAckHasTurnTable{
+   optional bool   hasTurntalbe = 1 ;	//可选是否有转盘环节 true,有 false,没有
+   optional int32  awardID = 2;	//中奖ID
+   repeated Prize  prizeList = 3; //奖品列表
+}
+
+//结算消息(CLIENT + 5)
+message OGReqClearGame{
+
+}
+
+
+//结算结果(SERVER + 6)
+message OGAckClearGame{
+
+   required bool isWin = 1; // 赢 1,输 0
+   optional int32 awardsType = 2; //赢得奖项 可能 1 对应一等奖 2对应二等奖 。。
+   optional int32 bomsNums = 3; //炸弹数
+   optional int32 awardZhiZun = 4;//至尊中奖额
+   optional int64 playerGold = 5;//用户金币
+   optional bool integralGameOver = 6;//积分赛是否结束
+   optional bool hasDouble = 7;//是否有比倍
+   optional int32 betCount = 8[default=1];		//投注次数
+   optional int32 betCountCur = 9[default=1];	//当前进行到第几次(当betCountCur == betCount 为最后一次)
+   optional int64 exp = 10;			//该盘游戏获得的经验值
+   optional int32 integral	= 11;//锦标赛用(获得积分数)
+   optional string chips = 12;//话费
+}
+
+
+//收分 也就是不进行比倍了(CLIENT + 6)
+message OGReqBackPoints
+{
+
+}
+//收分结果(SERVER + 7)
+message OGAckBackPointsResult
+{
+  required int64 gold = 1; // 金币数
+  optional int64 playerGold = 2;//用户金币
+}
+//请求比倍发牌(CLIENT + 16)
+message OGReqGuessGameGetCard{
+  required int32 roundIndex = 1;//第几轮比倍
+}
+//返回比倍的显示的牌(SERVER + 18)
+message OGAckGuessGetCardResult
+{
+  required int32 roundIndex = 1;//第几轮比倍
+  repeated int32 cards = 2;//比倍显示的牌
+}
+//比倍猜大小(CLIENT + 7)
+message OGReqGuessNum
+{
+  required double multiple = 1;// 倍数
+  optional bool isLeft = 2; //玩家所点击的牌,左侧=true
+}
+
+//比倍结果(SERVER + 8)
+message OGAckGuessReuslt
+{
+  required bool result = 1; // true 成功 ,false,失败
+  required bool limitNums = 2; // true,达到上限数量 强制收分 ,false,没有达到
+  required int64 winGold = 3; //赢取的金币
+  required int32 showCards = 4;// 展现的牌
+  required int64 awardGold = 5; //奖金
+  required int64 ante = 6; //投注值
+  optional int64 playerGold = 7;	//玩家金币
+  optional string errorCode = 8;	//错误码
+}
+
+
+//游戏结束(CLIENT + 10)
+message OGReqGameOver
+{
+
+}
+
+//请求进入比倍游戏(CLIENT + 11)
+message OGReqGotoBackPointsGame
+{
+}
+
+//请求比倍收分的结果(SERVER + 12)
+message OGAckGotoBackPointsGameResult
+{
+
+    required bool isSuccess = 1;//是否成功
+    optional int64 gold = 2; //携带的金币数
+}
+
+//疯狂赛拖牌(CLIENT + 8)
+message OGReqDragCards
+{
+  required int32 divideRole = 1; //分派的角色 1,地主 ,2右农民,3 左农民
+  required int32 paiNums = 2; //拖牌的数量
+  repeated int32 selectPlace = 3; //0~4 代表从左到右的位置
+  repeated int32 sendPlace = 4;//每次拖拽牌拽到的位置 0,1,2
+}
+
+//疯狂赛拖牌结果(SERVER + 13)
+message OGAckDragCardsResult
+{
+  required int32 divideRole = 1; //托拽牌的角色 1,地主 ,2右农民,3 左农民
+  repeated int32 roleCards = 2;  //拖拽的牌
+  required int32 bombNums = 3; //当前炸弹数目
+  required int32 awardCoins = 4; //当前奖金
+  optional bool  dragGameOver = 5; //拽牌是否结束
+  //optional int32 betCount = 6;		//投注次数
+  //optional int32 betCountCur = 7;	//当前进行到第几次(当betCountCur == betCount 为最后一次)
+
+}
+
+//积分赛进行下一局(CLIENT + 3)
+message OGReqIntegralNext
+{
+}
+//积分赛投注确认消息(SERVER + 25)
+message OGAckIntegralNext
+{
+}
+
+//请求游戏记录(CLIENT +　12)
+message OGReqGameRecord
+{
+  required int32  type = 1; //1常规 2疯狂 3积分
+  required int32 startIndex = 2;//起始编号
+  required int32 count = 3; //请求数量
+}
+//请求巨奖记录(CLIENT +　13)
+message OGReqBigReward
+{
+  required int32 startIndex = 1;//起始编号
+  required int32 count = 2; //请求数量
+}
+//请求积分排行(CLIENT +　14)
+message OGReqIntegralMatchSort
+{
+  required int32  type = 1; //1:当期,2:上期
+  required string gameType = 2;//比赛类型
+  required int32 startIndex = 3;//起始编号
+  required int32 count = 4; //请求数量
+}
+message CommonRecord
+{
+  required  string  gameTime = 1;//结算时间
+  required  int32   betCoin = 2; //投注
+  required  string  result  = 3; //打牌结果
+  required  string  guessResult = 4; //翻牌游戏
+  required  int32   awardGold  = 5; //奖金
+}
+message IntegralRecord
+{
+  required  string  gametime = 1; //结算时间
+  required  string  result  = 2; //打牌结果
+  required  int32   awardGold = 3; //奖金
+  required  int32   integralNum =4 ; //积分
+}
+message CrazyRecord
+{
+  required  string gametime = 1; //结算时间
+  required  int32  bet  = 2; //投注
+  required  int32  bomNums = 3; //炸弹数量
+  required  string guessResult = 4; //翻牌游戏
+  required  int32  awardGold  = 5; //奖金
+}
+//返回游戏记录(SERVER + 14)
+message OGAckGameRecord
+{
+  required int32  type = 1; //1常规 2疯狂 3积分
+  required int32 startIndex = 2; //起始编号
+  required int32 totalCount = 3; //总的记录数
+  repeated CommonRecord commonRecordList = 4;//常规赛记录
+  repeated IntegralRecord  integralRecordList = 5; //积分赛
+  repeated CrazyRecord crazyRecordList = 6; //疯狂赛
+
+}
+message BigAwardRecord
+{
+  required string gameTime = 1; //中奖时间
+  required string userName = 2; //用户名(屏蔽中间字符)
+  required int32  awardGold = 3; //奖金
+  required int64  awardPool = 4; //奖池
+  required string  gameType  = 5; //玩法 1常规 2疯狂 3积分
+}
+//返回巨奖记录(SERVER + 15)
+message OGAckBigAwardRecord
+{
+  required int32 startIndex = 1; //起始编号
+  required int32 totalCount = 2; //总的记录数
+  repeated BigAwardRecord bigAwardRecordList = 3;//巨奖记录数组
+}
+message IntegralRankRecord
+{
+  optional string gameTime = 1; //结算时间
+  required string userName = 2; //用户名
+  repeated int32  integralNum = 3; //积分
+  optional int32  rankNums = 4;//名次
+}
+message OldIntegralRankRecord
+{
+  required string saiJi =  1 ;//赛季
+  required string userName = 2; //用户名字
+  required int32  integralNums = 3; //积分
+  required int32  awardGold = 4; //奖金
+  optional int32  rankNums = 5; //名次
+}
+//返回积分排行 (SERVER + 16)
+message OGAckIntegalRank
+{
+  required int32  type = 1; //1:当期,2:历史
+  required int32 startIndex = 2; //起始编号
+  required int32 totalCount = 3; //总的记录数
+  repeated IntegralRankRecord integralRankRecordList = 4;
+  repeated OldIntegralRankRecord oldIntegralRankRecordList = 5;
+  optional string currentAwardQi = 6;//当期的期数
+  optional IntegralRankRecord currentUserRecord = 7;//当期的当前用户的记录
+}
+//请求奖池信息(CLIENT + 15)
+message OGReqAwardPool
+{
+  required int32 type = 1; //1:累计奖池 2: 积分奖池
+  optional int32 gameId = 2;//游戏ID(锦标赛用)
+}
+//返回奖池信息(SERVER + 17)
+message OGAckAwardPool
+{
+  required int64 poolNums = 1; //奖池值
+  required int32 type = 2; // 1:巨奖奖池 2: 积分奖池
+  optional bool  integralBegin = 3;//是否开始倒计时
+  optional int32 LeftMillisecondTime = 4; //剩余毫秒
+}
+
+//返回用户特殊状态信息(SERVER + 19)
+message OGAckSpecialFlag
+{
+  required string content = 1;//提示内容
+}
+//请求滚动播报(CLIENT +　17)
+message OGReqBroadcasetRoll
+{
+}
+//返回滚动播报信息(SERVER + 20)
+message OGAckBroadcastReportRoll
+{
+  repeated Broadcast broadcastList = 1; //播报内容
+}
+
+message Broadcast
+{
+  required int32 type = 1;//播报类型 1大奖播报 2积分赛播报 3系统播报
+  optional int32 times = 2; //间隔时间 秒
+  optional int32 nums = 3; //播报次数 0=播报一次 ,-1=无限次数
+  required string content = 4;// 播报内容
+}
+//请求邮件(CLIENT + 18)
+message OGReqEmail
+{
+  required bool notReadNums = 1;//请求邮件未读数量=true,否则请求邮件内容
+}
+
+message Email
+{
+  required int32 id = 1;
+  required string title = 2;
+  required string content = 3;
+  required int32 isRead = 4; //1已读 2未读
+}
+
+//服务器返回邮件列表(SERVER + 22)
+message OGAckEmail
+{
+  repeated Email emailList = 1;
+  optional int32 isNotRead = 2; //邮件未读数量
+}
+//更新邮件已读(CLIENT + 19)
+message OGReqEmailUpdate
+{
+ required int32 id = 1;
+}
+//发送消息重读邮件(SERVER + 24)
+message OGAckReqEmail
+{
+}
+// 回应消息体(SERVER + 27)
+message AckOurgameMonitor
+{
+    required bool isOk = 1; // 检查结果: true=正常; false=异常
+    required string error=2;   //有错误的时候 把错误信息写上,无错为空
+    required string ip=3;    // 被测试机ip 一个就可以内外网无所谓
+}
+//请求用户投注盘数列表(CLIENT + 23)
+message OGReqBetCountList{
+  required int32 gameType = 1; //请求比赛类型1,常规赛 2,疯狂赛 3,积分赛
+  required int32 paiHangType= 2;//排行类型 1=周 2=月 3=日 4 =前一日
+}
+//返回用户投注盘数列表(SERVER + 28)
+message OGAckBetCountList{
+  required int32 gameType = 1; //请求比赛类型1,常规赛 2,疯狂赛 3,积分赛
+  required int32 paiHangType= 2;//排行类型 1=周 2=月
+  repeated BetCount betCountList =3;//用户投注盘数列表
+
+}
+message BetCount{
+  required int32 mingCi = 1; //名次
+  required string roleName = 2; //角色名
+  required int32 betCount = 3 ; //投注次数
+  optional int32 rank		= 4; //用户排名
+  optional int32 awardnum	= 5; //奖励数量
+  optional int32 activeValue = 6;	//活跃度
+}
+//服务器返回更新邮件结果(SERVER + 101)
+message OGAckEmailUpdateResult
+{
+  required bool result = 1;//true=更新成功；false=更新失败
+}
+
+message accumulatives{
+	required int32 day 				= 1;//累计天数
+	required ActivityAward award 	= 2; //活动奖励
+	required int32 activityStatus	= 4; //活动状态 1可以领取 2不可领取 3已领取
+}
+
+message ActivityAward{
+	required int32 type 	= 1; //奖励类型
+	optional double nums 	= 2; //奖励数量
+	optional string	itemname= 3; //商品名称
+	required string tips 	= 4; //商品描述
+	required string	picname	= 5; //图片名称
+	required int32  id 		= 6; //商品唯一标识
+	optional int32 maxoverlap=7; //道具最大重叠数
+	optional string validity= 8; //道具有效期(针对门票)
+}
+
+message signInActivityInfo{
+	required int32 day 				= 1;
+	required ActivityAward award 	= 2; //活动奖励
+	required int32 activityStatus	= 4; //活动状态 0 补签 1可以签到 2不可签到 3已领取
+}
+
+
+//请求游戏活动(SERVER + 30)
+message OGReqGameActivity{
+	required int32 type = 1;//1为签到活动
+}
+
+//返回游戏活动(CLIENT + 30)
+message OGAckGameActivity{
+	enum E_TRResult
+	{
+		ET_SUCCESS          = 0; // 成功
+		ET_FAILED           = 1; // 失败(活动已关闭)
+	}
+	required E_TRResult  Result     = 1; //
+	repeated accumulatives accumulativeActivityList = 2;//累计活动列表
+	repeated signInActivityInfo signInList 		= 3;//普通签到
+	optional int32 signIndex			= 4;//当前签到的日期
+}
+
+//请求补签、签到、领取累计签到奖励(SERVER +31)
+message OGReqActivityMending{
+	required int32 type = 2;		// 1签到2补签3领取累计签到奖励
+	required int32 day  = 3;		// 需要补签的索引(1日 = 1)
+}
+
+//返回签到结果(SERVER +31)
+message OGAckActivityMending{
+	enum E_TRResult
+    {
+        ET_SUCCESS          = 0; // 成功
+        ET_FAILED           = 1; // 失败
+    }
+	 enum E_ErrorType
+    {
+        ET_UNKNOWN          = 0;
+        ET_TYPE1            = 1; //已领取过该奖励
+		ET_TYPE2            = 2; //非法领取(活动日期不对)
+		ET_TYPE3            = 3; //领取奖励条件不足
+		ET_TYPE4            = 4; //请求超时
+    }
+	required E_TRResult  Result     = 1; //
+    optional E_ErrorType Reason     = 2; //出错原因
+	repeated int32 totalAwardIndex  = 3; //累计签到可领取的索引
+	optional int32 		type 		= 4; //活动类型
+	optional int32 		day 		= 5; //活动索引
+	optional int64      gold        = 6; //金币
+	optional string 	chips		= 7; //话费碎片
+	optional int32 	    itemType	= 8; //道具类型1实物2牌局道具3门票4宝分5话费碎片
+	optional string 	itemNums	= 9; //领取的道具数量
+}
+
+//任务请求(CLIENT+ 32)
+message OGReqTaskList{
+	required int32 type = 1; //请求任务类型 1.新手任务 2.每日任务 3.成就任务
+}
+message Task{
+	required int32 id = 1;//任务标识
+	required int32 day = 2; //第几天
+	required ActivityAward award = 3;//任务奖品
+	required string des = 4;//任务描述
+	required int32 totalPan = 5; //任务达成总盘数
+	required int32 currentPan = 6;//当前盘数
+	required int32 processStatu = 7;//任务进行状态 0=进行中 1=完成(领取) 2= 已领取
+}
+//返回任务列表(SERVER + 32)
+message OGAckTaskList{
+	enum E_TRResult
+	{
+		ET_SUCCESS          = 0; // 成功
+		ET_FAILED           = 1; // 失败(活动已关闭)
+	}
+	required E_TRResult  Result     = 1; //
+	optional int32 type = 2;//请求的任务类型
+	repeated Task taskList = 3;//任务列表
+}
+//任务领奖提交(CLIENT + 33)
+message OGReqTaskGetAward{
+	required int32 id =1;//请求领取任务id的奖
+	required int32 taskType = 2;//请求任务类型
+}
+
+//任务领奖返回状态(SERVER + 33)
+message OGAckTaskGetAward{
+    enum E_TRResult
+    {
+        ET_SUCCESS          = 0; // 成功
+        ET_FAILED           = 1; // 失败
+    }
+    required int32 id = 1;//领取任务id奖励
+    required E_TRResult Result	= 2;//领取结果
+    optional int32 taskType	= 3;//任务类型
+    optional bool isContinue= 4;//是否有后继任务
+    optional Task nexTask = 5;//下个任务
+    optional int64 gold	= 6;//用户携带
+    optional string chip = 7;//话费碎片
+	optional int32 itemid = 8;//道具id
+    optional string nums = 9;//奖励数量
+	optional string itemname = 10;//道具名称
+}
+
+//请求玩家等级相关信息(CLIENT + 34)
+message OGReqLevelData{
+}
+//返回玩家当前等级相关信息(SERVER + 34)
+message OGAckLevelData{
+    required int32     ulevel = 1; //用户等级
+    required int64     currentExp = 2;//用户当前经验
+    required int64     levelTotalExp = 3;//用户当前等级总经验
+    required string    upgradeLevelAwardDes = 4;//升级奖励描述
+	required int32 	   isMaxLevel	= 5;//是否是最高等级
+	optional int32 			isGet = 6;		//是否可以领取奖励 1 可以 0: 不可以
+}
+message UpgradeLevelData{
+    optional int32  currentLevel = 1;//所升等级
+    optional string privilegeDes  = 2; //获得特权描述 为空=没有获得特权
+    optional ActivityAward  activityAward =3; //奖励奖品信息
+    optional int32 awardCoin = 4;
+    optional int64 userCurrentTotalLevelExp = 5; //用户当前等级经验最大值
+}
+//请求用户是否升级(CLIENT + 35)
+message ReqUpgradeLevel{
+}
+
+//玩家结算如果升级会返回升级信息及奖励(SERVER + 35)
+message OGAckUpgradeLevel
+{
+    repeated UpgradeLevelData UpgradeLevelList = 1; //用户升级列表
+    required int32 userCurrentLevel = 2; //用户当前等级
+    required int64 userCurrentExp = 3; //用户当前经验
+    required int64 userLevelTotalExp = 4; //用户每级经验
+}
+
+//请求当前比赛的排名信息(CLIENT + 36)
+message OGReqCurMatchRankData
+{
+	required string matchId		= 1; //游戏ID
+}
+
+//返回当前比赛的排名信息 (SERVER + 36)
+message OGAckCurMatchRanks
+{
+	required int32 code = 1; // 0成功 1获取奖期错误 2 获取排名数据错误 3数据为空
+	repeated IntegralRankRecord curMatchRankList = 2; //排名数据
+	required IntegralRankRecord	curMyMatchRanking = 3;//我的排名
+}
+
+//请求已结束比赛排名信息 (CLIENT + 60)
+message OGReqEndMatchRanks
+{
+	required string matchId		= 1; //游戏ID
+}
+
+message OldChampionshipRankAward{
+	required int32	ranking  = 1; //名次
+	required int32  points	 = 2; //积分
+	required string userName = 3;//用户名
+	optional int32 awardtype = 4;//奖励类型 1-实物奖,2-固定宝分奖,3-彩池比例奖
+	required string awardname= 5;//奖励道具名称
+	required string awardcount= 6;//奖励数量
+}
+
+//请求已结束比赛排名信息 (CLIENT + 60)
+message OGAckEndMatchRanks
+{
+	required int32 code = 1; // 0成功 1获取奖期错误 2 获取排名数据错误 3数据为空 4幸运号码获取错误
+	required int32 luckNumber = 2;//幸运奖号码
+	repeated OldChampionshipRankAward oldMatchRankList = 3; //排名数据
+	required IntegralRankRecord oldMyMatchRanking = 4;//我的排名
+}
+
+
+//请求xxxx
+message OGReqMatchInfo
+{
+	required int32 matchId = 1; // 0成功 1获取奖期错误 2 获取排名数据错误 3数据为空 4幸运号码获取错误
+	required int32 matchStatus = 2;//幸运奖号码
+	optional int32 type = 3;//幸运奖号码
+}
+//请求xxxx
+message OGAckMatchInfo
+{
+	optional int32 matchId = 1;
+	optional string matchName = 2;
+	optional bool   isFree = 3;
+	optional int32 bettingCount = 4;
+	optional int32 ticketNumber = 5;
+	optional string matchtime = 6;
+	optional int32 matchStatus = 7;
+	optional int32 matchCount = 8;
+	optional int32 gameCount = 9;
+	optional string isLuckAward = 10;
+	optional int32 curMatchPool = 11;
+	optional string curDrawId= 12;
+}
+
+//请求比赛场信息(CLIENT + 37)
+message OGReqMatch
+{
+}
+
+message IntegralMatch
+{
+	required int32 matchId		= 1; //游戏ID
+    required string matchName 	= 2;//比赛名称
+    required bool   isFree   	= 3;//是否免费
+	optional int64 bettingCount	= 4; //宝分
+	optional int32 ticketNumber	= 5;//门票
+	required string matchtime	= 6;//显示比赛时间
+	required int64 countdowntime= 7;//比赛倒计时
+	required int32 matchStatus 	= 8;//比赛状态 0已结束 1 未开始 2 进行中
+	optional int32 matchCount	= 9[default=0];//参赛次数
+	optional int32 luckNumber	= 10;//幸运奖号码
+	optional int32 myIntegral	= 11[default=0];//我的积分
+	optional string isLuckAward	= 12;//是否有幸运奖 没有显示无，有的话显示相应奖励值 或者 奖池百分比
+	optional int64 curMatchPool	= 13[default=0];//当前比赛的奖池
+	optional int32 gameCount	= 14[default=0];//可参加的游戏次数
+}
+
+//返回比赛场信息(SERVER +　37)
+message OGAckMatch
+{
+    repeated IntegralMatch matchList = 1;//比赛列表
+}
+
+//积分赛比赛场游戏投注(CLIENT + 38)
+message OGReqMatchBet
+{
+    required int32 type 	 = 1;//投注类型 1=正常投注 2门票投注 0免费赛
+    required string gameType = 2;//比赛id
+    required string curDrawId = 3;//xxxxxxx
+}
+
+//请求锦标赛比赛奖励列表(CLIENT + 39)
+message OGReqChampionshipAwardInfo{
+	required string matchId  = 1; // 锦标赛唯一ID
+}
+
+message ChampionshipRankAward{
+	required int32	ranking = 1; //名次
+	optional int32 awardtype= 2;//奖励类型 1-实物奖,2-固定宝分奖,3-彩池比例奖
+	required string awardname= 3;//奖励道具名称
+	required string awardcount= 4;//奖励数量
+}
+
+//返回积分赛比赛奖励列表(SERVER + 39)
+message OGAckChampionshipAwardInfo{
+	required string matchId = 1;
+	repeated ChampionshipRankAward rankAwardList = 2;//奖励排名信息
+}
+
+//请求背包(CLIENT + 40)
+message OGReqKnapsack{
+}
+
+//返回背包列表(SERVER + 40)
+message OGAckKnapsack{
+	repeated Knapsack knapsacks = 1;
+}
+
+//道具使用 (CLIENT + 41)
+message OGReqUseProp{
+
+}
+//道具使用 (SERVER + 41)
+message OGAckUsePropResult{
+
+}
+message Knapsack{
+	optional ActivityAward item = 1;
+	optional int32 itemNums= 2;
+}
+
+//玩家反馈消息(req + 42)
+message ReqFeedbackInfo{
+	required string constant = 1;
+	required string email = 2;
+	required string tel = 3;
+
+}
+//玩家反馈消息返回结果 (ack+42)
+message AckFeedbackInfo{
+	enum FB_Result{
+		FB_SUCCESS = 0;		//成功
+		FB_FAILED = 1;		//失败
+	}
+	enum FB_ErrorType{
+		ET_NORMAL = 0;		//提交成功,客服人员会及时跟进您的反馈,谢谢！
+		ET_TYPE1 = 1;			//请勿频繁提交反馈信息,请稍后再试。
+	}
+
+	required FB_Result result = 1;
+	optional FB_ErrorType	reason = 2;
+
+}
+//请求领取礼物(CLIENT + 43)
+message ReqGetItem{
+
+}
+
+//返回领取礼物结果(SERVER + 43)
+message AckGetItem{
+	optional int32 result = 1;// 成功1 失败:0
+	repeated ActivityAward items = 2;
+
+}
+
+//奖励特权道具(SERVER + 44)
+message AckGiveSRItem{
+	optional int32 			isGet = 1;		//是否可以领取奖励 1 可以 0: 不可以
+//	repeated ActivityAward items = 2;
+}
+
+//发牌动画速度(SERVER + 45)
+message AckPlaySpeed{
+	optional int32 speed = 1[default=1];//播放速度
+}
+
+//请求继续疯狂赛下一次(SERVER + 46)
+message ReqNextCrazy{
+}
+
+//返回(SERVER + 47)
+message AckNextCrazy{
+}
+
+//返回倍率信息(SERVER + 49)
+message AckMultipleInfo{
+	repeated Multiple multiples = 1;
+}
+
+message Multiple{
+	required double multiple = 1;	//倍率
+	required double isopen = 2[default=1];		//开关,默认1:开 0:关
+}
+
+//記牌列表(SERVER + 50)
+message AckCardMemeryList{
+	repeated int32 cards = 1;
+}
+
+//请求牌桌操作道具(CLIENT + 51)
+message ReqOperateItemOnTable{
+	required int32 type = 1;
+	required int32 itemId = 2;
+}
+
+//返回牌桌操作道具结果(SERVER + 52)
+message AckOperateItemOnTable{
+	required int32 result = 1;	//成功：1 失败：0
+	required int32 id = 2;			//道具id
+	optional int32 num = 3;			//道具数量
+}
+
+message ItemInfo{
+	required int32 id = 1;					//唯一id
+	optional int32 num = 2;					//数量
+	optional string itemname = 3;		//名称
+	optional int64 price = 4;				//价格
+	optional float diccount = 5;		//折扣
+}
+
+//请求牌桌上道具(CLIENT + 53)
+message ReqItemInfoOnTable{
+}
+
+//返回牌桌上道具信息(SERVER + 54)
+message AckItemInfoOnTable{
+	repeated ItemInfo itmes =1;	//道具列表
+}
+//返回更新牌桌上道具信息(SERVER + 55)
+message AckUpdateTableItem{
+	repeated UpdateItemInfo items = 1;
+}
+
+message UpdateItemInfo{
+		required int32 id = 1;				//道具id
+		optional int32 count = 2;			//数量
+}

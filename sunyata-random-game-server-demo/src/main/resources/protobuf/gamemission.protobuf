@@ -1,0 +1,12 @@
+package com.xt.yde.protobuf.mission;
+option java_outer_classname = "Mission";
+
+//结算请求
+message MissionClearGameRequestMsg{
+}
+
+//结算应答
+message MissionClearGameResponseMsg{
+required string times = 1;//获奖倍数
+required string totalMoney = 2;//获奖金额
+}

@@ -31,6 +31,8 @@ import org.sunyata.octopus.OctopusInMessage;
 import org.sunyata.octopus.Server;
 
 import java.net.InetSocketAddress;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Handles handshakes and messages
@@ -65,6 +67,15 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) {
         ctx.flush();
+    }
+
+    private void checkToken(FullHttpRequest request) {
+        QueryStringDecoder queryStringDecoder = new QueryStringDecoder(request.uri());
+        Map<String, List<String>> parameters = queryStringDecoder.parameters();
+        String channelId = parameters.get("channelId").get(0);
+        String accoundId = parameters.get("accoundId").get(0);
+        String timeStamp = parameters.get("timeStamp").get(0);
+        String sign = parameters.get("sign").get(0);
     }
 
     private void handleHttpRequest(ChannelHandlerContext ctx, FullHttpRequest req) {

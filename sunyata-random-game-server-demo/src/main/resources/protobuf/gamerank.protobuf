@@ -1,0 +1,76 @@
+package com.xt.yde.protobuf.rank;
+option java_outer_classname = "GameRank";
+
+//游戏结算
+message RankClearGameRequestMsg
+{
+
+}
+//游戏结算结果
+message RankClearGameResponseMsg
+{
+  required string money = 1; // 钱数
+  required int32 score = 2; // 分
+}
+//请求赛季剩余时间（秒）
+message RankRemaintimeRequestMsg
+{
+
+}
+message RankRemaintimeResponseMsg
+{
+  required int64 remaintime = 3; //赛季剩余时间，单位秒
+}
+//请求排行榜 前三十名
+message RankListRequestMsg
+{
+
+}
+
+//排行榜结果
+message RankListResponseMsg
+{
+  repeated RankListData item = 1; //数据
+  required int32 myrank = 2; //我的排名
+  required int64 remaintime = 3; //赛季剩余时间，单位秒
+  required int32 myscore = 4; //我的积分
+
+}
+//排行榜数据
+message RankListData
+{
+   required string displayName = 1;
+   required string money = 2;
+   required int32 score = 3;
+   required int32 rank = 4;
+}
+
+//请求历史排行榜 近10期
+message HistoryRankListRequestMsg
+{
+
+}
+//排行榜结果
+message HistoryRankListResponseMsg
+{
+  repeated HistoryRankListRow item = 1; //数据
+}
+//排行榜数据
+message HistoryRankListRow
+{
+   required string time = 1; //开奖时间
+   repeated RankListData item = 2; //排名数据 前三
+}
+
+//排位赛每一局结算
+message RoundClearRequestMsg
+{
+
+}
+//排位赛每一局结算
+message RoundClearResponseMsg
+{
+  required string money = 1;//每局结算总金额
+  required int32 score = 2;//每局结算总分数
+}
+

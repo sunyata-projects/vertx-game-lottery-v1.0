@@ -1,0 +1,27 @@
+package com.xt.yde.protobuf.crazy;
+option java_outer_classname = "Crazy";
+
+//疯狂赛拖牌
+message CrazyDragCardRequestMsg
+{
+  required int32 divideRole = 1; //分派的角色 1,地主 ,2右农民,3 左农民
+  repeated int32 selectPlace = 2; //0~4 底牌从左到右的位置
+  repeated int32 sendPlace = 3;//每次拖拽牌拽到的位置，地主为0,1,2 农民都为0
+}
+//疯狂赛拖牌结果
+message CrazyDragCardResponseMsg
+{
+  required int32 divideRole = 1; //托拽牌的角色 1,地主 ,2右农民,3 左农民
+  repeated int32 roleCards = 2;  //拖拽的牌
+}
+
+//结算消息(CLIENT + 5)
+message CrazyDragCardOverRequestMsg{
+
+}
+//结算结果(SERVER + 6)
+message CrazyDragCardOverResponseMsg{
+   required int32 bomNums = 1; //炸弹数
+   required string totalMoney = 2;//获奖金额
+   required bool zhiZun = 3; //是否是至尊
+}
